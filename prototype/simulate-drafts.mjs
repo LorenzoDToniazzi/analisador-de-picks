@@ -306,11 +306,11 @@ const strengthPatterns = {
   allIn: /all-in|all in|stat-check/,
   aoe: /em area|agrupad|cadeia/,
   antiTank: /anti-hp|anti-tank|percentual|tank shred|% de vida/,
-  engage: /engage|iniciacao|iniciação/,
+  engage: /\bengage\b|iniciacao|iniciação/,
   followUp: /follow-up|follow up/,
   pick: /\bpick\b|catcher|captura/,
   flank: /flanco|ameaca lateral|ameaça lateral/,
-  backlineAccess: /backline|\bdive\b/,
+  backlineAccess: /backline|\bdiver\b|mergulho/,
   mobility: /mobil|dash|velocidade|portal/,
   gankSetup: /setup de gank/,
   antiDive: /anti-dive|anti dive/,
@@ -359,7 +359,10 @@ const weaknessPatterns = {
 function inferProfile(champion) {
   if (!champion) return candidateProfile({ strengths: [], weaknesses: [], safeBlind: 1.5, confidence: "LOW" });
   const entry = catalog.get(normalize(champion.name));
-  const strengthsText = foldText(`${entry?.identity ?? ""} ${entry?.delivery ?? ""} ${entry?.seeks ?? ""}`);
+  // "Busca" descreve o cenário/oponente desejado, não uma capacidade própria.
+  // Misturar essa coluna aqui transformava, por exemplo, "busca engage
+  // previsível" em uma falsa tag de engage.
+  const strengthsText = foldText(`${entry?.identity ?? ""} ${entry?.delivery ?? ""}`);
   const weaknessesText = foldText(entry?.risks ?? "");
   const strengths = {};
   const weaknesses = {};
@@ -400,20 +403,19 @@ const namesForRole = {
 };
 const rolePools = Object.fromEntries(Object.entries(namesForRole).map(([role, names]) => [role, names.map((name) => championByName.get(name)).filter(Boolean)]));
 
-const offensePairs = [
+// Relações exclusivamente de lane. Capacidades de composição (engage, peel,
+// frontline, teamfight etc.) não entram aqui apenas por existirem no kit.
+const laneOffensePairs = [
   ["burst", "vulnBurst"], ["dps", "vulnDps"], ["antiTank", "vulnTank"],
-  ["poke", "vulnPoke"], ["poke", "vulnRange"], ["engage", "vulnEngage"],
-  ["pick", "vulnCc"], ["cc", "vulnCc"], ["zone", "needsContact"],
-  ["disengage", "needsContact"], ["disengage", "vulnDisengage"],
-  ["peel", "fragileEntry"], ["antiDive", "fragileEntry"],
-  ["mobility", "vulnKite"], ["frontline", "vulnTank"],
+  ["poke", "vulnPoke"], ["poke", "vulnRange"],
+  ["shortTrade", "needsLongFight"], ["cc", "vulnCc"],
   ["waveclear", "vulnWave"], ["earlyPressure", "goldDependent"],
   ["sustain", "vulnPoke"],
 ];
 
-function directionalPressure(attacker, defender) {
+function lanePressure(attacker, defender) {
   const contributions = [];
-  for (const [strength, weakness] of offensePairs) {
+  for (const [strength, weakness] of laneOffensePairs) {
     const value = (attacker.strengths[strength] ?? 0) * (defender.weaknesses[weakness] ?? 0) / 3;
     if (value > 0) {
       contributions.push({ label: `${S[strength]} explora ${W[weakness]}`, value });
@@ -427,9 +429,19 @@ function directionalPressure(attacker, defender) {
     const value = attacker.strengths.antiAuto * 1.2;
     contributions.push({ label: `${S.antiAuto} reduz DPS por ataques`, value });
   }
+  if ((attacker.strengths.antiDive ?? 0) && ((defender.strengths.allIn ?? 0) + (defender.strengths.backlineAccess ?? 0) >= 4)) {
+    const value = attacker.strengths.antiDive * Math.max(defender.strengths.allIn ?? 0, defender.strengths.backlineAccess ?? 0) / 3;
+    contributions.push({ label: `${S.antiDive} responde ao all-in`, value });
+  }
+  if ((attacker.strengths.disengage ?? 0) && ((defender.strengths.allIn ?? 0) + (defender.weaknesses.needsContact ?? 0) >= 4)) {
+    const value = attacker.strengths.disengage * Math.max(defender.strengths.allIn ?? 0, defender.weaknesses.needsContact ?? 0) / 3;
+    contributions.push({ label: `${S.disengage} nega contato`, value });
+  }
   contributions.sort((a, b) => b.value - a.value);
-  const weights = [1, 0.55, 0.3, 0.15, 0.08];
-  const total = contributions.reduce((sum, item, index) => sum + item.value * (weights[index] ?? 0.04), 0);
+  // Uma resposta principal e, no máximo, uma confirmação menor. Isso impede
+  // que um kit versátil vença por acumular tags para a mesma lane.
+  const weights = [1, 0.3];
+  const total = contributions.slice(0, 2).reduce((sum, item, index) => sum + item.value * weights[index], 0);
   return { total, contributions };
 }
 
@@ -442,11 +454,8 @@ function laneScore(candidate, build, enemyMid) {
   const rule = explicitRule(candidate, build.id, enemyMid.name);
   if (rule?.severity === "HARDCOUNTERED_LANE") return { veto: true, rule };
 
-  const candidatePressure = directionalPressure(build.profile, enemyMid.profile);
-  const enemyPressure = directionalPressure(enemyMid.profile, build.profile);
-  // A lane direta é o bloco mais importante do produto. Sem esta expansão,
-  // perfis versáteis vencem por composição mesmo quando outro candidato possui
-  // uma vantagem mecânica clara no 1x1.
+  const candidatePressure = lanePressure(build.profile, enemyMid.profile);
+  const enemyPressure = lanePressure(enemyMid.profile, build.profile);
   let score = clamp((candidatePressure.total - enemyPressure.total) * 2.2, -8, 8);
   const reasons = [];
 
@@ -474,11 +483,13 @@ function jungleInteraction(candidateProfileValue, allyJungle, enemyJungle) {
     if (setup + prio > 1.2) reasons.push(`Boa conversão com ${allyJungle.name}.`);
   }
   if (enemyJungle) {
-    const catchRisk = ((enemyJungle.profile.strengths.cc ?? 0) + (enemyJungle.profile.strengths.engage ?? 0) + (enemyJungle.profile.strengths.burst ?? 0)) *
+    const jungleThreat = (enemyJungle.profile.strengths.cc ?? 0) + (enemyJungle.profile.strengths.engage ?? 0) + (enemyJungle.profile.strengths.burst ?? 0);
+    const catchRisk = jungleThreat *
       ((candidateProfileValue.weaknesses.vulnGank ?? 0) + (candidateProfileValue.weaknesses.immobile ?? 0) + (candidateProfileValue.weaknesses.fragileEntry ?? 0)) / 18;
-    const defense = ((candidateProfileValue.strengths.mobility ?? 0) + (candidateProfileValue.strengths.antiDive ?? 0) + (candidateProfileValue.strengths.defenses ?? 0)) / 6;
+    const defense = jungleThreat *
+      ((candidateProfileValue.strengths.mobility ?? 0) + (candidateProfileValue.strengths.antiDive ?? 0) + (candidateProfileValue.strengths.defenses ?? 0)) / 36;
     score -= catchRisk;
-    score += defense;
+    score += Math.min(catchRisk, defense);
     if (catchRisk > defense + 1) reasons.push(`Exposição relevante ao gank de ${enemyJungle.name}.`);
   }
   return { score: clamp(score, -10, 10), reasons };
@@ -494,43 +505,65 @@ function aggregateProfiles(picks) {
   return { strengths, weaknesses, size: picks.filter(Boolean).length };
 }
 
-function enemyCompScore(candidate, enemies) {
-  const aggregate = aggregateProfiles(enemies);
-  if (!aggregate.size) return { score: 0, reasons: ["Composição inimiga ainda desconhecida."] };
-  const st = aggregate.strengths;
-  const wk = aggregate.weaknesses;
-  const cs = candidate.strengths;
-  const cw = candidate.weaknesses;
-  const positives = [];
-  const negatives = [];
-  const add = (list, label, value) => { if (value > 0.35) list.push({ label, value }); };
+const compResponseRules = [
+  { threat: (p) => p.strengths.cc ?? 0, answers: ["antiCc"], label: "anti-CC contra o controle" },
+  { threat: (p) => Math.max(p.strengths.engage ?? 0, p.strengths.backlineAccess ?? 0, p.strengths.allIn ?? 0), answers: ["antiDive", "peel", "disengage", "defenses"], label: "resposta à entrada" },
+  { threat: (p) => Math.max(p.strengths.frontline ?? 0, p.strengths.hp ?? 0, p.strengths.defenses ?? 0), answers: ["dps", "antiTank"], label: "DPS/anti-tank contra a frontline" },
+  { threat: (p) => Math.max(p.strengths.poke ?? 0, p.strengths.siege ?? 0), answers: ["engage", "mobility", "sustain", "waveclear"], label: "resposta ao poke/siege" },
+  { threat: (p) => Math.max(p.strengths.mobility ?? 0, p.strengths.backlineAccess ?? 0), answers: ["cc", "pick", "zone", "antiDive"], label: "contenção da mobilidade" },
+  { threat: (p) => Math.min(3, ((p.strengths.dps ?? 0) + (p.strengths.physicalDamage ?? 0)) / 2), answers: ["antiAuto", "defenses"], label: "resposta ao DPS físico" },
+  { threat: (p) => p.weaknesses.vulnBurst ?? 0, answers: ["burst"], label: "burst contra alvo vulnerável" },
+  { threat: (p) => Math.max(p.weaknesses.vulnRange ?? 0, p.weaknesses.immobile ?? 0), answers: ["poke", "pick"], label: "alcance contra alvo exposto" },
+  { threat: (p) => p.weaknesses.needsContact ?? 0, answers: ["zone", "disengage"], label: "negação de contato" },
+];
 
-  add(positives, "anti-CC contra controle inimigo", (cs.antiCc ?? 0) * (st.cc ?? 0) / 6);
-  add(positives, "anti-dive/peel contra entradas", ((cs.antiDive ?? 0) + (cs.peel ?? 0) + (cs.disengage ?? 0)) * ((st.engage ?? 0) + (st.backlineAccess ?? 0)) / 18);
-  add(positives, "DPS/anti-tank contra frontline", ((cs.dps ?? 0) + (cs.antiTank ?? 0)) * (st.frontline ?? 0) / 9);
-  add(positives, "poke/pick contra alvos expostos", ((cs.poke ?? 0) + (cs.pick ?? 0)) * ((wk.vulnRange ?? 0) + (wk.immobile ?? 0) + (wk.vulnCc ?? 0)) / 22);
-  add(positives, "zona e área contra contato/agrupamento", ((cs.zone ?? 0) + (cs.aoe ?? 0)) * ((wk.needsContact ?? 0) + (st.frontline ?? 0)) / 18);
-  add(positives, "anti-auto contra DPS físico", (cs.antiAuto ?? 0) * ((st.dps ?? 0) + (st.physicalDamage ?? 0)) / 12);
+const compExposureRules = [
+  { pressure: (p) => Math.max(p.strengths.poke ?? 0, p.strengths.siege ?? 0), risks: ["vulnPoke", "vulnRange", "immobile"], label: "poke/range dificulta a execução" },
+  { pressure: (p) => Math.max(p.strengths.engage ?? 0, p.strengths.backlineAccess ?? 0), risks: ["vulnEngage", "fragileEntry"], label: "engage/dive pune o perfil" },
+  { pressure: (p) => p.strengths.cc ?? 0, risks: ["vulnCc", "fragileEntry"], label: "controle interrompe a entrada" },
+  { pressure: (p) => Math.max(p.strengths.disengage ?? 0, p.strengths.peel ?? 0, p.strengths.mobility ?? 0), risks: ["vulnKite", "vulnDisengage", "needsContact"], label: "kite/disengage nega contato" },
+  { pressure: (p) => Math.max(p.strengths.frontline ?? 0, p.strengths.defenses ?? 0), risks: ["vulnTank"], amplifiers: ["burst"], label: "frontline nega o padrão de dano" },
+];
 
-  add(negatives, "poke/range inimigo dificulta execução", ((st.poke ?? 0) + (st.siege ?? 0)) * ((cw.vulnPoke ?? 0) + (cw.vulnRange ?? 0) + (cw.immobile ?? 0)) / 20);
-  add(negatives, "engage/dive pune o perfil", ((st.engage ?? 0) + (st.backlineAccess ?? 0)) * ((cw.vulnEngage ?? 0) + (cw.fragileEntry ?? 0)) / 14);
-  add(negatives, "controle inimigo interrompe a entrada", (st.cc ?? 0) * ((cw.vulnCc ?? 0) + (cw.fragileEntry ?? 0)) / 12);
-  add(negatives, "kite/disengage nega contato", ((st.disengage ?? 0) + (st.peel ?? 0) + (st.mobility ?? 0)) * ((cw.vulnKite ?? 0) + (cw.vulnDisengage ?? 0) + (cw.needsContact ?? 0)) / 24);
-  add(negatives, "frontline nega burst", (st.frontline ?? 0) * ((cw.vulnTank ?? 0) + (cs.burst ?? 0)) / 14);
-
-  const positive = positives.reduce((sum, item) => sum + item.value, 0);
-  const negative = negatives.reduce((sum, item) => sum + item.value, 0);
-  const reasons = [
-    ...positives.sort((a, b) => b.value - a.value).slice(0, 2).map((item) => `Favorável: ${item.label}.`),
-    ...negatives.sort((a, b) => b.value - a.value).slice(0, 2).map((item) => `Risco: ${item.label}.`),
-  ];
-  return { score: clamp((positive - negative) * 1.6, -10, 10), reasons };
+function bestSpecificInteraction(candidate, enemy, rules, answerKey) {
+  const interactions = rules.map((rule) => {
+    const pressure = (rule.threat ?? rule.pressure)(enemy.profile);
+    const answerTags = rule[answerKey] ?? [];
+    const answer = Math.max(0, ...answerTags.map((tag) => candidate[answerKey === "answers" ? "strengths" : "weaknesses"][tag] ?? 0));
+    const amplifier = rule.amplifiers ? Math.max(1, ...rule.amplifiers.map((tag) => candidate.strengths[tag] ?? 0)) : 1;
+    return { label: rule.label, value: pressure * answer * amplifier / (rule.amplifiers ? 6 : 3) };
+  }).filter((item) => item.value > 0);
+  return interactions.sort((a, b) => b.value - a.value)[0] ?? { label: "sem interação aplicável", value: 0 };
 }
 
-function alliedCompScore(candidate, allies) {
+function enemyCompScore(candidate, enemies) {
+  const knownEnemies = enemies.filter(Boolean);
+  if (!knownEnemies.length) return { score: 0, reasons: ["Composição inimiga ainda desconhecida."] };
+
+  const interactions = knownEnemies.map((enemy) => ({
+    enemy: enemy.name,
+    response: bestSpecificInteraction(candidate, enemy, compResponseRules, "answers"),
+    exposure: bestSpecificInteraction(candidate, enemy, compExposureRules, "risks"),
+  }));
+  // No máximo duas ameaças realmente respondidas e dois riscos concretos.
+  // Tags extras que não casam com o draft não alteram o resultado.
+  const responses = interactions.filter((item) => item.response.value > 0).sort((a, b) => b.response.value - a.response.value).slice(0, 2);
+  const exposures = interactions.filter((item) => item.exposure.value > 0).sort((a, b) => b.exposure.value - a.exposure.value).slice(0, 2);
+  const responseValue = responses.reduce((sum, item, index) => sum + item.response.value * [1, 0.35][index], 0);
+  const exposureValue = exposures.reduce((sum, item, index) => sum + item.exposure.value * [1, 0.35][index], 0);
+  const reasons = [
+    ...responses.map((item) => `Favorável contra ${item.enemy}: ${item.response.label}.`),
+    ...exposures.map((item) => `Risco contra ${item.enemy}: ${item.exposure.label}.`),
+  ];
+  return { score: clamp((responseValue - exposureValue) * 2, -10, 10), reasons };
+}
+
+function alliedCompScore(candidate, allies, enemies = []) {
   const aggregate = aggregateProfiles(allies);
   if (!aggregate.size) return { score: 0, archetype: "desconhecido", reasons: ["Composição aliada ainda desconhecida."] };
   const st = aggregate.strengths;
+  const enemyAggregate = aggregateProfiles(enemies);
+  const enemy = enemyAggregate.strengths;
   const archetypeScores = {
     poke: (st.poke ?? 0) + (st.siege ?? 0) + (st.waveclear ?? 0) * 0.5,
     dive: (st.engage ?? 0) + (st.backlineAccess ?? 0) + (st.followUp ?? 0),
@@ -540,36 +573,81 @@ function alliedCompScore(candidate, allies) {
     scalingControl: (st.scaling ?? 0) + (st.zone ?? 0) + (st.waveclear ?? 0),
   };
   const archetype = Object.entries(archetypeScores).sort((a, b) => b[1] - a[1])[0][0];
-  const desired = {
-    poke: ["disengage", "peel", "waveclear", "siege"],
-    dive: ["engage", "followUp", "backlineAccess", "burst"],
-    frontToBack: ["frontline", "dps", "peel", "antiDive"],
-    pick: ["pick", "burst", "cc", "roam"],
-    split: ["split", "waveclear", "disengage", "roam"],
-    scalingControl: ["waveclear", "zone", "frontline", "scaling"],
-  }[archetype];
-  const contributions = desired.map((tag) => {
-    const coverage = st[tag] ?? 0;
-    const need = clamp(4 - coverage, 0, 4);
-    return { label: S[tag], value: need * (candidate.strengths[tag] ?? 0) / 3 };
-  });
+  const needsByKey = new Map();
+  const addNeed = (key, answers, label, severity, priority) => {
+    const normalizedSeverity = clamp(severity, 0, 4);
+    if (normalizedSeverity <= 0) return;
+    const previous = needsByKey.get(key);
+    if (!previous || normalizedSeverity > previous.severity) {
+      needsByKey.set(key, { key, answers, label, severity: normalizedSeverity, priority });
+    }
+  };
+
+  const enemyDive = (enemy.engage ?? 0) + (enemy.backlineAccess ?? 0) + (enemy.allIn ?? 0);
+  const enemyPoke = (enemy.poke ?? 0) + (enemy.siege ?? 0);
+  const enemyFrontline = (enemy.frontline ?? 0) + (enemy.hp ?? 0) + (enemy.defenses ?? 0);
+  const enemyMobility = (enemy.mobility ?? 0) + (enemy.backlineAccess ?? 0);
+  const enemyDps = (enemy.dps ?? 0) + (enemy.physicalDamage ?? 0);
+  const alliedDive = (st.engage ?? 0) + (st.backlineAccess ?? 0);
+  const alliedPoke = (st.poke ?? 0) + (st.siege ?? 0);
+  const alliedPick = (st.pick ?? 0) + (st.cc ?? 0) * 0.5;
+
+  if (enemyDive >= 3) {
+    const coverage = (st.antiDive ?? 0) + (st.peel ?? 0) + (st.disengage ?? 0);
+    addNeed("antiDive", ["antiDive", "peel", "disengage"], "resposta ao dive inimigo", enemyDive / 2 - coverage / 2, 0);
+    const frontlineCoverage = (st.frontline ?? 0) + (st.defenses ?? 0);
+    addNeed("frontline", ["frontline", "defenses"], "corpo frontal contra a entrada inimiga", (enemyDive + enemyDps) / 4 - frontlineCoverage / 2, 2);
+  }
+  if (enemyPoke >= 3) {
+    const engageCoverage = (st.engage ?? 0) + (st.backlineAccess ?? 0);
+    addNeed("engageVsPoke", ["engage", "backlineAccess"], "alcance para iniciar sobre o poke inimigo", enemyPoke / 2 - engageCoverage / 2, 0);
+    addNeed("waveclearVsSiege", ["waveclear"], "waveclear contra o siege inimigo", enemyPoke / 2 - (st.waveclear ?? 0), 1);
+  }
+  if (enemyFrontline >= 3) {
+    const tankDamageCoverage = (st.antiTank ?? 0) + (st.dps ?? 0) * 0.5;
+    addNeed("antiTank", ["antiTank", "dps"], "dano aplicável na frontline inimiga", enemyFrontline / 2 - tankDamageCoverage / 2, 0);
+  }
+  if (enemyMobility >= 3) {
+    const controlCoverage = (st.cc ?? 0) + (st.zone ?? 0);
+    addNeed("mobilityControl", ["cc", "zone", "antiDive"], "contenção da mobilidade inimiga", enemyMobility / 2 - controlCoverage / 2, 1);
+  }
+  if (alliedDive >= 3) {
+    const followUpCoverage = (st.followUp ?? 0) + (st.burst ?? 0) * 0.5;
+    addNeed("diveFollowUp", ["followUp", "backlineAccess", "burst"], "follow-up para a entrada aliada", alliedDive / 2 - followUpCoverage / 2, 1);
+  }
+  if (alliedPoke >= 3 && enemyDive >= 2) {
+    const resetCoverage = (st.disengage ?? 0) + (st.peel ?? 0);
+    addNeed("protectPoke", ["disengage", "peel", "antiDive"], "proteção do plano de poke", Math.min(alliedPoke, enemyDive) / 2 - resetCoverage / 2, 0);
+  }
+  if (alliedPick >= 3) {
+    const conversionCoverage = (st.burst ?? 0) + (st.followUp ?? 0);
+    addNeed("pickConversion", ["burst", "followUp"], "conversão do pick aliado", alliedPick / 2 - conversionCoverage / 2, 2);
+  }
 
   const alliedPhysical = st.physicalDamage ?? 0;
   const alliedMagic = st.magicDamage ?? 0;
-  if (alliedPhysical >= alliedMagic + 4) contributions.push({ label: "corrige excesso de dano físico", value: (candidate.strengths.magicDamage ?? 0) * 1.2 });
-  if (alliedMagic >= alliedPhysical + 4) contributions.push({ label: "corrige excesso de dano mágico", value: (candidate.strengths.physicalDamage ?? 0) * 1.2 });
+  if (alliedPhysical >= alliedMagic + 4) addNeed("magicDamage", ["magicDamage"], "dano mágico para corrigir excesso físico", (alliedPhysical - alliedMagic) / 2, -1);
+  if (alliedMagic >= alliedPhysical + 4) addNeed("physicalDamage", ["physicalDamage"], "dano físico para corrigir excesso mágico", (alliedMagic - alliedPhysical) / 2, -1);
 
-  const ordered = contributions.sort((a, b) => b.value - a.value);
-  const diminishingWeights = [1, 0.6, 0.25, 0.15, 0.1];
-  const weightedContribution = ordered.reduce((sum, item, index) => sum + item.value * (diminishingWeights[index] ?? 0.05), 0);
-  const score = clamp(weightedContribution * 1.25 - 1.5, -10, 10);
-  const reasons = ordered.filter((item) => item.value > 0.5).slice(0, 3).map((item) => `Contribui com ${item.label}.`);
-  return { score, archetype, reasons };
+  // As necessidades críticas são escolhidas sem olhar o candidato. Assim um
+  // campeão não cria para si mesmo várias oportunidades de pontuar.
+  const criticalNeeds = [...needsByKey.values()]
+    .filter((need) => need.severity >= 0.75)
+    .sort((a, b) => b.severity - a.severity || a.priority - b.priority)
+    .slice(0, 2);
+  const contributions = criticalNeeds.map((need, index) => ({
+    ...need,
+    value: need.severity * Math.max(0, ...need.answers.map((tag) => candidate.strengths[tag] ?? 0)) / 3 * [1, 0.3][index],
+  }));
+  const weightedContribution = contributions.reduce((sum, item) => sum + item.value, 0);
+  const score = clamp(weightedContribution * 2, 0, 10);
+  const reasons = contributions.filter((item) => item.value > 0).map((item) => `Supre necessidade crítica: ${item.label}.`);
+  return { score, archetype, criticalNeeds: criticalNeeds.map((need) => need.label), reasons };
 }
 
-function blindPenalty(profile, enemyMidKnown, unknownEnemySlots) {
+function blindPenalty(profile, enemyMidKnown, unknownNonLaneEnemySlots) {
   const laneBlind = enemyMidKnown ? 0 : (3 - profile.safeBlind) * 8 / 3;
-  const rest = unknownEnemySlots * (3 - profile.safeBlind) * 0.5;
+  const rest = unknownNonLaneEnemySlots * (3 - profile.safeBlind) * 0.5;
   return clamp(laneBlind + rest, 0, 12);
 }
 
@@ -597,9 +675,10 @@ function evaluateCandidate(entry, visibleDraft) {
     const jungle = jungleInteraction(build.profile, allyJungle, enemyJungle);
     const matchup = clamp(lane.score * 0.7 + jungle.score * 0.3, -10, 10);
     const enemyComp = enemyCompScore(build.profile, visibleDraft.enemies);
-    const allyComp = alliedCompScore(build.profile, visibleDraft.allies);
+    const allyComp = alliedCompScore(build.profile, visibleDraft.allies, visibleDraft.enemies);
     const unknownEnemySlots = Object.values(visibleDraft.enemyByRole).filter((value) => !value).length;
-    const blind = blindPenalty(build.profile, Boolean(enemyMid), unknownEnemySlots);
+    const unknownNonLaneEnemySlots = unknownEnemySlots - (enemyMid ? 0 : 1);
+    const blind = blindPenalty(build.profile, Boolean(enemyMid), unknownNonLaneEnemySlots);
     const affinity = { principal: 30, secundaria: 25, laboratorio: 15 }[entry.pool];
     const comfort = { 5: 2, 4: 1, 3: 0, 2: -1, 1: -2 }[entry.comfort];
     const score = affinity + comfort + 2 * matchup + 1.5 * enemyComp.score + allyComp.score - blind;
@@ -678,6 +757,12 @@ const ireliaDefault = buildsFor("Irelia")[0];
 const tahmBuilds = buildsFor("Tahm Kench");
 const ownLaneBlind = blindPenalty(baseProfiles.Irelia, false, 0);
 const fourOtherUnknowns = blindPenalty(baseProfiles.Irelia, true, 4);
+const noApplicabilityProfile = candidateProfile({ strengths: [["teamfight", 3], ["split", 3]], weaknesses: [], safeBlind: 3 });
+const irrelevantExtraProfile = candidateProfile({ strengths: [["teamfight", 3], ["split", 3], ["roam", 3]], weaknesses: [], safeBlind: 3 });
+const knownEnemyFixture = [championByName.get("Lux")];
+const alliedFixture = [championByName.get("Jinx"), championByName.get("Ornn")];
+const criticalNeedsBaseline = alliedCompScore(noApplicabilityProfile, alliedFixture, knownEnemyFixture);
+const criticalNeedsWithIrrelevantTag = alliedCompScore(irrelevantExtraProfile, alliedFixture, knownEnemyFixture);
 const selfChecks = [
   {
     rule: "Hardcounter confirmado na lane não recebe nota",
@@ -692,6 +777,26 @@ const selfChecks = [
     rule: "Blind da própria lane pesa mais que quatro slots desconhecidos fora dela",
     passed: ownLaneBlind > fourOtherUnknowns,
     values: { ownLaneBlind: round(ownLaneBlind), fourOtherUnknowns: round(fourOtherUnknowns) },
+  },
+  {
+    rule: "Draft inimigo completo não gera bônus nem penalidade de blind",
+    passed: blindPenalty(baseProfiles.Gragas, true, 0) === 0 && blindPenalty(baseProfiles.Irelia, true, 0) === 0,
+  },
+  {
+    rule: "Perfil versátil sem resposta aplicável não ganha nota de composição",
+    passed: enemyCompScore(noApplicabilityProfile, knownEnemyFixture).score === 0,
+    values: { score: enemyCompScore(noApplicabilityProfile, knownEnemyFixture).score },
+  },
+  {
+    rule: "Adicionar capacidade irrelevante não altera a nota",
+    passed: enemyCompScore(noApplicabilityProfile, knownEnemyFixture).score === enemyCompScore(irrelevantExtraProfile, knownEnemyFixture).score &&
+      criticalNeedsBaseline.score === criticalNeedsWithIrrelevantTag.score,
+    values: { enemyComp: enemyCompScore(noApplicabilityProfile, knownEnemyFixture).score, allyComp: criticalNeedsBaseline.score },
+  },
+  {
+    rule: "Somente as duas necessidades aliadas críticas entram no cálculo",
+    passed: criticalNeedsBaseline.criticalNeeds.length <= 2 && criticalNeedsWithIrrelevantTag.criticalNeeds.length <= 2,
+    values: { criticalNeeds: criticalNeedsBaseline.criticalNeeds },
   },
   {
     rule: "Todas as entradas habilitadas permanecem na lista",
@@ -711,7 +816,7 @@ const output = {
     tier: "Diamond+",
     lane: fixture.lane,
     poolFixtureOnly: true,
-    warning: "Protótipo heurístico v0.3. Não representa o motor final calibrado nem win rate.",
+    warning: "Protótipo heurístico v0.4. Só pontua interações aplicáveis ao draft; não representa win rate.",
   },
   selfChecks,
   simulations,
