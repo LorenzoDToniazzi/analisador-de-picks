@@ -13,14 +13,16 @@ O objetivo é recomendar apenas campeões cadastrados na pool do usuário, consi
 
 ## Estado atual
 
-A base de pesquisa v0.2 contém:
+A base de pesquisa e validação v0.3 contém:
 
 - catálogo estrutural dos 173 campeões;
 - análise aprofundada inicial da pool Mid;
 - camada universal de avaliação da Toplane;
 - fórmula inicial do algoritmo Mid/Top;
 - fallback de build padrão e modelo de builds customizadas;
-- snapshot Top do Patch 26.16 com 8.215 relações direcionais.
+- snapshot Top do Patch 26.16 com 8.215 relações direcionais;
+- especificação consolidada v0.3;
+- protótipo reproduzível e bateria de 10 drafts aleatórios.
 
 Ainda não existe uma versão confiável do recomendador para uso durante partidas. Os dados e as regras estão sendo estruturados antes da interface.
 
@@ -29,15 +31,21 @@ Ainda não existe uma versão confiável do recomendador para uso durante partid
 - [Análise inicial da pool Mid](docs/analise-pool-mid-26.16.md)
 - [Mapeamento universal da Toplane e algoritmo v0.2](docs/mapeamento-toplane-algoritmo-v0.2.md)
 - [Descrição do snapshot estatístico](data/README.md)
+- [Especificação consolidada do algoritmo v0.3](docs/especificacao-algoritmo-v0.3.md)
+- [Validação com 10 drafts aleatórios](docs/validacao-simulacao-10-drafts-v0.3.md)
 
 ## Princípios
 
-- Hardcounter confirmado na mesma lane veta o candidato.
+- O aplicativo inicia sem pool; o usuário cadastra e salva tudo localmente.
+- Toda categoria habilitada disputa o mesmo ranking.
+- Hardcounter confirmado na mesma lane deixa o perfil sem nota.
 - Relações específicas prevalecem sobre categorias genéricas.
 - Sem amostra, o sistema compara ferramentas e vulnerabilidades nos dois sentidos.
 - Build padrão é usada até existir uma build customizada.
 - Builds alteram a identidade estratégica, sem simular diferenças irrelevantes de poucos pontos de atributo.
-- Picks de laboratório podem ser avaliados mesmo fora da posição convencional, com confiança menor.
+- Picks de laboratório podem liderar o ranking se a nota for maior.
+- Hardcounter pode ser específico de uma build; outra build viável continua sendo avaliada.
+- Blind da própria lane pesa mais que slots desconhecidos fora dela.
 - A pool filtra candidatos e representa afinidade; ela não é a fonte de conhecimento do campeão.
 
 ## Fórmula inicial
@@ -53,17 +61,22 @@ ajuste de draft:
   composição inimiga × 1,5
   composição aliada × 1
 
-score de decisão =
+score =
   afinidade
-  + confiança × ajuste de draft
-  - penalidade de incerteza
+  + ajuste de conforto
+  + ajuste de draft
+  - penalidade de blind
+  - penalidades explícitas não vetantes
+
+confiança pesa a evidência que originou cada ajuste;
+não existe punição global só por a build ser uma tech
 ```
 
 ## Próximas etapas
 
-1. Converter perfis dos campeões para JSON com enums fechados.
-2. Criar perfis estratégicos padrão por campeão e lane.
-3. Cadastrar relações direcionais e hardcounters conservadores.
-4. Calibrar confiança, blind pick e pesos com drafts controlados.
-5. Implementar o motor de pontuação.
-6. Construir cadastro de pool/builds, persistência local e interface.
+1. Gerar o snapshot Diamond+ do Mid com matchup e indicadores de lane.
+2. Converter perfis dos campeões para JSON com enums fechados e revisão manual.
+3. Separar resultado da partida de qualidade da lane.
+4. Calibrar dupla contagem, confiança e blind com testes controlados.
+5. Implementar o motor definitivo em TypeScript.
+6. Construir cadastro de pool/builds, persistência local e interface React.
