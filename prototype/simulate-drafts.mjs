@@ -243,14 +243,27 @@ const buildDefinitions = {
   ],
 };
 
-function buildsFor(champion) {
+function buildsFor(champion, { universalBenchmark = false } = {}) {
+  if (universalBenchmark) {
+    const universalProfile = championByName.get(champion)?.profile;
+    if (!universalProfile) return [];
+    return [{
+      id: "system-default",
+      name: "Padrão do campeão",
+      capabilityDelta: {},
+      vulnerabilityDelta: {},
+      profile: universalProfile,
+    }];
+  }
+  const baseProfile = baseProfiles[champion] ?? championByName.get(champion)?.profile;
+  if (!baseProfile) return [];
   const definitions = buildDefinitions[champion] ?? [{ id: "default", name: "Padrão", capabilityDelta: {}, vulnerabilityDelta: {} }];
   return definitions.map((build) => ({
     ...build,
     profile: {
-      ...baseProfiles[champion],
-      strengths: mergeMap(baseProfiles[champion].strengths, build.capabilityDelta),
-      weaknesses: mergeMap(baseProfiles[champion].weaknesses, build.vulnerabilityDelta),
+      ...baseProfile,
+      strengths: mergeMap(baseProfile.strengths, build.capabilityDelta),
+      weaknesses: mergeMap(baseProfile.weaknesses, build.vulnerabilityDelta),
     },
   }));
 }
@@ -402,6 +415,56 @@ const namesForRole = {
   SUPPORT: ["Alistar", "Ashe", "Bard", "Blitzcrank", "Brand", "Braum", "Janna", "Karma", "Leona", "Lulu", "Lux", "Maokai", "Milio", "Morgana", "Nami", "Nautilus", "Neeko", "Poppy", "Pyke", "Rakan", "Rell", "Renata Glasc", "Senna", "Seraphine", "Sona", "Soraka", "Swain", "Tahm Kench", "Taric", "Thresh", "Vel'Koz", "Xerath", "Yuumi", "Zilean", "Zyra"],
 };
 const rolePools = Object.fromEntries(Object.entries(namesForRole).map(([role, names]) => [role, names.map((name) => championByName.get(name)).filter(Boolean)]));
+const roleNameSets = Object.fromEntries(Object.entries(namesForRole).map(([role, names]) => [role, new Set(names)]));
+
+function laneViability(championName, lane, profile) {
+  if (roleNameSets[lane]?.has(championName)) {
+    return { score: 0, reason: `${championName} possui baseline padrão para ${lane}.`, source: "STANDARD_ROLE" };
+  }
+
+  const otherSoloLane = lane === "MID" ? "TOP" : "MID";
+  let baseRisk;
+  let source;
+  if (roleNameSets[otherSoloLane]?.has(championName)) {
+    baseRisk = 3;
+    source = "OTHER_SOLO_LANE";
+  } else if (roleNameSets.BOTTOM?.has(championName)) {
+    baseRisk = 5;
+    source = "BOTTOM_ONLY";
+  } else if (roleNameSets.JUNGLE?.has(championName)) {
+    baseRisk = 6;
+    source = "JUNGLE_ONLY";
+  } else if (roleNameSets.SUPPORT?.has(championName)) {
+    baseRisk = 8;
+    source = "SUPPORT_ONLY";
+  } else {
+    baseRisk = 7;
+    source = "UNMAPPED_ROLE";
+  }
+
+  // Ferramentas só reduzem o risco porque são diretamente aplicáveis a jogar
+  // a lane: tocar a wave, sobreviver à exposição e alcançar o oponente.
+  const waveTool = Math.max(profile.strengths.waveclear ?? 0, profile.strengths.priority ?? 0);
+  const survivalTool = Math.max(
+    profile.strengths.sustain ?? 0,
+    profile.strengths.mobility ?? 0,
+    profile.strengths.defenses ?? 0,
+    profile.strengths.antiDive ?? 0,
+    profile.strengths.weakside ?? 0,
+  );
+  const laneToolReduction = Math.min(2, waveTool * 0.35 + survivalTool * 0.25);
+  const exposure = Math.max(
+    profile.weaknesses.vulnWave ?? 0,
+    profile.weaknesses.vulnGank ?? 0,
+    profile.weaknesses.immobile ?? 0,
+  ) * 0.35;
+  const risk = clamp(baseRisk - laneToolReduction + exposure, 1, 10);
+  return {
+    score: -risk,
+    reason: `${championName} não possui baseline padrão para ${lane}; risco de lane ${round(risk)}.`,
+    source,
+  };
+}
 
 // Relações exclusivamente de lane. Capacidades de composição (engage, peel,
 // frontline, teamfight etc.) não entram aqui apenas por existirem no kit.
@@ -657,30 +720,34 @@ function confidenceLabel(values) {
   return "HIGH";
 }
 
-function evaluateCandidate(entry, visibleDraft) {
+function evaluateCandidate(entry, visibleDraft, options = {}) {
+  const { universalBenchmark = false, lane: evaluatedLane = fixture.lane } = options;
   const picked = [...visibleDraft.allies, ...visibleDraft.enemies].filter(Boolean).some((pick) => pick.name === entry.champion);
   if (picked) return { champion: entry.champion, status: "UNAVAILABLE", reason: "Campeão já visível no draft." };
-  const enemyMid = visibleDraft.enemyByRole.MID;
+  const enemyLaner = visibleDraft.enemyByRole[evaluatedLane];
   const allyJungle = visibleDraft.allyByRole.JUNGLE;
   const enemyJungle = visibleDraft.enemyByRole.JUNGLE;
-  const builds = buildsFor(entry.champion);
+  const builds = buildsFor(entry.champion, { universalBenchmark });
   const results = [];
 
   for (const build of builds) {
-    const lane = laneScore(entry.champion, build, enemyMid);
+    const lane = laneScore(entry.champion, build, enemyLaner);
     if (lane.veto) {
       results.push({ build: build.name, buildId: build.id, status: "HARDCOUNTERED", reason: lane.rule.reason });
       continue;
     }
     const jungle = jungleInteraction(build.profile, allyJungle, enemyJungle);
-    const matchup = clamp(lane.score * 0.7 + jungle.score * 0.3, -10, 10);
+    const viability = laneViability(entry.champion, evaluatedLane, build.profile);
+    const laneWeight = evaluatedLane === "TOP" ? 0.75 : 0.7;
+    const jungleWeight = 1 - laneWeight;
+    const matchup = clamp((lane.score + viability.score) * laneWeight + jungle.score * jungleWeight, -10, 10);
     const enemyComp = enemyCompScore(build.profile, visibleDraft.enemies);
     const allyComp = alliedCompScore(build.profile, visibleDraft.allies, visibleDraft.enemies);
     const unknownEnemySlots = Object.values(visibleDraft.enemyByRole).filter((value) => !value).length;
-    const unknownNonLaneEnemySlots = unknownEnemySlots - (enemyMid ? 0 : 1);
-    const blind = blindPenalty(build.profile, Boolean(enemyMid), unknownNonLaneEnemySlots);
-    const affinity = { principal: 30, secundaria: 25, laboratorio: 15 }[entry.pool];
-    const comfort = { 5: 2, 4: 1, 3: 0, 2: -1, 1: -2 }[entry.comfort];
+    const unknownNonLaneEnemySlots = unknownEnemySlots - (enemyLaner ? 0 : 1);
+    const blind = blindPenalty(build.profile, Boolean(enemyLaner), unknownNonLaneEnemySlots);
+    const affinity = universalBenchmark ? 0 : { principal: 30, secundaria: 25, laboratorio: 15 }[entry.pool];
+    const comfort = universalBenchmark ? 0 : { 5: 2, 4: 1, 3: 0, 2: -1, 1: -2 }[entry.comfort];
     const score = affinity + comfort + 2 * matchup + 1.5 * enemyComp.score + allyComp.score - blind;
     results.push({
       build: build.name,
@@ -688,9 +755,9 @@ function evaluateCandidate(entry, visibleDraft) {
       status: "SCORED",
       score: round(score),
       confidence: confidenceLabel([build.profile.confidence, lane.confidence]),
-      components: { affinity, comfort, matchup: round(matchup), enemyComp: round(enemyComp.score), allyComp: round(allyComp.score), blind: round(blind) },
+      components: { affinity, comfort, laneViability: round(viability.score), matchup: round(matchup), enemyComp: round(enemyComp.score), allyComp: round(allyComp.score), blind: round(blind) },
       archetype: allyComp.archetype,
-      reasons: [...lane.reasons, ...jungle.reasons, ...enemyComp.reasons, ...allyComp.reasons].slice(0, 8),
+      reasons: [viability.reason, ...lane.reasons, ...jungle.reasons, ...enemyComp.reasons, ...allyComp.reasons].slice(0, 9),
     });
   }
 
@@ -701,12 +768,12 @@ function evaluateCandidate(entry, visibleDraft) {
   return { champion: entry.champion, pool: entry.pool, comfort: entry.comfort, status: "SCORED", ...viable[0], builds: results };
 }
 
-function generateDraft(random, index) {
+function generateDraft(random, index, evaluatedLane) {
   const used = new Set();
   const allyByRole = {
-    TOP: takeRandom(rolePools.TOP, random, used),
+    TOP: evaluatedLane === "TOP" ? null : takeRandom(rolePools.TOP, random, used),
     JUNGLE: takeRandom(rolePools.JUNGLE, random, used),
-    MID: null,
+    MID: evaluatedLane === "MID" ? null : takeRandom(rolePools.MID, random, used),
     BOTTOM: takeRandom(rolePools.BOTTOM, random, used),
     SUPPORT: takeRandom(rolePools.SUPPORT, random, used),
   };
@@ -722,8 +789,8 @@ function generateDraft(random, index) {
   const visibleAlly = {};
   const visibleEnemy = {};
   const complete = index % 3 === 0;
-  for (const [role, champion] of Object.entries(allyByRole)) visibleAlly[role] = role === "MID" ? null : (complete || random() > 0.2 ? champion : null);
-  for (const [role, champion] of Object.entries(enemyByRole)) visibleEnemy[role] = complete || random() > (role === "MID" ? 0.25 : 0.35) ? champion : null;
+  for (const [role, champion] of Object.entries(allyByRole)) visibleAlly[role] = role === evaluatedLane ? null : (complete || random() > 0.2 ? champion : null);
+  for (const [role, champion] of Object.entries(enemyByRole)) visibleEnemy[role] = complete || random() > (role === evaluatedLane ? 0.25 : 0.35) ? champion : null;
 
   const visible = {
     allyByRole: visibleAlly,
@@ -734,15 +801,22 @@ function generateDraft(random, index) {
   return { full, visible };
 }
 
-const seed = Number(process.argv[2] ?? 20260817);
+const cliArgs = process.argv.slice(2);
+const universalBenchmark = cliArgs.includes("--universal");
+const laneArgIndex = cliArgs.indexOf("--lane");
+const evaluatedLane = laneArgIndex >= 0 ? String(cliArgs[laneArgIndex + 1] ?? "").toUpperCase() : fixture.lane;
+if (!["MID", "TOP"].includes(evaluatedLane)) throw new Error("--lane aceita apenas MID ou TOP");
+const seed = Number(cliArgs.find((arg) => /^\d+$/.test(arg)) ?? 20260817);
 const random = seededRandom(seed);
 const simulations = [];
+const evaluationEntries = universalBenchmark
+  ? champions.map((champion) => ({ champion: champion.name, lane: evaluatedLane, pool: null, comfort: null }))
+  : fixture.entries.filter((entry) => fixture.enabledPools.includes(entry.pool));
 
 for (let index = 0; index < 10; index += 1) {
-  const draft = generateDraft(random, index);
-  const ranking = fixture.entries
-    .filter((entry) => fixture.enabledPools.includes(entry.pool))
-    .map((entry) => evaluateCandidate(entry, draft.visible))
+  const draft = generateDraft(random, index, evaluatedLane);
+  const ranking = evaluationEntries
+    .map((entry) => evaluateCandidate(entry, draft.visible, { universalBenchmark, lane: evaluatedLane }))
     .sort((a, b) => {
       if (a.status === "SCORED" && b.status !== "SCORED") return -1;
       if (a.status !== "SCORED" && b.status === "SCORED") return 1;
@@ -800,23 +874,58 @@ const selfChecks = [
   },
   {
     rule: "Todas as entradas habilitadas permanecem na lista",
-    passed: simulations.every((simulation) => simulation.ranking.length === fixture.entries.length),
-    values: { expected: fixture.entries.length },
+    passed: simulations.every((simulation) => simulation.ranking.length === evaluationEntries.length),
+    values: { expected: evaluationEntries.length },
   },
   {
     rule: "Desabilitar uma categoria a remove da avaliação",
-    passed: fixture.entries.filter((entry) => ["principal", "secundaria"].includes(entry.pool)).every((entry) => entry.pool !== "laboratorio"),
+    passed: universalBenchmark || fixture.entries.filter((entry) => ["principal", "secundaria"].includes(entry.pool)).every((entry) => entry.pool !== "laboratorio"),
   },
 ];
+
+if (universalBenchmark) {
+  selfChecks.push(
+    {
+      rule: "Benchmark avalia os 173 campeões",
+      passed: evaluationEntries.length === championRecords.length && simulations.every((simulation) => simulation.ranking.length === championRecords.length),
+      values: { candidates: evaluationEntries.length },
+    },
+    {
+      rule: "Benchmark não aplica afinidade nem conforto",
+      passed: simulations.every((simulation) => simulation.ranking
+        .filter((result) => result.status === "SCORED")
+        .every((result) => result.components.affinity === 0 && result.components.comfort === 0)),
+    },
+    {
+      rule: "Benchmark usa somente o perfil/build padrão universal",
+      passed: simulations.every((simulation) => simulation.ranking
+        .filter((result) => result.status === "SCORED")
+        .every((result) => result.buildId === "system-default" && result.builds.length === 1)),
+    },
+    {
+      rule: "Viabilidade de lane pune suporte sem baseline mais que pick padrão da lane",
+      passed: laneViability("Yuumi", evaluatedLane, championByName.get("Yuumi").profile).score <
+        laneViability(evaluatedLane === "MID" ? "Ahri" : "Aatrox", evaluatedLane, championByName.get(evaluatedLane === "MID" ? "Ahri" : "Aatrox").profile).score,
+      values: {
+        yuumi: round(laneViability("Yuumi", evaluatedLane, championByName.get("Yuumi").profile).score),
+        baseline: round(laneViability(evaluatedLane === "MID" ? "Ahri" : "Aatrox", evaluatedLane, championByName.get(evaluatedLane === "MID" ? "Ahri" : "Aatrox").profile).score),
+      },
+    },
+  );
+}
 
 const output = {
   metadata: {
     seed,
     patch: "26.16",
     tier: "Diamond+",
-    lane: fixture.lane,
-    poolFixtureOnly: true,
-    warning: "Protótipo heurístico v0.4. Só pontua interações aplicáveis ao draft; não representa win rate.",
+    lane: evaluatedLane,
+    mode: universalBenchmark ? "UNIVERSAL_BENCHMARK" : "POOL_FIXTURE",
+    candidates: evaluationEntries.length,
+    personalAffinityEnabled: !universalBenchmark,
+    customBuildsEnabled: !universalBenchmark,
+    profileSource: universalBenchmark ? "UNIFORM_HEURISTIC_CATALOG" : "POOL_MANUAL_PLUS_HEURISTIC_OPPONENTS",
+    warning: "Protótipo heurístico v0.5. Só pontua interações aplicáveis ao draft; não representa win rate.",
   },
   selfChecks,
   simulations,
