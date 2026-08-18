@@ -1,0 +1,3086 @@
+{
+  "metadata": {
+    "seed": 20260817,
+    "patch": "26.16",
+    "tier": "Diamond+",
+    "lane": "MID",
+    "mode": "UNIVERSAL_BENCHMARK",
+    "candidates": 173,
+    "personalAffinityEnabled": false,
+    "customBuildsEnabled": false,
+    "profileSource": "UNIFORM_HEURISTIC_CATALOG",
+    "warning": "Protótipo heurístico v0.5. Só pontua interações aplicáveis ao draft; não representa win rate."
+  },
+  "selfChecks": [
+    {
+      "rule": "Hardcounter confirmado na lane não recebe nota",
+      "passed": true
+    },
+    {
+      "rule": "Veto pode ser específico da build",
+      "passed": true
+    },
+    {
+      "rule": "Blind da própria lane pesa mais que quatro slots desconhecidos fora dela",
+      "passed": true,
+      "values": {
+        "ownLaneBlind": 5.87,
+        "fourOtherUnknowns": 4.4
+      }
+    },
+    {
+      "rule": "Draft inimigo completo não gera bônus nem penalidade de blind",
+      "passed": true
+    },
+    {
+      "rule": "Perfil versátil sem resposta aplicável não ganha nota de composição",
+      "passed": true,
+      "values": {
+        "score": 0
+      }
+    },
+    {
+      "rule": "Adicionar capacidade irrelevante não altera a nota",
+      "passed": true,
+      "values": {
+        "enemyComp": 0,
+        "allyComp": 0
+      }
+    },
+    {
+      "rule": "Somente as duas necessidades aliadas críticas entram no cálculo",
+      "passed": true,
+      "values": {
+        "criticalNeeds": [
+          "waveclear contra o siege inimigo",
+          "alcance para iniciar sobre o poke inimigo"
+        ]
+      }
+    },
+    {
+      "rule": "Todas as entradas habilitadas permanecem na lista",
+      "passed": true,
+      "values": {
+        "expected": 173
+      }
+    },
+    {
+      "rule": "Desabilitar uma categoria a remove da avaliação",
+      "passed": true
+    },
+    {
+      "rule": "Benchmark avalia os 173 campeões",
+      "passed": true,
+      "values": {
+        "candidates": 173
+      }
+    },
+    {
+      "rule": "Benchmark não aplica afinidade nem conforto",
+      "passed": true
+    },
+    {
+      "rule": "Benchmark usa somente o perfil/build padrão universal",
+      "passed": true
+    },
+    {
+      "rule": "Viabilidade de lane pune suporte sem baseline mais que pick padrão da lane",
+      "passed": true,
+      "values": {
+        "yuumi": -7.15,
+        "baseline": 0
+      }
+    }
+  ],
+  "simulations": [
+    {
+      "id": 1,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Yone",
+            "JUNGLE": "Warwick",
+            "MID": null,
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Leona"
+          },
+          "enemyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Vi",
+            "MID": "Cassiopeia",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Nautilus"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Yone",
+            "JUNGLE": "Warwick",
+            "MID": null,
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Leona"
+          },
+          "enemyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Vi",
+            "MID": "Cassiopeia",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Nautilus"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 1.1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yasuo possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Vi: contenção da mobilidade."
+          ]
+        },
+        {
+          "champion": "Mel",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.71,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.85,
+            "enemyComp": 0,
+            "allyComp": 4,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Mel possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Vi: engage/dive pune o perfil.",
+            "Risco contra Cassiopeia: controle interrompe a entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Kassadin",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.45,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.03,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Kassadin possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Favorável contra Jinx: burst contra alvo vulnerável."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.43,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -1.8,
+            "matchup": -1.26,
+            "enemyComp": 3.6,
+            "allyComp": 4.55,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Sion não possui baseline padrão para MID; risco de lane 1.8.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Favorável contra Jinx: resposta ao DPS físico.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Neeko",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.11,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0,
+            "allyComp": 2,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Neeko possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Orianna",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 2.27,
+            "allyComp": 2,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Orianna possui baseline padrão para MID.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Favorável contra Cassiopeia: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Taliyah",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 2.27,
+            "allyComp": 2,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Taliyah possui baseline padrão para MID.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Favorável contra Cassiopeia: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.21,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0,
+            "allyComp": 1.1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Corki possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Risco contra Vi: engage/dive pune o perfil.",
+            "Risco contra Nautilus: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.21,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0,
+            "allyComp": 1.1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Irelia possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Vi: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Nasus",
+            "JUNGLE": "Skarner",
+            "MID": null,
+            "BOTTOM": "Samira",
+            "SUPPORT": "Maokai"
+          },
+          "enemyByRole": {
+            "TOP": "Olaf",
+            "JUNGLE": "Briar",
+            "MID": "Malzahar",
+            "BOTTOM": "Yunara",
+            "SUPPORT": "Blitzcrank"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Nasus",
+            "JUNGLE": null,
+            "MID": null,
+            "BOTTOM": "Samira",
+            "SUPPORT": "Maokai"
+          },
+          "enemyByRole": {
+            "TOP": "Olaf",
+            "JUNGLE": "Briar",
+            "MID": "Malzahar",
+            "BOTTOM": null,
+            "SUPPORT": null
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.27,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0,
+            "allyComp": 3.93,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Swain",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.17,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 2.27,
+            "allyComp": 1.67,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Swain possui baseline padrão para MID.",
+            "Favorável: sustain explora vulnerável a poke.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Mel",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.6,
+            "enemyComp": 0,
+            "allyComp": 3.93,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Mel possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Orianna",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.27,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Orianna possui baseline padrão para MID.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Taliyah",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.27,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Taliyah possui baseline padrão para MID.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Lux",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0,
+            "allyComp": 2.27,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Lux possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Vel'Koz",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.01,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0,
+            "allyComp": 1.67,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Vel'Koz possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.01,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0,
+            "allyComp": 1.67,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Xerath possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Naafiri",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.64,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0.47,
+            "allyComp": 0.6,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Naafiri possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: burst contra alvo vulnerável.",
+            "Favorável contra Malzahar: alcance contra alvo exposto.",
+            "Risco contra Olaf: controle interrompe a entrada.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.64,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0.47,
+            "allyComp": 0.6,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Zed possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: frontline nega o padrão de dano.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Sett",
+            "JUNGLE": "Sejuani",
+            "MID": null,
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Renata Glasc"
+          },
+          "enemyByRole": {
+            "TOP": "Kayle",
+            "JUNGLE": "Lillia",
+            "MID": "Vex",
+            "BOTTOM": "Ezreal",
+            "SUPPORT": "Janna"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Sett",
+            "JUNGLE": "Sejuani",
+            "MID": null,
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Renata Glasc"
+          },
+          "enemyByRole": {
+            "TOP": "Kayle",
+            "JUNGLE": "Lillia",
+            "MID": "Vex",
+            "BOTTOM": null,
+            "SUPPORT": "Janna"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Corki possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: alcance contra alvo exposto.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Lux",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Lux possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Zoe",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Zoe possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Jayce",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.32,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 0.85
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Jayce possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: alcance contra alvo exposto.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.97,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.13,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Ziggs",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.31,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.13,
+            "allyComp": 0,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ziggs possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Favorável contra Kayle: resposta ao poke/siege."
+          ]
+        },
+        {
+          "champion": "Vel'Koz",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.96,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 2.9,
+            "allyComp": 0,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Vel'Koz possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Favorável contra Kayle: resposta ao poke/siege."
+          ]
+        },
+        {
+          "champion": "Aurelion Sol",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Aurelion Sol possui baseline padrão para MID.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Viktor",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Viktor possui baseline padrão para MID.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Aatrox",
+            "JUNGLE": "Wukong",
+            "MID": null,
+            "BOTTOM": "Twitch",
+            "SUPPORT": "Ashe"
+          },
+          "enemyByRole": {
+            "TOP": "Urgot",
+            "JUNGLE": "Karthus",
+            "MID": "Talon",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Bard"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Aatrox",
+            "JUNGLE": "Wukong",
+            "MID": null,
+            "BOTTOM": "Twitch",
+            "SUPPORT": "Ashe"
+          },
+          "enemyByRole": {
+            "TOP": "Urgot",
+            "JUNGLE": "Karthus",
+            "MID": "Talon",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Bard"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 15.86,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.36,
+            "enemyComp": 3.6,
+            "allyComp": 5.73,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Orianna",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.47,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 2.27,
+            "allyComp": 5.73,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Orianna possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Favorável contra Bard: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Viktor",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.47,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 2.27,
+            "allyComp": 5.73,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Viktor possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Ziggs",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.07,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 2.27,
+            "allyComp": 5.33,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Ziggs possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Aurelion Sol",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.86,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.36,
+            "enemyComp": 2.27,
+            "allyComp": 5.73,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Aurelion Sol possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.86,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.36,
+            "enemyComp": 2.27,
+            "allyComp": 5.73,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Taliyah",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.86,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.36,
+            "enemyComp": 2.27,
+            "allyComp": 5.73,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Taliyah possui baseline padrão para MID.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Favorável contra Bard: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Lissandra",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 1.8,
+            "allyComp": 5.73,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Lissandra possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Favorável contra Bard: contenção da mobilidade.",
+            "Risco contra Urgot: controle interrompe a entrada.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Syndra",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 1.8,
+            "allyComp": 5.73,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Syndra possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.46,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.36,
+            "enemyComp": 2.27,
+            "allyComp": 5.33,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Rumble possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Favorável contra Bard: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Poppy",
+            "JUNGLE": "Nocturne",
+            "MID": null,
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Soraka"
+          },
+          "enemyByRole": {
+            "TOP": "Aatrox",
+            "JUNGLE": "Lee Sin",
+            "MID": "Lux",
+            "BOTTOM": "Seraphine",
+            "SUPPORT": "Taric"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Poppy",
+            "JUNGLE": "Nocturne",
+            "MID": null,
+            "BOTTOM": "Smolder",
+            "SUPPORT": null
+          },
+          "enemyByRole": {
+            "TOP": "Aatrox",
+            "JUNGLE": "Lee Sin",
+            "MID": "Lux",
+            "BOTTOM": "Seraphine",
+            "SUPPORT": "Taric"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.11,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.5,
+            "matchup": 0.3,
+            "enemyComp": 1.8,
+            "allyComp": 4.8,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Ornn não possui baseline padrão para MID; risco de lane 2.5.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Risco contra Aatrox: frontline nega o padrão de dano.",
+            "Risco contra Taric: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.28,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -1.8,
+            "matchup": -1.26,
+            "enemyComp": 3.6,
+            "allyComp": 4.4,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Sion não possui baseline padrão para MID; risco de lane 1.8.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Cassiopeia possui baseline padrão para MID.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yasuo possui baseline padrão para MID.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: contenção da mobilidade."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 4,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.28,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -1.8,
+            "matchup": -1.26,
+            "enemyComp": 3.6,
+            "allyComp": 0.4,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yorick não possui baseline padrão para MID; risco de lane 1.8.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Dr. Mundo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 2.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.5,
+            "matchup": -1.75,
+            "enemyComp": 3.6,
+            "allyComp": 0.4,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Dr. Mundo não possui baseline padrão para MID; risco de lane 2.5.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Vel'Koz",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Vel'Koz possui baseline padrão para MID.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Favorável contra Taric: alcance contra alvo exposto.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Brand",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 1.43,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -0.68,
+            "enemyComp": 0,
+            "allyComp": 2.8,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Brand possui baseline padrão para MID.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Risco contra Aatrox: controle interrompe a entrada.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Warwick",
+            "JUNGLE": "Xin Zhao",
+            "MID": null,
+            "BOTTOM": "Sivir",
+            "SUPPORT": "Janna"
+          },
+          "enemyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Nidalee",
+            "MID": "Pantheon",
+            "BOTTOM": "Varus",
+            "SUPPORT": "Leona"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Xin Zhao",
+            "MID": null,
+            "BOTTOM": "Sivir",
+            "SUPPORT": "Janna"
+          },
+          "enemyByRole": {
+            "TOP": null,
+            "JUNGLE": "Nidalee",
+            "MID": "Pantheon",
+            "BOTTOM": null,
+            "SUPPORT": null
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Ekko",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3.47,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ekko possui baseline padrão para MID.",
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3.47,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Qiyana possui baseline padrão para MID.",
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3.47,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.47,
+            "allyComp": 3.47,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Nidalee: engage/dive pune o perfil.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Zoe",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.47,
+            "allyComp": 3.47,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Zoe possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Nidalee: engage/dive pune o perfil.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Cassiopeia possui baseline padrão para MID.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Vel'Koz",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.97,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.47,
+            "allyComp": 2.67,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Vel'Koz possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Nidalee: engage/dive pune o perfil.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Ziggs",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.97,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.47,
+            "allyComp": 2.67,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ziggs possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Nidalee: engage/dive pune o perfil.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Lux",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.44,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.47,
+            "allyComp": 2.13,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Lux possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Nidalee: engage/dive pune o perfil.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.5,
+            "matchup": 0.3,
+            "enemyComp": 3.6,
+            "allyComp": 1.33,
+            "blind": 2.55
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ornn não possui baseline padrão para MID; risco de lane 2.5.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Teemo",
+            "JUNGLE": "Elise",
+            "MID": null,
+            "BOTTOM": "Senna",
+            "SUPPORT": "Rell"
+          },
+          "enemyByRole": {
+            "TOP": "Illaoi",
+            "JUNGLE": "Rengar",
+            "MID": "Naafiri",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Zyra"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Teemo",
+            "JUNGLE": "Elise",
+            "MID": null,
+            "BOTTOM": "Senna",
+            "SUPPORT": "Rell"
+          },
+          "enemyByRole": {
+            "TOP": "Illaoi",
+            "JUNGLE": "Rengar",
+            "MID": "Naafiri",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Zyra"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -1.8,
+            "matchup": -0.23,
+            "enemyComp": 3.6,
+            "allyComp": 5.87,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Sion não possui baseline padrão para MID; risco de lane 1.8.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Illaoi: resposta à entrada.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.49,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.5,
+            "matchup": 0.61,
+            "enemyComp": 2.27,
+            "allyComp": 5.87,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Ornn não possui baseline padrão para MID; risco de lane 2.5.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Illaoi: resposta à entrada.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Risco contra Illaoi: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Rengar: contenção da mobilidade."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.92,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.03,
+            "enemyComp": 0,
+            "allyComp": 5.87,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Illaoi: resposta à entrada.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Risco contra Illaoi: engage/dive pune o perfil.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.99,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -1.8,
+            "matchup": 0.79,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Yorick não possui baseline padrão para MID; risco de lane 1.8.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Illaoi: resposta à entrada.",
+            "Favorável contra Rengar: resposta à entrada."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.63,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0.62,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Cassiopeia possui baseline padrão para MID.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Illaoi: DPS/anti-tank contra a frontline.",
+            "Favorável contra Rengar: contenção da mobilidade."
+          ]
+        },
+        {
+          "champion": "Kassadin",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Kassadin possui baseline padrão para MID.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Favorável contra Jinx: burst contra alvo vulnerável."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Yasuo possui baseline padrão para MID.",
+            "Favorável contra Illaoi: DPS/anti-tank contra a frontline.",
+            "Favorável contra Naafiri: resposta ao poke/siege."
+          ]
+        },
+        {
+          "champion": "Lux",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.99,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.03,
+            "enemyComp": 0,
+            "allyComp": 2.93,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Lux possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Risco contra Illaoi: engage/dive pune o perfil.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        },
+        {
+          "champion": "Vel'Koz",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.99,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.03,
+            "enemyComp": 0,
+            "allyComp": 2.93,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Vel'Koz possui baseline padrão para MID.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Risco contra Illaoi: engage/dive pune o perfil.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Yone",
+            "JUNGLE": "Kindred",
+            "MID": null,
+            "BOTTOM": "Sivir",
+            "SUPPORT": "Tahm Kench"
+          },
+          "enemyByRole": {
+            "TOP": "Kennen",
+            "JUNGLE": "Rengar",
+            "MID": "Brand",
+            "BOTTOM": "Kog'Maw",
+            "SUPPORT": "Taric"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Yone",
+            "JUNGLE": "Kindred",
+            "MID": null,
+            "BOTTOM": null,
+            "SUPPORT": "Tahm Kench"
+          },
+          "enemyByRole": {
+            "TOP": null,
+            "JUNGLE": "Rengar",
+            "MID": "Brand",
+            "BOTTOM": null,
+            "SUPPORT": "Taric"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.91,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 0.4,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yasuo possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: burst contra alvo vulnerável."
+          ]
+        },
+        {
+          "champion": "Gragas",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.15,
+            "matchup": 0.55,
+            "enemyComp": 3.6,
+            "allyComp": 2.2,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Gragas não possui baseline padrão para MID; risco de lane 2.15.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.93,
+            "allyComp": 2,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Favorável contra Brand: alcance contra alvo exposto.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Kassadin",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.45,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.03,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Kassadin possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Favorável contra Taric: burst contra alvo vulnerável."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0.93,
+            "allyComp": 0.4,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Corki possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Vel'Koz",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.93,
+            "allyComp": 1,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Vel'Koz possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: alcance contra alvo exposto.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.93,
+            "allyComp": 1,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Xerath possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: alcance contra alvo exposto.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Viktor",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.91,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.93,
+            "allyComp": 0.4,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Viktor possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Neeko",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.47,
+            "allyComp": 1,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Neeko possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Taric: kite/disengage nega contato.",
+            "Risco contra Rengar: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Vi",
+            "MID": null,
+            "BOTTOM": "Caitlyn",
+            "SUPPORT": "Soraka"
+          },
+          "enemyByRole": {
+            "TOP": "Pantheon",
+            "JUNGLE": "Zac",
+            "MID": "Vel'Koz",
+            "BOTTOM": "Tristana",
+            "SUPPORT": "Morgana"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Vi",
+            "MID": null,
+            "BOTTOM": "Caitlyn",
+            "SUPPORT": "Soraka"
+          },
+          "enemyByRole": {
+            "TOP": "Pantheon",
+            "JUNGLE": "Zac",
+            "MID": "Vel'Koz",
+            "BOTTOM": null,
+            "SUPPORT": "Morgana"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.47,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4.57,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yasuo possui baseline padrão para MID.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Favorável contra Vel'Koz: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3.67,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Morgana: alcance contra alvo exposto.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Kassadin",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -1.03,
+            "enemyComp": 3.13,
+            "allyComp": 3.67,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Kassadin possui baseline padrão para MID.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.9,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Cassiopeia possui baseline padrão para MID.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.07,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 4.57,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Corki possui baseline padrão para MID.",
+            "Favorável contra Pantheon: alcance contra alvo exposto.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.07,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 4.57,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Irelia possui baseline padrão para MID.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Favorável contra Vel'Koz: DPS/anti-tank contra a frontline.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Viktor",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.07,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 4.57,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Viktor possui baseline padrão para MID.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Aurelion Sol",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -0.1,
+            "enemyComp": 0,
+            "allyComp": 4.57,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Aurelion Sol possui baseline padrão para MID.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Jayce",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 4.57,
+            "blind": 0.85
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Jayce possui baseline padrão para MID.",
+            "Favorável contra Pantheon: alcance contra alvo exposto.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.17,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 3.67,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": "Pantheon",
+            "JUNGLE": "Rammus",
+            "MID": null,
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Poppy"
+          },
+          "enemyByRole": {
+            "TOP": "Kayle",
+            "JUNGLE": "Shyvana",
+            "MID": "Ryze",
+            "BOTTOM": "Ziggs",
+            "SUPPORT": "Seraphine"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": "Pantheon",
+            "JUNGLE": "Rammus",
+            "MID": null,
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Poppy"
+          },
+          "enemyByRole": {
+            "TOP": "Kayle",
+            "JUNGLE": "Shyvana",
+            "MID": "Ryze",
+            "BOTTOM": "Ziggs",
+            "SUPPORT": "Seraphine"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.31,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 3.13,
+            "allyComp": 4.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Veigar possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Locke",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.01,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 2.27,
+            "allyComp": 4.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Locke possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Seraphine: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.74,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0.93,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Corki possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.93,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Hwei possui baseline padrão para MID.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Ryze: alcance contra alvo exposto.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Viktor",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.05,
+            "enemyComp": 0.93,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Viktor possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Lux",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.34,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.67,
+            "enemyComp": 0,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Lux possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Shyvana: frontline nega o padrão de dano.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Mel",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.57,
+            "enemyComp": 0,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Mel possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Ziggs: controle interrompe a entrada.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Cassiopeia possui baseline padrão para MID.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Kassadin",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Kassadin possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Aurelion Sol",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.95,
+            "enemyComp": 0.93,
+            "allyComp": 4.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Aurelion Sol possui baseline padrão para MID.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        }
+      ]
+    }
+  ]
+}
