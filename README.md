@@ -6,18 +6,19 @@ O objetivo é recomendar apenas campeões cadastrados na pool do usuário, consi
 
 ## Estado atual
 
-A base de pesquisa e validação v0.5 contém:
+A base de pesquisa e validação v0.6 contém:
 
 - catálogo estrutural dos 173 campeões;
 - análise aprofundada inicial da pool Mid;
 - camada universal de avaliação da Toplane;
 - snapshot Top do Patch 26.16 com 8.215 relações direcionais;
 - especificação consolidada v0.4;
-- protótipo heurístico com modo de pool e modo de benchmark universal;
+- protótipo híbrido com estatística Top, inferência mecânica e modo de benchmark universal;
 - benchmarks neutros de 10 drafts em Mid e 10 em Top;
-- auditoria dos critérios atuais contra metodologias publicamente documentadas.
+- auditoria dos critérios atuais contra metodologias publicamente documentadas;
+- shrinkage por amostra, leitura bidirecional de matchup, risco condicional do draft incompleto e retenção de execução da build.
 
-Ainda não existe uma versão confiável do recomendador para uso durante partidas. O benchmark universal removeu pool, afinidade, conforto e builds customizadas, mas reprovou a calibração estratégica. O problema está documentado antes da construção da interface.
+Ainda não existe uma versão confiável do recomendador para uso durante partidas. A camada estatística Top passou nos testes de integração e melhorou as matchups, mas o catálogo universal e Mid ainda reprovaram a calibração estratégica. O problema está documentado antes da construção da interface.
 
 ## Documentação
 
@@ -27,6 +28,7 @@ Ainda não existe uma versão confiável do recomendador para uso durante partid
 - [Especificação consolidada do algoritmo v0.4](docs/especificacao-algoritmo-v0.4.md)
 - [Validação v0.4: aplicabilidade específica em 10 drafts](docs/validacao-simulacao-10-drafts-v0.4.md)
 - [Auditoria v0.5: critérios e benchmark universal Mid/Top](docs/auditoria-criterios-benchmark-universal-v0.5.md)
+- [Pesquisa e algoritmo híbrido v0.6](docs/pesquisa-plataformas-algoritmo-hibrido-v0.6.md)
 
 ## Princípios
 
@@ -40,7 +42,9 @@ Ainda não existe uma versão confiável do recomendador para uso durante partid
 - Build padrão é usada até existir uma build customizada.
 - Builds alteram a identidade estratégica, sem simular diferenças irrelevantes de poucos pontos de atributo.
 - Picks de laboratório podem liderar o ranking se a nota for maior.
-- Blind da própria lane pesa mais que slots desconhecidos fora dela e nunca gera bônus quando o draft está conhecido.
+- Draft incompleto usa a cauda dos adversários plausíveis por função; não existe bônus abstrato de blind.
+- Estatística de matchup é encolhida pela amostra e confirmada nas duas direções quando possível.
+- Uma lane ruim reduz apenas bônus positivos que a build talvez não consiga executar.
 - A pool filtra candidatos e representa afinidade; ela não é a fonte de conhecimento do campeão.
 
 ## Benchmark universal
@@ -69,14 +73,14 @@ scoreProduto = basePessoal + ajusteDraft - riscos explícitos
 scoreBenchmark = ajusteDraft - riscos explícitos
 ```
 
-Tempo, recursos, execução e confiança devem modificar a aplicabilidade desses três blocos, não criar bônus independentes. O score ainda não representa probabilidade de vitória.
+Um prior pequeno campeão-função-patch desempata candidatos comparáveis. Tempo, recursos, execução e confiança modificam a aplicabilidade dos três blocos, não criam bônus independentes. O score ainda não representa probabilidade de vitória.
 
 ## Próximas etapas
 
 1. Definir schemas explícitos de campeão, lane, build, mecânica e evidência.
-2. Gerar snapshot Diamond+ do Mid e normalizar a camada Top por campeão–função.
-3. Implementar baseline, residual de matchup/sinergia e shrinkage por amostra.
+2. Gerar snapshot Diamond+ do Mid e atualizar a camada Top por campeão-função-patch.
+3. Adicionar residuais de sinergia e confronto entre funções; o residual de matchup Top e o shrinkage inicial já estão implementados.
 4. Revisar os 173 perfis e retirar o parser por palavras-chave do caminho de produção.
 5. Criar conjunto ouro de matchups e drafts Mid/Top para regressão.
-6. Repetir o benchmark universal e validar cada top 3 antes da interface.
+6. Repetir o benchmark universal, revisar os off-metas que lideraram e validar cada top 3 antes da interface.
 7. Implementar o motor definitivo, cadastro local de pool/builds e página de análise.
