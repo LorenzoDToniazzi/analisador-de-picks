@@ -6,12 +6,13 @@ O objetivo é recomendar apenas campeões cadastrados na pool do usuário, consi
 
 ## Estado atual
 
-A base de pesquisa, validação e aplicação v0.9 contém:
+A base de pesquisa, validação e aplicação v1.0 contém:
 
 - aplicação estática utilizável no navegador, sem backend;
 - cadastro local de pool por campeão e rota;
 - variantes independentes por `campeão + rota + build`;
-- cadastro híbrido de build com itens, runa, sugestão automática e perfil manual revisável;
+- perfis qualitativos de 0 a 10 para os 173 campeões, construídos por kit oficial, arquétipo, atributos e ajustes revisados;
+- cadastro híbrido de build com comparação `padrão → ajuste → resultado`, permitindo adicionar ou remover características;
 - draft Mid/Top completo ou incompleto e ranking de todas as variantes habilitadas;
 - overrides pessoais de matchup por variante;
 - persistência automática, limpeza e importação/exportação JSON;
@@ -64,6 +65,7 @@ O fluxo do produto começa sem pool. Cadastre um campeão em Mid ou Top, mantenh
 - [Benchmark 5x5 e separação lane/jungle v0.7](docs/ajuste-benchmark-5v5-pesos-v0.7.md)
 - [Matchup dominante e mecânicas específicas v0.8](docs/ajuste-matchups-counter-v0.8.md)
 - [Modelo híbrido de builds e MVP v0.9](docs/modelo-builds-e-mvp-v0.9.md)
+- [Perfis 0-10, builds comparativas e trava de execução v1.0](docs/modelo-perfis-builds-v1.0.md)
 
 ## Princípios
 

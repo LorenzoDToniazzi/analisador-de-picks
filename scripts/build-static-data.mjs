@@ -16,6 +16,11 @@ const catalog = spawnSync(process.execPath, [path.join(root, "prototype", "simul
 });
 if (catalog.status !== 0) throw new Error(catalog.stderr || "Falha ao exportar catálogo");
 fs.writeFileSync(path.join(outputDir, "champions.json"), catalog.stdout);
+const profiles = spawnSync(process.execPath, [path.join(root, "scripts", "build-champion-profiles.mjs")], {
+  encoding: "utf8",
+  maxBuffer: 20 * 1024 * 1024,
+});
+if (profiles.status !== 0) throw new Error(profiles.stderr || "Falha ao gerar perfis 0-10");
 
 async function fetchJson(name) {
   const url = `https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/${name}`;

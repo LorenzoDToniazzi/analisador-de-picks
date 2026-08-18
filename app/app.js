@@ -1,4 +1,4 @@
-import { BUILD_TAGS, DraftEngine, RISK_TAGS, TAG_LABELS, inferBuildProfile, scoreWeights } from "./engine.js";
+import { BUILD_TAGS, DraftEngine, RISK_TAGS, TAG_LABELS, inferBuildModifiers, modifiersFromProfile, resolveBuildProfile, scoreWeights } from "./engine.js";
 import { clearState, exportState, importState, loadState, newId, saveState } from "./storage.js";
 
 const VERSION = "16.16.1";
@@ -15,7 +15,7 @@ let itemById = new Map();
 let runes = [];
 let engine;
 let selectedItemIds = [];
-let editorProfile = null;
+let editorModifiers = null;
 let toastTimer;
 
 const $ = (selector) => document.querySelector(selector);
@@ -153,19 +153,27 @@ function renderSelectedItems() {
 }
 
 function renderSliders() {
-  if (!editorProfile) return;
+  if (!editorModifiers) return;
+  const entry = state.pools.find((row) => row.id === $("#build-pool-entry").value);
+  const champion = championByName.get(entry?.champion);
+  if (!champion) return;
   const render = (tags, side) => tags.map((tag) => {
-    const value = editorProfile[side]?.[tag] ?? 0;
-    return `<label class="slider-row"><span>${escapeHtml(TAG_LABELS[tag] ?? tag)}</span><input type="range" min="0" max="3" step="0.5" value="${value}" data-side="${side}" data-tag="${tag}"><output>${value}</output></label>`;
+    const base = champion.profile[side]?.[tag] ?? 0;
+    const delta = editorModifiers[side]?.[tag] ?? 0;
+    const final = Math.max(0, Math.min(10, base + delta));
+    const direction = delta > 0 ? `+${delta}` : `${delta}`;
+    return `<label class="slider-row"><span>${escapeHtml(TAG_LABELS[tag] ?? tag)}</span><span class="base-score">${base}</span><input type="range" min="-10" max="10" step="0.5" value="${delta}" data-side="${side}" data-tag="${tag}"><output><b>${direction}</b><strong>${final}</strong></output></label>`;
   }).join("");
-  $("#strength-sliders").innerHTML = render(BUILD_TAGS, "strengths");
-  $("#risk-sliders").innerHTML = render(RISK_TAGS, "weaknesses");
+  $("#strength-sliders").innerHTML = `<div class="attribute-head"><span>Atributo</span><span>Padrão</span><span>Ajuste</span><span>Final</span></div>${render(BUILD_TAGS, "strengths")}`;
+  $("#risk-sliders").innerHTML = `<p class="risk-help">Nas fraquezas, valor positivo piora o risco e valor negativo reduz.</p><div class="attribute-head"><span>Fraqueza</span><span>Padrão</span><span>Ajuste</span><span>Final</span></div>${render(RISK_TAGS, "weaknesses")}`;
   $$(".slider-row input").forEach((input) => input.addEventListener("input", () => {
-    editorProfile[input.dataset.side] ??= {};
+    editorModifiers[input.dataset.side] ??= {};
     const value = Number(input.value);
-    if (value === 0) delete editorProfile[input.dataset.side][input.dataset.tag];
-    else editorProfile[input.dataset.side][input.dataset.tag] = value;
-    input.nextElementSibling.value = value;
+    editorModifiers[input.dataset.side][input.dataset.tag] = value;
+    const base = champion.profile[input.dataset.side]?.[input.dataset.tag] ?? 0;
+    const output = input.nextElementSibling;
+    output.querySelector("b").textContent = value > 0 ? `+${value}` : `${value}`;
+    output.querySelector("strong").textContent = Math.max(0, Math.min(10, base + value));
   }));
 }
 
@@ -179,7 +187,7 @@ function resetBuildEditor(entryId = state.pools[0]?.id ?? "") {
   $("#build-enabled").checked = true;
   selectedItemIds = [];
   const entry = state.pools.find((row) => row.id === $("#build-pool-entry").value);
-  editorProfile = entry ? inferBuildProfile(championByName.get(entry.champion), [], "") : null;
+  editorModifiers = entry ? { strengths: Object.fromEntries(BUILD_TAGS.map((tag) => [tag, 0])), weaknesses: Object.fromEntries(RISK_TAGS.map((tag) => [tag, 0])) } : null;
   renderSelectedItems();
   renderSliders();
 }
@@ -213,14 +221,15 @@ function editBuild(id) {
   $("#build-notes").value = build.notes ?? "";
   $("#build-enabled").checked = build.enabled !== false;
   selectedItemIds = [...(build.itemIds ?? [])];
-  editorProfile = structuredClone(build.profile);
+  const champion = championByName.get(build.champion);
+  editorModifiers = structuredClone(build.modifiers ?? modifiersFromProfile(champion.profile, build.profile));
   renderSelectedItems(); renderSliders();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function renderBuildArea() {
   $("#build-pool-entry").innerHTML = poolEntryOptions($("#build-pool-entry").value);
-  if (!editorProfile && state.pools.length) resetBuildEditor();
+  if (!editorModifiers && state.pools.length) resetBuildEditor();
   renderBuildList();
 }
 
@@ -244,7 +253,7 @@ function renderOverrides() {
 }
 
 function renderDataSummary() {
-  $("#data-summary").innerHTML = `<h3>Base carregada</h3><ul class="clean-list"><li><b>${champions.length}</b> campeões</li><li><b>${items.length}</b> itens de SR</li><li><b>${runes.length}</b> runas-chave</li><li><b>${state.pools.length}</b> entradas de pool</li><li><b>${state.builds.length}</b> builds customizadas</li><li><b>${state.overrides.length}</b> relações pessoais</li></ul><p class="muted">Patch 26.16 · Data Dragon ${VERSION} · estatística Diamond+ com prior Emerald+.</p><p class="muted">Pesos: lane ${scoreWeights.laneMatchup}, jungler ${scoreWeights.jungleInteraction}, comp inimiga ${scoreWeights.enemyComp}, comp aliada ${scoreWeights.allyComp}.</p>`;
+  $("#data-summary").innerHTML = `<h3>Base carregada</h3><ul class="clean-list"><li><b>${champions.length}</b> campeões com perfil 0-10</li><li><b>${items.length}</b> itens de SR</li><li><b>${runes.length}</b> runas-chave</li><li><b>${state.pools.length}</b> entradas de pool</li><li><b>${state.builds.length}</b> builds customizadas</li><li><b>${state.overrides.length}</b> relações pessoais</li></ul><p class="muted">Patch 26.16 · Data Dragon ${VERSION} · estatística Diamond+ com prior Emerald+.</p><p class="muted">Pesos: lane ${scoreWeights.laneMatchup}, jungler ${scoreWeights.jungleInteraction}, comp inimiga ${scoreWeights.enemyComp}, comp aliada ${scoreWeights.allyComp}.</p>`;
 }
 
 function bindEvents() {
@@ -279,19 +288,21 @@ function bindEvents() {
   $("#infer-profile").addEventListener("click", () => {
     const entry = state.pools.find((row) => row.id === $("#build-pool-entry").value);
     if (!entry) return toast("Cadastre ou selecione uma entrada da pool.");
-    editorProfile = inferBuildProfile(championByName.get(entry.champion), selectedItemIds.map((id) => itemById.get(id)).filter(Boolean), $("#build-keystone").value);
+    editorModifiers = inferBuildModifiers(championByName.get(entry.champion), selectedItemIds.map((id) => itemById.get(id)).filter(Boolean), $("#build-keystone").value);
     renderSliders(); toast("Sugestão recalculada. Revise antes de salvar.");
   });
   $("#cancel-build").addEventListener("click", () => resetBuildEditor());
   $("#build-form").addEventListener("submit", (event) => {
     event.preventDefault();
     const entry = state.pools.find((row) => row.id === $("#build-pool-entry").value);
-    if (!entry || !editorProfile) return toast("Selecione uma entrada da pool.");
+    if (!entry || !editorModifiers) return toast("Selecione uma entrada da pool.");
+    const champion = championByName.get(entry.champion);
     const existingId = $("#build-id").value;
     const build = {
       id: existingId || newId("build"), champion: entry.champion, lane: entry.lane, name: $("#build-name").value.trim(),
       itemIds: [...selectedItemIds], keystone: $("#build-keystone").value, runesNote: $("#build-runes-note").value.trim(),
-      notes: $("#build-notes").value.trim(), enabled: $("#build-enabled").checked, profile: structuredClone(editorProfile), updatedAt: new Date().toISOString(),
+      notes: $("#build-notes").value.trim(), enabled: $("#build-enabled").checked,
+      modifiers: structuredClone(editorModifiers), profile: resolveBuildProfile(champion.profile, editorModifiers), profileModel: "1.0-qualitative-0-10", updatedAt: new Date().toISOString(),
     };
     if (!build.name) return;
     const index = state.builds.findIndex((row) => row.id === build.id);
@@ -315,7 +326,7 @@ function bindEvents() {
   });
   $("#clear-data").addEventListener("click", () => {
     if (!confirm("Limpar pool, builds, overrides e draft deste navegador?")) return;
-    state = clearState(); editorProfile = null; selectedItemIds = []; renderAll(); toast("Dados locais removidos.");
+    state = clearState(); editorModifiers = null; selectedItemIds = []; renderAll(); toast("Dados locais removidos.");
   });
 }
 

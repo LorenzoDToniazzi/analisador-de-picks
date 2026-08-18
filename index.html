@@ -63,7 +63,7 @@
     </section>
 
     <section id="view-builds" class="view hidden">
-      <div class="page-heading"><div><p class="eyebrow">VARIANTES INDEPENDENTES</p><h2>Campeão + rota + build</h2><p>Itens e runa sugerem o perfil. O perfil salvo é completo e independente.</p></div></div>
+      <div class="page-heading"><div><p class="eyebrow">VARIANTES INDEPENDENTES</p><h2>Campeão + rota + build</h2><p>Cada campeão possui notas padrão de 0 a 10. A build aumenta ou reduz cada atributo e salva um perfil independente.</p></div></div>
       <div class="split-layout">
         <form id="build-form" class="panel build-editor">
           <input id="build-id" type="hidden">
@@ -83,8 +83,8 @@
             <button id="infer-profile" class="button secondary" type="button">Recalcular sugestão pelos itens</button>
             <span class="muted">Isso não sobrescreve outra build.</span>
           </div>
-          <details open><summary>O que esta variante entrega</summary><div id="strength-sliders" class="slider-grid"></div></details>
-          <details><summary>Riscos desta variante</summary><div id="risk-sliders" class="slider-grid"></div></details>
+          <details open><summary>O que esta variante altera em relação ao padrão</summary><div id="strength-sliders" class="slider-grid"></div></details>
+          <details><summary>Como esta variante altera as fraquezas</summary><div id="risk-sliders" class="slider-grid"></div></details>
           <label>Notas, arsenal e plano<textarea id="build-notes" rows="4" placeholder="Quando usar, ordem dos itens, alternativas, testes... Habilidade humana ainda serve para alguma coisa."></textarea></label>
           <label class="check-row"><input id="build-enabled" type="checkbox" checked> Variante habilitada</label>
           <div class="form-buttons"><button class="button primary" type="submit">Salvar variante</button><button id="cancel-build" class="button ghost" type="button">Limpar editor</button></div>

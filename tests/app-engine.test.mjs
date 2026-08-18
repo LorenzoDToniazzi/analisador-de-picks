@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { DraftEngine, inferBuildProfile } from "../app/engine.js";
+import { BUILD_TAGS, DraftEngine, RISK_TAGS, inferBuildProfile, resolveBuildProfile } from "../app/engine.js";
 
 const json = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url), "utf8"));
 const championData = json("../app/data/champions.json");
@@ -29,6 +29,24 @@ const baseDraft = {
 
 assert.equal(championData.champions.length, 173, "catálogo deve conter 173 campeões");
 assert.ok(itemData.items.length >= 180, "catálogo deve conter os itens de Summoner's Rift");
+for (const champion of championData.champions) {
+  assert.equal(champion.profile.scale, 10, `${champion.name} deve usar escala 0-10`);
+  for (const tag of BUILD_TAGS) assert.ok(champion.profile.strengths[tag] >= 0 && champion.profile.strengths[tag] <= 10, `${champion.name}/${tag} fora da escala`);
+  for (const tag of RISK_TAGS) assert.ok(champion.profile.weaknesses[tag] >= 0 && champion.profile.weaknesses[tag] <= 10, `${champion.name}/${tag} fora da escala`);
+}
+
+const jaxProfile = byName.get("Jax").profile;
+const jhinProfile = byName.get("Jhin").profile;
+assert.ok(jaxProfile.strengths.defenses > jhinProfile.strengths.defenses, "Jax deve ser estruturalmente mais resistente que Jhin");
+assert.ok(jhinProfile.weaknesses.vulnDive > jaxProfile.weaknesses.vulnDive, "Jhin deve sofrer mais contra acesso/dive");
+const defensiveJax = resolveBuildProfile(jaxProfile, { strengths: { hp: -2, defenses: 2 }, weaknesses: { vulnBurst: -1 } });
+assert.equal(defensiveJax.strengths.hp, jaxProfile.strengths.hp - 2, "build deve conseguir remover HP");
+assert.equal(defensiveJax.strengths.defenses, jaxProfile.strengths.defenses + 2, "build deve conseguir adicionar defesas");
+
+const jhinIrelia = engine.laneScore({ id: "jhin-default", champion: "Jhin", kind: "DEFAULT", profile: jhinProfile }, "Irelia", "MID", []);
+assert.equal(jhinIrelia.veto, true, "Jhin Mid contra Irelia deve ser hardcounter estrutural");
+const jhinLeblanc = engine.laneScore({ id: "jhin-custom", champion: "Jhin", kind: "CUSTOM", profile: resolveBuildProfile(jhinProfile, { strengths: { burst: 2, scaling: 2 } }) }, "LeBlanc", "MID", []);
+assert.ok(["COUNTERED", "SEVERE_COUNTER"].includes(jhinLeblanc.tier), "burst/scaling não pode apagar o acesso da LeBlanc ao Jhin");
 
 const melState = {
   pools: [{ id: "pool-mel", champion: "Mel", lane: "MID", pool: "principal", comfort: 5, includeDefault: true }],
@@ -76,4 +94,4 @@ const nidaleeResult = engine.rank(baseDraft, offMetaState)[0];
 assert.ok(["SCORED", "HARDCOUNTERED"].includes(nidaleeResult.status), "off-meta cadastrado deve ser considerado sem filtro de função");
 assert.ok(!nidaleeResult.reason?.includes("não possui baseline"), "cadastro explícito não recebe penalidade genérica de rota");
 
-console.log("app-engine: 9 checks passaram");
+console.log("app-engine: perfis 0-10, builds negativas e regressões de matchup passaram");

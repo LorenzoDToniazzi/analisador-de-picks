@@ -1,31 +1,34 @@
 export const BUILD_TAGS = [
   "physicalDamage", "magicDamage", "mixedDamage", "burst", "dps", "poke", "shortTrade", "longTrade",
-  "allIn", "aoe", "antiTank", "engage", "followUp", "pick", "backlineAccess", "mobility", "antiDive",
-  "frontline", "hp", "defenses", "sustain", "peel", "disengage", "zone", "cc", "waveclear", "priority",
-  "weakside", "roam", "siege", "split", "teamfight", "scaling", "earlyPressure", "antiCc", "antiAuto",
+  "allIn", "aoe", "antiTank", "engage", "followUp", "pick", "gankSetup", "flank", "dive", "backlineAccess", "gapClose", "stickiness",
+  "mobility", "escape", "effectiveRange", "antiDive", "frontline", "hp", "defenses", "sustain", "selfPeel",
+  "peel", "disengage", "zone", "cc", "waveclear", "priority", "weakside", "roam", "siege", "split",
+  "teamfight", "scaling", "earlyPressure", "antiCc", "antiAuto",
 ];
 
 export const RISK_TAGS = [
-  "vulnPoke", "vulnEngage", "vulnKite", "vulnCc", "vulnBurst", "vulnDps", "vulnTank", "vulnRange",
+  "lowDurability", "vulnDive", "vulnPoke", "vulnEngage", "vulnKite", "vulnCc", "vulnBurst", "vulnDps", "vulnTank", "vulnRange",
   "vulnWave", "vulnGank", "vulnDisengage", "needsContact", "needsFlank", "needsSetup", "needsLongFight",
-  "fragileEntry", "ultDependent", "resourceDependent", "goldDependent", "immobile",
+  "fragileEntry", "ultDependent", "resourceDependent", "goldDependent", "immobile", "conditionalMobility",
 ];
 
 export const TAG_LABELS = {
   physicalDamage: "Dano físico", magicDamage: "Dano mágico", mixedDamage: "Dano misto", burst: "Burst",
   dps: "DPS", poke: "Poke", shortTrade: "Troca curta", longTrade: "Troca longa", allIn: "All-in",
-  aoe: "Área", antiTank: "Anti-tank", engage: "Engage", followUp: "Follow-up", pick: "Pick",
-  backlineAccess: "Acesso à backline", mobility: "Mobilidade", antiDive: "Anti-dive", frontline: "Frontline",
-  hp: "HP", defenses: "Defesas", sustain: "Sustain", peel: "Peel", disengage: "Disengage", zone: "Zona",
+  aoe: "Área", antiTank: "Anti-tank", engage: "Engage", followUp: "Follow-up", pick: "Pick", gankSetup: "Setup de gank", flank: "Flanco", dive: "Dive",
+  backlineAccess: "Acesso à backline", gapClose: "Acesso ao alvo", stickiness: "Permanência no alvo",
+  mobility: "Mobilidade", escape: "Escape", effectiveRange: "Alcance efetivo", antiDive: "Anti-dive", frontline: "Frontline",
+  hp: "HP", defenses: "Defesas", sustain: "Sustain", selfPeel: "Autoproteção", peel: "Peel", disengage: "Disengage", zone: "Zona",
   cc: "Controle", waveclear: "Waveclear", priority: "Prioridade", weakside: "Weakside", roam: "Roaming",
   siege: "Siege", split: "Split", teamfight: "Teamfight", scaling: "Scaling", earlyPressure: "Pressão early",
-  antiCc: "Anti-CC", antiAuto: "Anti-auto", vulnPoke: "Sofre contra poke", vulnEngage: "Sofre contra engage",
+  antiCc: "Anti-CC", antiAuto: "Anti-auto", lowDurability: "Baixa durabilidade", vulnDive: "Sofre dive",
+  vulnPoke: "Sofre contra poke", vulnEngage: "Sofre contra engage",
   vulnKite: "Sofre kite", vulnCc: "Sofre CC", vulnBurst: "Sofre burst", vulnDps: "Sofre DPS",
   vulnTank: "Sofre contra resistência", vulnRange: "Sofre alcance", vulnWave: "Sofre pressão de wave",
   vulnGank: "Exposto a gank", vulnDisengage: "Sofre disengage", needsContact: "Precisa de contato",
   needsFlank: "Precisa de flanco", needsSetup: "Precisa de setup", needsLongFight: "Precisa de luta longa",
   fragileEntry: "Entrada frágil", ultDependent: "Depende da ultimate", resourceDependent: "Depende de recurso",
-  goldDependent: "Depende de ouro", immobile: "Imóvel",
+  goldDependent: "Depende de ouro", immobile: "Imóvel", conditionalMobility: "Mobilidade condicional",
 };
 
 const scoreWeights = { laneMatchup: 3.25, jungleInteraction: 0.65, enemyComp: 1.5, allyComp: 1, populationStrength: 0.35 };
@@ -43,34 +46,69 @@ const keystoneSignals = {
   "Glacial Augment": { cc: 1, peel: 1.5 }, "Unsealed Spellbook": { weakside: 1, scaling: 0.5 }, "First Strike": { burst: 1, poke: 1, goldDependent: 0.5 },
 };
 
-export function inferBuildProfile(champion, items, keystoneName) {
-  const profile = clone(champion.profile);
-  profile.strengths ??= {};
-  profile.weaknesses ??= {};
-  profile.mechanics ??= { strengths: {}, dependencies: {} };
-  profile.mechanics.strengths ??= {};
+function scale10(profile) {
+  const copy = clone(profile);
+  const values = Object.values(copy.strengths ?? {});
+  const legacy = copy.scale !== 10 && values.length && Math.max(...values) <= 3;
+  if (legacy) {
+    for (const side of ["strengths", "weaknesses"]) for (const tag of Object.keys(copy[side] ?? {})) copy[side][tag] = round(copy[side][tag] / 3 * 10);
+    for (const side of ["strengths", "dependencies"]) for (const tag of Object.keys(copy.mechanics?.[side] ?? {})) copy.mechanics[side][tag] = round(copy.mechanics[side][tag] / 3 * 10);
+  }
+  copy.strengths = { ...Object.fromEntries(BUILD_TAGS.map((tag) => [tag, 0])), ...(copy.strengths ?? {}) };
+  copy.weaknesses = { ...Object.fromEntries(RISK_TAGS.map((tag) => [tag, 0])), ...(copy.weaknesses ?? {}) };
+  copy.scale = 10;
+  return copy;
+}
+
+export function resolveBuildProfile(baseProfile, modifiers = {}) {
+  const profile = scale10(baseProfile);
+  for (const tag of BUILD_TAGS) profile.strengths[tag] = round(clamp(profile.strengths[tag] + (modifiers.strengths?.[tag] ?? 0), 0, 10));
+  for (const tag of RISK_TAGS) profile.weaknesses[tag] = round(clamp(profile.weaknesses[tag] + (modifiers.weaknesses?.[tag] ?? 0), 0, 10));
+  profile.confidence = "USER_BUILD";
+  return profile;
+}
+
+export function modifiersFromProfile(baseProfile, resolvedProfile) {
+  const base = scale10(baseProfile);
+  const resolved = scale10(resolvedProfile);
+  return {
+    strengths: Object.fromEntries(BUILD_TAGS.map((tag) => [tag, round(clamp(resolved.strengths[tag] - base.strengths[tag], -10, 10))])),
+    weaknesses: Object.fromEntries(RISK_TAGS.map((tag) => [tag, round(clamp(resolved.weaknesses[tag] - base.weaknesses[tag], -10, 10))])),
+  };
+}
+
+export function inferBuildModifiers(champion, items, keystoneName) {
+  const base = scale10(champion.profile);
+  const modifiers = { strengths: {}, weaknesses: {} };
   const aggregate = {};
   for (const item of items) {
     for (const [tag, value] of Object.entries(item.signals ?? {})) aggregate[tag] = (aggregate[tag] ?? 0) + value;
   }
   for (const [tag, value] of Object.entries(keystoneSignals[keystoneName] ?? {})) aggregate[tag] = (aggregate[tag] ?? 0) + value;
 
+  for (const tag of BUILD_TAGS) modifiers.strengths[tag] = 0;
+  for (const tag of RISK_TAGS) modifiers.weaknesses[tag] = 0;
   for (const [tag, total] of Object.entries(aggregate)) {
-    const inferred = clamp(total / 1.6, 0, 3);
-    if (["spellShield", "cleanse"].includes(tag)) {
-      profile.mechanics.strengths[tag] = Math.max(profile.mechanics.strengths[tag] ?? 0, inferred);
-    } else if (BUILD_TAGS.includes(tag)) {
-      profile.strengths[tag] = round(Math.max(profile.strengths[tag] ?? 0, inferred));
+    if (!BUILD_TAGS.includes(tag)) continue;
+    if (["hp", "defenses", "sustain", "mobility"].includes(tag) && items.length) {
+      const chassis = base.chassis?.strengths?.[tag] ?? Math.max(0, base.strengths[tag] - 2);
+      const desired = clamp(chassis + total * 1.8, 0, 10);
+      modifiers.strengths[tag] = round(clamp(desired - base.strengths[tag], -5, 5));
+    } else {
+      modifiers.strengths[tag] = round(clamp(total / 1.35, 0, 5));
     }
   }
-
   const durability = (aggregate.hp ?? 0) + (aggregate.defenses ?? 0) + (aggregate.sustain ?? 0);
-  if (((profile.weaknesses.needsContact ?? 0) || (profile.strengths.allIn ?? 0)) && durability < 1.5) {
-    profile.weaknesses.fragileEntry = Math.max(profile.weaknesses.fragileEntry ?? 0, 2);
+  if (items.length && ((base.weaknesses.needsContact ?? 0) >= 5 || (base.strengths.allIn ?? 0) >= 5) && durability < 1.5) {
+    modifiers.weaknesses.fragileEntry = 2;
+    modifiers.weaknesses.lowDurability = 1;
   }
-  if (durability >= 5) profile.weaknesses.vulnBurst = Math.max(0, (profile.weaknesses.vulnBurst ?? 0) - 1);
-  profile.confidence = "USER_BUILD";
-  return profile;
+  if (durability >= 5) modifiers.weaknesses.vulnBurst = -2;
+  return modifiers;
+}
+
+export function inferBuildProfile(champion, items, keystoneName) {
+  return resolveBuildProfile(champion.profile, inferBuildModifiers(champion, items, keystoneName));
 }
 
 const matchupRules = [
@@ -106,28 +144,35 @@ const mechanicRules = [
 
 const lanePairs = [
   ["burst", "vulnBurst"], ["dps", "vulnDps"], ["antiTank", "vulnTank"], ["poke", "vulnPoke"],
-  ["poke", "vulnRange"], ["shortTrade", "needsLongFight"], ["cc", "vulnCc"], ["waveclear", "vulnWave"],
-  ["earlyPressure", "goldDependent"], ["sustain", "vulnPoke"],
+  ["effectiveRange", "vulnRange"], ["shortTrade", "needsLongFight"], ["cc", "vulnCc"], ["waveclear", "vulnWave"],
+  ["earlyPressure", "goldDependent"], ["sustain", "vulnPoke"], ["gapClose", "vulnEngage"],
+  ["backlineAccess", "vulnDive"], ["allIn", "lowDurability"], ["stickiness", "immobile"],
 ];
 
 function lanePressure(attacker, defender) {
   const contributions = [];
   const groups = new Map();
   for (const rule of mechanicRules) {
-    const value = (attacker.mechanics?.strengths?.[rule.strength] ?? 0) * (defender.mechanics?.dependencies?.[rule.dependency] ?? 0) / 3 * rule.factor;
+    const value = (attacker.mechanics?.strengths?.[rule.strength] ?? 0) * (defender.mechanics?.dependencies?.[rule.dependency] ?? 0) / 30 * rule.factor;
     if (value > 0 && (!groups.has(rule.group) || groups.get(rule.group).value < value)) groups.set(rule.group, { value, label: rule.label, specific: true });
   }
   contributions.push(...groups.values());
   for (const [strength, weakness] of lanePairs) {
-    const value = (attacker.strengths?.[strength] ?? 0) * (defender.weaknesses?.[weakness] ?? 0) / 3;
+    const value = (attacker.strengths?.[strength] ?? 0) * (defender.weaknesses?.[weakness] ?? 0) / 30;
     if (value > 0) contributions.push({ value, label: `${TAG_LABELS[strength]} explora ${TAG_LABELS[weakness]}` });
   }
-  if ((attacker.strengths?.antiCc ?? 0) && (defender.strengths?.cc ?? 0)) contributions.push({ value: attacker.strengths.antiCc * defender.strengths.cc / 2.5, label: "anti-CC reduz o controle" });
-  if ((attacker.strengths?.antiAuto ?? 0) && ((defender.strengths?.dps ?? 0) + (defender.strengths?.physicalDamage ?? 0) >= 4)) contributions.push({ value: attacker.strengths.antiAuto * 1.2, label: "anti-auto reduz o DPS" });
+  const access = Math.max(attacker.strengths?.gapClose ?? 0, attacker.strengths?.backlineAccess ?? 0, attacker.strengths?.engage ?? 0, (attacker.strengths?.mobility ?? 0) * .65);
+  const exposed = Math.max(defender.weaknesses?.vulnDive ?? 0, defender.weaknesses?.vulnEngage ?? 0, (defender.weaknesses?.immobile ?? 0) * .9, (defender.weaknesses?.lowDurability ?? 0) * .8);
+  const protection = Math.max(defender.strengths?.escape ?? 0, defender.strengths?.selfPeel ?? 0, defender.strengths?.antiDive ?? 0);
+  const accessValue = access * exposed / 24 * clamp(1 - protection / 15, .25, 1);
+  if (accessValue > .25) contributions.push({ value: accessValue, label: "acesso ao alvo explora pouca fuga/autoproteção", structural: true });
+  if ((attacker.strengths?.antiCc ?? 0) && (defender.strengths?.cc ?? 0)) contributions.push({ value: attacker.strengths.antiCc * defender.strengths.cc / 25, label: "anti-CC reduz o controle" });
+  if ((attacker.strengths?.antiAuto ?? 0) && ((defender.strengths?.dps ?? 0) + (defender.strengths?.physicalDamage ?? 0) >= 13)) contributions.push({ value: attacker.strengths.antiAuto * .36, label: "anti-auto reduz o DPS" });
   contributions.sort((a, b) => b.value - a.value);
   return {
     total: contributions.slice(0, 2).reduce((sum, item, index) => sum + item.value * [1, 0.3][index], 0),
     specific: contributions.filter((item) => item.specific).reduce((sum, item) => sum + item.value, 0),
+    structural: contributions.filter((item) => item.structural).reduce((sum, item) => sum + item.value, 0),
     contributions,
   };
 }
@@ -189,10 +234,10 @@ export class DraftEngine {
     const delta2 = rows.reduce((sum, row) => sum + row.delta2 * row.weight, 0) / totalWeight;
     const combined = 1 - (1 - currentRel) * (1 - stableRel) * (1 - fallbackRel);
     return {
-      delta2, score: clamp(delta2 * 1.8, -9, 9), reliability: combined * (isCustom ? 0.35 : 1),
+      delta2, score: clamp(delta2 * 1.8, -9, 9), reliability: combined * (isCustom ? 0.8 : 1),
       currentGames: Math.round(current?.games ?? 0), currentDirections: current?.directions ?? 0,
       stableGames: Math.round(stable?.games ?? 0), stableDirections: stable?.directions ?? 0,
-      fallbackGames: Math.round(fallback?.games ?? 0),
+      fallbackGames: Math.round(fallback?.games ?? 0), fallbackDirections: fallback?.directions ?? 0,
     };
   }
 
@@ -220,10 +265,11 @@ export class DraftEngine {
 
     const own = lanePressure(variant.profile, opponentChampion.profile);
     const enemy = lanePressure(opponentChampion.profile, variant.profile);
-    const mechanical = clamp((own.total - enemy.total) * 1.8, -7, 7);
     const specific = clamp((own.specific - enemy.specific) * 1.8, -7, 7);
+    const structural = clamp((own.structural - enemy.structural) * 1.8, -7, 7);
+    const mechanical = clamp((own.total - enemy.total) * 1.8 + structural * .25, -7, 7);
     const stat = this.statEvidence(variant.champion, opponent, lane, variant.kind === "CUSTOM");
-    let score = stat ? stat.reliability * stat.score + (1 - stat.reliability) * mechanical * 0.65 : mechanical;
+    let score = stat ? stat.reliability * stat.score + (1 - stat.reliability) * mechanical : mechanical;
     const reasons = [stat
       ? `Estatística: Δ2 ${stat.delta2 >= 0 ? "+" : ""}${round(stat.delta2)}, confiança ${round(stat.reliability * 100)}% (${stat.currentGames} patch / ${stat.stableGames} Diamond+ 30d).`
       : "Sem amostra direcional: avaliação por kit e skills, com confiança baixa."];
@@ -238,17 +284,18 @@ export class DraftEngine {
     }
 
     const robust = (stat?.currentDirections === 2 && stat.currentGames >= 150) || (stat?.stableDirections === 2 && stat.stableGames >= 250);
-    if (variant.kind === "DEFAULT" && stat?.reliability >= 0.4 && robust && stat.delta2 <= -4 && specific <= -3) {
-      return { veto: true, reason: `Hardcounter confirmado por estatística bidirecional e skill específica: Δ2 ${round(stat.delta2)}.`, evidence: stat };
+    const rareButExtreme = stat?.fallbackDirections === 2 && stat.fallbackGames >= 80 && stat.delta2 <= -7 && structural <= -2.5;
+    if ((stat?.reliability >= 0.4 && robust && stat.delta2 <= -4 && Math.min(specific, structural) <= -3) || rareButExtreme) {
+      return { veto: true, reason: `Hardcounter confirmado por estatística bidirecional e execução estrutural: Δ2 ${round(stat.delta2)}.`, evidence: stat };
     }
-    const tier = score <= -5 || (stat?.reliability >= 0.35 && stat.delta2 <= -3.5) ? "SEVERE_COUNTER"
-      : score <= -2.25 || (stat?.reliability >= 0.25 && stat.delta2 <= -1.5) ? "COUNTERED"
+    const tier = score <= -5 || structural <= -6 || (stat?.reliability >= 0.35 && stat.delta2 <= -3.5) ? "SEVERE_COUNTER"
+      : score <= -2.25 || structural <= -3.5 || (stat?.reliability >= 0.25 && stat.delta2 <= -1.5) ? "COUNTERED"
         : score <= -0.75 ? "SLIGHTLY_COUNTERED" : score >= 6.5 ? "HARDCOUNTERS" : score >= 3.5 ? "STRONG_ADVANTAGE" : score >= 1.25 ? "ADVANTAGED" : "EVEN";
     const bestOwn = own.contributions[0];
     const bestEnemy = enemy.contributions[0];
     if (bestOwn) reasons.push(`Favorável: ${bestOwn.label}.`);
     if (bestEnemy) reasons.push(`Risco: ${bestEnemy.label}.`);
-    return { score, tier, confidence: stat?.reliability >= 0.55 ? "HIGH" : stat?.reliability >= 0.2 ? "MEDIUM" : "LOW", reasons, stat, mechanical, specific };
+    return { score, tier, confidence: stat?.reliability >= 0.55 ? "HIGH" : stat?.reliability >= 0.2 ? "MEDIUM" : "LOW", reasons, stat, mechanical, specific, structural };
   }
 
   blindLaneScore(variant, lane, overrides) {
@@ -265,15 +312,15 @@ export class DraftEngine {
     const ally = this.byName.get(allyJungle);
     const enemy = this.byName.get(enemyJungle);
     if (ally) {
-      const setup = (profile.strengths.gankSetup ?? 0) * ((ally.profile.strengths.burst ?? 0) + (ally.profile.strengths.cc ?? 0)) / 9;
-      const prio = (profile.strengths.priority ?? 0) * (ally.profile.strengths.earlyPressure ?? 0) / 4.5;
+      const setup = (profile.strengths.gankSetup ?? 0) * ((ally.profile.strengths.burst ?? 0) + (ally.profile.strengths.cc ?? 0)) / 100;
+      const prio = (profile.strengths.priority ?? 0) * (ally.profile.strengths.earlyPressure ?? 0) / 50;
       score += setup + prio;
       if (setup + prio > 1) reasons.push(`Boa conversão com ${ally.name}.`);
     }
     if (enemy) {
       const threat = (enemy.profile.strengths.cc ?? 0) + (enemy.profile.strengths.engage ?? 0) + (enemy.profile.strengths.burst ?? 0);
-      const risk = threat * ((profile.weaknesses.vulnGank ?? 0) + (profile.weaknesses.immobile ?? 0) + (profile.weaknesses.fragileEntry ?? 0)) / 18;
-      const defense = threat * ((profile.strengths.mobility ?? 0) + (profile.strengths.antiDive ?? 0) + (profile.strengths.defenses ?? 0)) / 36;
+      const risk = threat * ((profile.weaknesses.vulnGank ?? 0) + (profile.weaknesses.immobile ?? 0) + (profile.weaknesses.fragileEntry ?? 0)) / 200;
+      const defense = threat * ((profile.strengths.mobility ?? 0) + (profile.strengths.antiDive ?? 0) + (profile.strengths.defenses ?? 0)) / 400;
       score += Math.min(risk, defense) - risk;
       if (risk > defense + 0.8) reasons.push(`Exposição ao gank de ${enemy.name}.`);
     }
@@ -294,7 +341,7 @@ export class DraftEngine {
       for (const rule of rules) {
         const threat = Math.max(enemy.profile.strengths[rule.threat] ?? 0, ...(rule.alternate ?? []).map((tag) => enemy.profile.strengths[tag] ?? 0));
         const answer = Math.max(0, ...rule.answers.map((tag) => profile.strengths[tag] ?? 0));
-        const value = threat * answer / 3;
+        const value = threat * answer / 30;
         if (value > 0) interactions.push({ value, reason: `Contra ${enemy.name}: ${rule.label}.` });
       }
       const exposures = [
@@ -305,7 +352,7 @@ export class DraftEngine {
       ];
       for (const [threat, risks, label] of exposures) {
         const risk = Math.max(0, ...risks.map((tag) => profile.weaknesses[tag] ?? 0));
-        if (threat * risk > 0) interactions.push({ value: -threat * risk / 3, reason: `Contra ${enemy.name}: ${label}.` });
+        if (threat * risk > 0) interactions.push({ value: -threat * risk / 30, reason: `Contra ${enemy.name}: ${label}.` });
       }
     }
     const positives = interactions.filter((row) => row.value > 0).sort((a, b) => b.value - a.value).slice(0, 2);
@@ -318,7 +365,7 @@ export class DraftEngine {
     const allies = allyNames.map((name) => this.byName.get(name)).filter(Boolean);
     const enemies = enemyNames.map((name) => this.byName.get(name)).filter(Boolean);
     if (!allies.length) return { score: 0, reasons: [] };
-    const sum = (list, side, tag) => list.reduce((total, champion) => total + (champion.profile[side]?.[tag] ?? 0), 0);
+    const sum = (list, side, tag) => list.reduce((total, champion) => total + (champion.profile[side]?.[tag] ?? 0) * .3, 0);
     const needs = [];
     const enemyDive = sum(enemies, "strengths", "engage") + sum(enemies, "strengths", "backlineAccess");
     const enemyPoke = sum(enemies, "strengths", "poke") + sum(enemies, "strengths", "siege");
@@ -334,15 +381,15 @@ export class DraftEngine {
     if (physical >= magic + 4) needs.push({ severity: (physical - magic) / 2, tags: ["magicDamage"], label: "corrigir excesso físico" });
     if (magic >= physical + 4) needs.push({ severity: (magic - physical) / 2, tags: ["physicalDamage"], label: "corrigir excesso mágico" });
     const critical = needs.filter((need) => need.severity >= 0.75).sort((a, b) => b.severity - a.severity).slice(0, 2);
-    const values = critical.map((need, index) => ({ ...need, value: need.severity * Math.max(0, ...need.tags.map((tag) => profile.strengths[tag] ?? 0)) / 3 * [1, 0.3][index] }));
+    const values = critical.map((need, index) => ({ ...need, value: need.severity * Math.max(0, ...need.tags.map((tag) => profile.strengths[tag] ?? 0)) / 10 * [1, 0.3][index] }));
     return { score: clamp(values.reduce((sum, row) => sum + row.value, 0) * 2, 0, 10), reasons: values.filter((row) => row.value > 0).map((row) => `Supre necessidade: ${row.label}.`) };
   }
 
   executionRetention(profile, laneScore, tier) {
     const behind = clamp(Math.max(0, -laneScore) / 10, 0, 1);
-    const dependency = Math.max(profile.weaknesses.goldDependent ?? 0, profile.weaknesses.resourceDependent ?? 0, profile.weaknesses.needsSetup ?? 0) / 3;
-    const entry = Math.max(profile.weaknesses.fragileEntry ?? 0, profile.weaknesses.needsContact ?? 0, profile.weaknesses.vulnCc ?? 0) / 3;
-    const utility = Math.max(profile.strengths.cc ?? 0, profile.strengths.peel ?? 0, profile.strengths.disengage ?? 0, profile.strengths.waveclear ?? 0, profile.strengths.frontline ?? 0) / 3;
+    const dependency = Math.max(profile.weaknesses.goldDependent ?? 0, profile.weaknesses.resourceDependent ?? 0, profile.weaknesses.needsSetup ?? 0) / 10;
+    const entry = Math.max(profile.weaknesses.fragileEntry ?? 0, profile.weaknesses.needsContact ?? 0, profile.weaknesses.vulnCc ?? 0) / 10;
+    const utility = Math.max(profile.strengths.cc ?? 0, profile.strengths.peel ?? 0, profile.strengths.disengage ?? 0, profile.strengths.waveclear ?? 0, profile.strengths.frontline ?? 0) / 10;
     const gate = clamp(1 - behind * (0.95 + 0.1 * dependency + 0.1 * entry), 0.05, 1);
     const cap = tier === "SEVERE_COUNTER" ? 0.1 + 0.1 * utility : tier === "COUNTERED" ? 0.35 + 0.1 * utility : tier === "SLIGHTLY_COUNTERED" ? 0.7 : 1;
     return clamp(Math.min(Math.max(gate, 0.05 + 0.2 * utility), cap), 0.05, 1);
