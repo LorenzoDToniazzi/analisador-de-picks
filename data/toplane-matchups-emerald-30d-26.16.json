@@ -1,0 +1,7254 @@
+{
+  "metadata": {
+    "gamePatch": "26.16",
+    "dataDragonVersion": "16.16.1",
+    "lane": "TOP",
+    "tier": "EMERALD_PLUS",
+    "window": "30_DAYS",
+    "source": "LoLalytics",
+    "generatedAt": "2026-08-17",
+    "signal": "delta2_normalized",
+    "note": "Statistical evidence only; combine with mechanical inference and sample reliability."
+  },
+  "champions": {
+    "Aatrox": [
+      {
+        "opponent": "Vel'Koz",
+        "winRate": 42.22,
+        "delta1": -5.2,
+        "delta2": -8.97,
+        "opponentWinRate": 47.42,
+        "games": 225
+      },
+      {
+        "opponent": "Ahri",
+        "winRate": 42.77,
+        "delta1": -2.53,
+        "delta2": -6.29,
+        "opponentWinRate": 45.3,
+        "games": 325
+      },
+      {
+        "opponent": "Zoe",
+        "winRate": 44.59,
+        "delta1": -2.6,
+        "delta2": -6.37,
+        "opponentWinRate": 47.19,
+        "games": 157
+      },
+      {
+        "opponent": "Zilean",
+        "winRate": 44.8,
+        "delta1": 0.12,
+        "delta2": -3.64,
+        "opponentWinRate": 44.68,
+        "games": 471
+      },
+      {
+        "opponent": "Katarina",
+        "winRate": 44.81,
+        "delta1": -3.27,
+        "delta2": -7.04,
+        "opponentWinRate": 48.08,
+        "games": 212
+      },
+      {
+        "opponent": "Rek'Sai",
+        "winRate": 45.09,
+        "delta1": -2.1,
+        "delta2": -5.87,
+        "opponentWinRate": 47.19,
+        "games": 224
+      },
+      {
+        "opponent": "Ashe",
+        "winRate": 45.52,
+        "delta1": -6.61,
+        "delta2": -10.37,
+        "opponentWinRate": 52.13,
+        "games": 134
+      },
+      {
+        "opponent": "Neeko",
+        "winRate": 46.85,
+        "delta1": -1.57,
+        "delta2": -5.34,
+        "opponentWinRate": 48.42,
+        "games": 111
+      },
+      {
+        "opponent": "Azir",
+        "winRate": 46.93,
+        "delta1": 0.02,
+        "delta2": -3.75,
+        "opponentWinRate": 46.91,
+        "games": 228
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 46.98,
+        "delta1": 0.81,
+        "delta2": -2.95,
+        "opponentWinRate": 46.17,
+        "games": 5285
+      },
+      {
+        "opponent": "Naafiri",
+        "winRate": 47.38,
+        "delta1": -0.05,
+        "delta2": -3.82,
+        "opponentWinRate": 47.43,
+        "games": 667
+      },
+      {
+        "opponent": "Morgana",
+        "winRate": 47.48,
+        "delta1": -1.87,
+        "delta2": -5.64,
+        "opponentWinRate": 49.35,
+        "games": 139
+      },
+      {
+        "opponent": "Zed",
+        "winRate": 48.33,
+        "delta1": 2.04,
+        "delta2": -1.72,
+        "opponentWinRate": 46.29,
+        "games": 927
+      },
+      {
+        "opponent": "Ekko",
+        "winRate": 48.59,
+        "delta1": -0.86,
+        "delta2": -4.63,
+        "opponentWinRate": 49.45,
+        "games": 249
+      },
+      {
+        "opponent": "LeBlanc",
+        "winRate": 48.7,
+        "delta1": -0.03,
+        "delta2": -3.8,
+        "opponentWinRate": 48.73,
+        "games": 154
+      },
+      {
+        "opponent": "Jhin",
+        "winRate": 48.81,
+        "delta1": -1.79,
+        "delta2": -5.56,
+        "opponentWinRate": 50.6,
+        "games": 168
+      },
+      {
+        "opponent": "Lissandra",
+        "winRate": 48.85,
+        "delta1": 1.76,
+        "delta2": -2.01,
+        "opponentWinRate": 47.09,
+        "games": 567
+      },
+      {
+        "opponent": "Quinn",
+        "winRate": 48.9,
+        "delta1": 2.9,
+        "delta2": -0.86,
+        "opponentWinRate": 46.0,
+        "games": 1403
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 48.93,
+        "delta1": 1.79,
+        "delta2": -1.98,
+        "opponentWinRate": 47.14,
+        "games": 11577
+      },
+      {
+        "opponent": "Diana",
+        "winRate": 49.0,
+        "delta1": -1.13,
+        "delta2": -4.9,
+        "opponentWinRate": 50.13,
+        "games": 200
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 49.03,
+        "delta1": 1.87,
+        "delta2": -1.9,
+        "opponentWinRate": 47.16,
+        "games": 2462
+      },
+      {
+        "opponent": "Akshan",
+        "winRate": 49.09,
+        "delta1": 1.09,
+        "delta2": -2.68,
+        "opponentWinRate": 48.0,
+        "games": 275
+      },
+      {
+        "opponent": "Kled",
+        "winRate": 49.2,
+        "delta1": 2.09,
+        "delta2": -1.68,
+        "opponentWinRate": 47.11,
+        "games": 3543
+      },
+      {
+        "opponent": "Draven",
+        "winRate": 49.44,
+        "delta1": -2.26,
+        "delta2": -6.03,
+        "opponentWinRate": 51.7,
+        "games": 178
+      },
+      {
+        "opponent": "Veigar",
+        "winRate": 49.63,
+        "delta1": 2.35,
+        "delta2": -1.42,
+        "opponentWinRate": 47.28,
+        "games": 270
+      },
+      {
+        "opponent": "Warwick",
+        "winRate": 49.84,
+        "delta1": 3.78,
+        "delta2": 0.02,
+        "opponentWinRate": 46.06,
+        "games": 3060
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 49.95,
+        "delta1": 2.81,
+        "delta2": -0.96,
+        "opponentWinRate": 47.14,
+        "games": 5732
+      },
+      {
+        "opponent": "Wukong",
+        "winRate": 49.96,
+        "delta1": 2.71,
+        "delta2": -1.06,
+        "opponentWinRate": 47.25,
+        "games": 2372
+      },
+      {
+        "opponent": "Briar",
+        "winRate": 50.0,
+        "delta1": 1.68,
+        "delta2": -2.09,
+        "opponentWinRate": 48.32,
+        "games": 484
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 50.0,
+        "delta1": 1.55,
+        "delta2": -2.22,
+        "opponentWinRate": 48.45,
+        "games": 9036
+      },
+      {
+        "opponent": "Corki",
+        "winRate": 50.0,
+        "delta1": -1.96,
+        "delta2": -5.72,
+        "opponentWinRate": 51.96,
+        "games": 160
+      },
+      {
+        "opponent": "Syndra",
+        "winRate": 50.0,
+        "delta1": 2.96,
+        "delta2": -0.81,
+        "opponentWinRate": 47.04,
+        "games": 162
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 50.06,
+        "delta1": 2.3,
+        "delta2": -1.47,
+        "opponentWinRate": 47.76,
+        "games": 5853
+      },
+      {
+        "opponent": "Aurora",
+        "winRate": 50.13,
+        "delta1": 0.69,
+        "delta2": -3.08,
+        "opponentWinRate": 49.44,
+        "games": 768
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 50.15,
+        "delta1": 1.94,
+        "delta2": -1.83,
+        "opponentWinRate": 48.21,
+        "games": 9788
+      },
+      {
+        "opponent": "Qiyana",
+        "winRate": 50.17,
+        "delta1": 2.39,
+        "delta2": -1.38,
+        "opponentWinRate": 47.78,
+        "games": 289
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 50.26,
+        "delta1": 1.83,
+        "delta2": -1.94,
+        "opponentWinRate": 48.43,
+        "games": 2296
+      },
+      {
+        "opponent": "Kai'Sa",
+        "winRate": 50.3,
+        "delta1": -2.47,
+        "delta2": -6.23,
+        "opponentWinRate": 52.77,
+        "games": 332
+      },
+      {
+        "opponent": "Hwei",
+        "winRate": 50.38,
+        "delta1": 4.0,
+        "delta2": 0.23,
+        "opponentWinRate": 46.38,
+        "games": 133
+      },
+      {
+        "opponent": "Zac",
+        "winRate": 50.56,
+        "delta1": 4.04,
+        "delta2": 0.27,
+        "opponentWinRate": 46.52,
+        "games": 898
+      },
+      {
+        "opponent": "Cassiopeia",
+        "winRate": 50.56,
+        "delta1": 2.53,
+        "delta2": -1.24,
+        "opponentWinRate": 48.03,
+        "games": 900
+      },
+      {
+        "opponent": "Galio",
+        "winRate": 50.62,
+        "delta1": 1.95,
+        "delta2": -1.82,
+        "opponentWinRate": 48.67,
+        "games": 324
+      },
+      {
+        "opponent": "Ivern",
+        "winRate": 50.72,
+        "delta1": 0.93,
+        "delta2": -2.84,
+        "opponentWinRate": 49.79,
+        "games": 138
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 50.82,
+        "delta1": 3.56,
+        "delta2": -0.21,
+        "opponentWinRate": 47.26,
+        "games": 5746
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 50.84,
+        "delta1": 4.52,
+        "delta2": 0.75,
+        "opponentWinRate": 46.32,
+        "games": 3470
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 50.87,
+        "delta1": 0.9,
+        "delta2": -2.87,
+        "opponentWinRate": 49.97,
+        "games": 9785
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 51.06,
+        "delta1": 3.69,
+        "delta2": -0.08,
+        "opponentWinRate": 47.37,
+        "games": 5031
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 51.15,
+        "delta1": 2.61,
+        "delta2": -1.16,
+        "opponentWinRate": 48.54,
+        "games": 5875
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 51.22,
+        "delta1": 2.9,
+        "delta2": -0.87,
+        "opponentWinRate": 48.32,
+        "games": 17432
+      },
+      {
+        "opponent": "Udyr",
+        "winRate": 51.24,
+        "delta1": 1.8,
+        "delta2": -1.97,
+        "opponentWinRate": 49.44,
+        "games": 1091
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 51.26,
+        "delta1": 3.56,
+        "delta2": -0.21,
+        "opponentWinRate": 47.7,
+        "games": 4352
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 51.29,
+        "delta1": 2.93,
+        "delta2": -0.84,
+        "opponentWinRate": 48.36,
+        "games": 4110
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 51.41,
+        "delta1": 2.98,
+        "delta2": -0.79,
+        "opponentWinRate": 48.43,
+        "games": 14148
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 51.47,
+        "delta1": 4.63,
+        "delta2": 0.86,
+        "opponentWinRate": 46.84,
+        "games": 11210
+      },
+      {
+        "opponent": "Poppy",
+        "winRate": 51.58,
+        "delta1": 3.98,
+        "delta2": 0.21,
+        "opponentWinRate": 47.6,
+        "games": 1960
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 51.63,
+        "delta1": 2.03,
+        "delta2": -1.74,
+        "opponentWinRate": 49.6,
+        "games": 7650
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 51.7,
+        "delta1": 3.71,
+        "delta2": -0.06,
+        "opponentWinRate": 47.99,
+        "games": 14307
+      },
+      {
+        "opponent": "Viktor",
+        "winRate": 51.73,
+        "delta1": 3.85,
+        "delta2": 0.08,
+        "opponentWinRate": 47.88,
+        "games": 433
+      },
+      {
+        "opponent": "Nocturne",
+        "winRate": 51.83,
+        "delta1": 3.63,
+        "delta2": -0.14,
+        "opponentWinRate": 48.2,
+        "games": 191
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 51.83,
+        "delta1": 3.51,
+        "delta2": -0.26,
+        "opponentWinRate": 48.32,
+        "games": 11056
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 51.85,
+        "delta1": 3.93,
+        "delta2": 0.16,
+        "opponentWinRate": 47.92,
+        "games": 6376
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 51.88,
+        "delta1": 3.46,
+        "delta2": -0.31,
+        "opponentWinRate": 48.42,
+        "games": 5206
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 51.95,
+        "delta1": 4.81,
+        "delta2": 1.04,
+        "opponentWinRate": 47.14,
+        "games": 18217
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 52.1,
+        "delta1": 5.62,
+        "delta2": 1.85,
+        "opponentWinRate": 46.48,
+        "games": 7572
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 52.13,
+        "delta1": 4.15,
+        "delta2": 0.38,
+        "opponentWinRate": 47.98,
+        "games": 7008
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 52.16,
+        "delta1": 4.91,
+        "delta2": 1.14,
+        "opponentWinRate": 47.25,
+        "games": 6098
+      },
+      {
+        "opponent": "Kalista",
+        "winRate": 52.25,
+        "delta1": 3.04,
+        "delta2": -0.73,
+        "opponentWinRate": 49.21,
+        "games": 377
+      },
+      {
+        "opponent": "Aurelion Sol",
+        "winRate": 52.35,
+        "delta1": 4.76,
+        "delta2": 0.99,
+        "opponentWinRate": 47.59,
+        "games": 149
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 52.35,
+        "delta1": 3.59,
+        "delta2": -0.18,
+        "opponentWinRate": 48.76,
+        "games": 3725
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 52.36,
+        "delta1": 4.98,
+        "delta2": 1.21,
+        "opponentWinRate": 47.38,
+        "games": 13290
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 52.42,
+        "delta1": 5.05,
+        "delta2": 1.28,
+        "opponentWinRate": 47.37,
+        "games": 4668
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 52.59,
+        "delta1": 5.33,
+        "delta2": 1.56,
+        "opponentWinRate": 47.26,
+        "games": 6610
+      },
+      {
+        "opponent": "Vladimir",
+        "winRate": 52.66,
+        "delta1": 3.45,
+        "delta2": -0.32,
+        "opponentWinRate": 49.21,
+        "games": 1990
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 52.69,
+        "delta1": 2.91,
+        "delta2": -0.86,
+        "opponentWinRate": 49.78,
+        "games": 5855
+      },
+      {
+        "opponent": "Lee Sin",
+        "winRate": 52.81,
+        "delta1": -0.89,
+        "delta2": -4.64,
+        "opponentWinRate": 53.7,
+        "games": 445
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 52.83,
+        "delta1": 4.18,
+        "delta2": 0.41,
+        "opponentWinRate": 48.65,
+        "games": 4401
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 52.92,
+        "delta1": 2.36,
+        "delta2": -1.41,
+        "opponentWinRate": 50.56,
+        "games": 3301
+      },
+      {
+        "opponent": "Anivia",
+        "winRate": 52.98,
+        "delta1": 5.93,
+        "delta2": 2.16,
+        "opponentWinRate": 47.05,
+        "games": 1274
+      },
+      {
+        "opponent": "Kog'Maw",
+        "winRate": 53.0,
+        "delta1": 4.7,
+        "delta2": 0.93,
+        "opponentWinRate": 48.3,
+        "games": 217
+      },
+      {
+        "opponent": "Locke",
+        "winRate": 53.11,
+        "delta1": 1.69,
+        "delta2": -2.08,
+        "opponentWinRate": 51.42,
+        "games": 1188
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 53.18,
+        "delta1": 4.14,
+        "delta2": 0.37,
+        "opponentWinRate": 49.04,
+        "games": 5446
+      },
+      {
+        "opponent": "Karma",
+        "winRate": 53.21,
+        "delta1": 1.67,
+        "delta2": -2.1,
+        "opponentWinRate": 51.54,
+        "games": 280
+      },
+      {
+        "opponent": "Twisted Fate",
+        "winRate": 53.32,
+        "delta1": 3.43,
+        "delta2": -0.34,
+        "opponentWinRate": 49.89,
+        "games": 377
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 53.37,
+        "delta1": 2.61,
+        "delta2": -1.16,
+        "opponentWinRate": 50.76,
+        "games": 13753
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 53.54,
+        "delta1": 6.55,
+        "delta2": 2.78,
+        "opponentWinRate": 46.99,
+        "games": 7506
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 53.61,
+        "delta1": 2.12,
+        "delta2": -1.65,
+        "opponentWinRate": 51.49,
+        "games": 8307
+      },
+      {
+        "opponent": "Graves",
+        "winRate": 53.86,
+        "delta1": 1.62,
+        "delta2": -2.14,
+        "opponentWinRate": 52.24,
+        "games": 414
+      },
+      {
+        "opponent": "Xin Zhao",
+        "winRate": 53.89,
+        "delta1": 3.93,
+        "delta2": 0.16,
+        "opponentWinRate": 49.96,
+        "games": 527
+      },
+      {
+        "opponent": "Malzahar",
+        "winRate": 53.92,
+        "delta1": 5.65,
+        "delta2": 1.88,
+        "opponentWinRate": 48.27,
+        "games": 766
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 53.94,
+        "delta1": 5.76,
+        "delta2": 1.99,
+        "opponentWinRate": 48.18,
+        "games": 3960
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 53.94,
+        "delta1": 6.57,
+        "delta2": 2.8,
+        "opponentWinRate": 47.37,
+        "games": 11111
+      },
+      {
+        "opponent": "Annie",
+        "winRate": 54.05,
+        "delta1": 8.61,
+        "delta2": 4.85,
+        "opponentWinRate": 45.44,
+        "games": 148
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 54.21,
+        "delta1": 6.42,
+        "delta2": 2.65,
+        "opponentWinRate": 47.79,
+        "games": 3097
+      },
+      {
+        "opponent": "Elise",
+        "winRate": 54.29,
+        "delta1": 5.57,
+        "delta2": 1.8,
+        "opponentWinRate": 48.72,
+        "games": 175
+      },
+      {
+        "opponent": "Rengar",
+        "winRate": 54.33,
+        "delta1": 3.49,
+        "delta2": -0.28,
+        "opponentWinRate": 50.84,
+        "games": 624
+      },
+      {
+        "opponent": "Rammus",
+        "winRate": 54.37,
+        "delta1": 3.63,
+        "delta2": -0.14,
+        "opponentWinRate": 50.74,
+        "games": 103
+      },
+      {
+        "opponent": "Master Yi",
+        "winRate": 54.47,
+        "delta1": 3.82,
+        "delta2": 0.05,
+        "opponentWinRate": 50.65,
+        "games": 1131
+      },
+      {
+        "opponent": "Shyvana",
+        "winRate": 54.64,
+        "delta1": 2.83,
+        "delta2": -0.93,
+        "opponentWinRate": 51.81,
+        "games": 388
+      },
+      {
+        "opponent": "Shaco",
+        "winRate": 54.69,
+        "delta1": 1.47,
+        "delta2": -2.29,
+        "opponentWinRate": 53.22,
+        "games": 192
+      },
+      {
+        "opponent": "Trundle",
+        "winRate": 54.74,
+        "delta1": 5.54,
+        "delta2": 1.77,
+        "opponentWinRate": 49.2,
+        "games": 2249
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 54.76,
+        "delta1": 5.5,
+        "delta2": 1.73,
+        "opponentWinRate": 49.26,
+        "games": 6249
+      },
+      {
+        "opponent": "Brand",
+        "winRate": 55.01,
+        "delta1": 6.8,
+        "delta2": 3.03,
+        "opponentWinRate": 48.21,
+        "games": 709
+      },
+      {
+        "opponent": "Fiddlesticks",
+        "winRate": 55.11,
+        "delta1": 8.14,
+        "delta2": 4.37,
+        "opponentWinRate": 46.97,
+        "games": 401
+      },
+      {
+        "opponent": "Bel'Veth",
+        "winRate": 55.14,
+        "delta1": -0.19,
+        "delta2": -3.93,
+        "opponentWinRate": 55.33,
+        "games": 107
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 55.23,
+        "delta1": 7.44,
+        "delta2": 3.67,
+        "opponentWinRate": 47.79,
+        "games": 11417
+      },
+      {
+        "opponent": "Swain",
+        "winRate": 55.28,
+        "delta1": 6.14,
+        "delta2": 2.37,
+        "opponentWinRate": 49.14,
+        "games": 1089
+      },
+      {
+        "opponent": "Viego",
+        "winRate": 55.43,
+        "delta1": 4.7,
+        "delta2": 0.93,
+        "opponentWinRate": 50.73,
+        "games": 184
+      },
+      {
+        "opponent": "Tristana",
+        "winRate": 55.63,
+        "delta1": 3.88,
+        "delta2": 0.12,
+        "opponentWinRate": 51.75,
+        "games": 293
+      },
+      {
+        "opponent": "Varus",
+        "winRate": 55.82,
+        "delta1": 5.15,
+        "delta2": 1.38,
+        "opponentWinRate": 50.67,
+        "games": 1177
+      },
+      {
+        "opponent": "Sejuani",
+        "winRate": 55.97,
+        "delta1": 7.47,
+        "delta2": 3.7,
+        "opponentWinRate": 48.5,
+        "games": 486
+      },
+      {
+        "opponent": "Karthus",
+        "winRate": 56.6,
+        "delta1": 5.97,
+        "delta2": 2.2,
+        "opponentWinRate": 50.63,
+        "games": 106
+      },
+      {
+        "opponent": "Ryze",
+        "winRate": 56.71,
+        "delta1": 6.82,
+        "delta2": 3.05,
+        "opponentWinRate": 49.89,
+        "games": 991
+      },
+      {
+        "opponent": "Sylas",
+        "winRate": 56.87,
+        "delta1": 8.71,
+        "delta2": 4.94,
+        "opponentWinRate": 48.16,
+        "games": 1565
+      },
+      {
+        "opponent": "Nautilus",
+        "winRate": 56.95,
+        "delta1": 3.87,
+        "delta2": 0.11,
+        "opponentWinRate": 53.08,
+        "games": 151
+      },
+      {
+        "opponent": "Skarner",
+        "winRate": 57.05,
+        "delta1": 4.73,
+        "delta2": 0.97,
+        "opponentWinRate": 52.32,
+        "games": 440
+      },
+      {
+        "opponent": "Vi",
+        "winRate": 57.36,
+        "delta1": 3.4,
+        "delta2": -0.35,
+        "opponentWinRate": 53.96,
+        "games": 197
+      },
+      {
+        "opponent": "Maokai",
+        "winRate": 57.5,
+        "delta1": 7.52,
+        "delta2": 3.75,
+        "opponentWinRate": 49.98,
+        "games": 873
+      },
+      {
+        "opponent": "Smolder",
+        "winRate": 57.96,
+        "delta1": 3.81,
+        "delta2": 0.06,
+        "opponentWinRate": 54.15,
+        "games": 402
+      },
+      {
+        "opponent": "Fizz",
+        "winRate": 58.05,
+        "delta1": 6.73,
+        "delta2": 2.96,
+        "opponentWinRate": 51.32,
+        "games": 236
+      },
+      {
+        "opponent": "Nidalee",
+        "winRate": 58.17,
+        "delta1": 4.38,
+        "delta2": 0.63,
+        "opponentWinRate": 53.79,
+        "games": 153
+      },
+      {
+        "opponent": "Kassadin",
+        "winRate": 58.18,
+        "delta1": 11.79,
+        "delta2": 8.02,
+        "opponentWinRate": 46.39,
+        "games": 165
+      },
+      {
+        "opponent": "Jarvan IV",
+        "winRate": 58.91,
+        "delta1": 4.78,
+        "delta2": 1.03,
+        "opponentWinRate": 54.13,
+        "games": 129
+      },
+      {
+        "opponent": "Alistar",
+        "winRate": 59.33,
+        "delta1": 5.96,
+        "delta2": 2.2,
+        "opponentWinRate": 53.37,
+        "games": 150
+      },
+      {
+        "opponent": "Lucian",
+        "winRate": 59.7,
+        "delta1": 3.97,
+        "delta2": 0.23,
+        "opponentWinRate": 55.73,
+        "games": 134
+      },
+      {
+        "opponent": "Kayn",
+        "winRate": 59.79,
+        "delta1": 8.83,
+        "delta2": 5.06,
+        "opponentWinRate": 50.96,
+        "games": 572
+      },
+      {
+        "opponent": "Caitlyn",
+        "winRate": 62.11,
+        "delta1": 7.72,
+        "delta2": 3.97,
+        "opponentWinRate": 54.39,
+        "games": 227
+      },
+      {
+        "opponent": "Ezreal",
+        "winRate": 66.67,
+        "delta1": 10.51,
+        "delta2": 6.78,
+        "opponentWinRate": 56.16,
+        "games": 171
+      }
+    ],
+    "Ahri": [
+      {
+        "opponent": "Camille",
+        "winRate": 43.48,
+        "delta1": -4.22,
+        "delta2": -10.76,
+        "opponentWinRate": 47.7,
+        "games": 138
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 44.97,
+        "delta1": -2.4,
+        "delta2": -8.94,
+        "opponentWinRate": 47.37,
+        "games": 169
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 45.45,
+        "delta1": -2.34,
+        "delta2": -8.88,
+        "opponentWinRate": 47.79,
+        "games": 264
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 46.98,
+        "delta1": -0.28,
+        "delta2": -6.82,
+        "opponentWinRate": 47.26,
+        "games": 232
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 47.49,
+        "delta1": -0.69,
+        "delta2": -7.23,
+        "opponentWinRate": 48.18,
+        "games": 179
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 47.79,
+        "delta1": -0.66,
+        "delta2": -7.2,
+        "opponentWinRate": 48.45,
+        "games": 272
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 48.38,
+        "delta1": -1.4,
+        "delta2": -7.93,
+        "opponentWinRate": 49.78,
+        "games": 277
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 48.6,
+        "delta1": -0.66,
+        "delta2": -7.2,
+        "opponentWinRate": 49.26,
+        "games": 214
+      },
+      {
+        "opponent": "Vladimir",
+        "winRate": 48.67,
+        "delta1": -0.54,
+        "delta2": -7.08,
+        "opponentWinRate": 49.21,
+        "games": 113
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 49.32,
+        "delta1": 2.18,
+        "delta2": -4.36,
+        "opponentWinRate": 47.14,
+        "games": 590
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 50.44,
+        "delta1": 3.07,
+        "delta2": -3.47,
+        "opponentWinRate": 47.37,
+        "games": 113
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 50.77,
+        "delta1": 3.78,
+        "delta2": -2.76,
+        "opponentWinRate": 46.99,
+        "games": 260
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 51.64,
+        "delta1": 3.32,
+        "delta2": -3.22,
+        "opponentWinRate": 48.32,
+        "games": 519
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 52.02,
+        "delta1": 5.54,
+        "delta2": -1.0,
+        "opponentWinRate": 46.48,
+        "games": 396
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 52.9,
+        "delta1": 2.93,
+        "delta2": -3.6,
+        "opponentWinRate": 49.97,
+        "games": 259
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 53.33,
+        "delta1": 6.17,
+        "delta2": -0.37,
+        "opponentWinRate": 47.16,
+        "games": 120
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 53.36,
+        "delta1": 4.71,
+        "delta2": -1.83,
+        "opponentWinRate": 48.65,
+        "games": 253
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 53.59,
+        "delta1": 5.83,
+        "delta2": -0.71,
+        "opponentWinRate": 47.76,
+        "games": 181
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 53.63,
+        "delta1": 6.25,
+        "delta2": -0.29,
+        "opponentWinRate": 47.38,
+        "games": 289
+      },
+      {
+        "opponent": "Kled",
+        "winRate": 53.64,
+        "delta1": 6.53,
+        "delta2": -0.01,
+        "opponentWinRate": 47.11,
+        "games": 110
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 53.67,
+        "delta1": 6.3,
+        "delta2": -0.24,
+        "opponentWinRate": 47.37,
+        "games": 300
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 54.23,
+        "delta1": 6.31,
+        "delta2": -0.23,
+        "opponentWinRate": 47.92,
+        "games": 201
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 54.37,
+        "delta1": 6.58,
+        "delta2": 0.04,
+        "opponentWinRate": 47.79,
+        "games": 103
+      },
+      {
+        "opponent": "Sylas",
+        "winRate": 55.17,
+        "delta1": 7.01,
+        "delta2": 0.47,
+        "opponentWinRate": 48.16,
+        "games": 116
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 55.23,
+        "delta1": 7.98,
+        "delta2": 1.44,
+        "opponentWinRate": 47.25,
+        "games": 172
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 55.28,
+        "delta1": 6.86,
+        "delta2": 0.32,
+        "opponentWinRate": 48.42,
+        "games": 199
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 55.29,
+        "delta1": 6.75,
+        "delta2": 0.21,
+        "opponentWinRate": 48.54,
+        "games": 293
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 55.4,
+        "delta1": 9.08,
+        "delta2": 2.54,
+        "opponentWinRate": 46.32,
+        "games": 139
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 56.11,
+        "delta1": 8.13,
+        "delta2": 1.59,
+        "opponentWinRate": 47.98,
+        "games": 180
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 56.13,
+        "delta1": 5.37,
+        "delta2": -1.15,
+        "opponentWinRate": 50.76,
+        "games": 326
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 56.21,
+        "delta1": 9.07,
+        "delta2": 2.53,
+        "opponentWinRate": 47.14,
+        "games": 153
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 56.82,
+        "delta1": 8.39,
+        "delta2": 1.85,
+        "opponentWinRate": 48.43,
+        "games": 132
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 57.45,
+        "delta1": 5.96,
+        "delta2": -0.55,
+        "opponentWinRate": 51.49,
+        "games": 188
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 57.5,
+        "delta1": 11.33,
+        "delta2": 4.79,
+        "opponentWinRate": 46.17,
+        "games": 160
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 58.24,
+        "delta1": 10.98,
+        "delta2": 4.44,
+        "opponentWinRate": 47.26,
+        "games": 261
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 58.37,
+        "delta1": 10.16,
+        "delta2": 3.62,
+        "opponentWinRate": 48.21,
+        "games": 233
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 58.44,
+        "delta1": 10.45,
+        "delta2": 3.91,
+        "opponentWinRate": 47.99,
+        "games": 409
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 58.63,
+        "delta1": 11.79,
+        "delta2": 5.25,
+        "opponentWinRate": 46.84,
+        "games": 394
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 58.96,
+        "delta1": 9.36,
+        "delta2": 2.83,
+        "opponentWinRate": 49.6,
+        "games": 251
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 59.18,
+        "delta1": 10.14,
+        "delta2": 3.6,
+        "opponentWinRate": 49.04,
+        "games": 147
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 59.94,
+        "delta1": 11.88,
+        "delta2": 5.34,
+        "opponentWinRate": 48.06,
+        "games": 322
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 60.12,
+        "delta1": 12.98,
+        "delta2": 6.44,
+        "opponentWinRate": 47.14,
+        "games": 484
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 60.34,
+        "delta1": 11.98,
+        "delta2": 5.44,
+        "opponentWinRate": 48.36,
+        "games": 174
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 60.36,
+        "delta1": 11.93,
+        "delta2": 5.39,
+        "opponentWinRate": 48.43,
+        "games": 386
+      },
+      {
+        "opponent": "Anivia",
+        "winRate": 60.68,
+        "delta1": 13.63,
+        "delta2": 7.09,
+        "opponentWinRate": 47.05,
+        "games": 117
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 60.95,
+        "delta1": 10.39,
+        "delta2": 3.87,
+        "opponentWinRate": 50.56,
+        "games": 105
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 63.14,
+        "delta1": 14.82,
+        "delta2": 8.28,
+        "opponentWinRate": 48.32,
+        "games": 369
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 67.8,
+        "delta1": 19.04,
+        "delta2": 12.5,
+        "opponentWinRate": 48.76,
+        "games": 118
+      }
+    ],
+    "Akali": [
+      {
+        "opponent": "Sejuani",
+        "winRate": 35.58,
+        "delta1": -12.92,
+        "delta2": -16.1,
+        "opponentWinRate": 48.5,
+        "games": 163
+      },
+      {
+        "opponent": "Fiddlesticks",
+        "winRate": 40.96,
+        "delta1": -6.01,
+        "delta2": -9.19,
+        "opponentWinRate": 46.97,
+        "games": 271
+      },
+      {
+        "opponent": "Veigar",
+        "winRate": 41.71,
+        "delta1": -5.57,
+        "delta2": -8.75,
+        "opponentWinRate": 47.28,
+        "games": 187
+      },
+      {
+        "opponent": "Syndra",
+        "winRate": 42.0,
+        "delta1": -5.04,
+        "delta2": -8.22,
+        "opponentWinRate": 47.04,
+        "games": 100
+      },
+      {
+        "opponent": "Kassadin",
+        "winRate": 43.11,
+        "delta1": -3.28,
+        "delta2": -6.46,
+        "opponentWinRate": 46.39,
+        "games": 225
+      },
+      {
+        "opponent": "Rengar",
+        "winRate": 44.72,
+        "delta1": -6.12,
+        "delta2": -9.3,
+        "opponentWinRate": 50.84,
+        "games": 246
+      },
+      {
+        "opponent": "Zoe",
+        "winRate": 44.74,
+        "delta1": -2.45,
+        "delta2": -5.63,
+        "opponentWinRate": 47.19,
+        "games": 152
+      },
+      {
+        "opponent": "Zilean",
+        "winRate": 44.95,
+        "delta1": 0.27,
+        "delta2": -2.9,
+        "opponentWinRate": 44.68,
+        "games": 198
+      },
+      {
+        "opponent": "Maokai",
+        "winRate": 45.5,
+        "delta1": -4.48,
+        "delta2": -7.66,
+        "opponentWinRate": 49.98,
+        "games": 411
+      },
+      {
+        "opponent": "Kled",
+        "winRate": 45.85,
+        "delta1": -1.26,
+        "delta2": -4.44,
+        "opponentWinRate": 47.11,
+        "games": 1182
+      },
+      {
+        "opponent": "Galio",
+        "winRate": 46.26,
+        "delta1": -2.41,
+        "delta2": -5.59,
+        "opponentWinRate": 48.67,
+        "games": 923
+      },
+      {
+        "opponent": "Diana",
+        "winRate": 46.75,
+        "delta1": -3.38,
+        "delta2": -6.56,
+        "opponentWinRate": 50.13,
+        "games": 154
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 46.79,
+        "delta1": -0.47,
+        "delta2": -3.65,
+        "opponentWinRate": 47.26,
+        "games": 2338
+      },
+      {
+        "opponent": "Udyr",
+        "winRate": 47.15,
+        "delta1": -2.29,
+        "delta2": -5.47,
+        "opponentWinRate": 49.44,
+        "games": 316
+      },
+      {
+        "opponent": "Warwick",
+        "winRate": 47.35,
+        "delta1": 1.29,
+        "delta2": -1.88,
+        "opponentWinRate": 46.06,
+        "games": 923
+      },
+      {
+        "opponent": "Zac",
+        "winRate": 47.4,
+        "delta1": 0.88,
+        "delta2": -2.3,
+        "opponentWinRate": 46.52,
+        "games": 308
+      },
+      {
+        "opponent": "Xin Zhao",
+        "winRate": 47.53,
+        "delta1": -2.43,
+        "delta2": -5.61,
+        "opponentWinRate": 49.96,
+        "games": 223
+      },
+      {
+        "opponent": "Aurelion Sol",
+        "winRate": 47.62,
+        "delta1": 0.03,
+        "delta2": -3.15,
+        "opponentWinRate": 47.59,
+        "games": 105
+      },
+      {
+        "opponent": "Malzahar",
+        "winRate": 47.84,
+        "delta1": -0.43,
+        "delta2": -3.61,
+        "opponentWinRate": 48.27,
+        "games": 485
+      },
+      {
+        "opponent": "Poppy",
+        "winRate": 47.96,
+        "delta1": 0.36,
+        "delta2": -2.82,
+        "opponentWinRate": 47.6,
+        "games": 859
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 48.26,
+        "delta1": 0.88,
+        "delta2": -2.3,
+        "opponentWinRate": 47.38,
+        "games": 3985
+      },
+      {
+        "opponent": "Qiyana",
+        "winRate": 48.34,
+        "delta1": 0.56,
+        "delta2": -2.62,
+        "opponentWinRate": 47.78,
+        "games": 211
+      },
+      {
+        "opponent": "Ahri",
+        "winRate": 48.37,
+        "delta1": 3.07,
+        "delta2": -0.1,
+        "opponentWinRate": 45.3,
+        "games": 246
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 48.41,
+        "delta1": 2.24,
+        "delta2": -0.93,
+        "opponentWinRate": 46.17,
+        "games": 1446
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 48.42,
+        "delta1": 1.16,
+        "delta2": -2.02,
+        "opponentWinRate": 47.26,
+        "games": 1799
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 48.47,
+        "delta1": 0.68,
+        "delta2": -2.5,
+        "opponentWinRate": 47.79,
+        "games": 3297
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 48.58,
+        "delta1": 1.59,
+        "delta2": -1.59,
+        "opponentWinRate": 46.99,
+        "games": 2499
+      },
+      {
+        "opponent": "Anivia",
+        "winRate": 48.65,
+        "delta1": 1.6,
+        "delta2": -1.58,
+        "opponentWinRate": 47.05,
+        "games": 705
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 48.85,
+        "delta1": 1.71,
+        "delta2": -1.47,
+        "opponentWinRate": 47.14,
+        "games": 4072
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 48.98,
+        "delta1": 1.73,
+        "delta2": -1.45,
+        "opponentWinRate": 47.25,
+        "games": 2740
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 49.02,
+        "delta1": 0.66,
+        "delta2": -2.52,
+        "opponentWinRate": 48.36,
+        "games": 1585
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 49.04,
+        "delta1": 1.25,
+        "delta2": -1.93,
+        "opponentWinRate": 47.79,
+        "games": 1093
+      },
+      {
+        "opponent": "Zed",
+        "winRate": 49.05,
+        "delta1": 2.76,
+        "delta2": -0.42,
+        "opponentWinRate": 46.29,
+        "games": 681
+      },
+      {
+        "opponent": "Lissandra",
+        "winRate": 49.15,
+        "delta1": 2.06,
+        "delta2": -1.12,
+        "opponentWinRate": 47.09,
+        "games": 472
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 49.45,
+        "delta1": 1.69,
+        "delta2": -1.49,
+        "opponentWinRate": 47.76,
+        "games": 2443
+      },
+      {
+        "opponent": "Briar",
+        "winRate": 49.51,
+        "delta1": 1.19,
+        "delta2": -1.99,
+        "opponentWinRate": 48.32,
+        "games": 204
+      },
+      {
+        "opponent": "Quinn",
+        "winRate": 49.56,
+        "delta1": 3.56,
+        "delta2": 0.39,
+        "opponentWinRate": 46.0,
+        "games": 680
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 49.67,
+        "delta1": 2.53,
+        "delta2": -0.65,
+        "opponentWinRate": 47.14,
+        "games": 1347
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 49.68,
+        "delta1": 0.42,
+        "delta2": -2.76,
+        "opponentWinRate": 49.26,
+        "games": 2375
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 49.88,
+        "delta1": 1.46,
+        "delta2": -1.72,
+        "opponentWinRate": 48.42,
+        "games": 2091
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 49.89,
+        "delta1": 1.46,
+        "delta2": -1.72,
+        "opponentWinRate": 48.43,
+        "games": 4105
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 50.04,
+        "delta1": 2.67,
+        "delta2": -0.51,
+        "opponentWinRate": 47.37,
+        "games": 1341
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 50.13,
+        "delta1": 1.7,
+        "delta2": -1.48,
+        "opponentWinRate": 48.43,
+        "games": 1115
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 50.25,
+        "delta1": 3.41,
+        "delta2": 0.23,
+        "opponentWinRate": 46.84,
+        "games": 4227
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 50.3,
+        "delta1": 2.6,
+        "delta2": -0.58,
+        "opponentWinRate": 47.7,
+        "games": 1525
+      },
+      {
+        "opponent": "Skarner",
+        "winRate": 50.39,
+        "delta1": -1.93,
+        "delta2": -5.11,
+        "opponentWinRate": 52.32,
+        "games": 129
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 50.4,
+        "delta1": 2.34,
+        "delta2": -0.84,
+        "opponentWinRate": 48.06,
+        "games": 4333
+      },
+      {
+        "opponent": "Naafiri",
+        "winRate": 50.45,
+        "delta1": 3.02,
+        "delta2": -0.16,
+        "opponentWinRate": 47.43,
+        "games": 331
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 50.68,
+        "delta1": 2.7,
+        "delta2": -0.48,
+        "opponentWinRate": 47.98,
+        "games": 1973
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 50.89,
+        "delta1": 3.52,
+        "delta2": 0.34,
+        "opponentWinRate": 47.37,
+        "games": 3187
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 50.96,
+        "delta1": 2.78,
+        "delta2": -0.4,
+        "opponentWinRate": 48.18,
+        "games": 1566
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 51.21,
+        "delta1": 0.65,
+        "delta2": -2.53,
+        "opponentWinRate": 50.56,
+        "games": 1156
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 51.5,
+        "delta1": 3.58,
+        "delta2": 0.4,
+        "opponentWinRate": 47.92,
+        "games": 1905
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 51.6,
+        "delta1": 0.84,
+        "delta2": -2.34,
+        "opponentWinRate": 50.76,
+        "games": 4616
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 51.73,
+        "delta1": 0.24,
+        "delta2": -2.94,
+        "opponentWinRate": 51.49,
+        "games": 2134
+      },
+      {
+        "opponent": "Kai'Sa",
+        "winRate": 51.76,
+        "delta1": -1.01,
+        "delta2": -4.18,
+        "opponentWinRate": 52.77,
+        "games": 199
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 51.79,
+        "delta1": 3.34,
+        "delta2": 0.16,
+        "opponentWinRate": 48.45,
+        "games": 3445
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 51.89,
+        "delta1": 4.75,
+        "delta2": 1.57,
+        "opponentWinRate": 47.14,
+        "games": 4914
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 52.31,
+        "delta1": 3.99,
+        "delta2": 0.81,
+        "opponentWinRate": 48.32,
+        "games": 5077
+      },
+      {
+        "opponent": "Sylas",
+        "winRate": 52.5,
+        "delta1": 4.34,
+        "delta2": 1.16,
+        "opponentWinRate": 48.16,
+        "games": 1240
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 52.64,
+        "delta1": 4.43,
+        "delta2": 1.25,
+        "opponentWinRate": 48.21,
+        "games": 3026
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 52.64,
+        "delta1": 2.86,
+        "delta2": -0.32,
+        "opponentWinRate": 49.78,
+        "games": 2882
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 52.78,
+        "delta1": 4.79,
+        "delta2": 1.61,
+        "opponentWinRate": 47.99,
+        "games": 4471
+      },
+      {
+        "opponent": "Azir",
+        "winRate": 52.86,
+        "delta1": 5.95,
+        "delta2": 2.77,
+        "opponentWinRate": 46.91,
+        "games": 140
+      },
+      {
+        "opponent": "Twisted Fate",
+        "winRate": 52.87,
+        "delta1": 2.98,
+        "delta2": -0.2,
+        "opponentWinRate": 49.89,
+        "games": 244
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 52.99,
+        "delta1": 3.02,
+        "delta2": -0.16,
+        "opponentWinRate": 49.97,
+        "games": 3191
+      },
+      {
+        "opponent": "Ryze",
+        "winRate": 53.03,
+        "delta1": 3.14,
+        "delta2": -0.04,
+        "opponentWinRate": 49.89,
+        "games": 594
+      },
+      {
+        "opponent": "Varus",
+        "winRate": 53.1,
+        "delta1": 2.43,
+        "delta2": -0.75,
+        "opponentWinRate": 50.67,
+        "games": 678
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 53.64,
+        "delta1": 6.27,
+        "delta2": 3.09,
+        "opponentWinRate": 47.37,
+        "games": 2681
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 53.76,
+        "delta1": 7.28,
+        "delta2": 4.1,
+        "opponentWinRate": 46.48,
+        "games": 3629
+      },
+      {
+        "opponent": "Master Yi",
+        "winRate": 53.77,
+        "delta1": 3.12,
+        "delta2": -0.06,
+        "opponentWinRate": 50.65,
+        "games": 491
+      },
+      {
+        "opponent": "Trundle",
+        "winRate": 53.84,
+        "delta1": 4.64,
+        "delta2": 1.46,
+        "opponentWinRate": 49.2,
+        "games": 886
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 53.99,
+        "delta1": 5.67,
+        "delta2": 2.49,
+        "opponentWinRate": 48.32,
+        "games": 8322
+      },
+      {
+        "opponent": "Akshan",
+        "winRate": 54.05,
+        "delta1": 6.05,
+        "delta2": 2.87,
+        "opponentWinRate": 48.0,
+        "games": 222
+      },
+      {
+        "opponent": "Shyvana",
+        "winRate": 54.05,
+        "delta1": 2.24,
+        "delta2": -0.94,
+        "opponentWinRate": 51.81,
+        "games": 148
+      },
+      {
+        "opponent": "Vladimir",
+        "winRate": 54.17,
+        "delta1": 4.96,
+        "delta2": 1.78,
+        "opponentWinRate": 49.21,
+        "games": 1139
+      },
+      {
+        "opponent": "Ekko",
+        "winRate": 54.25,
+        "delta1": 4.8,
+        "delta2": 1.62,
+        "opponentWinRate": 49.45,
+        "games": 153
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 54.27,
+        "delta1": 5.23,
+        "delta2": 2.05,
+        "opponentWinRate": 49.04,
+        "games": 1651
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 54.33,
+        "delta1": 5.79,
+        "delta2": 2.61,
+        "opponentWinRate": 48.54,
+        "games": 2746
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 54.36,
+        "delta1": 8.04,
+        "delta2": 4.86,
+        "opponentWinRate": 46.32,
+        "games": 1525
+      },
+      {
+        "opponent": "Wukong",
+        "winRate": 54.76,
+        "delta1": 7.51,
+        "delta2": 4.33,
+        "opponentWinRate": 47.25,
+        "games": 588
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 55.1,
+        "delta1": 5.5,
+        "delta2": 2.32,
+        "opponentWinRate": 49.6,
+        "games": 2973
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 55.33,
+        "delta1": 8.17,
+        "delta2": 4.99,
+        "opponentWinRate": 47.16,
+        "games": 985
+      },
+      {
+        "opponent": "Cassiopeia",
+        "winRate": 55.34,
+        "delta1": 7.31,
+        "delta2": 4.13,
+        "opponentWinRate": 48.03,
+        "games": 524
+      },
+      {
+        "opponent": "Swain",
+        "winRate": 55.36,
+        "delta1": 6.22,
+        "delta2": 3.04,
+        "opponentWinRate": 49.14,
+        "games": 466
+      },
+      {
+        "opponent": "Lee Sin",
+        "winRate": 55.41,
+        "delta1": 1.71,
+        "delta2": -1.46,
+        "opponentWinRate": 53.7,
+        "games": 231
+      },
+      {
+        "opponent": "Draven",
+        "winRate": 55.45,
+        "delta1": 3.75,
+        "delta2": 0.57,
+        "opponentWinRate": 51.7,
+        "games": 101
+      },
+      {
+        "opponent": "Smolder",
+        "winRate": 55.69,
+        "delta1": 1.54,
+        "delta2": -1.63,
+        "opponentWinRate": 54.15,
+        "games": 167
+      },
+      {
+        "opponent": "Brand",
+        "winRate": 55.88,
+        "delta1": 7.67,
+        "delta2": 4.49,
+        "opponentWinRate": 48.21,
+        "games": 272
+      },
+      {
+        "opponent": "Aurora",
+        "winRate": 55.99,
+        "delta1": 6.55,
+        "delta2": 3.37,
+        "opponentWinRate": 49.44,
+        "games": 459
+      },
+      {
+        "opponent": "Katarina",
+        "winRate": 56.02,
+        "delta1": 7.94,
+        "delta2": 4.76,
+        "opponentWinRate": 48.08,
+        "games": 191
+      },
+      {
+        "opponent": "Graves",
+        "winRate": 56.25,
+        "delta1": 4.01,
+        "delta2": 0.83,
+        "opponentWinRate": 52.24,
+        "games": 144
+      },
+      {
+        "opponent": "Kalista",
+        "winRate": 56.32,
+        "delta1": 7.11,
+        "delta2": 3.93,
+        "opponentWinRate": 49.21,
+        "games": 190
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 56.5,
+        "delta1": 7.74,
+        "delta2": 4.56,
+        "opponentWinRate": 48.76,
+        "games": 1646
+      },
+      {
+        "opponent": "Kayn",
+        "winRate": 56.62,
+        "delta1": 5.66,
+        "delta2": 2.48,
+        "opponentWinRate": 50.96,
+        "games": 219
+      },
+      {
+        "opponent": "Vel'Koz",
+        "winRate": 57.0,
+        "delta1": 9.58,
+        "delta2": 6.4,
+        "opponentWinRate": 47.42,
+        "games": 100
+      },
+      {
+        "opponent": "Locke",
+        "winRate": 57.01,
+        "delta1": 5.59,
+        "delta2": 2.41,
+        "opponentWinRate": 51.42,
+        "games": 728
+      },
+      {
+        "opponent": "Karma",
+        "winRate": 57.59,
+        "delta1": 6.05,
+        "delta2": 2.87,
+        "opponentWinRate": 51.54,
+        "games": 158
+      },
+      {
+        "opponent": "Viktor",
+        "winRate": 58.12,
+        "delta1": 10.24,
+        "delta2": 7.06,
+        "opponentWinRate": 47.88,
+        "games": 277
+      },
+      {
+        "opponent": "Hwei",
+        "winRate": 58.68,
+        "delta1": 12.3,
+        "delta2": 9.12,
+        "opponentWinRate": 46.38,
+        "games": 121
+      },
+      {
+        "opponent": "Annie",
+        "winRate": 59.09,
+        "delta1": 13.65,
+        "delta2": 10.48,
+        "opponentWinRate": 45.44,
+        "games": 110
+      },
+      {
+        "opponent": "LeBlanc",
+        "winRate": 59.63,
+        "delta1": 10.9,
+        "delta2": 7.72,
+        "opponentWinRate": 48.73,
+        "games": 109
+      },
+      {
+        "opponent": "Kog'Maw",
+        "winRate": 60.61,
+        "delta1": 12.31,
+        "delta2": 9.13,
+        "opponentWinRate": 48.3,
+        "games": 132
+      },
+      {
+        "opponent": "Tristana",
+        "winRate": 61.58,
+        "delta1": 9.83,
+        "delta2": 6.65,
+        "opponentWinRate": 51.75,
+        "games": 177
+      },
+      {
+        "opponent": "Fizz",
+        "winRate": 64.86,
+        "delta1": 13.54,
+        "delta2": 10.36,
+        "opponentWinRate": 51.32,
+        "games": 148
+      }
+    ],
+    "Akshan": [
+      {
+        "opponent": "Nasus",
+        "winRate": 43.38,
+        "delta1": -3.61,
+        "delta2": -7.44,
+        "opponentWinRate": 46.99,
+        "games": 219
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 46.1,
+        "delta1": -1.15,
+        "delta2": -4.98,
+        "opponentWinRate": 47.25,
+        "games": 141
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 46.21,
+        "delta1": -2.11,
+        "delta2": -5.94,
+        "opponentWinRate": 48.32,
+        "games": 264
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 46.62,
+        "delta1": -0.52,
+        "delta2": -4.35,
+        "opponentWinRate": 47.14,
+        "games": 133
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 47.12,
+        "delta1": -0.14,
+        "delta2": -3.97,
+        "opponentWinRate": 47.26,
+        "games": 208
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 47.52,
+        "delta1": -1.52,
+        "delta2": -5.35,
+        "opponentWinRate": 49.04,
+        "games": 101
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 47.56,
+        "delta1": -0.2,
+        "delta2": -4.03,
+        "opponentWinRate": 47.76,
+        "games": 164
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 47.62,
+        "delta1": -0.3,
+        "delta2": -4.13,
+        "opponentWinRate": 47.92,
+        "games": 168
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 47.74,
+        "delta1": -0.71,
+        "delta2": -4.54,
+        "opponentWinRate": 48.45,
+        "games": 287
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 47.95,
+        "delta1": -0.7,
+        "delta2": -4.53,
+        "opponentWinRate": 48.65,
+        "games": 219
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 48.23,
+        "delta1": 1.09,
+        "delta2": -2.74,
+        "opponentWinRate": 47.14,
+        "games": 367
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 48.48,
+        "delta1": 0.3,
+        "delta2": -3.53,
+        "opponentWinRate": 48.18,
+        "games": 132
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 48.59,
+        "delta1": 0.61,
+        "delta2": -3.22,
+        "opponentWinRate": 47.98,
+        "games": 142
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 48.64,
+        "delta1": 1.27,
+        "delta2": -2.56,
+        "opponentWinRate": 47.37,
+        "games": 220
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 48.87,
+        "delta1": 1.17,
+        "delta2": -2.66,
+        "opponentWinRate": 47.7,
+        "games": 133
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 48.92,
+        "delta1": 0.49,
+        "delta2": -3.34,
+        "opponentWinRate": 48.43,
+        "games": 139
+      },
+      {
+        "opponent": "Vladimir",
+        "winRate": 49.23,
+        "delta1": 0.02,
+        "delta2": -3.81,
+        "opponentWinRate": 49.21,
+        "games": 130
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 49.31,
+        "delta1": 2.17,
+        "delta2": -1.66,
+        "opponentWinRate": 47.14,
+        "games": 507
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 49.8,
+        "delta1": 3.32,
+        "delta2": -0.51,
+        "opponentWinRate": 46.48,
+        "games": 249
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 50.41,
+        "delta1": 1.65,
+        "delta2": -2.18,
+        "opponentWinRate": 48.76,
+        "games": 123
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 50.61,
+        "delta1": 0.83,
+        "delta2": -3.0,
+        "opponentWinRate": 49.78,
+        "games": 245
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 50.89,
+        "delta1": 3.63,
+        "delta2": -0.2,
+        "opponentWinRate": 47.26,
+        "games": 224
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 51.0,
+        "delta1": 3.21,
+        "delta2": -0.62,
+        "opponentWinRate": 47.79,
+        "games": 100
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 51.71,
+        "delta1": 5.54,
+        "delta2": 1.72,
+        "opponentWinRate": 46.17,
+        "games": 205
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 51.76,
+        "delta1": 3.7,
+        "delta2": -0.13,
+        "opponentWinRate": 48.06,
+        "games": 284
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 51.88,
+        "delta1": 3.46,
+        "delta2": -0.37,
+        "opponentWinRate": 48.42,
+        "games": 160
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 52.42,
+        "delta1": 6.1,
+        "delta2": 2.27,
+        "opponentWinRate": 46.32,
+        "games": 227
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 52.61,
+        "delta1": 2.64,
+        "delta2": -1.19,
+        "opponentWinRate": 49.97,
+        "games": 249
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 52.8,
+        "delta1": 5.43,
+        "delta2": 1.6,
+        "opponentWinRate": 47.37,
+        "games": 125
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 52.87,
+        "delta1": 3.27,
+        "delta2": -0.56,
+        "opponentWinRate": 49.6,
+        "games": 314
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 52.88,
+        "delta1": 5.5,
+        "delta2": 1.67,
+        "opponentWinRate": 47.38,
+        "games": 1144
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 53.33,
+        "delta1": 5.96,
+        "delta2": 2.13,
+        "opponentWinRate": 47.37,
+        "games": 150
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 53.43,
+        "delta1": 5.0,
+        "delta2": 1.17,
+        "opponentWinRate": 48.43,
+        "games": 204
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 53.55,
+        "delta1": 6.71,
+        "delta2": 2.88,
+        "opponentWinRate": 46.84,
+        "games": 366
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 54.01,
+        "delta1": 5.65,
+        "delta2": 1.82,
+        "opponentWinRate": 48.36,
+        "games": 137
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 54.09,
+        "delta1": 4.83,
+        "delta2": 1.0,
+        "opponentWinRate": 49.26,
+        "games": 220
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 55.11,
+        "delta1": 6.9,
+        "delta2": 3.07,
+        "opponentWinRate": 48.21,
+        "games": 225
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 55.27,
+        "delta1": 7.28,
+        "delta2": 3.45,
+        "opponentWinRate": 47.99,
+        "games": 313
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 56.03,
+        "delta1": 5.27,
+        "delta2": 1.44,
+        "opponentWinRate": 50.76,
+        "games": 398
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 56.15,
+        "delta1": 7.83,
+        "delta2": 4.0,
+        "opponentWinRate": 48.32,
+        "games": 488
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 56.82,
+        "delta1": 9.03,
+        "delta2": 5.2,
+        "opponentWinRate": 47.79,
+        "games": 264
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 57.5,
+        "delta1": 6.01,
+        "delta2": 2.18,
+        "opponentWinRate": 51.49,
+        "games": 160
+      },
+      {
+        "opponent": "Varus",
+        "winRate": 57.69,
+        "delta1": 7.02,
+        "delta2": 3.19,
+        "opponentWinRate": 50.67,
+        "games": 104
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 61.26,
+        "delta1": 14.1,
+        "delta2": 10.27,
+        "opponentWinRate": 47.16,
+        "games": 111
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 61.71,
+        "delta1": 13.17,
+        "delta2": 9.34,
+        "opponentWinRate": 48.54,
+        "games": 363
+      }
+    ],
+    "Alistar": [
+      {
+        "opponent": "Jax",
+        "winRate": 36.71,
+        "delta1": -11.61,
+        "delta2": -10.08,
+        "opponentWinRate": 48.32,
+        "games": 237
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 41.61,
+        "delta1": -6.45,
+        "delta2": -4.92,
+        "opponentWinRate": 48.06,
+        "games": 149
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 42.28,
+        "delta1": -8.48,
+        "delta2": -6.94,
+        "opponentWinRate": 50.76,
+        "games": 123
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 42.59,
+        "delta1": -5.84,
+        "delta2": -4.31,
+        "opponentWinRate": 48.43,
+        "games": 108
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 43.62,
+        "delta1": -3.22,
+        "delta2": -1.71,
+        "opponentWinRate": 46.84,
+        "games": 149
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 44.44,
+        "delta1": -3.88,
+        "delta2": -2.35,
+        "opponentWinRate": 48.32,
+        "games": 135
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 44.59,
+        "delta1": -2.55,
+        "delta2": -1.03,
+        "opponentWinRate": 47.14,
+        "games": 148
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 47.9,
+        "delta1": 0.76,
+        "delta2": 2.28,
+        "opponentWinRate": 47.14,
+        "games": 119
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 48.33,
+        "delta1": 0.34,
+        "delta2": 1.87,
+        "opponentWinRate": 47.99,
+        "games": 180
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 50.0,
+        "delta1": 2.63,
+        "delta2": 4.15,
+        "opponentWinRate": 47.37,
+        "games": 120
+      }
+    ],
+    "Ambessa": [
+      {
+        "opponent": "Neeko",
+        "winRate": 38.61,
+        "delta1": -9.81,
+        "delta2": -11.67,
+        "opponentWinRate": 48.42,
+        "games": 101
+      },
+      {
+        "opponent": "Syndra",
+        "winRate": 42.24,
+        "delta1": -4.8,
+        "delta2": -6.66,
+        "opponentWinRate": 47.04,
+        "games": 116
+      },
+      {
+        "opponent": "Qiyana",
+        "winRate": 43.4,
+        "delta1": -4.38,
+        "delta2": -6.24,
+        "opponentWinRate": 47.78,
+        "games": 265
+      },
+      {
+        "opponent": "Warwick",
+        "winRate": 43.68,
+        "delta1": -2.38,
+        "delta2": -4.24,
+        "opponentWinRate": 46.06,
+        "games": 2770
+      },
+      {
+        "opponent": "Katarina",
+        "winRate": 44.06,
+        "delta1": -4.02,
+        "delta2": -5.88,
+        "opponentWinRate": 48.08,
+        "games": 143
+      },
+      {
+        "opponent": "Fiddlesticks",
+        "winRate": 46.55,
+        "delta1": -0.42,
+        "delta2": -2.28,
+        "opponentWinRate": 46.97,
+        "games": 449
+      },
+      {
+        "opponent": "Cassiopeia",
+        "winRate": 46.61,
+        "delta1": -1.42,
+        "delta2": -3.28,
+        "opponentWinRate": 48.03,
+        "games": 663
+      },
+      {
+        "opponent": "Nidalee",
+        "winRate": 46.77,
+        "delta1": -7.02,
+        "delta2": -8.88,
+        "opponentWinRate": 53.79,
+        "games": 124
+      },
+      {
+        "opponent": "Zed",
+        "winRate": 46.79,
+        "delta1": 0.5,
+        "delta2": -1.36,
+        "opponentWinRate": 46.29,
+        "games": 810
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 47.01,
+        "delta1": -1.44,
+        "delta2": -3.3,
+        "opponentWinRate": 48.45,
+        "games": 5107
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 47.03,
+        "delta1": -1.4,
+        "delta2": -3.26,
+        "opponentWinRate": 48.43,
+        "games": 1499
+      },
+      {
+        "opponent": "Rek'Sai",
+        "winRate": 47.06,
+        "delta1": -0.13,
+        "delta2": -1.99,
+        "opponentWinRate": 47.19,
+        "games": 221
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 47.12,
+        "delta1": -0.13,
+        "delta2": -1.99,
+        "opponentWinRate": 47.25,
+        "games": 4251
+      },
+      {
+        "opponent": "Wukong",
+        "winRate": 47.15,
+        "delta1": -0.1,
+        "delta2": -1.96,
+        "opponentWinRate": 47.25,
+        "games": 1349
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 47.22,
+        "delta1": -0.48,
+        "delta2": -2.34,
+        "opponentWinRate": 47.7,
+        "games": 3918
+      },
+      {
+        "opponent": "Zoe",
+        "winRate": 47.33,
+        "delta1": 0.14,
+        "delta2": -1.72,
+        "opponentWinRate": 47.19,
+        "games": 131
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 47.37,
+        "delta1": -1.06,
+        "delta2": -2.92,
+        "opponentWinRate": 48.43,
+        "games": 16491
+      },
+      {
+        "opponent": "Lissandra",
+        "winRate": 47.39,
+        "delta1": 0.3,
+        "delta2": -1.56,
+        "opponentWinRate": 47.09,
+        "games": 498
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 47.54,
+        "delta1": 1.06,
+        "delta2": -0.8,
+        "opponentWinRate": 46.48,
+        "games": 4438
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 47.56,
+        "delta1": 1.39,
+        "delta2": -0.47,
+        "opponentWinRate": 46.17,
+        "games": 3543
+      },
+      {
+        "opponent": "Azir",
+        "winRate": 47.57,
+        "delta1": 0.66,
+        "delta2": -1.2,
+        "opponentWinRate": 46.91,
+        "games": 185
+      },
+      {
+        "opponent": "Poppy",
+        "winRate": 47.63,
+        "delta1": 0.03,
+        "delta2": -1.83,
+        "opponentWinRate": 47.6,
+        "games": 2576
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 47.69,
+        "delta1": 0.31,
+        "delta2": -1.55,
+        "opponentWinRate": 47.38,
+        "games": 7406
+      },
+      {
+        "opponent": "Morgana",
+        "winRate": 48.04,
+        "delta1": -1.31,
+        "delta2": -3.17,
+        "opponentWinRate": 49.35,
+        "games": 102
+      },
+      {
+        "opponent": "Varus",
+        "winRate": 48.12,
+        "delta1": -2.55,
+        "delta2": -4.41,
+        "opponentWinRate": 50.67,
+        "games": 906
+      },
+      {
+        "opponent": "Ahri",
+        "winRate": 48.24,
+        "delta1": 2.94,
+        "delta2": 1.08,
+        "opponentWinRate": 45.3,
+        "games": 255
+      },
+      {
+        "opponent": "Quinn",
+        "winRate": 48.26,
+        "delta1": 2.26,
+        "delta2": 0.4,
+        "opponentWinRate": 46.0,
+        "games": 976
+      },
+      {
+        "opponent": "Kled",
+        "winRate": 48.34,
+        "delta1": 1.23,
+        "delta2": -0.63,
+        "opponentWinRate": 47.11,
+        "games": 2325
+      },
+      {
+        "opponent": "Draven",
+        "winRate": 48.41,
+        "delta1": -3.29,
+        "delta2": -5.15,
+        "opponentWinRate": 51.7,
+        "games": 126
+      },
+      {
+        "opponent": "Twisted Fate",
+        "winRate": 48.55,
+        "delta1": -1.34,
+        "delta2": -3.2,
+        "opponentWinRate": 49.89,
+        "games": 346
+      },
+      {
+        "opponent": "Annie",
+        "winRate": 48.62,
+        "delta1": 3.18,
+        "delta2": 1.32,
+        "opponentWinRate": 45.44,
+        "games": 109
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 48.76,
+        "delta1": 1.5,
+        "delta2": -0.36,
+        "opponentWinRate": 47.26,
+        "games": 4707
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 48.76,
+        "delta1": 1.0,
+        "delta2": -0.86,
+        "opponentWinRate": 47.76,
+        "games": 3909
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 48.89,
+        "delta1": 0.9,
+        "delta2": -0.96,
+        "opponentWinRate": 47.99,
+        "games": 8329
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 48.96,
+        "delta1": 0.54,
+        "delta2": -1.32,
+        "opponentWinRate": 48.42,
+        "games": 3897
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 49.03,
+        "delta1": 1.05,
+        "delta2": -0.81,
+        "opponentWinRate": 47.98,
+        "games": 5207
+      },
+      {
+        "opponent": "Shyvana",
+        "winRate": 49.1,
+        "delta1": -2.71,
+        "delta2": -4.57,
+        "opponentWinRate": 51.81,
+        "games": 277
+      },
+      {
+        "opponent": "Anivia",
+        "winRate": 49.11,
+        "delta1": 2.06,
+        "delta2": 0.2,
+        "opponentWinRate": 47.05,
+        "games": 957
+      },
+      {
+        "opponent": "Zilean",
+        "winRate": 49.23,
+        "delta1": 4.55,
+        "delta2": 2.69,
+        "opponentWinRate": 44.68,
+        "games": 388
+      },
+      {
+        "opponent": "Aurora",
+        "winRate": 49.23,
+        "delta1": -0.21,
+        "delta2": -2.07,
+        "opponentWinRate": 49.44,
+        "games": 583
+      },
+      {
+        "opponent": "Akshan",
+        "winRate": 49.23,
+        "delta1": 1.23,
+        "delta2": -0.63,
+        "opponentWinRate": 48.0,
+        "games": 260
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 49.25,
+        "delta1": 0.6,
+        "delta2": -1.26,
+        "opponentWinRate": 48.65,
+        "games": 3202
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 49.25,
+        "delta1": 2.09,
+        "delta2": 0.23,
+        "opponentWinRate": 47.16,
+        "games": 1395
+      },
+      {
+        "opponent": "Xin Zhao",
+        "winRate": 49.37,
+        "delta1": -0.59,
+        "delta2": -2.45,
+        "opponentWinRate": 49.96,
+        "games": 399
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 49.38,
+        "delta1": 2.01,
+        "delta2": 0.15,
+        "opponentWinRate": 47.37,
+        "games": 3165
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 49.42,
+        "delta1": 2.28,
+        "delta2": 0.42,
+        "opponentWinRate": 47.14,
+        "games": 6536
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 49.47,
+        "delta1": 1.55,
+        "delta2": -0.31,
+        "opponentWinRate": 47.92,
+        "games": 3802
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 49.63,
+        "delta1": 0.59,
+        "delta2": -1.27,
+        "opponentWinRate": 49.04,
+        "games": 3149
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 49.97,
+        "delta1": 1.76,
+        "delta2": -0.1,
+        "opponentWinRate": 48.21,
+        "games": 5055
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 50.01,
+        "delta1": 2.64,
+        "delta2": 0.78,
+        "opponentWinRate": 47.37,
+        "games": 6209
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 50.12,
+        "delta1": -0.64,
+        "delta2": -2.5,
+        "opponentWinRate": 50.76,
+        "games": 8384
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 50.16,
+        "delta1": 0.56,
+        "delta2": -1.3,
+        "opponentWinRate": 49.6,
+        "games": 5373
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 50.26,
+        "delta1": 2.89,
+        "delta2": 1.03,
+        "opponentWinRate": 47.37,
+        "games": 3681
+      },
+      {
+        "opponent": "Kalista",
+        "winRate": 50.28,
+        "delta1": 1.07,
+        "delta2": -0.79,
+        "opponentWinRate": 49.21,
+        "games": 177
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 50.28,
+        "delta1": 3.96,
+        "delta2": 2.1,
+        "opponentWinRate": 46.32,
+        "games": 2303
+      },
+      {
+        "opponent": "Aurelion Sol",
+        "winRate": 50.34,
+        "delta1": 2.75,
+        "delta2": 0.89,
+        "opponentWinRate": 47.59,
+        "games": 147
+      },
+      {
+        "opponent": "Kassadin",
+        "winRate": 50.45,
+        "delta1": 4.06,
+        "delta2": 2.2,
+        "opponentWinRate": 46.39,
+        "games": 111
+      },
+      {
+        "opponent": "Naafiri",
+        "winRate": 50.56,
+        "delta1": 3.13,
+        "delta2": 1.27,
+        "opponentWinRate": 47.43,
+        "games": 447
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 50.68,
+        "delta1": 1.92,
+        "delta2": 0.06,
+        "opponentWinRate": 48.76,
+        "games": 2496
+      },
+      {
+        "opponent": "Rengar",
+        "winRate": 50.7,
+        "delta1": -0.14,
+        "delta2": -2.0,
+        "opponentWinRate": 50.84,
+        "games": 428
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 50.71,
+        "delta1": 2.39,
+        "delta2": 0.53,
+        "opponentWinRate": 48.32,
+        "games": 6784
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 50.71,
+        "delta1": 3.87,
+        "delta2": 2.01,
+        "opponentWinRate": 46.84,
+        "games": 7338
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 50.71,
+        "delta1": 2.17,
+        "delta2": 0.31,
+        "opponentWinRate": 48.54,
+        "games": 3820
+      },
+      {
+        "opponent": "Swain",
+        "winRate": 50.74,
+        "delta1": 1.6,
+        "delta2": -0.26,
+        "opponentWinRate": 49.14,
+        "games": 816
+      },
+      {
+        "opponent": "Elise",
+        "winRate": 50.82,
+        "delta1": 2.1,
+        "delta2": 0.24,
+        "opponentWinRate": 48.72,
+        "games": 122
+      },
+      {
+        "opponent": "Trundle",
+        "winRate": 50.93,
+        "delta1": 1.73,
+        "delta2": -0.13,
+        "opponentWinRate": 49.2,
+        "games": 1449
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 50.98,
+        "delta1": 3.84,
+        "delta2": 1.98,
+        "opponentWinRate": 47.14,
+        "games": 3099
+      },
+      {
+        "opponent": "Udyr",
+        "winRate": 51.13,
+        "delta1": 1.69,
+        "delta2": -0.17,
+        "opponentWinRate": 49.44,
+        "games": 753
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 51.18,
+        "delta1": 2.86,
+        "delta2": 1.0,
+        "opponentWinRate": 48.32,
+        "games": 9046
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 51.2,
+        "delta1": 3.94,
+        "delta2": 2.08,
+        "opponentWinRate": 47.26,
+        "games": 4082
+      },
+      {
+        "opponent": "Vladimir",
+        "winRate": 51.25,
+        "delta1": 2.04,
+        "delta2": 0.18,
+        "opponentWinRate": 49.21,
+        "games": 1364
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 51.3,
+        "delta1": 3.24,
+        "delta2": 1.38,
+        "opponentWinRate": 48.06,
+        "games": 9864
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 51.34,
+        "delta1": 4.2,
+        "delta2": 2.34,
+        "opponentWinRate": 47.14,
+        "games": 8964
+      },
+      {
+        "opponent": "Zac",
+        "winRate": 51.37,
+        "delta1": 4.85,
+        "delta2": 2.99,
+        "opponentWinRate": 46.52,
+        "games": 693
+      },
+      {
+        "opponent": "Briar",
+        "winRate": 51.39,
+        "delta1": 3.07,
+        "delta2": 1.21,
+        "opponentWinRate": 48.32,
+        "games": 323
+      },
+      {
+        "opponent": "Veigar",
+        "winRate": 51.49,
+        "delta1": 4.21,
+        "delta2": 2.35,
+        "opponentWinRate": 47.28,
+        "games": 202
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 51.71,
+        "delta1": 1.15,
+        "delta2": -0.71,
+        "opponentWinRate": 50.56,
+        "games": 2479
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 51.79,
+        "delta1": 4.8,
+        "delta2": 2.94,
+        "opponentWinRate": 46.99,
+        "games": 4250
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 51.84,
+        "delta1": 3.66,
+        "delta2": 1.8,
+        "opponentWinRate": 48.18,
+        "games": 2575
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 51.89,
+        "delta1": 3.53,
+        "delta2": 1.67,
+        "opponentWinRate": 48.36,
+        "games": 2862
+      },
+      {
+        "opponent": "Fizz",
+        "winRate": 52.0,
+        "delta1": 0.68,
+        "delta2": -1.18,
+        "opponentWinRate": 51.32,
+        "games": 150
+      },
+      {
+        "opponent": "Corki",
+        "winRate": 52.07,
+        "delta1": 0.11,
+        "delta2": -1.75,
+        "opponentWinRate": 51.96,
+        "games": 169
+      },
+      {
+        "opponent": "Tristana",
+        "winRate": 52.16,
+        "delta1": 0.41,
+        "delta2": -1.45,
+        "opponentWinRate": 51.75,
+        "games": 232
+      },
+      {
+        "opponent": "Skarner",
+        "winRate": 52.26,
+        "delta1": -0.06,
+        "delta2": -1.92,
+        "opponentWinRate": 52.32,
+        "games": 354
+      },
+      {
+        "opponent": "Master Yi",
+        "winRate": 52.33,
+        "delta1": 1.68,
+        "delta2": -0.18,
+        "opponentWinRate": 50.65,
+        "games": 730
+      },
+      {
+        "opponent": "Kayn",
+        "winRate": 52.44,
+        "delta1": 1.48,
+        "delta2": -0.38,
+        "opponentWinRate": 50.96,
+        "games": 389
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 52.54,
+        "delta1": 4.75,
+        "delta2": 2.89,
+        "opponentWinRate": 47.79,
+        "games": 1991
+      },
+      {
+        "opponent": "Shaco",
+        "winRate": 52.7,
+        "delta1": -0.52,
+        "delta2": -2.38,
+        "opponentWinRate": 53.22,
+        "games": 148
+      },
+      {
+        "opponent": "Ryze",
+        "winRate": 52.72,
+        "delta1": 2.83,
+        "delta2": 0.97,
+        "opponentWinRate": 49.89,
+        "games": 753
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 52.96,
+        "delta1": 3.18,
+        "delta2": 1.32,
+        "opponentWinRate": 49.78,
+        "games": 3739
+      },
+      {
+        "opponent": "Brand",
+        "winRate": 52.97,
+        "delta1": 4.76,
+        "delta2": 2.9,
+        "opponentWinRate": 48.21,
+        "games": 370
+      },
+      {
+        "opponent": "Sejuani",
+        "winRate": 53.16,
+        "delta1": 4.66,
+        "delta2": 2.8,
+        "opponentWinRate": 48.5,
+        "games": 380
+      },
+      {
+        "opponent": "Sylas",
+        "winRate": 53.2,
+        "delta1": 5.04,
+        "delta2": 3.18,
+        "opponentWinRate": 48.16,
+        "games": 1064
+      },
+      {
+        "opponent": "Maokai",
+        "winRate": 53.21,
+        "delta1": 3.23,
+        "delta2": 1.37,
+        "opponentWinRate": 49.98,
+        "games": 701
+      },
+      {
+        "opponent": "Kai'Sa",
+        "winRate": 53.45,
+        "delta1": 0.68,
+        "delta2": -1.18,
+        "opponentWinRate": 52.77,
+        "games": 232
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 53.55,
+        "delta1": 4.29,
+        "delta2": 2.43,
+        "opponentWinRate": 49.26,
+        "games": 4185
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 54.18,
+        "delta1": 6.39,
+        "delta2": 4.53,
+        "opponentWinRate": 47.79,
+        "games": 5565
+      },
+      {
+        "opponent": "Lee Sin",
+        "winRate": 54.4,
+        "delta1": 0.7,
+        "delta2": -1.16,
+        "opponentWinRate": 53.7,
+        "games": 307
+      },
+      {
+        "opponent": "Viktor",
+        "winRate": 54.41,
+        "delta1": 6.53,
+        "delta2": 4.67,
+        "opponentWinRate": 47.88,
+        "games": 329
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 54.42,
+        "delta1": 2.93,
+        "delta2": 1.07,
+        "opponentWinRate": 51.49,
+        "games": 5371
+      },
+      {
+        "opponent": "Ivern",
+        "winRate": 54.48,
+        "delta1": 4.69,
+        "delta2": 2.83,
+        "opponentWinRate": 49.79,
+        "games": 134
+      },
+      {
+        "opponent": "Kog'Maw",
+        "winRate": 54.59,
+        "delta1": 6.29,
+        "delta2": 4.43,
+        "opponentWinRate": 48.3,
+        "games": 207
+      },
+      {
+        "opponent": "Smolder",
+        "winRate": 54.65,
+        "delta1": 0.5,
+        "delta2": -1.36,
+        "opponentWinRate": 54.15,
+        "games": 269
+      },
+      {
+        "opponent": "Malzahar",
+        "winRate": 54.97,
+        "delta1": 6.7,
+        "delta2": 4.84,
+        "opponentWinRate": 48.27,
+        "games": 473
+      },
+      {
+        "opponent": "Graves",
+        "winRate": 55.42,
+        "delta1": 3.18,
+        "delta2": 1.32,
+        "opponentWinRate": 52.24,
+        "games": 249
+      },
+      {
+        "opponent": "Hwei",
+        "winRate": 55.75,
+        "delta1": 9.37,
+        "delta2": 7.51,
+        "opponentWinRate": 46.38,
+        "games": 113
+      },
+      {
+        "opponent": "Karma",
+        "winRate": 55.83,
+        "delta1": 4.29,
+        "delta2": 2.43,
+        "opponentWinRate": 51.54,
+        "games": 206
+      },
+      {
+        "opponent": "Lucian",
+        "winRate": 55.88,
+        "delta1": 0.15,
+        "delta2": -1.71,
+        "opponentWinRate": 55.73,
+        "games": 102
+      },
+      {
+        "opponent": "LeBlanc",
+        "winRate": 55.97,
+        "delta1": 7.24,
+        "delta2": 5.38,
+        "opponentWinRate": 48.73,
+        "games": 134
+      },
+      {
+        "opponent": "Vi",
+        "winRate": 56.08,
+        "delta1": 2.12,
+        "delta2": 0.26,
+        "opponentWinRate": 53.96,
+        "games": 189
+      },
+      {
+        "opponent": "Karthus",
+        "winRate": 56.45,
+        "delta1": 5.82,
+        "delta2": 3.96,
+        "opponentWinRate": 50.63,
+        "games": 124
+      },
+      {
+        "opponent": "Locke",
+        "winRate": 57.13,
+        "delta1": 5.71,
+        "delta2": 3.85,
+        "opponentWinRate": 51.42,
+        "games": 877
+      },
+      {
+        "opponent": "Diana",
+        "winRate": 57.46,
+        "delta1": 7.33,
+        "delta2": 5.47,
+        "opponentWinRate": 50.13,
+        "games": 134
+      },
+      {
+        "opponent": "Nocturne",
+        "winRate": 57.84,
+        "delta1": 9.64,
+        "delta2": 7.78,
+        "opponentWinRate": 48.2,
+        "games": 102
+      },
+      {
+        "opponent": "Ekko",
+        "winRate": 58.5,
+        "delta1": 9.05,
+        "delta2": 7.19,
+        "opponentWinRate": 49.45,
+        "games": 200
+      },
+      {
+        "opponent": "Caitlyn",
+        "winRate": 58.56,
+        "delta1": 4.17,
+        "delta2": 2.31,
+        "opponentWinRate": 54.39,
+        "games": 111
+      },
+      {
+        "opponent": "Ezreal",
+        "winRate": 59.46,
+        "delta1": 3.3,
+        "delta2": 1.44,
+        "opponentWinRate": 56.16,
+        "games": 111
+      },
+      {
+        "opponent": "Viego",
+        "winRate": 59.51,
+        "delta1": 8.78,
+        "delta2": 6.92,
+        "opponentWinRate": 50.73,
+        "games": 163
+      },
+      {
+        "opponent": "Vel'Koz",
+        "winRate": 60.63,
+        "delta1": 13.21,
+        "delta2": 11.35,
+        "opponentWinRate": 47.42,
+        "games": 127
+      },
+      {
+        "opponent": "Galio",
+        "winRate": 60.87,
+        "delta1": 12.2,
+        "delta2": 10.34,
+        "opponentWinRate": 48.67,
+        "games": 230
+      },
+      {
+        "opponent": "Jhin",
+        "winRate": 69.16,
+        "delta1": 18.56,
+        "delta2": 16.7,
+        "opponentWinRate": 50.6,
+        "games": 107
+      }
+    ],
+    "Amumu": [],
+    "Anivia": [
+      {
+        "opponent": "Ahri",
+        "winRate": 41.23,
+        "delta1": -4.07,
+        "delta2": -8.84,
+        "opponentWinRate": 45.3,
+        "games": 114
+      },
+      {
+        "opponent": "Kassadin",
+        "winRate": 43.56,
+        "delta1": -2.83,
+        "delta2": -7.61,
+        "opponentWinRate": 46.39,
+        "games": 101
+      },
+      {
+        "opponent": "Quinn",
+        "winRate": 43.97,
+        "delta1": -2.03,
+        "delta2": -6.81,
+        "opponentWinRate": 46.0,
+        "games": 257
+      },
+      {
+        "opponent": "Malzahar",
+        "winRate": 45.32,
+        "delta1": -2.95,
+        "delta2": -7.73,
+        "opponentWinRate": 48.27,
+        "games": 203
+      },
+      {
+        "opponent": "Xin Zhao",
+        "winRate": 46.08,
+        "delta1": -3.88,
+        "delta2": -8.66,
+        "opponentWinRate": 49.96,
+        "games": 102
+      },
+      {
+        "opponent": "Wukong",
+        "winRate": 46.15,
+        "delta1": -1.1,
+        "delta2": -5.88,
+        "opponentWinRate": 47.25,
+        "games": 169
+      },
+      {
+        "opponent": "Naafiri",
+        "winRate": 46.85,
+        "delta1": -0.58,
+        "delta2": -5.36,
+        "opponentWinRate": 47.43,
+        "games": 143
+      },
+      {
+        "opponent": "Kled",
+        "winRate": 46.91,
+        "delta1": -0.2,
+        "delta2": -4.98,
+        "opponentWinRate": 47.11,
+        "games": 356
+      },
+      {
+        "opponent": "Veigar",
+        "winRate": 47.0,
+        "delta1": -0.28,
+        "delta2": -5.06,
+        "opponentWinRate": 47.28,
+        "games": 100
+      },
+      {
+        "opponent": "Warwick",
+        "winRate": 47.08,
+        "delta1": 1.02,
+        "delta2": -3.76,
+        "opponentWinRate": 46.06,
+        "games": 308
+      },
+      {
+        "opponent": "Lissandra",
+        "winRate": 48.39,
+        "delta1": 1.3,
+        "delta2": -3.48,
+        "opponentWinRate": 47.09,
+        "games": 155
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 48.99,
+        "delta1": 0.93,
+        "delta2": -3.85,
+        "opponentWinRate": 48.06,
+        "games": 1282
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 49.4,
+        "delta1": 0.95,
+        "delta2": -3.83,
+        "opponentWinRate": 48.45,
+        "games": 1166
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 49.46,
+        "delta1": 1.04,
+        "delta2": -3.74,
+        "opponentWinRate": 48.42,
+        "games": 554
+      },
+      {
+        "opponent": "Zac",
+        "winRate": 49.53,
+        "delta1": 3.01,
+        "delta2": -1.77,
+        "opponentWinRate": 46.52,
+        "games": 107
+      },
+      {
+        "opponent": "Zed",
+        "winRate": 49.55,
+        "delta1": 3.26,
+        "delta2": -1.52,
+        "opponentWinRate": 46.29,
+        "games": 222
+      },
+      {
+        "opponent": "Ryze",
+        "winRate": 50.18,
+        "delta1": 0.29,
+        "delta2": -4.49,
+        "opponentWinRate": 49.89,
+        "games": 271
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 50.29,
+        "delta1": 3.03,
+        "delta2": -1.75,
+        "opponentWinRate": 47.26,
+        "games": 865
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 50.6,
+        "delta1": 2.28,
+        "delta2": -2.5,
+        "opponentWinRate": 48.32,
+        "games": 1931
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 50.98,
+        "delta1": 3.73,
+        "delta2": -1.05,
+        "opponentWinRate": 47.25,
+        "games": 716
+      },
+      {
+        "opponent": "Galio",
+        "winRate": 50.98,
+        "delta1": 2.31,
+        "delta2": -2.47,
+        "opponentWinRate": 48.67,
+        "games": 153
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 51.1,
+        "delta1": 3.12,
+        "delta2": -1.66,
+        "opponentWinRate": 47.98,
+        "games": 591
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 51.38,
+        "delta1": 3.59,
+        "delta2": -1.19,
+        "opponentWinRate": 47.79,
+        "games": 362
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 51.45,
+        "delta1": 3.69,
+        "delta2": -1.09,
+        "opponentWinRate": 47.76,
+        "games": 620
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 51.56,
+        "delta1": 1.78,
+        "delta2": -3.0,
+        "opponentWinRate": 49.78,
+        "games": 991
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 51.59,
+        "delta1": 4.45,
+        "delta2": -0.33,
+        "opponentWinRate": 47.14,
+        "games": 599
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 51.61,
+        "delta1": 3.18,
+        "delta2": -1.6,
+        "opponentWinRate": 48.43,
+        "games": 403
+      },
+      {
+        "opponent": "Poppy",
+        "winRate": 52.22,
+        "delta1": 4.62,
+        "delta2": -0.16,
+        "opponentWinRate": 47.6,
+        "games": 203
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 52.33,
+        "delta1": 4.95,
+        "delta2": 0.17,
+        "opponentWinRate": 47.38,
+        "games": 1290
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 52.37,
+        "delta1": 4.58,
+        "delta2": -0.2,
+        "opponentWinRate": 47.79,
+        "games": 1159
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 52.45,
+        "delta1": 5.61,
+        "delta2": 0.83,
+        "opponentWinRate": 46.84,
+        "games": 1287
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 52.47,
+        "delta1": 5.21,
+        "delta2": 0.43,
+        "opponentWinRate": 47.26,
+        "games": 831
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 52.5,
+        "delta1": 4.14,
+        "delta2": -0.64,
+        "opponentWinRate": 48.36,
+        "games": 501
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 52.69,
+        "delta1": 4.04,
+        "delta2": -0.74,
+        "opponentWinRate": 48.65,
+        "games": 706
+      },
+      {
+        "opponent": "Viktor",
+        "winRate": 52.75,
+        "delta1": 4.87,
+        "delta2": 0.09,
+        "opponentWinRate": 47.88,
+        "games": 182
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 52.82,
+        "delta1": 6.34,
+        "delta2": 1.56,
+        "opponentWinRate": 46.48,
+        "games": 1278
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 52.85,
+        "delta1": 5.48,
+        "delta2": 0.7,
+        "opponentWinRate": 47.37,
+        "games": 666
+      },
+      {
+        "opponent": "Sylas",
+        "winRate": 52.86,
+        "delta1": 4.7,
+        "delta2": -0.08,
+        "opponentWinRate": 48.16,
+        "games": 297
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 52.86,
+        "delta1": 3.26,
+        "delta2": -1.52,
+        "opponentWinRate": 49.6,
+        "games": 893
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 52.87,
+        "delta1": 2.9,
+        "delta2": -1.88,
+        "opponentWinRate": 49.97,
+        "games": 974
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 52.9,
+        "delta1": 4.98,
+        "delta2": 0.2,
+        "opponentWinRate": 47.92,
+        "games": 862
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 53.1,
+        "delta1": 1.61,
+        "delta2": -3.16,
+        "opponentWinRate": 51.49,
+        "games": 757
+      },
+      {
+        "opponent": "Locke",
+        "winRate": 53.18,
+        "delta1": 1.76,
+        "delta2": -3.01,
+        "opponentWinRate": 51.42,
+        "games": 220
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 53.29,
+        "delta1": 7.12,
+        "delta2": 2.34,
+        "opponentWinRate": 46.17,
+        "games": 593
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 53.33,
+        "delta1": 7.01,
+        "delta2": 2.23,
+        "opponentWinRate": 46.32,
+        "games": 450
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 53.47,
+        "delta1": 5.48,
+        "delta2": 0.7,
+        "opponentWinRate": 47.99,
+        "games": 1440
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 53.61,
+        "delta1": 4.85,
+        "delta2": 0.07,
+        "opponentWinRate": 48.76,
+        "games": 429
+      },
+      {
+        "opponent": "Cassiopeia",
+        "winRate": 53.62,
+        "delta1": 5.59,
+        "delta2": 0.81,
+        "opponentWinRate": 48.03,
+        "games": 304
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 53.79,
+        "delta1": 5.58,
+        "delta2": 0.8,
+        "opponentWinRate": 48.21,
+        "games": 751
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 53.82,
+        "delta1": 5.64,
+        "delta2": 0.86,
+        "opponentWinRate": 48.18,
+        "games": 498
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 53.94,
+        "delta1": 6.8,
+        "delta2": 2.02,
+        "opponentWinRate": 47.14,
+        "games": 1433
+      },
+      {
+        "opponent": "Trundle",
+        "winRate": 54.0,
+        "delta1": 4.8,
+        "delta2": 0.02,
+        "opponentWinRate": 49.2,
+        "games": 250
+      },
+      {
+        "opponent": "Aurora",
+        "winRate": 54.08,
+        "delta1": 4.64,
+        "delta2": -0.14,
+        "opponentWinRate": 49.44,
+        "games": 196
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 54.17,
+        "delta1": 5.74,
+        "delta2": 0.96,
+        "opponentWinRate": 48.43,
+        "games": 1030
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 54.18,
+        "delta1": 7.02,
+        "delta2": 2.24,
+        "opponentWinRate": 47.16,
+        "games": 478
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 54.32,
+        "delta1": 7.18,
+        "delta2": 2.4,
+        "opponentWinRate": 47.14,
+        "games": 1850
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 54.33,
+        "delta1": 6.63,
+        "delta2": 1.85,
+        "opponentWinRate": 47.7,
+        "games": 508
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 54.79,
+        "delta1": 6.47,
+        "delta2": 1.69,
+        "opponentWinRate": 48.32,
+        "games": 1106
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 55.01,
+        "delta1": 5.75,
+        "delta2": 0.97,
+        "opponentWinRate": 49.26,
+        "games": 829
+      },
+      {
+        "opponent": "Vladimir",
+        "winRate": 55.08,
+        "delta1": 5.87,
+        "delta2": 1.09,
+        "opponentWinRate": 49.21,
+        "games": 423
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 55.13,
+        "delta1": 4.37,
+        "delta2": -0.41,
+        "opponentWinRate": 50.76,
+        "games": 1551
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 56.02,
+        "delta1": 9.03,
+        "delta2": 4.25,
+        "opponentWinRate": 46.99,
+        "games": 1221
+      },
+      {
+        "opponent": "Master Yi",
+        "winRate": 56.08,
+        "delta1": 5.43,
+        "delta2": 0.65,
+        "opponentWinRate": 50.65,
+        "games": 148
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 56.31,
+        "delta1": 7.27,
+        "delta2": 2.49,
+        "opponentWinRate": 49.04,
+        "games": 499
+      },
+      {
+        "opponent": "Udyr",
+        "winRate": 56.38,
+        "delta1": 6.94,
+        "delta2": 2.16,
+        "opponentWinRate": 49.44,
+        "games": 149
+      },
+      {
+        "opponent": "Maokai",
+        "winRate": 56.86,
+        "delta1": 6.88,
+        "delta2": 2.1,
+        "opponentWinRate": 49.98,
+        "games": 102
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 57.22,
+        "delta1": 9.85,
+        "delta2": 5.07,
+        "opponentWinRate": 47.37,
+        "games": 1073
+      },
+      {
+        "opponent": "Swain",
+        "winRate": 57.22,
+        "delta1": 8.08,
+        "delta2": 3.3,
+        "opponentWinRate": 49.14,
+        "games": 187
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 57.3,
+        "delta1": 8.76,
+        "delta2": 3.98,
+        "opponentWinRate": 48.54,
+        "games": 836
+      },
+      {
+        "opponent": "Varus",
+        "winRate": 58.43,
+        "delta1": 7.76,
+        "delta2": 2.98,
+        "opponentWinRate": 50.67,
+        "games": 255
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 60.72,
+        "delta1": 10.16,
+        "delta2": 5.38,
+        "opponentWinRate": 50.56,
+        "games": 499
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 60.77,
+        "delta1": 13.4,
+        "delta2": 8.62,
+        "opponentWinRate": 47.37,
+        "games": 543
+      }
+    ],
+    "Annie": [
+      {
+        "opponent": "Nasus",
+        "winRate": 39.37,
+        "delta1": -7.62,
+        "delta2": -14.02,
+        "opponentWinRate": 46.99,
+        "games": 127
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 46.58,
+        "delta1": -4.18,
+        "delta2": -10.56,
+        "opponentWinRate": 50.76,
+        "games": 161
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 46.86,
+        "delta1": 0.02,
+        "delta2": -6.38,
+        "opponentWinRate": 46.84,
+        "games": 175
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 48.25,
+        "delta1": -0.4,
+        "delta2": -6.8,
+        "opponentWinRate": 48.65,
+        "games": 114
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 48.84,
+        "delta1": -0.76,
+        "delta2": -7.15,
+        "opponentWinRate": 49.6,
+        "games": 129
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 48.89,
+        "delta1": 1.51,
+        "delta2": -4.89,
+        "opponentWinRate": 47.38,
+        "games": 135
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 49.55,
+        "delta1": 1.1,
+        "delta2": -5.3,
+        "opponentWinRate": 48.45,
+        "games": 111
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 50.0,
+        "delta1": 0.74,
+        "delta2": -5.66,
+        "opponentWinRate": 49.26,
+        "games": 116
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 50.98,
+        "delta1": 1.01,
+        "delta2": -5.38,
+        "opponentWinRate": 49.97,
+        "games": 102
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 52.38,
+        "delta1": 5.12,
+        "delta2": -1.28,
+        "opponentWinRate": 47.26,
+        "games": 105
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 52.74,
+        "delta1": 4.68,
+        "delta2": -1.72,
+        "opponentWinRate": 48.06,
+        "games": 146
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 53.04,
+        "delta1": 5.78,
+        "delta2": -0.62,
+        "opponentWinRate": 47.26,
+        "games": 115
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 53.38,
+        "delta1": 3.6,
+        "delta2": -2.79,
+        "opponentWinRate": 49.78,
+        "games": 148
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 53.47,
+        "delta1": 5.04,
+        "delta2": -1.36,
+        "opponentWinRate": 48.43,
+        "games": 144
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 54.55,
+        "delta1": 6.76,
+        "delta2": 0.36,
+        "opponentWinRate": 47.79,
+        "games": 132
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 54.9,
+        "delta1": 7.76,
+        "delta2": 1.36,
+        "opponentWinRate": 47.14,
+        "games": 204
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 55.83,
+        "delta1": 9.35,
+        "delta2": 2.95,
+        "opponentWinRate": 46.48,
+        "games": 403
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 56.76,
+        "delta1": 8.44,
+        "delta2": 2.04,
+        "opponentWinRate": 48.32,
+        "games": 259
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 57.01,
+        "delta1": 9.87,
+        "delta2": 3.47,
+        "opponentWinRate": 47.14,
+        "games": 221
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 59.34,
+        "delta1": 11.35,
+        "delta2": 4.95,
+        "opponentWinRate": 47.99,
+        "games": 182
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 61.72,
+        "delta1": 14.35,
+        "delta2": 7.95,
+        "opponentWinRate": 47.37,
+        "games": 128
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 64.07,
+        "delta1": 15.75,
+        "delta2": 9.35,
+        "opponentWinRate": 48.32,
+        "games": 167
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 64.79,
+        "delta1": 16.25,
+        "delta2": 9.85,
+        "opponentWinRate": 48.54,
+        "games": 213
+      }
+    ],
+    "Aphelios": [],
+    "Ashe": [
+      {
+        "opponent": "Teemo",
+        "winRate": 40.71,
+        "delta1": -5.77,
+        "delta2": -5.49,
+        "opponentWinRate": 46.48,
+        "games": 113
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 40.97,
+        "delta1": -7.35,
+        "delta2": -7.06,
+        "opponentWinRate": 48.32,
+        "games": 144
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 42.18,
+        "delta1": -8.58,
+        "delta2": -8.28,
+        "opponentWinRate": 50.76,
+        "games": 147
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 43.97,
+        "delta1": -5.81,
+        "delta2": -5.51,
+        "opponentWinRate": 49.78,
+        "games": 141
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 45.96,
+        "delta1": -2.03,
+        "delta2": -1.74,
+        "opponentWinRate": 47.99,
+        "games": 322
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 46.62,
+        "delta1": -1.7,
+        "delta2": -1.41,
+        "opponentWinRate": 48.32,
+        "games": 133
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 46.73,
+        "delta1": -0.26,
+        "delta2": 0.03,
+        "opponentWinRate": 46.99,
+        "games": 107
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 46.81,
+        "delta1": -0.57,
+        "delta2": -0.28,
+        "opponentWinRate": 47.38,
+        "games": 141
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 46.89,
+        "delta1": -0.25,
+        "delta2": 0.04,
+        "opponentWinRate": 47.14,
+        "games": 177
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 47.06,
+        "delta1": -0.73,
+        "delta2": -0.44,
+        "opponentWinRate": 47.79,
+        "games": 102
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 48.96,
+        "delta1": 1.82,
+        "delta2": 2.11,
+        "opponentWinRate": 47.14,
+        "games": 192
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 52.14,
+        "delta1": 3.6,
+        "delta2": 3.9,
+        "opponentWinRate": 48.54,
+        "games": 140
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 53.0,
+        "delta1": 5.63,
+        "delta2": 5.92,
+        "opponentWinRate": 47.37,
+        "games": 200
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 54.37,
+        "delta1": 5.94,
+        "delta2": 6.24,
+        "opponentWinRate": 48.43,
+        "games": 103
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 56.6,
+        "delta1": 9.76,
+        "delta2": 10.05,
+        "opponentWinRate": 46.84,
+        "games": 235
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 62.6,
+        "delta1": 14.54,
+        "delta2": 14.83,
+        "opponentWinRate": 48.06,
+        "games": 131
+      }
+    ],
+    "Aurelion Sol": [
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 45.28,
+        "delta1": -2.9,
+        "delta2": -7.14,
+        "opponentWinRate": 48.18,
+        "games": 106
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 45.66,
+        "delta1": -2.66,
+        "delta2": -6.9,
+        "opponentWinRate": 48.32,
+        "games": 219
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 45.81,
+        "delta1": -2.64,
+        "delta2": -6.88,
+        "opponentWinRate": 48.45,
+        "games": 155
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 45.86,
+        "delta1": -4.9,
+        "delta2": -9.14,
+        "opponentWinRate": 50.76,
+        "games": 133
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 46.35,
+        "delta1": -1.64,
+        "delta2": -5.88,
+        "opponentWinRate": 47.99,
+        "games": 192
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 48.55,
+        "delta1": 1.29,
+        "delta2": -2.95,
+        "opponentWinRate": 47.26,
+        "games": 138
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 49.15,
+        "delta1": 2.31,
+        "delta2": -1.93,
+        "opponentWinRate": 46.84,
+        "games": 236
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 49.21,
+        "delta1": 1.95,
+        "delta2": -2.29,
+        "opponentWinRate": 47.26,
+        "games": 191
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 50.0,
+        "delta1": 0.4,
+        "delta2": -3.84,
+        "opponentWinRate": 49.6,
+        "games": 136
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 50.36,
+        "delta1": 0.58,
+        "delta2": -3.66,
+        "opponentWinRate": 49.78,
+        "games": 137
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 50.4,
+        "delta1": 2.48,
+        "delta2": -1.76,
+        "opponentWinRate": 47.92,
+        "games": 125
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 51.23,
+        "delta1": 3.86,
+        "delta2": -0.38,
+        "opponentWinRate": 47.37,
+        "games": 162
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 51.26,
+        "delta1": 4.12,
+        "delta2": -0.12,
+        "opponentWinRate": 47.14,
+        "games": 318
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 51.39,
+        "delta1": 1.42,
+        "delta2": -2.82,
+        "opponentWinRate": 49.97,
+        "games": 144
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 51.71,
+        "delta1": 2.45,
+        "delta2": -1.79,
+        "opponentWinRate": 49.26,
+        "games": 205
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 53.04,
+        "delta1": 4.83,
+        "delta2": 0.59,
+        "opponentWinRate": 48.21,
+        "games": 115
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 53.1,
+        "delta1": 5.04,
+        "delta2": 0.8,
+        "opponentWinRate": 48.06,
+        "games": 145
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 53.67,
+        "delta1": 5.35,
+        "delta2": 1.11,
+        "opponentWinRate": 48.32,
+        "games": 177
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 53.97,
+        "delta1": 5.43,
+        "delta2": 1.19,
+        "opponentWinRate": 48.54,
+        "games": 126
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 54.06,
+        "delta1": 7.07,
+        "delta2": 2.83,
+        "opponentWinRate": 46.99,
+        "games": 283
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 54.15,
+        "delta1": 6.36,
+        "delta2": 2.12,
+        "opponentWinRate": 47.79,
+        "games": 253
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 55.13,
+        "delta1": 3.64,
+        "delta2": -0.59,
+        "opponentWinRate": 51.49,
+        "games": 156
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 55.14,
+        "delta1": 8.82,
+        "delta2": 4.58,
+        "opponentWinRate": 46.32,
+        "games": 107
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 55.21,
+        "delta1": 6.78,
+        "delta2": 2.54,
+        "opponentWinRate": 48.43,
+        "games": 163
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 55.34,
+        "delta1": 6.69,
+        "delta2": 2.45,
+        "opponentWinRate": 48.65,
+        "games": 103
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 55.65,
+        "delta1": 8.4,
+        "delta2": 4.16,
+        "opponentWinRate": 47.25,
+        "games": 124
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 57.14,
+        "delta1": 9.16,
+        "delta2": 4.92,
+        "opponentWinRate": 47.98,
+        "games": 112
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 57.14,
+        "delta1": 9.77,
+        "delta2": 5.53,
+        "opponentWinRate": 47.37,
+        "games": 105
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 57.23,
+        "delta1": 10.75,
+        "delta2": 6.51,
+        "opponentWinRate": 46.48,
+        "games": 325
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 57.97,
+        "delta1": 10.83,
+        "delta2": 6.59,
+        "opponentWinRate": 47.14,
+        "games": 364
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 61.34,
+        "delta1": 13.96,
+        "delta2": 9.72,
+        "opponentWinRate": 47.38,
+        "games": 194
+      }
+    ],
+    "Aurora": [
+      {
+        "opponent": "Irelia",
+        "winRate": 41.29,
+        "delta1": -7.16,
+        "delta2": -9.55,
+        "opponentWinRate": 48.45,
+        "games": 649
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 41.81,
+        "delta1": -7.97,
+        "delta2": -10.36,
+        "opponentWinRate": 49.78,
+        "games": 562
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 42.61,
+        "delta1": -5.75,
+        "delta2": -8.14,
+        "opponentWinRate": 48.36,
+        "games": 345
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 44.7,
+        "delta1": -3.0,
+        "delta2": -5.39,
+        "opponentWinRate": 47.7,
+        "games": 302
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 45.43,
+        "delta1": -2.49,
+        "delta2": -4.88,
+        "opponentWinRate": 47.92,
+        "games": 438
+      },
+      {
+        "opponent": "Cassiopeia",
+        "winRate": 45.99,
+        "delta1": -2.04,
+        "delta2": -4.43,
+        "opponentWinRate": 48.03,
+        "games": 137
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 46.35,
+        "delta1": -2.3,
+        "delta2": -4.69,
+        "opponentWinRate": 48.65,
+        "games": 466
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 46.69,
+        "delta1": -0.57,
+        "delta2": -2.96,
+        "opponentWinRate": 47.26,
+        "games": 484
+      },
+      {
+        "opponent": "Galio",
+        "winRate": 46.9,
+        "delta1": -1.77,
+        "delta2": -4.16,
+        "opponentWinRate": 48.67,
+        "games": 113
+      },
+      {
+        "opponent": "Zed",
+        "winRate": 47.06,
+        "delta1": 0.77,
+        "delta2": -1.62,
+        "opponentWinRate": 46.29,
+        "games": 136
+      },
+      {
+        "opponent": "Poppy",
+        "winRate": 47.18,
+        "delta1": -0.42,
+        "delta2": -2.81,
+        "opponentWinRate": 47.6,
+        "games": 142
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 47.49,
+        "delta1": -0.3,
+        "delta2": -2.69,
+        "opponentWinRate": 47.79,
+        "games": 219
+      },
+      {
+        "opponent": "Anivia",
+        "winRate": 47.55,
+        "delta1": 0.5,
+        "delta2": -1.89,
+        "opponentWinRate": 47.05,
+        "games": 204
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 47.61,
+        "delta1": -1.65,
+        "delta2": -4.04,
+        "opponentWinRate": 49.26,
+        "games": 481
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 47.96,
+        "delta1": -0.46,
+        "delta2": -2.85,
+        "opponentWinRate": 48.42,
+        "games": 392
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 48.52,
+        "delta1": 1.27,
+        "delta2": -1.12,
+        "opponentWinRate": 47.25,
+        "games": 371
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 48.75,
+        "delta1": 1.61,
+        "delta2": -0.78,
+        "opponentWinRate": 47.14,
+        "games": 921
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 48.93,
+        "delta1": 0.5,
+        "delta2": -1.89,
+        "opponentWinRate": 48.43,
+        "games": 280
+      },
+      {
+        "opponent": "Kled",
+        "winRate": 49.06,
+        "delta1": 1.95,
+        "delta2": -0.44,
+        "opponentWinRate": 47.11,
+        "games": 212
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 49.11,
+        "delta1": 1.85,
+        "delta2": -0.54,
+        "opponentWinRate": 47.26,
+        "games": 564
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 49.3,
+        "delta1": 0.76,
+        "delta2": -1.63,
+        "opponentWinRate": 48.54,
+        "games": 572
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 49.38,
+        "delta1": -1.38,
+        "delta2": -3.77,
+        "opponentWinRate": 50.76,
+        "games": 812
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 49.41,
+        "delta1": 3.24,
+        "delta2": 0.85,
+        "opponentWinRate": 46.17,
+        "games": 338
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 49.44,
+        "delta1": 2.96,
+        "delta2": 0.57,
+        "opponentWinRate": 46.48,
+        "games": 892
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 49.44,
+        "delta1": 3.12,
+        "delta2": 0.73,
+        "opponentWinRate": 46.32,
+        "games": 267
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 49.58,
+        "delta1": -0.02,
+        "delta2": -2.41,
+        "opponentWinRate": 49.6,
+        "games": 591
+      },
+      {
+        "opponent": "Varus",
+        "winRate": 49.62,
+        "delta1": -1.05,
+        "delta2": -3.44,
+        "opponentWinRate": 50.67,
+        "games": 133
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 49.84,
+        "delta1": 1.66,
+        "delta2": -0.73,
+        "opponentWinRate": 48.18,
+        "games": 315
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 50.15,
+        "delta1": 2.36,
+        "delta2": -0.03,
+        "opponentWinRate": 47.79,
+        "games": 666
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 50.32,
+        "delta1": -0.24,
+        "delta2": -2.63,
+        "opponentWinRate": 50.56,
+        "games": 316
+      },
+      {
+        "opponent": "Warwick",
+        "winRate": 50.51,
+        "delta1": 4.45,
+        "delta2": 2.06,
+        "opponentWinRate": 46.06,
+        "games": 198
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 50.53,
+        "delta1": 2.21,
+        "delta2": -0.18,
+        "opponentWinRate": 48.32,
+        "games": 1031
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 50.67,
+        "delta1": 3.68,
+        "delta2": 1.29,
+        "opponentWinRate": 46.99,
+        "games": 523
+      },
+      {
+        "opponent": "Ryze",
+        "winRate": 50.68,
+        "delta1": 0.79,
+        "delta2": -1.6,
+        "opponentWinRate": 49.89,
+        "games": 146
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 50.89,
+        "delta1": 4.05,
+        "delta2": 1.66,
+        "opponentWinRate": 46.84,
+        "games": 784
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 51.11,
+        "delta1": 3.05,
+        "delta2": 0.66,
+        "opponentWinRate": 48.06,
+        "games": 765
+      },
+      {
+        "opponent": "Quinn",
+        "winRate": 51.15,
+        "delta1": 5.15,
+        "delta2": 2.76,
+        "opponentWinRate": 46.0,
+        "games": 174
+      },
+      {
+        "opponent": "Sylas",
+        "winRate": 51.47,
+        "delta1": 3.31,
+        "delta2": 0.92,
+        "opponentWinRate": 48.16,
+        "games": 204
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 51.54,
+        "delta1": 2.5,
+        "delta2": 0.11,
+        "opponentWinRate": 49.04,
+        "games": 324
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 51.71,
+        "delta1": 4.57,
+        "delta2": 2.18,
+        "opponentWinRate": 47.14,
+        "games": 381
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 52.0,
+        "delta1": 4.86,
+        "delta2": 2.47,
+        "opponentWinRate": 47.14,
+        "games": 1000
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 52.1,
+        "delta1": 0.61,
+        "delta2": -1.78,
+        "opponentWinRate": 51.49,
+        "games": 476
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 52.52,
+        "delta1": 5.15,
+        "delta2": 2.76,
+        "opponentWinRate": 47.37,
+        "games": 436
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 52.69,
+        "delta1": 5.53,
+        "delta2": 3.14,
+        "opponentWinRate": 47.16,
+        "games": 260
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 52.7,
+        "delta1": 2.73,
+        "delta2": 0.34,
+        "opponentWinRate": 49.97,
+        "games": 575
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 53.1,
+        "delta1": 5.11,
+        "delta2": 2.72,
+        "opponentWinRate": 47.99,
+        "games": 1162
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 53.42,
+        "delta1": 6.04,
+        "delta2": 3.65,
+        "opponentWinRate": 47.38,
+        "games": 790
+      },
+      {
+        "opponent": "Locke",
+        "winRate": 53.73,
+        "delta1": 2.31,
+        "delta2": -0.08,
+        "opponentWinRate": 51.42,
+        "games": 134
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 53.75,
+        "delta1": 5.77,
+        "delta2": 3.38,
+        "opponentWinRate": 47.98,
+        "games": 413
+      },
+      {
+        "opponent": "Vladimir",
+        "winRate": 53.88,
+        "delta1": 4.67,
+        "delta2": 2.28,
+        "opponentWinRate": 49.21,
+        "games": 232
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 54.8,
+        "delta1": 7.04,
+        "delta2": 4.65,
+        "opponentWinRate": 47.76,
+        "games": 396
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 55.43,
+        "delta1": 7.11,
+        "delta2": 4.72,
+        "opponentWinRate": 48.32,
+        "games": 718
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 55.54,
+        "delta1": 7.33,
+        "delta2": 4.94,
+        "opponentWinRate": 48.21,
+        "games": 551
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 55.65,
+        "delta1": 7.22,
+        "delta2": 4.83,
+        "opponentWinRate": 48.43,
+        "games": 868
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 56.01,
+        "delta1": 8.64,
+        "delta2": 6.25,
+        "opponentWinRate": 47.37,
+        "games": 341
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 56.11,
+        "delta1": 7.35,
+        "delta2": 4.96,
+        "opponentWinRate": 48.76,
+        "games": 262
+      },
+      {
+        "opponent": "Wukong",
+        "winRate": 56.14,
+        "delta1": 8.89,
+        "delta2": 6.5,
+        "opponentWinRate": 47.25,
+        "games": 114
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 57.01,
+        "delta1": 9.64,
+        "delta2": 7.25,
+        "opponentWinRate": 47.37,
+        "games": 735
+      },
+      {
+        "opponent": "Trundle",
+        "winRate": 62.5,
+        "delta1": 13.3,
+        "delta2": 10.91,
+        "opponentWinRate": 49.2,
+        "games": 152
+      }
+    ],
+    "Azir": [
+      {
+        "opponent": "Nasus",
+        "winRate": 42.37,
+        "delta1": -4.62,
+        "delta2": -9.54,
+        "opponentWinRate": 46.99,
+        "games": 177
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 44.09,
+        "delta1": -4.36,
+        "delta2": -9.28,
+        "opponentWinRate": 48.45,
+        "games": 186
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 45.71,
+        "delta1": -2.94,
+        "delta2": -7.86,
+        "opponentWinRate": 48.65,
+        "games": 140
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 45.9,
+        "delta1": -0.42,
+        "delta2": -5.34,
+        "opponentWinRate": 46.32,
+        "games": 122
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 47.11,
+        "delta1": -1.07,
+        "delta2": -5.99,
+        "opponentWinRate": 48.18,
+        "games": 121
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 47.85,
+        "delta1": -0.47,
+        "delta2": -5.39,
+        "opponentWinRate": 48.32,
+        "games": 372
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 48.04,
+        "delta1": 0.25,
+        "delta2": -4.67,
+        "opponentWinRate": 47.79,
+        "games": 204
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 48.11,
+        "delta1": 0.19,
+        "delta2": -4.73,
+        "opponentWinRate": 47.92,
+        "games": 106
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 48.37,
+        "delta1": 1.23,
+        "delta2": -3.69,
+        "opponentWinRate": 47.14,
+        "games": 306
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 49.14,
+        "delta1": -0.12,
+        "delta2": -5.04,
+        "opponentWinRate": 49.26,
+        "games": 175
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 50.41,
+        "delta1": 2.43,
+        "delta2": -2.49,
+        "opponentWinRate": 47.98,
+        "games": 121
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 50.94,
+        "delta1": 1.9,
+        "delta2": -3.02,
+        "opponentWinRate": 49.04,
+        "games": 106
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 51.33,
+        "delta1": 4.07,
+        "delta2": -0.85,
+        "opponentWinRate": 47.26,
+        "games": 150
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 51.52,
+        "delta1": 4.14,
+        "delta2": -0.78,
+        "opponentWinRate": 47.38,
+        "games": 363
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 52.29,
+        "delta1": 5.03,
+        "delta2": 0.11,
+        "opponentWinRate": 47.26,
+        "games": 153
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 52.53,
+        "delta1": 2.75,
+        "delta2": -2.17,
+        "opponentWinRate": 49.78,
+        "games": 217
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 52.8,
+        "delta1": 5.55,
+        "delta2": 0.63,
+        "opponentWinRate": 47.25,
+        "games": 125
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 53.07,
+        "delta1": 3.1,
+        "delta2": -1.82,
+        "opponentWinRate": 49.97,
+        "games": 179
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 53.66,
+        "delta1": 6.52,
+        "delta2": 1.6,
+        "opponentWinRate": 47.14,
+        "games": 328
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 54.11,
+        "delta1": 6.05,
+        "delta2": 1.13,
+        "opponentWinRate": 48.06,
+        "games": 231
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 54.33,
+        "delta1": 3.57,
+        "delta2": -1.35,
+        "opponentWinRate": 50.76,
+        "games": 208
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 54.55,
+        "delta1": 3.06,
+        "delta2": -1.85,
+        "opponentWinRate": 51.49,
+        "games": 132
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 56.59,
+        "delta1": 9.22,
+        "delta2": 4.3,
+        "opponentWinRate": 47.37,
+        "games": 182
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 56.8,
+        "delta1": 7.2,
+        "delta2": 2.28,
+        "opponentWinRate": 49.6,
+        "games": 206
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 56.81,
+        "delta1": 8.38,
+        "delta2": 3.46,
+        "opponentWinRate": 48.43,
+        "games": 213
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 56.83,
+        "delta1": 8.62,
+        "delta2": 3.7,
+        "opponentWinRate": 48.21,
+        "games": 139
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 57.01,
+        "delta1": 8.69,
+        "delta2": 3.77,
+        "opponentWinRate": 48.32,
+        "games": 221
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 57.43,
+        "delta1": 10.29,
+        "delta2": 5.37,
+        "opponentWinRate": 47.14,
+        "games": 101
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 57.75,
+        "delta1": 9.33,
+        "delta2": 4.41,
+        "opponentWinRate": 48.42,
+        "games": 142
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 58.24,
+        "delta1": 11.76,
+        "delta2": 6.84,
+        "opponentWinRate": 46.48,
+        "games": 182
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 59.82,
+        "delta1": 12.12,
+        "delta2": 7.2,
+        "opponentWinRate": 47.7,
+        "games": 112
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 61.38,
+        "delta1": 13.39,
+        "delta2": 8.47,
+        "opponentWinRate": 47.99,
+        "games": 246
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 61.9,
+        "delta1": 15.06,
+        "delta2": 10.14,
+        "opponentWinRate": 46.84,
+        "games": 231
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 62.39,
+        "delta1": 14.63,
+        "delta2": 9.71,
+        "opponentWinRate": 47.76,
+        "games": 109
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 63.69,
+        "delta1": 15.15,
+        "delta2": 10.23,
+        "opponentWinRate": 48.54,
+        "games": 157
+      }
+    ],
+    "Bard": [],
+    "Bel'Veth": [
+      {
+        "opponent": "Darius",
+        "winRate": 37.5,
+        "delta1": -10.49,
+        "delta2": -7.02,
+        "opponentWinRate": 47.99,
+        "games": 112
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 39.81,
+        "delta1": -7.33,
+        "delta2": -3.88,
+        "opponentWinRate": 47.14,
+        "games": 108
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 40.98,
+        "delta1": -7.34,
+        "delta2": -3.87,
+        "opponentWinRate": 48.32,
+        "games": 122
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 42.2,
+        "delta1": -5.17,
+        "delta2": -1.71,
+        "opponentWinRate": 47.37,
+        "games": 109
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 44.34,
+        "delta1": -3.72,
+        "delta2": -0.25,
+        "opponentWinRate": 48.06,
+        "games": 106
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 47.37,
+        "delta1": -0.01,
+        "delta2": 3.45,
+        "opponentWinRate": 47.38,
+        "games": 114
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 48.0,
+        "delta1": -0.32,
+        "delta2": 3.15,
+        "opponentWinRate": 48.32,
+        "games": 100
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 50.79,
+        "delta1": 3.65,
+        "delta2": 7.1,
+        "opponentWinRate": 47.14,
+        "games": 126
+      }
+    ],
+    "Blitzcrank": [],
+    "Brand": [
+      {
+        "opponent": "Olaf",
+        "winRate": 39.91,
+        "delta1": -7.46,
+        "delta2": -11.08,
+        "opponentWinRate": 47.37,
+        "games": 223
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 42.08,
+        "delta1": -5.3,
+        "delta2": -8.92,
+        "opponentWinRate": 47.38,
+        "games": 385
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 43.23,
+        "delta1": -4.69,
+        "delta2": -8.31,
+        "opponentWinRate": 47.92,
+        "games": 310
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 45.45,
+        "delta1": -1.81,
+        "delta2": -5.43,
+        "opponentWinRate": 47.26,
+        "games": 286
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 47.43,
+        "delta1": -0.27,
+        "delta2": -3.89,
+        "opponentWinRate": 47.7,
+        "games": 175
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 47.53,
+        "delta1": 1.21,
+        "delta2": -2.41,
+        "opponentWinRate": 46.32,
+        "games": 162
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 47.93,
+        "delta1": -0.52,
+        "delta2": -4.14,
+        "opponentWinRate": 48.45,
+        "games": 338
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 49.06,
+        "delta1": 0.41,
+        "delta2": -3.21,
+        "opponentWinRate": 48.65,
+        "games": 267
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 49.16,
+        "delta1": 0.95,
+        "delta2": -2.67,
+        "opponentWinRate": 48.21,
+        "games": 238
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 49.35,
+        "delta1": 2.19,
+        "delta2": -1.43,
+        "opponentWinRate": 47.16,
+        "games": 231
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 50.11,
+        "delta1": 2.32,
+        "delta2": -1.3,
+        "opponentWinRate": 47.79,
+        "games": 439
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 50.22,
+        "delta1": 1.9,
+        "delta2": -1.72,
+        "opponentWinRate": 48.32,
+        "games": 673
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 50.27,
+        "delta1": 4.1,
+        "delta2": 0.49,
+        "opponentWinRate": 46.17,
+        "games": 183
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 50.54,
+        "delta1": -0.22,
+        "delta2": -3.84,
+        "opponentWinRate": 50.76,
+        "games": 742
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 50.6,
+        "delta1": 3.61,
+        "delta2": -0.01,
+        "opponentWinRate": 46.99,
+        "games": 417
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 50.94,
+        "delta1": 4.46,
+        "delta2": 0.84,
+        "opponentWinRate": 46.48,
+        "games": 587
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 51.15,
+        "delta1": 1.37,
+        "delta2": -2.25,
+        "opponentWinRate": 49.78,
+        "games": 391
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 51.19,
+        "delta1": 1.22,
+        "delta2": -2.4,
+        "opponentWinRate": 49.97,
+        "games": 377
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 51.2,
+        "delta1": 2.84,
+        "delta2": -0.78,
+        "opponentWinRate": 48.36,
+        "games": 209
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 51.39,
+        "delta1": 0.83,
+        "delta2": -2.79,
+        "opponentWinRate": 50.56,
+        "games": 144
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 51.67,
+        "delta1": 3.61,
+        "delta2": -0.01,
+        "opponentWinRate": 48.06,
+        "games": 687
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 51.76,
+        "delta1": 4.92,
+        "delta2": 1.3,
+        "opponentWinRate": 46.84,
+        "games": 626
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 51.98,
+        "delta1": 4.84,
+        "delta2": 1.22,
+        "opponentWinRate": 47.14,
+        "games": 252
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 52.39,
+        "delta1": 4.4,
+        "delta2": 0.78,
+        "opponentWinRate": 47.99,
+        "games": 649
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 52.44,
+        "delta1": 4.65,
+        "delta2": 1.03,
+        "opponentWinRate": 47.79,
+        "games": 164
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 52.54,
+        "delta1": 4.12,
+        "delta2": 0.5,
+        "opponentWinRate": 48.42,
+        "games": 177
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 52.69,
+        "delta1": 4.71,
+        "delta2": 1.09,
+        "opponentWinRate": 47.98,
+        "games": 260
+      },
+      {
+        "opponent": "Varus",
+        "winRate": 52.78,
+        "delta1": 2.11,
+        "delta2": -1.51,
+        "opponentWinRate": 50.67,
+        "games": 108
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 53.01,
+        "delta1": 4.47,
+        "delta2": 0.85,
+        "opponentWinRate": 48.54,
+        "games": 349
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 53.1,
+        "delta1": 4.92,
+        "delta2": 1.3,
+        "opponentWinRate": 48.18,
+        "games": 226
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 53.28,
+        "delta1": 4.85,
+        "delta2": 1.23,
+        "opponentWinRate": 48.43,
+        "games": 473
+      },
+      {
+        "opponent": "Sylas",
+        "winRate": 53.28,
+        "delta1": 5.12,
+        "delta2": 1.5,
+        "opponentWinRate": 48.16,
+        "games": 137
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 53.36,
+        "delta1": 4.1,
+        "delta2": 0.48,
+        "opponentWinRate": 49.26,
+        "games": 283
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 53.97,
+        "delta1": 6.72,
+        "delta2": 3.1,
+        "opponentWinRate": 47.25,
+        "games": 315
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 54.23,
+        "delta1": 2.74,
+        "delta2": -0.88,
+        "opponentWinRate": 51.49,
+        "games": 343
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 54.26,
+        "delta1": 7.12,
+        "delta2": 3.5,
+        "opponentWinRate": 47.14,
+        "games": 610
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 54.4,
+        "delta1": 5.97,
+        "delta2": 2.35,
+        "opponentWinRate": 48.43,
+        "games": 125
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 55.08,
+        "delta1": 7.71,
+        "delta2": 4.09,
+        "opponentWinRate": 47.37,
+        "games": 541
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 55.24,
+        "delta1": 5.64,
+        "delta2": 2.02,
+        "opponentWinRate": 49.6,
+        "games": 353
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 55.26,
+        "delta1": 6.5,
+        "delta2": 2.88,
+        "opponentWinRate": 48.76,
+        "games": 114
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 55.48,
+        "delta1": 8.34,
+        "delta2": 4.72,
+        "opponentWinRate": 47.14,
+        "games": 757
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 55.56,
+        "delta1": 7.8,
+        "delta2": 4.18,
+        "opponentWinRate": 47.76,
+        "games": 270
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 55.56,
+        "delta1": 8.3,
+        "delta2": 4.68,
+        "opponentWinRate": 47.26,
+        "games": 315
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 56.35,
+        "delta1": 8.03,
+        "delta2": 4.41,
+        "opponentWinRate": 48.32,
+        "games": 559
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 56.7,
+        "delta1": 7.66,
+        "delta2": 4.04,
+        "opponentWinRate": 49.04,
+        "games": 224
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 59.55,
+        "delta1": 12.18,
+        "delta2": 8.56,
+        "opponentWinRate": 47.37,
+        "games": 267
+      },
+      {
+        "opponent": "Trundle",
+        "winRate": 63.46,
+        "delta1": 14.26,
+        "delta2": 10.64,
+        "opponentWinRate": 49.2,
+        "games": 104
+      }
+    ],
+    "Braum": [],
+    "Briar": [
+      {
+        "opponent": "Kled",
+        "winRate": 42.42,
+        "delta1": -4.69,
+        "delta2": -8.2,
+        "opponentWinRate": 47.11,
+        "games": 132
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 43.37,
+        "delta1": -3.62,
+        "delta2": -7.13,
+        "opponentWinRate": 46.99,
+        "games": 279
+      },
+      {
+        "opponent": "Warwick",
+        "winRate": 43.94,
+        "delta1": -2.12,
+        "delta2": -5.62,
+        "opponentWinRate": 46.06,
+        "games": 132
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 45.39,
+        "delta1": -3.04,
+        "delta2": -6.55,
+        "opponentWinRate": 48.43,
+        "games": 401
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 46.37,
+        "delta1": -0.77,
+        "delta2": -4.28,
+        "opponentWinRate": 47.14,
+        "games": 179
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 46.46,
+        "delta1": -1.86,
+        "delta2": -5.37,
+        "opponentWinRate": 48.32,
+        "games": 480
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 46.95,
+        "delta1": -0.42,
+        "delta2": -3.93,
+        "opponentWinRate": 47.37,
+        "games": 213
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 47.19,
+        "delta1": -0.07,
+        "delta2": -3.58,
+        "opponentWinRate": 47.26,
+        "games": 303
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 47.53,
+        "delta1": 0.27,
+        "delta2": -3.24,
+        "opponentWinRate": 47.26,
+        "games": 223
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 47.87,
+        "delta1": 0.73,
+        "delta2": -2.78,
+        "opponentWinRate": 47.14,
+        "games": 587
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 48.02,
+        "delta1": -0.19,
+        "delta2": -3.7,
+        "opponentWinRate": 48.21,
+        "games": 252
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 48.22,
+        "delta1": 1.38,
+        "delta2": -2.13,
+        "opponentWinRate": 46.84,
+        "games": 533
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 48.79,
+        "delta1": 1.03,
+        "delta2": -2.48,
+        "opponentWinRate": 47.76,
+        "games": 207
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 48.89,
+        "delta1": 1.1,
+        "delta2": -2.41,
+        "opponentWinRate": 47.79,
+        "games": 135
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 49.06,
+        "delta1": 1.69,
+        "delta2": -1.82,
+        "opponentWinRate": 47.37,
+        "games": 424
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 49.1,
+        "delta1": -0.5,
+        "delta2": -4.01,
+        "opponentWinRate": 49.6,
+        "games": 279
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 49.42,
+        "delta1": 2.05,
+        "delta2": -1.46,
+        "opponentWinRate": 47.37,
+        "games": 172
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 49.57,
+        "delta1": 1.14,
+        "delta2": -2.37,
+        "opponentWinRate": 48.43,
+        "games": 117
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 49.72,
+        "delta1": 1.54,
+        "delta2": -1.97,
+        "opponentWinRate": 48.18,
+        "games": 177
+      },
+      {
+        "opponent": "Camille",
+        "winRate": 49.75,
+        "delta1": 2.05,
+        "delta2": -1.46,
+        "opponentWinRate": 47.7,
+        "games": 199
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 50.0,
+        "delta1": 3.52,
+        "delta2": 0.01,
+        "opponentWinRate": 46.48,
+        "games": 290
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 50.48,
+        "delta1": 3.23,
+        "delta2": -0.28,
+        "opponentWinRate": 47.25,
+        "games": 210
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 50.68,
+        "delta1": -0.81,
+        "delta2": -4.32,
+        "opponentWinRate": 51.49,
+        "games": 219
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 51.27,
+        "delta1": 1.49,
+        "delta2": -2.02,
+        "opponentWinRate": 49.78,
+        "games": 275
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 51.4,
+        "delta1": 4.24,
+        "delta2": 0.73,
+        "opponentWinRate": 47.16,
+        "games": 107
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 51.47,
+        "delta1": 2.82,
+        "delta2": -0.69,
+        "opponentWinRate": 48.65,
+        "games": 204
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 52.14,
+        "delta1": 3.78,
+        "delta2": 0.27,
+        "opponentWinRate": 48.36,
+        "games": 140
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 52.68,
+        "delta1": 6.36,
+        "delta2": 2.85,
+        "opponentWinRate": 46.32,
+        "games": 224
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 52.82,
+        "delta1": 2.85,
+        "delta2": -0.66,
+        "opponentWinRate": 49.97,
+        "games": 337
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 53.05,
+        "delta1": 4.01,
+        "delta2": 0.5,
+        "opponentWinRate": 49.04,
+        "games": 213
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 53.07,
+        "delta1": 4.62,
+        "delta2": 1.11,
+        "opponentWinRate": 48.45,
+        "games": 277
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 53.13,
+        "delta1": 5.99,
+        "delta2": 2.48,
+        "opponentWinRate": 47.14,
+        "games": 448
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 53.89,
+        "delta1": 5.13,
+        "delta2": 1.62,
+        "opponentWinRate": 48.76,
+        "games": 167
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 53.99,
+        "delta1": 6.01,
+        "delta2": 2.5,
+        "opponentWinRate": 47.98,
+        "games": 263
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 54.01,
+        "delta1": 5.47,
+        "delta2": 1.96,
+        "opponentWinRate": 48.54,
+        "games": 237
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 54.03,
+        "delta1": 5.61,
+        "delta2": 2.1,
+        "opponentWinRate": 48.42,
+        "games": 211
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 54.6,
+        "delta1": 6.54,
+        "delta2": 3.03,
+        "opponentWinRate": 48.06,
+        "games": 478
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 54.63,
+        "delta1": 3.87,
+        "delta2": 0.36,
+        "opponentWinRate": 50.76,
+        "games": 432
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 55.07,
+        "delta1": 6.75,
+        "delta2": 3.24,
+        "opponentWinRate": 48.32,
+        "games": 552
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 55.25,
+        "delta1": 7.46,
+        "delta2": 3.95,
+        "opponentWinRate": 47.79,
+        "games": 362
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 55.29,
+        "delta1": 9.12,
+        "delta2": 5.62,
+        "opponentWinRate": 46.17,
+        "games": 208
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 55.84,
+        "delta1": 8.46,
+        "delta2": 4.95,
+        "opponentWinRate": 47.38,
+        "games": 462
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 56.55,
+        "delta1": 8.56,
+        "delta2": 5.05,
+        "opponentWinRate": 47.99,
+        "games": 534
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 57.78,
+        "delta1": 8.52,
+        "delta2": 5.01,
+        "opponentWinRate": 49.26,
+        "games": 270
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 58.25,
+        "delta1": 10.33,
+        "delta2": 6.82,
+        "opponentWinRate": 47.92,
+        "games": 309
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 58.47,
+        "delta1": 7.91,
+        "delta2": 4.4,
+        "opponentWinRate": 50.56,
+        "games": 118
+      },
+      {
+        "opponent": "Trundle",
+        "winRate": 59.43,
+        "delta1": 10.23,
+        "delta2": 6.72,
+        "opponentWinRate": 49.2,
+        "games": 106
+      }
+    ],
+    "Caitlyn": [
+      {
+        "opponent": "Malphite",
+        "winRate": 34.24,
+        "delta1": -12.9,
+        "delta2": -10.38,
+        "opponentWinRate": 47.14,
+        "games": 257
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 40.94,
+        "delta1": -7.51,
+        "delta2": -4.97,
+        "opponentWinRate": 48.45,
+        "games": 127
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 41.44,
+        "delta1": -8.34,
+        "delta2": -5.78,
+        "opponentWinRate": 49.78,
+        "games": 111
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 41.48,
+        "delta1": -5.51,
+        "delta2": -2.99,
+        "opponentWinRate": 46.99,
+        "games": 135
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 41.61,
+        "delta1": -6.18,
+        "delta2": -3.65,
+        "opponentWinRate": 47.79,
+        "games": 137
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 42.56,
+        "delta1": -3.92,
+        "delta2": -1.41,
+        "opponentWinRate": 46.48,
+        "games": 195
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 44.0,
+        "delta1": -3.25,
+        "delta2": -0.72,
+        "opponentWinRate": 47.25,
+        "games": 100
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 44.33,
+        "delta1": -3.73,
+        "delta2": -1.19,
+        "opponentWinRate": 48.06,
+        "games": 203
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 44.67,
+        "delta1": -3.32,
+        "delta2": -0.78,
+        "opponentWinRate": 47.99,
+        "games": 244
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 45.06,
+        "delta1": -2.31,
+        "delta2": 0.22,
+        "opponentWinRate": 47.37,
+        "games": 162
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 45.26,
+        "delta1": -2.12,
+        "delta2": 0.41,
+        "opponentWinRate": 47.38,
+        "games": 232
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 45.4,
+        "delta1": -2.92,
+        "delta2": -0.38,
+        "opponentWinRate": 48.32,
+        "games": 163
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 45.7,
+        "delta1": -2.62,
+        "delta2": -0.08,
+        "opponentWinRate": 48.32,
+        "games": 186
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 46.15,
+        "delta1": -1.11,
+        "delta2": 1.42,
+        "opponentWinRate": 47.26,
+        "games": 104
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 46.19,
+        "delta1": -4.57,
+        "delta2": -2.01,
+        "opponentWinRate": 50.76,
+        "games": 223
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 46.61,
+        "delta1": -3.36,
+        "delta2": -0.8,
+        "opponentWinRate": 49.97,
+        "games": 118
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 47.06,
+        "delta1": -1.37,
+        "delta2": 1.17,
+        "opponentWinRate": 48.43,
+        "games": 119
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 48.57,
+        "delta1": -1.03,
+        "delta2": 1.53,
+        "opponentWinRate": 49.6,
+        "games": 140
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 49.71,
+        "delta1": 2.55,
+        "delta2": 5.07,
+        "opponentWinRate": 47.16,
+        "games": 175
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 50.14,
+        "delta1": 1.6,
+        "delta2": 4.15,
+        "opponentWinRate": 48.54,
+        "games": 349
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 50.26,
+        "delta1": 3.42,
+        "delta2": 5.94,
+        "opponentWinRate": 46.84,
+        "games": 189
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 50.93,
+        "delta1": 3.01,
+        "delta2": 5.55,
+        "opponentWinRate": 47.92,
+        "games": 108
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 52.97,
+        "delta1": 5.83,
+        "delta2": 8.35,
+        "opponentWinRate": 47.14,
+        "games": 219
+      }
+    ],
+    "Camille": [
+      {
+        "opponent": "Azir",
+        "winRate": 40.74,
+        "delta1": -6.17,
+        "delta2": -10.3,
+        "opponentWinRate": 46.91,
+        "games": 108
+      },
+      {
+        "opponent": "Zac",
+        "winRate": 46.23,
+        "delta1": -0.29,
+        "delta2": -4.42,
+        "opponentWinRate": 46.52,
+        "games": 318
+      },
+      {
+        "opponent": "Cassiopeia",
+        "winRate": 46.78,
+        "delta1": -1.25,
+        "delta2": -5.38,
+        "opponentWinRate": 48.03,
+        "games": 295
+      },
+      {
+        "opponent": "Warwick",
+        "winRate": 47.14,
+        "delta1": 1.08,
+        "delta2": -3.04,
+        "opponentWinRate": 46.06,
+        "games": 1207
+      },
+      {
+        "opponent": "Teemo",
+        "winRate": 48.25,
+        "delta1": 1.77,
+        "delta2": -2.36,
+        "opponentWinRate": 46.48,
+        "games": 2255
+      },
+      {
+        "opponent": "Quinn",
+        "winRate": 48.53,
+        "delta1": 2.53,
+        "delta2": -1.59,
+        "opponentWinRate": 46.0,
+        "games": 509
+      },
+      {
+        "opponent": "Shen",
+        "winRate": 48.67,
+        "delta1": 1.41,
+        "delta2": -2.72,
+        "opponentWinRate": 47.26,
+        "games": 2940
+      },
+      {
+        "opponent": "Anivia",
+        "winRate": 48.7,
+        "delta1": 1.65,
+        "delta2": -2.48,
+        "opponentWinRate": 47.05,
+        "games": 499
+      },
+      {
+        "opponent": "Jax",
+        "winRate": 48.85,
+        "delta1": 0.53,
+        "delta2": -3.6,
+        "opponentWinRate": 48.32,
+        "games": 4809
+      },
+      {
+        "opponent": "Mordekaiser",
+        "winRate": 49.01,
+        "delta1": 1.87,
+        "delta2": -2.26,
+        "opponentWinRate": 47.14,
+        "games": 5036
+      },
+      {
+        "opponent": "Pantheon",
+        "winRate": 49.46,
+        "delta1": 1.7,
+        "delta2": -2.43,
+        "opponentWinRate": 47.76,
+        "games": 1947
+      },
+      {
+        "opponent": "Heimerdinger",
+        "winRate": 49.51,
+        "delta1": 2.35,
+        "delta2": -1.78,
+        "opponentWinRate": 47.16,
+        "games": 820
+      },
+      {
+        "opponent": "Gwen",
+        "winRate": 49.76,
+        "delta1": 1.0,
+        "delta2": -3.13,
+        "opponentWinRate": 48.76,
+        "games": 1662
+      },
+      {
+        "opponent": "Malphite",
+        "winRate": 49.94,
+        "delta1": 2.8,
+        "delta2": -1.33,
+        "opponentWinRate": 47.14,
+        "games": 3386
+      },
+      {
+        "opponent": "Renekton",
+        "winRate": 49.99,
+        "delta1": 1.56,
+        "delta2": -2.57,
+        "opponentWinRate": 48.43,
+        "games": 4757
+      },
+      {
+        "opponent": "Qiyana",
+        "winRate": 50.0,
+        "delta1": 2.22,
+        "delta2": -1.91,
+        "opponentWinRate": 47.78,
+        "games": 112
+      },
+      {
+        "opponent": "Poppy",
+        "winRate": 50.13,
+        "delta1": 2.53,
+        "delta2": -1.6,
+        "opponentWinRate": 47.6,
+        "games": 1127
+      },
+      {
+        "opponent": "Fiddlesticks",
+        "winRate": 50.23,
+        "delta1": 3.26,
+        "delta2": -0.87,
+        "opponentWinRate": 46.97,
+        "games": 219
+      },
+      {
+        "opponent": "Dr. Mundo",
+        "winRate": 50.25,
+        "delta1": 2.46,
+        "delta2": -1.67,
+        "opponentWinRate": 47.79,
+        "games": 2585
+      },
+      {
+        "opponent": "Cho'Gath",
+        "winRate": 50.28,
+        "delta1": 2.1,
+        "delta2": -2.03,
+        "opponentWinRate": 48.18,
+        "games": 1792
+      },
+      {
+        "opponent": "Lissandra",
+        "winRate": 50.43,
+        "delta1": 3.34,
+        "delta2": -0.79,
+        "opponentWinRate": 47.09,
+        "games": 234
+      },
+      {
+        "opponent": "Vayne",
+        "winRate": 50.49,
+        "delta1": 1.95,
+        "delta2": -2.18,
+        "opponentWinRate": 48.54,
+        "games": 1539
+      },
+      {
+        "opponent": "Kled",
+        "winRate": 50.74,
+        "delta1": 3.63,
+        "delta2": -0.5,
+        "opponentWinRate": 47.11,
+        "games": 1356
+      },
+      {
+        "opponent": "Ryze",
+        "winRate": 50.75,
+        "delta1": 0.86,
+        "delta2": -3.27,
+        "opponentWinRate": 49.89,
+        "games": 400
+      },
+      {
+        "opponent": "Kennen",
+        "winRate": 50.76,
+        "delta1": 2.33,
+        "delta2": -1.8,
+        "opponentWinRate": 48.43,
+        "games": 918
+      },
+      {
+        "opponent": "Singed",
+        "winRate": 50.8,
+        "delta1": 4.63,
+        "delta2": 0.51,
+        "opponentWinRate": 46.17,
+        "games": 2254
+      },
+      {
+        "opponent": "Gragas",
+        "winRate": 51.21,
+        "delta1": 2.85,
+        "delta2": -1.28,
+        "opponentWinRate": 48.36,
+        "games": 1447
+      },
+      {
+        "opponent": "Urgot",
+        "winRate": 51.28,
+        "delta1": 4.14,
+        "delta2": 0.01,
+        "opponentWinRate": 47.14,
+        "games": 1882
+      },
+      {
+        "opponent": "Aatrox",
+        "winRate": 51.28,
+        "delta1": 3.22,
+        "delta2": -0.91,
+        "opponentWinRate": 48.06,
+        "games": 4454
+      },
+      {
+        "opponent": "Sett",
+        "winRate": 51.4,
+        "delta1": 4.03,
+        "delta2": -0.1,
+        "opponentWinRate": 47.37,
+        "games": 4062
+      },
+      {
+        "opponent": "Twisted Fate",
+        "winRate": 51.41,
+        "delta1": 1.52,
+        "delta2": -2.61,
+        "opponentWinRate": 49.89,
+        "games": 177
+      },
+      {
+        "opponent": "Kayle",
+        "winRate": 51.46,
+        "delta1": 5.14,
+        "delta2": 1.01,
+        "opponentWinRate": 46.32,
+        "games": 1673
+      },
+      {
+        "opponent": "Volibear",
+        "winRate": 51.54,
+        "delta1": 2.5,
+        "delta2": -1.63,
+        "opponentWinRate": 49.04,
+        "games": 2051
+      },
+      {
+        "opponent": "Malzahar",
+        "winRate": 51.59,
+        "delta1": 3.32,
+        "delta2": -0.81,
+        "opponentWinRate": 48.27,
+        "games": 283
+      },
+      {
+        "opponent": "Zilean",
+        "winRate": 51.59,
+        "delta1": 6.91,
+        "delta2": 2.79,
+        "opponentWinRate": 44.68,
+        "games": 252
+      },
+      {
+        "opponent": "Wukong",
+        "winRate": 51.63,
+        "delta1": 4.38,
+        "delta2": 0.25,
+        "opponentWinRate": 47.25,
+        "games": 734
+      },
+      {
+        "opponent": "Gangplank",
+        "winRate": 51.75,
+        "delta1": 4.37,
+        "delta2": 0.24,
+        "opponentWinRate": 47.38,
+        "games": 4002
+      },
+      {
+        "opponent": "Akshan",
+        "winRate": 51.97,
+        "delta1": 3.97,
+        "delta2": -0.16,
+        "opponentWinRate": 48.0,
+        "games": 127
+      },
+      {
+        "opponent": "Nasus",
+        "winRate": 52.04,
+        "delta1": 5.05,
+        "delta2": 0.92,
+        "opponentWinRate": 46.99,
+        "games": 3215
+      },
+      {
+        "opponent": "Darius",
+        "winRate": 52.05,
+        "delta1": 4.06,
+        "delta2": -0.07,
+        "opponentWinRate": 47.99,
+        "games": 5247
+      },
+      {
+        "opponent": "Tahm Kench",
+        "winRate": 52.06,
+        "delta1": 4.27,
+        "delta2": 0.14,
+        "opponentWinRate": 47.79,
+        "games": 1312
+      },
+      {
+        "opponent": "Ornn",
+        "winRate": 52.09,
+        "delta1": 4.83,
+        "delta2": 0.7,
+        "opponentWinRate": 47.26,
+        "games": 2603
+      },
+      {
+        "opponent": "Vladimir",
+        "winRate": 52.29,
+        "delta1": 3.08,
+        "delta2": -1.05,
+        "opponentWinRate": 49.21,
+        "games": 809
+      },
+      {
+        "opponent": "Swain",
+        "winRate": 52.33,
+        "delta1": 3.19,
+        "delta2": -0.94,
+        "opponentWinRate": 49.14,
+        "games": 407
+      },
+      {
+        "opponent": "Illaoi",
+        "winRate": 52.41,
+        "delta1": 5.04,
+        "delta2": 0.91,
+        "opponentWinRate": 47.37,
+        "games": 1702
+      },
+      {
+        "opponent": "Tryndamere",
+        "winRate": 52.45,
+        "delta1": 5.2,
+        "delta2": 1.07,
+        "opponentWinRate": 47.25,
+        "games": 2427
+      },
+      {
+        "opponent": "Sejuani",
+        "winRate": 52.5,
+        "delta1": 4.0,
+        "delta2": -0.13,
+        "opponentWinRate": 48.5,
+        "games": 200
+      },
+      {
+        "opponent": "Olaf",
+        "winRate": 52.66,
+        "delta1": 5.29,
+        "delta2": 1.16,
+        "opponentWinRate": 47.37,
+        "games": 2032
+      },
+      {
+        "opponent": "Viktor",
+        "winRate": 52.7,
+        "delta1": 4.82,
+        "delta2": 0.69,
+        "opponentWinRate": 47.88,
+        "games": 148
+      },
+      {
+        "opponent": "Zaahen",
+        "winRate": 52.89,
+        "delta1": 4.91,
+        "delta2": 0.78,
+        "opponentWinRate": 47.98,
+        "games": 2660
+      },
+      {
+        "opponent": "Rumble",
+        "winRate": 52.95,
+        "delta1": 2.39,
+        "delta2": -1.74,
+        "opponentWinRate": 50.56,
+        "games": 865
+      },
+      {
+        "opponent": "Veigar",
+        "winRate": 53.0,
+        "delta1": 5.72,
+        "delta2": 1.59,
+        "opponentWinRate": 47.28,
+        "games": 100
+      },
+      {
+        "opponent": "Yorick",
+        "winRate": 53.07,
+        "delta1": 5.15,
+        "delta2": 1.02,
+        "opponentWinRate": 47.92,
+        "games": 1952
+      },
+      {
+        "opponent": "Akali",
+        "winRate": 53.13,
+        "delta1": 4.48,
+        "delta2": 0.35,
+        "opponentWinRate": 48.65,
+        "games": 1517
+      },
+      {
+        "opponent": "Galio",
+        "winRate": 53.17,
+        "delta1": 4.5,
+        "delta2": 0.37,
+        "opponentWinRate": 48.67,
+        "games": 126
+      },
+      {
+        "opponent": "Fiora",
+        "winRate": 53.27,
+        "delta1": 5.06,
+        "delta2": 0.93,
+        "opponentWinRate": 48.21,
+        "games": 3533
+      },
+      {
+        "opponent": "Sion",
+        "winRate": 53.29,
+        "delta1": 4.03,
+        "delta2": -0.1,
+        "opponentWinRate": 49.26,
+        "games": 2004
+      },
+      {
+        "opponent": "Sylas",
+        "winRate": 53.52,
+        "delta1": 5.36,
+        "delta2": 1.23,
+        "opponentWinRate": 48.16,
+        "games": 497
+      },
+      {
+        "opponent": "Skarner",
+        "winRate": 53.57,
+        "delta1": 1.25,
+        "delta2": -2.87,
+        "opponentWinRate": 52.32,
+        "games": 140
+      },
+      {
+        "opponent": "Gnar",
+        "winRate": 53.71,
+        "delta1": 4.11,
+        "delta2": -0.02,
+        "opponentWinRate": 49.6,
+        "games": 2653
+      },
+      {
+        "opponent": "Varus",
+        "winRate": 53.74,
+        "delta1": 3.07,
+        "delta2": -1.06,
+        "opponentWinRate": 50.67,
+        "games": 361
+      },
+      {
+        "opponent": "Naafiri",
+        "winRate": 54.0,
+        "delta1": 6.57,
+        "delta2": 2.44,
+        "opponentWinRate": 47.43,
+        "games": 250
+      },
+      {
+        "opponent": "Trundle",
+        "winRate": 54.31,
+        "delta1": 5.11,
+        "delta2": 0.98,
+        "opponentWinRate": 49.2,
+        "games": 963
+      },
+      {
+        "opponent": "Riven",
+        "winRate": 54.35,
+        "delta1": 5.93,
+        "delta2": 1.8,
+        "opponentWinRate": 48.42,
+        "games": 2401
+      },
+      {
+        "opponent": "Udyr",
+        "winRate": 54.35,
+        "delta1": 4.91,
+        "delta2": 0.78,
+        "opponentWinRate": 49.44,
+        "games": 425
+      },
+      {
+        "opponent": "K'Sante",
+        "winRate": 54.46,
+        "delta1": 2.97,
+        "delta2": -1.15,
+        "opponentWinRate": 51.49,
+        "games": 2251
+      },
+      {
+        "opponent": "Brand",
+        "winRate": 54.6,
+        "delta1": 6.39,
+        "delta2": 2.26,
+        "opponentWinRate": 48.21,
+        "games": 174
+      },
+      {
+        "opponent": "Ambessa",
+        "winRate": 54.69,
+        "delta1": 4.72,
+        "delta2": 0.59,
+        "opponentWinRate": 49.97,
+        "games": 3968
+      },
+      {
+        "opponent": "Maokai",
+        "winRate": 55.02,
+        "delta1": 5.04,
+        "delta2": 0.91,
+        "opponentWinRate": 49.98,
+        "games": 289
+      },
+      {
+        "opponent": "Garen",
+        "winRate": 55.35,
+        "delta1": 8.51,
+        "delta2": 4.38,
+        "opponentWinRate": 46.84,
+        "games": 8528
+      },
+      {
+        "opponent": "Jayce",
+        "winRate": 55.4,
+        "delta1": 4.64,
+        "delta2": 0.51,
+        "opponentWinRate": 50.76,
+        "games": 3558
+      },
+      {
+        "opponent": "Irelia",
+        "winRate": 55.56,
+        "delta1": 7.11,
+        "delta2": 2.98,
+        "opponentWinRate": 48.45,
+        "games": 2536
+      },
+      {
+        "opponent": "Yone",
+        "winRate": 55.76,
+        "delta1": 7.44,
+        "delta2": 3.31,
+        "opponentWinRate": 48.32,
+        "games": 4704
+      },
+      {
+        "opponent": "Zed",
+        "winRate": 55.83,
+        "delta1": 9.54,
+        "delta2": 5.41,
+        "opponentWinRate": 46.29,
+        "games": 403
+      },
+      {
+        "opponent": "Master Yi",
+        "winRate": 55.9,
+        "delta1": 5.25,
+        "delta2": 1.12,
+        "opponentWinRate": 50.65,
+        "games": 449
+      },
+      {
+        "opponent": "Briar",
+        "winRate": 55.94,
+        "delta1": 7.62,
+        "delta2": 3.49,
+        "opponentWinRate": 48.32,
+        "games": 202
+      },
+      {
+        "opponent": "Karma",
+        "winRate": 55.96,
+        "delta1": 4.42,
+        "delta2": 0.3,
+        "opponentWinRate": 51.54,
+        "games": 109
+      },
+      {
+        "opponent": "Aurora",
+        "winRate": 56.74,
+        "delta1": 7.3,
+        "delta2": 3.17,
+        "opponentWinRate": 49.44,
+        "games": 282
+      },
+      {
+        "opponent": "Lee Sin",
+        "winRate": 57.14,
+        "delta1": 3.44,
+        "delta2": -0.67,
+        "opponentWinRate": 53.7,
+        "games": 147
+      },
+      {
+        "opponent": "Locke",
+        "winRate": 57.62,
+        "delta1": 6.2,
+        "delta2": 2.07,
+        "opponentWinRate": 51.42,
+        "games": 479
+      },
+      {
+        "opponent": "Yasuo",
+        "winRate": 57.65,
+        "delta1": 7.87,
+        "delta2": 3.74,
+        "opponentWinRate": 49.78,
+        "games": 2059
+      },
+      {
+        "opponent": "Tristana",
+        "winRate": 57.66,
+        "delta1": 5.91,
+        "delta2": 1.79,
+        "opponentWinRate": 51.75,
+        "games": 111
+      },
+      {
+        "opponent": "Kayn",
+        "winRate": 57.68,
+        "delta1": 6.72,
+        "delta2": 2.59,
+        "opponentWinRate": 50.96,
+        "games": 241
+      },
+      {
+        "opponent": "Xin Zhao",
+        "wi
