@@ -28,15 +28,15 @@ Cada relação contém:
 
 Estes dados são evidência temporária, não uma lista de hardcounters.
 
-O motor deve misturar o `delta2` normalizado com a inferência mecânica conforme a confiabilidade da amostra:
+O motor v0.6 lê as duas direções quando disponíveis. A relação reversa entra com sinal invertido; a média é ponderada por jogos e a amostra efetiva não é duplicada. Depois, o `delta2` normalizado é misturado com a inferência mecânica:
 
 ```text
-reliability = games / (games + K)
+delta2 = weighted(candidate -> opponent, -(opponent -> candidate))
+reliability = effectiveGames / (effectiveGames + 1000)
 
 matchup =
-  reliability * statisticalSignal
+  reliability * clamp(1.5 * delta2, -8, 8)
   + (1 - reliability) * mechanicalInference
 ```
 
-Sem amostra, a inferência mecânica é usada integralmente. Hardcounter só pode ser criado por uma relação direcional explicitamente revisada.
-
+Build customizada herda inicialmente 35% dessa confiabilidade, pois a amostra representa majoritariamente a build padrão. Sem amostra, a inferência mecânica é usada integralmente. Hardcounter só pode ser criado por uma relação direcional explicitamente revisada.
