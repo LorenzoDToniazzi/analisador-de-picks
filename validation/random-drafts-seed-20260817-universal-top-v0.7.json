@@ -1,0 +1,3904 @@
+{
+  "metadata": {
+    "seed": 20260817,
+    "patch": "26.16",
+    "tier": "Diamond+",
+    "lane": "TOP",
+    "mode": "UNIVERSAL_BENCHMARK",
+    "candidates": 173,
+    "personalAffinityEnabled": false,
+    "customBuildsEnabled": false,
+    "profileSource": "UNIFORM_HEURISTIC_CATALOG",
+    "draftVisibility": "FULL_5V5",
+    "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+    "scoreWeights": {
+      "laneMatchup": 2,
+      "jungleInteraction": 0.75,
+      "enemyComp": 1.5,
+      "allyComp": 1,
+      "populationStrength": 0.35
+    },
+    "statisticalLayer": {
+      "source": "LoLalytics",
+      "patch": "26.16",
+      "tier": "EMERALD_PLUS",
+      "window": "30_DAYS",
+      "signal": "delta2_normalized",
+      "shrinkagePriorGames": 1000
+    },
+    "partialDraftRisk": "ROLE_CONDITIONAL_LOWER_TAIL",
+    "warning": "Protótipo híbrido v0.7. Matchup da lane separado do jungler; benchmark principal em composição 5x5 completa. A nota é comparativa, não win rate."
+  },
+  "selfChecks": [
+    {
+      "rule": "Benchmark principal avalia quatro aliados fixos + candidato contra cinco inimigos visíveis",
+      "passed": true
+    },
+    {
+      "rule": "Matchup da lane possui peso próprio e sempre superior ao jungler",
+      "passed": true,
+      "values": {
+        "laneMatchup": 2,
+        "jungleInteraction": 0.75
+      }
+    },
+    {
+      "rule": "Hardcounter confirmado na lane não recebe nota",
+      "passed": true
+    },
+    {
+      "rule": "Veto pode ser específico da build",
+      "passed": true
+    },
+    {
+      "rule": "Lane oculta pesa mais que quatro slots desconhecidos fora dela",
+      "passed": true,
+      "values": {
+        "ownLaneRisk": 2.31,
+        "fourOtherUnknownRisk": 1.34
+      }
+    },
+    {
+      "rule": "Draft inimigo completo não gera bônus nem risco de picks ocultos",
+      "passed": true
+    },
+    {
+      "rule": "Tag abstrata de blind não altera o risco condicional",
+      "passed": true,
+      "values": {
+        "original": 2.31,
+        "alteredSafeBlind": 2.31
+      }
+    },
+    {
+      "rule": "Desvantagem de lane reduz a execução sem criar bônus independente",
+      "passed": true,
+      "values": {
+        "behind": 0.64,
+        "neutral": 1
+      }
+    },
+    {
+      "rule": "Perfil versátil sem resposta aplicável não ganha nota de composição",
+      "passed": true,
+      "values": {
+        "score": 0
+      }
+    },
+    {
+      "rule": "Adicionar capacidade irrelevante não altera a nota",
+      "passed": true,
+      "values": {
+        "enemyComp": 0,
+        "allyComp": 0
+      }
+    },
+    {
+      "rule": "Somente as duas necessidades aliadas críticas entram no cálculo",
+      "passed": true,
+      "values": {
+        "criticalNeeds": [
+          "waveclear contra o siege inimigo",
+          "alcance para iniciar sobre o poke inimigo"
+        ]
+      }
+    },
+    {
+      "rule": "Todas as entradas habilitadas permanecem na lista",
+      "passed": true,
+      "values": {
+        "expected": 173
+      }
+    },
+    {
+      "rule": "Desabilitar uma categoria a remove da avaliação",
+      "passed": true
+    },
+    {
+      "rule": "Benchmark avalia os 173 campeões",
+      "passed": true,
+      "values": {
+        "candidates": 173
+      }
+    },
+    {
+      "rule": "Benchmark não aplica afinidade nem conforto",
+      "passed": true
+    },
+    {
+      "rule": "Benchmark usa somente o perfil/build padrão universal",
+      "passed": true
+    },
+    {
+      "rule": "Viabilidade de lane pune suporte sem baseline mais que pick padrão da lane",
+      "passed": true,
+      "values": {
+        "yuumi": -7.15,
+        "baseline": 0
+      }
+    },
+    {
+      "rule": "Matchup TOP com amostra mistura Delta2 e inferência mecânica",
+      "passed": true,
+      "values": {
+        "games": 11577,
+        "delta2": -1.9399999999999997,
+        "directions": 2,
+        "statisticalWeight": 0.92
+      }
+    },
+    {
+      "rule": "Off-meta TOP sem amostra continua avaliável por lógica",
+      "passed": true,
+      "values": {
+        "laneViability": -2.3
+      }
+    }
+  ],
+  "simulations": [
+    {
+      "id": 1,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Zac",
+            "MID": "Xerath",
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Karma"
+          },
+          "enemyByRole": {
+            "TOP": "Teemo",
+            "JUNGLE": "Vi",
+            "MID": "Cassiopeia",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Nautilus"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Zac",
+            "MID": "Xerath",
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Karma"
+          },
+          "enemyByRole": {
+            "TOP": "Teemo",
+            "JUNGLE": "Vi",
+            "MID": "Cassiopeia",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Nautilus"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 24.61,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.86,
+            "laneMatchup": 7.28,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 5,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Sion possui amostra consistente em TOP (187188 jogos de relações).",
+            "Evidência TOP: Δ2 +6.28 em 6051 jogos efetivos (2 direçãoões); peso 85.82%.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 18.59,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.83,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 6.03,
+            "statisticalWeight": 0.82,
+            "laneMatchup": 4.95,
+            "jungleInteraction": 0,
+            "enemyComp": 2.27,
+            "allyComp": 5,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Ornn possui amostra consistente em TOP (187873 jogos de relações).",
+            "Evidência TOP: Δ2 +4.02 em 4584 jogos efetivos (2 direçãoões); peso 82.09%.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Nautilus: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 17.29,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1.48,
+            "laneViability": 0,
+            "mechanicalLane": -2.35,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.83,
+            "laneMatchup": 6.2,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Yasuo possui amostra consistente em TOP (184409 jogos de relações).",
+            "Evidência TOP: Δ2 +5.88 em 4756 jogos efetivos (2 direçãoões); peso 82.63%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-auto reduz DPS por ataques.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 16.91,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.68,
+            "laneViability": 0,
+            "mechanicalLane": -2.64,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.84,
+            "laneMatchup": 6.34,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 4,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Olaf possui amostra consistente em TOP (175433 jogos de relações).",
+            "Evidência TOP: Δ2 +6.08 em 5393 jogos efetivos (2 direçãoões); peso 84.36%.",
+            "Favorável: anti-CC reduz controle de grupo.",
+            "Risco: anti-auto reduz DPS por ataques.",
+            "Favorável contra Teemo: anti-CC contra o controle.",
+            "Favorável contra Vi: anti-CC contra o controle.",
+            "Risco contra Teemo: poke/range dificulta a execução.",
+            "Risco contra Vi: controle interrompe a entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.32,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.23,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 2.3,
+            "statisticalWeight": 0.82,
+            "laneMatchup": 2.42,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Yorick possui amostra consistente em TOP (205939 jogos de relações).",
+            "Evidência TOP: Δ2 +1.54 em 4451 jogos efetivos (2 direçãoões); peso 81.65%.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Malphite",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.14,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1,
+            "laneViability": 0,
+            "mechanicalLane": 0.44,
+            "statisticalLane": 4.72,
+            "statisticalWeight": 0.92,
+            "laneMatchup": 4.4,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 4,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Malphite possui amostra consistente em TOP (360570 jogos de relações).",
+            "Evidência TOP: Δ2 +3.15 em 12105 jogos efetivos (2 direçãoões); peso 92.37%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Vi: engage/dive pune o perfil.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Dr. Mundo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.1,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.36,
+            "laneViability": 0,
+            "mechanicalLane": -2.93,
+            "statisticalLane": 2.71,
+            "statisticalWeight": 0.84,
+            "laneMatchup": 1.79,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Dr. Mundo possui amostra consistente em TOP (268425 jogos de relações).",
+            "Evidência TOP: Δ2 +1.81 em 5117 jogos efetivos (2 direçãoões); peso 83.65%.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Rammus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.26,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.01,
+            "laneViability": -2.5,
+            "mechanicalLane": 5.28,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 2.78,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 4,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Rammus possui apenas amostra esparsa em TOP; a lógica do kit predomina.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Risco contra Vi: kite/disengage nega contato.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.69,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.08,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.6,
+            "statisticalWeight": 0.47,
+            "laneMatchup": 4.66,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Zed possui amostra consistente em TOP (32226 jogos de relações).",
+            "Evidência TOP: Δ2 +4.4 em 886 jogos efetivos (2 direçãoões); peso 46.96%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Risco contra Nautilus: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "K'Sante",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.58,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -3,
+            "laneViability": 0,
+            "mechanicalLane": -2.93,
+            "statisticalLane": 4.43,
+            "statisticalWeight": 0.73,
+            "laneMatchup": 2.47,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 5,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "K'Sante possui amostra consistente em TOP (208713 jogos de relações).",
+            "Evidência TOP: Δ2 +2.96 em 2748 jogos efetivos (2 direçãoões); peso 73.32%.",
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Teemo: resposta ao DPS físico.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Teemo: poke/range dificulta a execução.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Nocturne",
+            "MID": "Taliyah",
+            "BOTTOM": "Samira",
+            "SUPPORT": "Maokai"
+          },
+          "enemyByRole": {
+            "TOP": "Olaf",
+            "JUNGLE": "Briar",
+            "MID": "Lux",
+            "BOTTOM": "Yunara",
+            "SUPPORT": "Blitzcrank"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Nocturne",
+            "MID": "Taliyah",
+            "BOTTOM": "Samira",
+            "SUPPORT": "Maokai"
+          },
+          "enemyByRole": {
+            "TOP": "Olaf",
+            "JUNGLE": "Briar",
+            "MID": "Lux",
+            "BOTTOM": "Yunara",
+            "SUPPORT": "Blitzcrank"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Trundle",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.53,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.87,
+            "laneViability": 0,
+            "mechanicalLane": -0.29,
+            "statisticalLane": 6.75,
+            "statisticalWeight": 0.72,
+            "laneMatchup": 4.75,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Trundle possui amostra consistente em TOP (77785 jogos de relações).",
+            "Evidência TOP: Δ2 +4.5 em 2526 jogos efetivos (2 direçãoões); peso 71.64%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Vayne",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.2,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.32,
+            "laneViability": 0,
+            "mechanicalLane": -0.88,
+            "statisticalLane": 6.09,
+            "statisticalWeight": 0.77,
+            "laneMatchup": 4.49,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Vayne possui amostra consistente em TOP (196954 jogos de relações).",
+            "Evidência TOP: Δ2 +4.06 em 3370 jogos efetivos (2 direçãoões); peso 77.12%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Yunara: burst contra alvo vulnerável.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Fiora",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.09,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.03,
+            "laneViability": 0,
+            "mechanicalLane": 0.29,
+            "statisticalLane": 4.54,
+            "statisticalWeight": 0.76,
+            "laneMatchup": 3.53,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 4.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Fiora possui amostra consistente em TOP (215617 jogos de relações).",
+            "Evidência TOP: Δ2 +3.03 em 3215 jogos efetivos (2 direçãoões); peso 76.27%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Risco contra Yunara: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Tryndamere",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.75,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.84,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 4.11,
+            "statisticalWeight": 0.78,
+            "laneMatchup": 3.21,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 4.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Tryndamere possui amostra consistente em TOP (195095 jogos de relações).",
+            "Evidência TOP: Δ2 +2.74 em 3560 jogos efetivos (2 direçãoões); peso 78.07%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Olaf: controle interrompe a entrada.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Heimerdinger",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.64,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.87,
+            "laneViability": 0,
+            "mechanicalLane": -0.59,
+            "statisticalLane": 5.13,
+            "statisticalWeight": 0.55,
+            "laneMatchup": 2.55,
+            "jungleInteraction": -0.22,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Heimerdinger possui amostra consistente em TOP (77604 jogos de relações).",
+            "Evidência TOP: Δ2 +3.42 em 1217 jogos efetivos (2 direçãoões); peso 54.88%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade."
+          ]
+        },
+        {
+          "champion": "Darius",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.55,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.19,
+            "laneViability": 0,
+            "mechanicalLane": 1.61,
+            "statisticalLane": 2.74,
+            "statisticalWeight": 0.85,
+            "laneMatchup": 2.57,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Darius possui amostra consistente em TOP (393742 jogos de relações).",
+            "Evidência TOP: Δ2 +1.83 em 5588 jogos efetivos (2 direçãoões); peso 84.82%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.38,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1.48,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": -0.57,
+            "statisticalWeight": 0.67,
+            "laneMatchup": 0.58,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yasuo possui amostra consistente em TOP (184409 jogos de relações).",
+            "Evidência TOP: Δ2 -0.38 em 2049 jogos efetivos (2 direçãoões); peso 67.2%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.99,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.11,
+            "laneViability": 0,
+            "mechanicalLane": 2.35,
+            "statisticalLane": 3.02,
+            "statisticalWeight": 0.86,
+            "laneMatchup": 2.93,
+            "jungleInteraction": -0.22,
+            "enemyComp": 0,
+            "allyComp": 4.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Jax possui amostra consistente em TOP (331939 jogos de relações).",
+            "Evidência TOP: Δ2 +2.02 em 6232 jogos efetivos (2 direçãoões); peso 86.17%.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Briar: resposta ao DPS físico.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.84,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.34,
+            "laneViability": -1,
+            "mechanicalLane": 3.81,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 2.81,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 4.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Corki possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Kassadin",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.41,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.42,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 1.93,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Kassadin possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Olaf: burst contra alvo vulnerável.",
+            "Favorável contra Lux: resposta ao poke/siege."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Kayn",
+            "MID": "Anivia",
+            "BOTTOM": "Kog'Maw",
+            "SUPPORT": "Karma"
+          },
+          "enemyByRole": {
+            "TOP": "Kennen",
+            "JUNGLE": "Volibear",
+            "MID": "Zoe",
+            "BOTTOM": "Caitlyn",
+            "SUPPORT": "Janna"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Kayn",
+            "MID": "Anivia",
+            "BOTTOM": "Kog'Maw",
+            "SUPPORT": "Karma"
+          },
+          "enemyByRole": {
+            "TOP": "Kennen",
+            "JUNGLE": "Volibear",
+            "MID": "Zoe",
+            "BOTTOM": "Caitlyn",
+            "SUPPORT": "Janna"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 20.73,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.57,
+            "laneMatchup": 5.17,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Sion possui amostra consistente em TOP (187188 jogos de relações).",
+            "Evidência TOP: Δ2 +5.52 em 1311 jogos efetivos (2 direçãoões); peso 56.72%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Dr. Mundo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 18.56,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.36,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.71,
+            "laneMatchup": 6.52,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Dr. Mundo possui amostra consistente em TOP (268425 jogos de relações).",
+            "Evidência TOP: Δ2 +5.66 em 2421 jogos efetivos (2 direçãoões); peso 70.76%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 17.1,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.83,
+            "laneViability": 0,
+            "mechanicalLane": 3.37,
+            "statisticalLane": 4.57,
+            "statisticalWeight": 0.56,
+            "laneMatchup": 4.04,
+            "jungleInteraction": 0,
+            "enemyComp": 2.27,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ornn possui amostra consistente em TOP (187873 jogos de relações).",
+            "Evidência TOP: Δ2 +3.05 em 1259 jogos efetivos (2 direçãoões); peso 55.73%.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada.",
+            "Risco contra Volibear: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 15.2,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.23,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.15,
+            "statisticalWeight": 0.6,
+            "laneMatchup": 4.86,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yorick possui amostra consistente em TOP (205939 jogos de relações).",
+            "Evidência TOP: Δ2 +4.1 em 1492 jogos efetivos (2 direçãoões); peso 59.86%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada."
+          ]
+        },
+        {
+          "champion": "Nasus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.61,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.07,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.68,
+            "laneMatchup": 5.92,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Nasus possui amostra consistente em TOP (223804 jogos de relações).",
+            "Evidência TOP: Δ2 +5.95 em 2135 jogos efetivos (2 direçãoões); peso 68.1%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada.",
+            "Risco contra Janna: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Zac",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.56,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.79,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": -3.17,
+            "statisticalWeight": 0.14,
+            "laneMatchup": 0.82,
+            "jungleInteraction": -0.11,
+            "enemyComp": 3.6,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Zac possui amostra consistente em TOP (25392 jogos de relações).",
+            "Evidência TOP: Δ2 -2.11 em 163 jogos efetivos (2 direçãoões); peso 13.98%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Varus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.04,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1.6,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 3.96,
+            "statisticalWeight": 0.29,
+            "laneMatchup": 3.23,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 6.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Varus possui amostra consistente em TOP (41670 jogos de relações).",
+            "Evidência TOP: Δ2 +2.64 em 410 jogos efetivos (2 direçãoões); peso 29.05%.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Volibear: DPS/anti-tank contra a frontline.",
+            "Favorável contra Zoe: resposta ao poke/siege.",
+            "Risco contra Kennen: engage/dive pune o perfil.",
+            "Risco contra Volibear: engage/dive pune o perfil.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Gragas",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.9,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.17,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 3.76,
+            "statisticalWeight": 0.45,
+            "laneMatchup": 3.31,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Gragas possui amostra consistente em TOP (121223 jogos de relações).",
+            "Evidência TOP: Δ2 +2.51 em 834 jogos efetivos (2 direçãoões); peso 45.47%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada.",
+            "Risco contra Volibear: poke/range dificulta a execução.",
+            "Risco contra Zoe: poke/range dificulta a execução.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Malphite",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.7,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 2.49,
+            "statisticalWeight": 0.73,
+            "laneMatchup": 2.61,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 6.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Malphite possui amostra consistente em TOP (360570 jogos de relações).",
+            "Evidência TOP: Δ2 +1.66 em 2733 jogos efetivos (2 direçãoões); peso 73.21%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada.",
+            "Risco contra Kennen: engage/dive pune o perfil.",
+            "Risco contra Volibear: engage/dive pune o perfil.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Cho'Gath",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.34,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.05,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.95,
+            "statisticalWeight": 0.51,
+            "laneMatchup": 4.98,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Cho'Gath possui amostra consistente em TOP (138428 jogos de relações).",
+            "Evidência TOP: Δ2 +4.63 em 1042 jogos efetivos (2 direçãoões); peso 51.02%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Volibear: resposta à entrada.",
+            "Risco contra Janna: kite/disengage nega contato."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Shaco",
+            "MID": "Ryze",
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Renata Glasc"
+          },
+          "enemyByRole": {
+            "TOP": "Kayle",
+            "JUNGLE": "Lillia",
+            "MID": "Viktor",
+            "BOTTOM": "Ezreal",
+            "SUPPORT": "Janna"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Shaco",
+            "MID": "Ryze",
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Renata Glasc"
+          },
+          "enemyByRole": {
+            "TOP": "Kayle",
+            "JUNGLE": "Lillia",
+            "MID": "Viktor",
+            "BOTTOM": "Ezreal",
+            "SUPPORT": "Janna"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Irelia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 16.07,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.27,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.76,
+            "laneMatchup": 6.05,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Irelia possui amostra consistente em TOP (222447 jogos de relações).",
+            "Evidência TOP: Δ2 +6.06 em 3102 jogos efetivos (2 direçãoões); peso 75.62%.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Ezreal: resposta ao poke/siege.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Malphite",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 16.07,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1,
+            "laneViability": 0,
+            "mechanicalLane": -2.93,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.8,
+            "laneMatchup": 5.83,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Malphite possui amostra consistente em TOP (360570 jogos de relações).",
+            "Evidência TOP: Δ2 +5.68 em 4030 jogos efetivos (2 direçãoões); peso 80.12%.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 15.52,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.58,
+            "laneViability": 0,
+            "mechanicalLane": 3.81,
+            "statisticalLane": 3.3,
+            "statisticalWeight": 0.71,
+            "laneMatchup": 3.45,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Teemo possui amostra consistente em TOP (232297 jogos de relações).",
+            "Evidência TOP: Δ2 +2.2 em 2422 jogos efetivos (2 direçãoões); peso 70.78%.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Ezreal: resposta ao DPS físico.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Jayce",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.77,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -2.4,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 5.64,
+            "statisticalWeight": 0.7,
+            "laneMatchup": 3.97,
+            "jungleInteraction": 0,
+            "enemyComp": 2.67,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Jayce possui amostra consistente em TOP (307945 jogos de relações).",
+            "Evidência TOP: Δ2 +3.76 em 2387 jogos efetivos (2 direçãoões); peso 70.47%.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.6,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1.48,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 4.56,
+            "statisticalWeight": 0.66,
+            "laneMatchup": 3.03,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Yasuo possui amostra consistente em TOP (184409 jogos de relações).",
+            "Evidência TOP: Δ2 +3.04 em 1976 jogos efetivos (2 direçãoões); peso 66.4%.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Ezreal: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Nasus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.88,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.07,
+            "laneViability": 0,
+            "mechanicalLane": 3.81,
+            "statisticalLane": 4.75,
+            "statisticalWeight": 0.79,
+            "laneMatchup": 4.56,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Nasus possui amostra consistente em TOP (223804 jogos de relações).",
+            "Evidência TOP: Δ2 +3.17 em 3747 jogos efetivos (2 direçãoões); peso 78.93%.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Ezreal: resposta ao DPS físico.",
+            "Risco contra Janna: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Rammus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.62,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.01,
+            "laneViability": -2.5,
+            "mechanicalLane": 5.28,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 2.78,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Rammus possui apenas amostra esparsa em TOP; a lógica do kit predomina.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Ezreal: resposta ao poke/siege.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.77,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.08,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.27,
+            "laneMatchup": 2.16,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Zed possui amostra consistente em TOP (32226 jogos de relações).",
+            "Evidência TOP: Δ2 +6.67 em 371 jogos efetivos (2 direçãoões); peso 27.03%.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Ezreal: resposta ao poke/siege.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.51,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.11,
+            "laneViability": 0,
+            "mechanicalLane": 5.28,
+            "statisticalLane": 4,
+            "statisticalWeight": 0.78,
+            "laneMatchup": 4.28,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Jax possui amostra consistente em TOP (331939 jogos de relações).",
+            "Evidência TOP: Δ2 +2.67 em 3626 jogos efetivos (2 direçãoões); peso 78.38%.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Ezreal: resposta ao DPS físico.",
+            "Risco contra Viktor: controle interrompe a entrada.",
+            "Risco contra Ezreal: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Yone",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.34,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.12,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 4.79,
+            "statisticalWeight": 0.8,
+            "laneMatchup": 3.84,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Yone possui amostra consistente em TOP (404544 jogos de relações).",
+            "Evidência TOP: Δ2 +3.19 em 4061 jogos efetivos (2 direçãoões); peso 80.24%.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Ezreal: resposta ao poke/siege.",
+            "Risco contra Viktor: controle interrompe a entrada.",
+            "Risco contra Janna: controle interrompe a entrada."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Warwick",
+            "MID": "Vex",
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Sona"
+          },
+          "enemyByRole": {
+            "TOP": "Kennen",
+            "JUNGLE": "Skarner",
+            "MID": "Swain",
+            "BOTTOM": "Kalista",
+            "SUPPORT": "Taric"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Warwick",
+            "MID": "Vex",
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Sona"
+          },
+          "enemyByRole": {
+            "TOP": "Kennen",
+            "JUNGLE": "Skarner",
+            "MID": "Swain",
+            "BOTTOM": "Kalista",
+            "SUPPORT": "Taric"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 21.53,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.57,
+            "laneMatchup": 5.17,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 6.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Sion possui amostra consistente em TOP (187188 jogos de relações).",
+            "Evidência TOP: Δ2 +5.52 em 1311 jogos efetivos (2 direçãoões); peso 56.72%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Dr. Mundo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 19.36,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.36,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.71,
+            "laneMatchup": 6.52,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Dr. Mundo possui amostra consistente em TOP (268425 jogos de relações).",
+            "Evidência TOP: Δ2 +5.66 em 2421 jogos efetivos (2 direçãoões); peso 70.76%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 18,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.83,
+            "laneViability": 0,
+            "mechanicalLane": 3.37,
+            "statisticalLane": 4.57,
+            "statisticalWeight": 0.56,
+            "laneMatchup": 4.04,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 6.93,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Ornn possui amostra consistente em TOP (187873 jogos de relações).",
+            "Evidência TOP: Δ2 +3.05 em 1259 jogos efetivos (2 direçãoões); peso 55.73%.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Skarner: frontline nega o padrão de dano.",
+            "Risco contra Swain: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Gragas",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 16.1,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.17,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 3.76,
+            "statisticalWeight": 0.45,
+            "laneMatchup": 3.31,
+            "jungleInteraction": 0,
+            "enemyComp": 2.27,
+            "allyComp": 6.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Gragas possui amostra consistente em TOP (121223 jogos de relações).",
+            "Evidência TOP: Δ2 +2.51 em 834 jogos efetivos (2 direçãoões); peso 45.47%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Kalista: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 16,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.23,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.15,
+            "statisticalWeight": 0.6,
+            "laneMatchup": 4.86,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Yorick possui amostra consistente em TOP (205939 jogos de relações).",
+            "Evidência TOP: Δ2 +4.1 em 1492 jogos efetivos (2 direçãoões); peso 59.86%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Nasus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.81,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.07,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.68,
+            "laneMatchup": 5.92,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 1.6,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Nasus possui amostra consistente em TOP (223804 jogos de relações).",
+            "Evidência TOP: Δ2 +5.95 em 2135 jogos efetivos (2 direçãoões); peso 68.1%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Kalista: kite/disengage nega contato.",
+            "Risco contra Taric: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Zilean",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.98,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.59,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.12,
+            "laneMatchup": 2.53,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Zilean possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Evidência TOP: Δ2 +6.64 em 133 jogos efetivos (2 direçãoões); peso 11.7%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kalista: contenção da mobilidade.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Risco contra Kalista: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Poppy",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.72,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.44,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": -0.83,
+            "statisticalWeight": 0.26,
+            "laneMatchup": 0.87,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 6.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Poppy possui amostra consistente em TOP (63998 jogos de relações).",
+            "Evidência TOP: Δ2 -0.55 em 356 jogos efetivos (2 direçãoões); peso 26.25%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Skarner: frontline nega o padrão de dano.",
+            "Risco contra Swain: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "K'Sante",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.62,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -3,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 1.38,
+            "statisticalWeight": 0.51,
+            "laneMatchup": 1.42,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 6.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "K'Sante possui amostra consistente em TOP (208713 jogos de relações).",
+            "Evidência TOP: Δ2 +0.92 em 1053 jogos efetivos (2 direçãoões); peso 51.29%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Skarner: frontline nega o padrão de dano.",
+            "Risco contra Swain: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Cho'Gath",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.94,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.05,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.95,
+            "statisticalWeight": 0.51,
+            "laneMatchup": 4.98,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Cho'Gath possui amostra consistente em TOP (138428 jogos de relações).",
+            "Evidência TOP: Δ2 +4.63 em 1042 jogos efetivos (2 direçãoões); peso 51.02%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Kalista: kite/disengage nega contato.",
+            "Risco contra Taric: kite/disengage nega contato."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Amumu",
+            "MID": "Yasuo",
+            "BOTTOM": "Twitch",
+            "SUPPORT": "Ashe"
+          },
+          "enemyByRole": {
+            "TOP": "Udyr",
+            "JUNGLE": "Kayn",
+            "MID": "Talon",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Bard"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Amumu",
+            "MID": "Yasuo",
+            "BOTTOM": "Twitch",
+            "SUPPORT": "Ashe"
+          },
+          "enemyByRole": {
+            "TOP": "Udyr",
+            "JUNGLE": "Kayn",
+            "MID": "Talon",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Bard"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.94,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.58,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.16,
+            "statisticalWeight": 0.36,
+            "laneMatchup": 4.11,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 3.47,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Teemo possui amostra consistente em TOP (232297 jogos de relações).",
+            "Evidência TOP: Δ2 +4.11 em 573 jogos efetivos (2 direçãoões); peso 36.43%.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: DPS/anti-tank contra a frontline.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Heimerdinger",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.98,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.87,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 6.55,
+            "statisticalWeight": 0.16,
+            "laneMatchup": 1.07,
+            "jungleInteraction": -0.44,
+            "enemyComp": 3.6,
+            "allyComp": 3.47,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Heimerdinger possui amostra consistente em TOP (77604 jogos de relações).",
+            "Evidência TOP: Δ2 +4.37 em 195 jogos efetivos (2 direçãoões); peso 16.32%.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.13,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.27,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 1.93,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 3.47,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Hwei possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: alcance contra alvo exposto.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Vel'Koz",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.12,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.25,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 1.93,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 3.47,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Vel'Koz possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: alcance contra alvo exposto.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Jayce",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.52,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -2.4,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.37,
+            "laneMatchup": 4.83,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Jayce possui amostra consistente em TOP (307945 jogos de relações).",
+            "Evidência TOP: Δ2 +5.96 em 598 jogos efetivos (2 direçãoões); peso 37.4%.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Udyr: frontline nega o padrão de dano.",
+            "Risco contra Kayn: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.11,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.34,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 1.93,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Corki possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.91,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.13,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 0,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3.47,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Cassiopeia possui amostra consistente em TOP (30351 jogos de relações).",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável contra Udyr: DPS/anti-tank contra a frontline.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Karma",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.66,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.79,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 1.93,
+            "jungleInteraction": 0,
+            "enemyComp": 1.33,
+            "allyComp": 3.07,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Karma possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: alcance contra alvo exposto.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Smolder",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.43,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -2.28,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 1.93,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 2.67,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Smolder possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Zoe",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.11,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.22,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 1.93,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 3.47,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Zoe possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: alcance contra alvo exposto.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Udyr: frontline nega o padrão de dano.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Poppy",
+            "MID": "Mel",
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Soraka"
+          },
+          "enemyByRole": {
+            "TOP": "Aatrox",
+            "JUNGLE": "Lee Sin",
+            "MID": "Locke",
+            "BOTTOM": "Seraphine",
+            "SUPPORT": "Tahm Kench"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Poppy",
+            "MID": "Mel",
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Soraka"
+          },
+          "enemyByRole": {
+            "TOP": "Aatrox",
+            "JUNGLE": "Lee Sin",
+            "MID": "Locke",
+            "BOTTOM": "Seraphine",
+            "SUPPORT": "Tahm Kench"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Fiora",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.56,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.03,
+            "laneViability": 0,
+            "mechanicalLane": 3.81,
+            "statisticalLane": 2.57,
+            "statisticalWeight": 0.91,
+            "laneMatchup": 2.69,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Fiora possui amostra consistente em TOP (215617 jogos de relações).",
+            "Evidência TOP: Δ2 +1.71 em 9869 jogos efetivos (2 direçãoões); peso 90.8%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Singed",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.66,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.78,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 3.67,
+            "statisticalWeight": 0.84,
+            "laneMatchup": 3.32,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Singed possui amostra consistente em TOP (153432 jogos de relações).",
+            "Evidência TOP: Δ2 +2.45 em 5330 jogos efetivos (2 direçãoões); peso 84.2%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Seraphine: resposta à entrada."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.34,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.13,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 0.87,
+            "statisticalWeight": 0.48,
+            "laneMatchup": 1.95,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Cassiopeia possui amostra consistente em TOP (30351 jogos de relações).",
+            "Evidência TOP: Δ2 +0.58 em 911 jogos efetivos (2 direçãoões); peso 47.66%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Heimerdinger",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.49,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.87,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 2.99,
+            "statisticalWeight": 0.71,
+            "laneMatchup": 2.98,
+            "jungleInteraction": -0.22,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Heimerdinger possui amostra consistente em TOP (77604 jogos de relações).",
+            "Evidência TOP: Δ2 +2 em 2487 jogos efetivos (2 direçãoões); peso 71.32%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Favorável contra Locke: contenção da mobilidade."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.32,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1.48,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 1.04,
+            "statisticalWeight": 0.85,
+            "laneMatchup": 1.32,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yasuo possui amostra consistente em TOP (184409 jogos de relações).",
+            "Evidência TOP: Δ2 +0.69 em 5871 jogos efetivos (2 direçãoões); peso 85.45%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Locke: burst contra alvo vulnerável.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.44,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.34,
+            "laneViability": -1,
+            "mechanicalLane": 3.81,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.13,
+            "laneMatchup": 3.38,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 3.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Corki possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Evidência TOP: Δ2 +5.54 em 156 jogos efetivos (2 direçãoões); peso 13.49%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Locke: burst contra alvo vulnerável.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.62,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.27,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 2.96,
+            "statisticalWeight": 0.9,
+            "laneMatchup": 2.96,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 3.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Irelia possui amostra consistente em TOP (222447 jogos de relações).",
+            "Evidência TOP: Δ2 +1.97 em 9090 jogos efetivos (2 direçãoões); peso 90.09%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Locke: burst contra alvo vulnerável.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Risco contra Locke: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.28,
+            "laneViability": -1,
+            "mechanicalLane": 3.81,
+            "statisticalLane": 0.19,
+            "statisticalWeight": 0.21,
+            "laneMatchup": 2.04,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Veigar possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Evidência TOP: Δ2 +0.13 em 272 jogos efetivos (2 direçãoões); peso 21.38%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: contenção da mobilidade."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.52,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1.93,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 1.48,
+            "statisticalWeight": 0.77,
+            "laneMatchup": 1.82,
+            "jungleInteraction": -0.44,
+            "enemyComp": 3.6,
+            "allyComp": 1.5,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Rumble possui amostra consistente em TOP (85833 jogos de relações).",
+            "Evidência TOP: Δ2 +0.98 em 3301 jogos efetivos (2 direçãoões); peso 76.75%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Favorável contra Locke: contenção da mobilidade.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Kai'Sa",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.47,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1.57,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.25,
+            "laneMatchup": 3.19,
+            "jungleInteraction": -0.22,
+            "enemyComp": 0,
+            "allyComp": 3.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Kai'Sa possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Evidência TOP: Δ2 +6.37 em 331 jogos efetivos (2 direçãoões); peso 24.87%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Locke: burst contra alvo vulnerável.",
+            "Risco contra Aatrox: controle interrompe a entrada.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Volibear",
+            "MID": "Veigar",
+            "BOTTOM": "Vayne",
+            "SUPPORT": "Bard"
+          },
+          "enemyByRole": {
+            "TOP": "Kennen",
+            "JUNGLE": "Zaahen",
+            "MID": "Lux",
+            "BOTTOM": "Samira",
+            "SUPPORT": "Zyra"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Volibear",
+            "MID": "Veigar",
+            "BOTTOM": "Vayne",
+            "SUPPORT": "Bard"
+          },
+          "enemyByRole": {
+            "TOP": "Kennen",
+            "JUNGLE": "Zaahen",
+            "MID": "Lux",
+            "BOTTOM": "Samira",
+            "SUPPORT": "Zyra"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 19.53,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.57,
+            "laneMatchup": 5.17,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Sion possui amostra consistente em TOP (187188 jogos de relações).",
+            "Evidência TOP: Δ2 +5.52 em 1311 jogos efetivos (2 direçãoões); peso 56.72%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Zaahen: resposta ao DPS físico.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Dr. Mundo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 18.56,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.36,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.71,
+            "laneMatchup": 6.52,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Dr. Mundo possui amostra consistente em TOP (268425 jogos de relações).",
+            "Evidência TOP: Δ2 +5.66 em 2421 jogos efetivos (2 direçãoões); peso 70.76%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Zaahen: resposta ao DPS físico."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 17.9,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.83,
+            "laneViability": 0,
+            "mechanicalLane": 3.37,
+            "statisticalLane": 4.57,
+            "statisticalWeight": 0.56,
+            "laneMatchup": 4.04,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Ornn possui amostra consistente em TOP (187873 jogos de relações).",
+            "Evidência TOP: Δ2 +3.05 em 1259 jogos efetivos (2 direçãoões); peso 55.73%.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Zaahen: resposta ao DPS físico.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 15.2,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.23,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.15,
+            "statisticalWeight": 0.6,
+            "laneMatchup": 4.86,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yorick possui amostra consistente em TOP (205939 jogos de relações).",
+            "Evidência TOP: Δ2 +4.1 em 1492 jogos efetivos (2 direçãoões); peso 59.86%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Zaahen: resposta ao DPS físico."
+          ]
+        },
+        {
+          "champion": "Nasus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.91,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.07,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 8,
+            "statisticalWeight": 0.68,
+            "laneMatchup": 5.92,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Nasus possui amostra consistente em TOP (223804 jogos de relações).",
+            "Evidência TOP: Δ2 +5.95 em 2135 jogos efetivos (2 direçãoões); peso 68.1%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Zaahen: resposta ao DPS físico.",
+            "Risco contra Zyra: kite/disengage nega contato.",
+            "Risco contra Zaahen: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Gragas",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.7,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.17,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 3.76,
+            "statisticalWeight": 0.45,
+            "laneMatchup": 3.31,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 4.13,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Gragas possui amostra consistente em TOP (121223 jogos de relações).",
+            "Evidência TOP: Δ2 +2.51 em 834 jogos efetivos (2 direçãoões); peso 45.47%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Zaahen: burst contra alvo vulnerável.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Risco contra Zyra: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Cho'Gath",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.64,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.05,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.95,
+            "statisticalWeight": 0.51,
+            "laneMatchup": 4.98,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Cho'Gath possui amostra consistente em TOP (138428 jogos de relações).",
+            "Evidência TOP: Δ2 +4.63 em 1042 jogos efetivos (2 direçãoões); peso 51.02%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Zaahen: resposta ao DPS físico.",
+            "Risco contra Zyra: kite/disengage nega contato.",
+            "Risco contra Zaahen: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Zac",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.95,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.79,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": -3.17,
+            "statisticalWeight": 0.14,
+            "laneMatchup": 0.82,
+            "jungleInteraction": -0.22,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Zac possui amostra consistente em TOP (25392 jogos de relações).",
+            "Evidência TOP: Δ2 -2.11 em 163 jogos efetivos (2 direçãoões); peso 13.98%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Kennen: resposta à entrada.",
+            "Favorável contra Zaahen: resposta ao DPS físico.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Ashe",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.91,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.35,
+            "laneViability": -1,
+            "mechanicalLane": 2.93,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 1.93,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 2.47,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Ashe possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Favorável contra Samira: alcance contra alvo exposto.",
+            "Risco contra Kennen: engage/dive pune o perfil.",
+            "Risco contra Zaahen: engage/dive pune o perfil.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        },
+        {
+          "champion": "Varus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.71,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1.6,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 3.96,
+            "statisticalWeight": 0.29,
+            "laneMatchup": 3.23,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 0.8,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Varus possui amostra consistente em TOP (41670 jogos de relações).",
+            "Evidência TOP: Δ2 +2.64 em 410 jogos efetivos (2 direçãoões); peso 29.05%.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Favorável contra Samira: alcance contra alvo exposto.",
+            "Risco contra Kennen: engage/dive pune o perfil.",
+            "Risco contra Zyra: kite/disengage nega contato.",
+            "Supre necessidade crítica: alcance para iniciar sobre o poke inimigo."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Xin Zhao",
+            "MID": "Yone",
+            "BOTTOM": "Sivir",
+            "SUPPORT": "Janna"
+          },
+          "enemyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Nocturne",
+            "MID": "Orianna",
+            "BOTTOM": "Varus",
+            "SUPPORT": "Leona"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Xin Zhao",
+            "MID": "Yone",
+            "BOTTOM": "Sivir",
+            "SUPPORT": "Janna"
+          },
+          "enemyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Nocturne",
+            "MID": "Orianna",
+            "BOTTOM": "Varus",
+            "SUPPORT": "Leona"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 16.94,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.23,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 6.88,
+            "statisticalWeight": 0.64,
+            "laneMatchup": 5.45,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.55,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yorick possui amostra consistente em TOP (205939 jogos de relações).",
+            "Evidência TOP: Δ2 +4.58 em 1774 jogos efetivos (2 direçãoões); peso 63.94%.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Nocturne: resposta à entrada.",
+            "Favorável contra Varus: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Heimerdinger",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 15.97,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.87,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 7.65,
+            "statisticalWeight": 0.41,
+            "laneMatchup": 4.88,
+            "jungleInteraction": 0.67,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Heimerdinger possui amostra consistente em TOP (77604 jogos de relações).",
+            "Evidência TOP: Δ2 +5.1 em 702 jogos efetivos (2 direçãoões); peso 41.25%.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Nocturne: contenção da mobilidade.",
+            "Favorável contra Varus: resposta ao poke/siege."
+          ]
+        },
+        {
+          "champion": "Volibear",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.72,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.75,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 6.3,
+            "statisticalWeight": 0.67,
+            "laneMatchup": 4.21,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 4.55,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Volibear possui amostra consistente em TOP (158531 jogos de relações).",
+            "Evidência TOP: Δ2 +4.2 em 2016 jogos efetivos (2 direçãoões); peso 66.84%.",
+            "Favorável contra Nocturne: resposta à entrada.",
+            "Favorável contra Varus: resposta à entrada.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Varus: poke/range dificulta a execução.",
+            "Supre necessidade crítica: follow-up para a entrada aliada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Vayne",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.18,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.32,
+            "laneViability": 0,
+            "mechanicalLane": -0.44,
+            "statisticalLane": 5.83,
+            "statisticalWeight": 0.64,
+            "laneMatchup": 3.6,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 5.1,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Vayne possui amostra consistente em TOP (196954 jogos de relações).",
+            "Evidência TOP: Δ2 +3.89 em 1807 jogos efetivos (2 direçãoões); peso 64.37%.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: sustain explora vulnerável a poke.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Leona: DPS/anti-tank contra a frontline.",
+            "Risco contra Nocturne: engage/dive pune o perfil.",
+            "Risco contra Orianna: controle interrompe a entrada.",
+            "Supre necessidade crítica: follow-up para a entrada aliada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Sett",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.09,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.78,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 4.05,
+            "statisticalWeight": 0.77,
+            "laneMatchup": 3.13,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 4.55,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Sett possui amostra consistente em TOP (319137 jogos de relações).",
+            "Evidência TOP: Δ2 +2.7 em 3407 jogos efetivos (2 direçãoões); peso 77.31%.",
+            "Favorável contra Nocturne: resposta à entrada.",
+            "Favorável contra Varus: resposta à entrada.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Varus: poke/range dificulta a execução.",
+            "Supre necessidade crítica: follow-up para a entrada aliada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.78,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.83,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 3.58,
+            "statisticalWeight": 0.64,
+            "laneMatchup": 3.35,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 1.1,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ornn possui amostra consistente em TOP (187873 jogos de relações).",
+            "Evidência TOP: Δ2 +2.38 em 1797 jogos efetivos (2 direçãoões); peso 64.24%.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Nocturne: resposta à entrada.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Leona: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Mordekaiser",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.72,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.03,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 5.12,
+            "statisticalWeight": 0.84,
+            "laneMatchup": 4.56,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 0.55,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Mordekaiser possui amostra consistente em TOP (465451 jogos de relações).",
+            "Evidência TOP: Δ2 +3.42 em 5445 jogos efetivos (2 direçãoões); peso 84.48%.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Varus: resposta ao poke/siege.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Risco contra Varus: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.34,
+            "laneViability": -1,
+            "mechanicalLane": 3.81,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 2.81,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 5.1,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Corki possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Orianna: alcance contra alvo exposto.",
+            "Risco contra Nocturne: engage/dive pune o perfil.",
+            "Risco contra Varus: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.43,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.28,
+            "laneViability": -1,
+            "mechanicalLane": 1.47,
+            "statisticalLane": null,
+            "statisticalWeight": 0,
+            "laneMatchup": 0.47,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Veigar possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.",
+            "Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Nocturne: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Zaahen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.29,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.2,
+            "laneViability": 0,
+            "mechanicalLane": -1.47,
+            "statisticalLane": 4.84,
+            "statisticalWeight": 0.65,
+            "laneMatchup": 2.62,
+            "jungleInteraction": -0.17,
+            "enemyComp": 0,
+            "allyComp": 5.1,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Zaahen possui amostra consistente em TOP (187060 jogos de relações).",
+            "Evidência TOP: Δ2 +3.23 em 1845 jogos efetivos (2 direçãoões); peso 64.84%.",
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Nocturne: contenção da mobilidade.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Nocturne: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "draft": {
+        "candidateSlot": "TOP",
+        "teamModel": "4_FIXED_ALLIES_PLUS_CANDIDATE_VS_5_ENEMIES",
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Bel'Veth",
+            "MID": "Lissandra",
+            "BOTTOM": "Tristana",
+            "SUPPORT": "Senna"
+          },
+          "enemyByRole": {
+            "TOP": "Jax",
+            "JUNGLE": "Skarner",
+            "MID": "Yone",
+            "BOTTOM": "Ezreal",
+            "SUPPORT": "Blitzcrank"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Bel'Veth",
+            "MID": "Lissandra",
+            "BOTTOM": "Tristana",
+            "SUPPORT": "Senna"
+          },
+          "enemyByRole": {
+            "TOP": "Jax",
+            "JUNGLE": "Skarner",
+            "MID": "Yone",
+            "BOTTOM": "Ezreal",
+            "SUPPORT": "Blitzcrank"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Dr. Mundo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 22.7,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.36,
+            "laneViability": 0,
+            "mechanicalLane": 0,
+            "statisticalLane": 6.62,
+            "statisticalWeight": 0.89,
+            "laneMatchup": 5.92,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Dr. Mundo possui amostra consistente em TOP (268425 jogos de relações).",
+            "Evidência TOP: Δ2 +4.42 em 8420 jogos efetivos (2 direçãoões); peso 89.38%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Favorável contra Yone: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 20.96,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -1,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 5.38,
+            "statisticalWeight": 0.8,
+            "laneMatchup": 4.59,
+            "jungleInteraction": 0,
+            "enemyComp": 3.6,
+            "allyComp": 6.73,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Sion possui amostra consistente em TOP (187188 jogos de relações).",
+            "Evidência TOP: Δ2 +3.58 em 3967 jogos efetivos (2 direçãoões); peso 79.87%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Favorável contra Yone: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Singed",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 20.91,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.78,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 7.08,
+            "statisticalWeight": 0.82,
+            "laneMatchup": 6.08,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 6.73,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Singed possui amostra consistente em TOP (153432 jogos de relações).",
+            "Evidência TOP: Δ2 +4.72 em 4582 jogos efetivos (2 direçãoões); peso 82.08%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Favorável contra Yone: resposta à entrada.",
+            "Risco contra Ezreal: poke/range dificulta a execução.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Garen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 19.41,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 1.29,
+            "laneViability": 0,
+            "mechanicalLane": 3.81,
+            "statisticalLane": 6.24,
+            "statisticalWeight": 0.95,
+            "laneMatchup": 6.11,
+            "jungleInteraction": 0,
+            "enemyComp": 0.93,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Garen possui amostra consistente em TOP (379516 jogos de relações).",
+            "Evidência TOP: Δ2 +4.16 em 18535 jogos efetivos (2 direçãoões); peso 94.88%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Jax: burst contra alvo vulnerável.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Ezreal: poke/range dificulta a execução.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Cho'Gath",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 18.1,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -0.05,
+            "laneViability": 0,
+            "mechanicalLane": 3.81,
+            "statisticalLane": 5.4,
+            "statisticalWeight": 0.77,
+            "laneMatchup": 5.04,
+            "jungleInteraction": 0,
+            "enemyComp": 1.8,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Cho'Gath possui amostra consistente em TOP (138428 jogos de relações).",
+            "Evidência TOP: Δ2 +3.6 em 3397 jogos efetivos (2 direçãoões); peso 77.26%.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Jax: burst contra alvo vulnerável.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Yone: kite/disengage nega contato.",
+            "Risco contra Blitzcrank: kite/disengage nega contato.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Zac",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 18.01,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.79,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 6.44,
+            "statisticalWeight": 0.43,
+            "laneMatchup": 3.58,
+            "jungleInteraction": -0.22,
+            "enemyComp": 3.6,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Zac possui amostra consistente em TOP (25392 jogos de relações).",
+            "Evidência TOP: Δ2 +4.29 em 742 jogos efetivos (2 direçãoões); peso 42.58%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Favorável contra Yone: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "K'Sante",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 16.32,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": -3,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 5.52,
+            "statisticalWeight": 0.86,
+            "laneMatchup": 4.97,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 6.73,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "K'Sante possui amostra consistente em TOP (208713 jogos de relações).",
+            "Evidência TOP: Δ2 +3.68 em 6387 jogos efetivos (2 direçãoões); peso 86.46%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Favorável contra Yone: resposta à entrada.",
+            "Risco contra Ezreal: poke/range dificulta a execução.",
+            "Risco contra Skarner: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Poppy",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 15.64,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.44,
+            "laneViability": 0,
+            "mechanicalLane": -1.47,
+            "statisticalLane": 6.3,
+            "statisticalWeight": 0.71,
+            "laneMatchup": 4.03,
+            "jungleInteraction": 0,
+            "enemyComp": 0.47,
+            "allyComp": 6.73,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Poppy possui amostra consistente em TOP (63998 jogos de relações).",
+            "Evidência TOP: Δ2 +4.2 em 2415 jogos efetivos (2 direçãoões); peso 70.72%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Jax: alcance contra alvo exposto.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Risco contra Ezreal: poke/range dificulta a execução.",
+            "Risco contra Skarner: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Illaoi",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 15.59,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.73,
+            "laneViability": 0,
+            "mechanicalLane": 1.47,
+            "statisticalLane": 5.77,
+            "statisticalWeight": 0.82,
+            "laneMatchup": 5,
+            "jungleInteraction": 0,
+            "enemyComp": 0,
+            "allyComp": 5.33,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Illaoi possui amostra consistente em TOP (144583 jogos de relações).",
+            "Evidência TOP: Δ2 +3.85 em 4598 jogos efetivos (2 direçãoões); peso 82.13%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Skarner: resposta à entrada.",
+            "Favorável contra Yone: resposta à entrada.",
+            "Risco contra Skarner: engage/dive pune o perfil.",
+            "Risco contra Yone: engage/dive pune o perfil.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Heimerdinger",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.39,
+          "confidence": "MEDIUM",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "populationStrength": 0.87,
+            "laneViability": 0,
+            "mechanicalLane": 2.93,
+            "statisticalLane": 4.06,
+            "statisticalWeight": 0.64,
+            "laneMatchup": 3.66,
+            "jungleInteraction": -0.44,
+            "enemyComp": 3.6,
+            "allyComp": 0.7,
+            "executionRetention": 1,
+            "partialDraftRisk": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Heimerdinger possui amostra consistente em TOP (77604 jogos de relações).",
+            "Evidência TOP: Δ2 +2.7 em 1816 jogos efetivos (2 direçãoões); peso 64.49%.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Jax: negação de contato.",
+            "Favorável contra Ezreal: resposta ao poke/siege.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        }
+      ]
+    }
+  ]
+}
