@@ -1,0 +1,3077 @@
+{
+  "metadata": {
+    "seed": 20260817,
+    "patch": "26.16",
+    "tier": "Diamond+",
+    "lane": "TOP",
+    "mode": "UNIVERSAL_BENCHMARK",
+    "candidates": 173,
+    "personalAffinityEnabled": false,
+    "customBuildsEnabled": false,
+    "profileSource": "UNIFORM_HEURISTIC_CATALOG",
+    "warning": "Protótipo heurístico v0.5. Só pontua interações aplicáveis ao draft; não representa win rate."
+  },
+  "selfChecks": [
+    {
+      "rule": "Hardcounter confirmado na lane não recebe nota",
+      "passed": true
+    },
+    {
+      "rule": "Veto pode ser específico da build",
+      "passed": true
+    },
+    {
+      "rule": "Blind da própria lane pesa mais que quatro slots desconhecidos fora dela",
+      "passed": true,
+      "values": {
+        "ownLaneBlind": 5.87,
+        "fourOtherUnknowns": 4.4
+      }
+    },
+    {
+      "rule": "Draft inimigo completo não gera bônus nem penalidade de blind",
+      "passed": true
+    },
+    {
+      "rule": "Perfil versátil sem resposta aplicável não ganha nota de composição",
+      "passed": true,
+      "values": {
+        "score": 0
+      }
+    },
+    {
+      "rule": "Adicionar capacidade irrelevante não altera a nota",
+      "passed": true,
+      "values": {
+        "enemyComp": 0,
+        "allyComp": 0
+      }
+    },
+    {
+      "rule": "Somente as duas necessidades aliadas críticas entram no cálculo",
+      "passed": true,
+      "values": {
+        "criticalNeeds": [
+          "waveclear contra o siege inimigo",
+          "alcance para iniciar sobre o poke inimigo"
+        ]
+      }
+    },
+    {
+      "rule": "Todas as entradas habilitadas permanecem na lista",
+      "passed": true,
+      "values": {
+        "expected": 173
+      }
+    },
+    {
+      "rule": "Desabilitar uma categoria a remove da avaliação",
+      "passed": true
+    },
+    {
+      "rule": "Benchmark avalia os 173 campeões",
+      "passed": true,
+      "values": {
+        "candidates": 173
+      }
+    },
+    {
+      "rule": "Benchmark não aplica afinidade nem conforto",
+      "passed": true
+    },
+    {
+      "rule": "Benchmark usa somente o perfil/build padrão universal",
+      "passed": true
+    },
+    {
+      "rule": "Viabilidade de lane pune suporte sem baseline mais que pick padrão da lane",
+      "passed": true,
+      "values": {
+        "yuumi": -7.15,
+        "baseline": 0
+      }
+    }
+  ],
+  "simulations": [
+    {
+      "id": 1,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Zac",
+            "MID": "Xerath",
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Karma"
+          },
+          "enemyByRole": {
+            "TOP": "Teemo",
+            "JUNGLE": "Vi",
+            "MID": "Cassiopeia",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Nautilus"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Zac",
+            "MID": "Xerath",
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Karma"
+          },
+          "enemyByRole": {
+            "TOP": "Teemo",
+            "JUNGLE": "Vi",
+            "MID": "Cassiopeia",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Nautilus"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 3.6,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 3.6,
+            "allyComp": 4,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Nasus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.42,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.86,
+            "enemyComp": 0.47,
+            "allyComp": 4,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Nasus possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Teemo: resposta ao DPS físico.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Risco contra Vi: kite/disengage nega contato.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Cho'Gath",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.76,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.53,
+            "enemyComp": 0.47,
+            "allyComp": 4,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Cho'Gath possui baseline padrão para TOP.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Teemo: resposta ao DPS físico.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Risco contra Vi: kite/disengage nega contato.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Shen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.56,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.43,
+            "enemyComp": 0.47,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Shen possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Teemo: resposta ao DPS físico.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Teemo: poke/range dificulta a execução.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 2.27,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Ornn possui baseline padrão para TOP.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Nautilus: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.48,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.65,
+            "matchup": 0.54,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Veigar não possui baseline padrão para TOP; risco de lane 2.65.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Teemo: burst contra alvo vulnerável.",
+            "Favorável contra Vi: contenção da mobilidade."
+          ]
+        },
+        {
+          "champion": "Camille",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Camille possui baseline padrão para TOP.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Teemo: burst contra alvo vulnerável.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Risco contra Vi: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Dr. Mundo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -2.2,
+            "enemyComp": 3.6,
+            "allyComp": 4,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Dr. Mundo possui baseline padrão para TOP.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga."
+          ]
+        },
+        {
+          "champion": "Sett",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Sett possui baseline padrão para TOP.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Teemo: resposta ao poke/siege.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Risco contra Teemo: poke/range dificulta a execução.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Supre necessidade crítica: corpo frontal contra a entrada inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Nocturne",
+            "MID": "Taliyah",
+            "BOTTOM": "Samira",
+            "SUPPORT": "Maokai"
+          },
+          "enemyByRole": {
+            "TOP": "Olaf",
+            "JUNGLE": "Briar",
+            "MID": "Lux",
+            "BOTTOM": "Yunara",
+            "SUPPORT": "Blitzcrank"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Nocturne",
+            "MID": null,
+            "BOTTOM": "Samira",
+            "SUPPORT": "Maokai"
+          },
+          "enemyByRole": {
+            "TOP": "Olaf",
+            "JUNGLE": "Briar",
+            "MID": "Lux",
+            "BOTTOM": null,
+            "SUPPORT": null
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.09,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -0.22,
+            "enemyComp": 3.6,
+            "allyComp": 4.13,
+            "blind": 1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Shen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.42,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.69,
+            "enemyComp": 0.93,
+            "allyComp": 3.33,
+            "blind": 1.7
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Shen possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: sustain explora vulnerável a poke.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.05,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.5,
+            "matchup": 0.33,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yasuo não possui baseline padrão para TOP; risco de lane 2.5.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lux: resposta ao poke/siege."
+          ]
+        },
+        {
+          "champion": "Nasus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.96,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.98,
+            "enemyComp": 1.8,
+            "allyComp": 0,
+            "blind": 1.7
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Nasus possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Risco contra Lux: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Kassadin",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.93,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.85,
+            "matchup": 0.06,
+            "enemyComp": 3.6,
+            "allyComp": 0.4,
+            "blind": 1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Kassadin não possui baseline padrão para TOP; risco de lane 2.85.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Olaf: burst contra alvo vulnerável.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Sett",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.75,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.21,
+            "enemyComp": 0.47,
+            "allyComp": 3.33,
+            "blind": 1.7
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Sett possui baseline padrão para TOP.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -0.22,
+            "enemyComp": 2.27,
+            "allyComp": 3.33,
+            "blind": 1.7
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Ornn possui baseline padrão para TOP.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Olaf: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.32,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -0.44,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "blind": 1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Singed",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.69,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -0.22,
+            "enemyComp": 0.93,
+            "allyComp": 3.73,
+            "blind": 1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Singed possui baseline padrão para TOP.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: anti-CC reduz controle de grupo.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.69,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.14,
+            "enemyComp": 0,
+            "allyComp": 0.4,
+            "blind": 1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Vladimir possui baseline padrão para TOP.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Olaf: burst contra alvo vulnerável.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Shaco",
+            "MID": "Ryze",
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Renata Glasc"
+          },
+          "enemyByRole": {
+            "TOP": "Kayle",
+            "JUNGLE": "Lillia",
+            "MID": "Viktor",
+            "BOTTOM": "Ezreal",
+            "SUPPORT": "Janna"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Shaco",
+            "MID": "Ryze",
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Renata Glasc"
+          },
+          "enemyByRole": {
+            "TOP": "Kayle",
+            "JUNGLE": "Lillia",
+            "MID": "Viktor",
+            "BOTTOM": null,
+            "SUPPORT": "Janna"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.86,
+            "enemyComp": 3.13,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Teemo possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: resposta ao DPS físico.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Shen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.86,
+            "enemyComp": 1.8,
+            "allyComp": 0,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Shen possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: resposta à entrada.",
+            "Risco contra Kayle: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 3.96,
+            "enemyComp": -0.47,
+            "allyComp": 0,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Jax possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: resposta ao DPS físico.",
+            "Risco contra Viktor: controle interrompe a entrada.",
+            "Risco contra Janna: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Jayce",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.82,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 2.67,
+            "allyComp": 2.67,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Jayce possui baseline padrão para TOP.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Nasus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.86,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Nasus possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: resposta à entrada.",
+            "Risco contra Janna: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Garen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.22,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 2.27,
+            "allyComp": 2.67,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Garen possui baseline padrão para TOP.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.13,
+            "allyComp": 0,
+            "blind": 0.5
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: resposta à entrada."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.13,
+            "allyComp": 0,
+            "blind": 0.5
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: resposta à entrada."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.85,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.13,
+            "allyComp": 0,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Ornn possui baseline padrão para TOP.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: resposta à entrada."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.42,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.3,
+            "matchup": -1.72,
+            "enemyComp": 3.13,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Corki não possui baseline padrão para TOP; risco de lane 2.3.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Amumu",
+            "MID": "Yasuo",
+            "BOTTOM": "Twitch",
+            "SUPPORT": "Ashe"
+          },
+          "enemyByRole": {
+            "TOP": "Udyr",
+            "JUNGLE": "Kayn",
+            "MID": "Talon",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Bard"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Amumu",
+            "MID": "Yasuo",
+            "BOTTOM": "Twitch",
+            "SUPPORT": "Ashe"
+          },
+          "enemyByRole": {
+            "TOP": "Udyr",
+            "JUNGLE": "Kayn",
+            "MID": "Talon",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Bard"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 1.8,
+            "allyComp": 3.47,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Teemo possui baseline padrão para TOP.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: DPS/anti-tank contra a frontline.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.12,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.3,
+            "matchup": 0.48,
+            "enemyComp": 1.8,
+            "allyComp": 3.47,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Hwei não possui baseline padrão para TOP; risco de lane 2.3.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: alcance contra alvo exposto.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Ziggs",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.12,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.3,
+            "matchup": 0.48,
+            "enemyComp": 1.8,
+            "allyComp": 3.47,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Ziggs não possui baseline padrão para TOP; risco de lane 2.3.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: alcance contra alvo exposto.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.3,
+            "matchup": 0.48,
+            "enemyComp": 1.8,
+            "allyComp": 3.07,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Xerath não possui baseline padrão para TOP; risco de lane 2.3.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: alcance contra alvo exposto.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Vel'Koz",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.65,
+            "matchup": 0.21,
+            "enemyComp": 1.8,
+            "allyComp": 3.47,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Vel'Koz não possui baseline padrão para TOP; risco de lane 2.65.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: alcance contra alvo exposto.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.42,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -0.22,
+            "enemyComp": 2.27,
+            "allyComp": 3.47,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Rumble possui baseline padrão para TOP.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.32,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.3,
+            "matchup": 0.48,
+            "enemyComp": 1.8,
+            "allyComp": 2.67,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Corki não possui baseline padrão para TOP; risco de lane 2.3.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Udyr: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Kayn: engage/dive pune o perfil.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Singed",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 1.8,
+            "allyComp": 3.07,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Singed possui baseline padrão para TOP.",
+            "Favorável contra Jinx: resposta ao DPS físico.",
+            "Favorável contra Udyr: resposta à entrada.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.64,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.15,
+            "matchup": -1.61,
+            "enemyComp": 3.6,
+            "allyComp": 3.47,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Cassiopeia não possui baseline padrão para TOP; risco de lane 2.15.",
+            "Favorável contra Udyr: DPS/anti-tank contra a frontline.",
+            "Favorável contra Kayn: contenção da mobilidade.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Poppy",
+            "MID": "Mel",
+            "BOTTOM": "Smolder",
+            "SUPPORT": "Soraka"
+          },
+          "enemyByRole": {
+            "TOP": "Aatrox",
+            "JUNGLE": "Lee Sin",
+            "MID": "Locke",
+            "BOTTOM": "Seraphine",
+            "SUPPORT": "Tahm Kench"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Poppy",
+            "MID": "Mel",
+            "BOTTOM": "Smolder",
+            "SUPPORT": null
+          },
+          "enemyByRole": {
+            "TOP": "Aatrox",
+            "JUNGLE": "Lee Sin",
+            "MID": "Locke",
+            "BOTTOM": "Seraphine",
+            "SUPPORT": "Tahm Kench"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Fiora",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 15.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.86,
+            "enemyComp": 3.6,
+            "allyComp": 4.23,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Fiora possui baseline padrão para TOP.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Garen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 14.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.86,
+            "enemyComp": 3.6,
+            "allyComp": 3.78,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Garen possui baseline padrão para TOP.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.58,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 3.6,
+            "allyComp": 3.78,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Locke: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.36,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.09,
+            "enemyComp": 3.6,
+            "allyComp": 3.78,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Rumble possui baseline padrão para TOP.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Favorável contra Locke: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Dr. Mundo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 12.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.76,
+            "enemyComp": 3.6,
+            "allyComp": 3.78,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Dr. Mundo possui baseline padrão para TOP.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Locke: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.15,
+            "matchup": 0.59,
+            "enemyComp": 3.6,
+            "allyComp": 4.23,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Cassiopeia não possui baseline padrão para TOP; risco de lane 2.15.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Veigar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.48,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.65,
+            "matchup": 0.87,
+            "enemyComp": 3.6,
+            "allyComp": 3.33,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Veigar não possui baseline padrão para TOP; risco de lane 2.65.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.95,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.86,
+            "enemyComp": 0,
+            "allyComp": 4.23,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Teemo possui baseline padrão para TOP.",
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Gragas",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.84,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0.33,
+            "enemyComp": 3.6,
+            "allyComp": 3.78,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Gragas possui baseline padrão para TOP.",
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: sustain explora vulnerável a poke.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.1,
+            "enemyComp": 3.6,
+            "allyComp": 2.12,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Seraphine: resposta à entrada.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Xin Zhao",
+            "MID": "Yone",
+            "BOTTOM": "Sivir",
+            "SUPPORT": "Janna"
+          },
+          "enemyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Nocturne",
+            "MID": "Orianna",
+            "BOTTOM": "Varus",
+            "SUPPORT": "Leona"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": null,
+            "MID": "Yone",
+            "BOTTOM": "Sivir",
+            "SUPPORT": "Janna"
+          },
+          "enemyByRole": {
+            "TOP": "Tahm Kench",
+            "JUNGLE": "Nocturne",
+            "MID": "Orianna",
+            "BOTTOM": null,
+            "SUPPORT": null
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Fiora",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 3.6,
+            "allyComp": 3.07,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Fiora possui baseline padrão para TOP.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Nocturne: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 3.13,
+            "allyComp": 0.2,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Nocturne: resposta à entrada.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 3.13,
+            "allyComp": 0.2,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Nocturne: resposta à entrada.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Taliyah",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -1.8,
+            "matchup": 0.85,
+            "enemyComp": 2.67,
+            "allyComp": 2.67,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Taliyah não possui baseline padrão para TOP; risco de lane 1.8.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Nocturne: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.63,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.15,
+            "matchup": 0.92,
+            "enemyComp": 3.6,
+            "allyComp": 0.4,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Cassiopeia não possui baseline padrão para TOP; risco de lane 2.15.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Nocturne: contenção da mobilidade.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 2.27,
+            "allyComp": 0.4,
+            "blind": 1.7
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ornn possui baseline padrão para TOP.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Nocturne: resposta à entrada.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.88,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0.99,
+            "enemyComp": 3.13,
+            "allyComp": 0.2,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Rumble possui baseline padrão para TOP.",
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Nocturne: contenção da mobilidade.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Garen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.13,
+            "allyComp": 2.87,
+            "blind": 1.7
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Garen possui baseline padrão para TOP.",
+            "Favorável contra Nocturne: resposta à entrada.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: follow-up para a entrada aliada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.86,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.53,
+            "enemyComp": 0.93,
+            "allyComp": 0.4,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Teemo possui baseline padrão para TOP.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Nocturne: contenção da mobilidade.",
+            "Risco contra Nocturne: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Jayce",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 0,
+            "allyComp": 3.07,
+            "blind": 1.7
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Jayce possui baseline padrão para TOP.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Orianna: alcance contra alvo exposto.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Nocturne: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Talon",
+            "MID": "Aurora",
+            "BOTTOM": "Senna",
+            "SUPPORT": "Rell"
+          },
+          "enemyByRole": {
+            "TOP": "Irelia",
+            "JUNGLE": "Rek'Sai",
+            "MID": "Neeko",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Zyra"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Talon",
+            "MID": "Aurora",
+            "BOTTOM": "Senna",
+            "SUPPORT": "Rell"
+          },
+          "enemyByRole": {
+            "TOP": "Irelia",
+            "JUNGLE": "Rek'Sai",
+            "MID": "Neeko",
+            "BOTTOM": "Jinx",
+            "SUPPORT": "Zyra"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Shen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 13.22,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 3.96,
+            "enemyComp": 0.47,
+            "allyComp": 4.6,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Shen possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Favorável contra Irelia: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Risco contra Zyra: poke/range dificulta a execução.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4.6,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável contra Irelia: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Nasus",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.12,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 3.96,
+            "enemyComp": 0,
+            "allyComp": 1.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Nasus possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Favorável contra Irelia: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Risco contra Irelia: kite/disengage nega contato.",
+            "Risco contra Rek'Sai: kite/disengage nega contato.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 2.27,
+            "allyComp": 4.6,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Ornn possui baseline padrão para TOP.",
+            "Favorável contra Irelia: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Risco contra Rek'Sai: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.6,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 1.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável contra Irelia: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "K'Sante",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0.47,
+            "allyComp": 4.6,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "K'Sante possui baseline padrão para TOP.",
+            "Favorável contra Irelia: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Risco contra Zyra: poke/range dificulta a execução.",
+            "Risco contra Rek'Sai: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.76,
+            "enemyComp": 0,
+            "allyComp": 1.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Teemo possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Irelia: contenção da mobilidade.",
+            "Favorável contra Rek'Sai: DPS/anti-tank contra a frontline.",
+            "Risco contra Irelia: engage/dive pune o perfil.",
+            "Risco contra Rek'Sai: engage/dive pune o perfil.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Sett",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.6,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 4.6,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Sett possui baseline padrão para TOP.",
+            "Favorável contra Irelia: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Risco contra Irelia: kite/disengage nega contato.",
+            "Risco contra Rek'Sai: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.6,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 4.6,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Tahm Kench possui baseline padrão para TOP.",
+            "Favorável contra Irelia: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Risco contra Irelia: kite/disengage nega contato.",
+            "Risco contra Rek'Sai: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 3.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.68,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Jax possui baseline padrão para TOP.",
+            "Favorável: anti-auto reduz DPS por ataques.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Irelia: resposta ao DPS físico.",
+            "Favorável contra Rek'Sai: DPS/anti-tank contra a frontline.",
+            "Risco contra Irelia: engage/dive pune o perfil.",
+            "Risco contra Rek'Sai: engage/dive pune o perfil."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Xin Zhao",
+            "MID": "Jayce",
+            "BOTTOM": "Sivir",
+            "SUPPORT": "Tahm Kench"
+          },
+          "enemyByRole": {
+            "TOP": "Kled",
+            "JUNGLE": "Rek'Sai",
+            "MID": "Brand",
+            "BOTTOM": "Kog'Maw",
+            "SUPPORT": "Taric"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Xin Zhao",
+            "MID": "Jayce",
+            "BOTTOM": null,
+            "SUPPORT": "Tahm Kench"
+          },
+          "enemyByRole": {
+            "TOP": "Kled",
+            "JUNGLE": "Rek'Sai",
+            "MID": "Brand",
+            "BOTTOM": null,
+            "SUPPORT": "Taric"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Fiora",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 9.23,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4.33,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Fiora possui baseline padrão para TOP.",
+            "Favorável contra Rek'Sai: DPS/anti-tank contra a frontline.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.27,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 3.37,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável contra Kled: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.23,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 0,
+            "allyComp": 4.33,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Teemo possui baseline padrão para TOP.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Kled: alcance contra alvo exposto.",
+            "Favorável contra Rek'Sai: DPS/anti-tank contra a frontline.",
+            "Risco contra Kled: engage/dive pune o perfil.",
+            "Risco contra Rek'Sai: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Gnar",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.88,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 0,
+            "allyComp": 4.33,
+            "blind": 0.85
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Gnar possui baseline padrão para TOP.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Kled: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Risco contra Kled: engage/dive pune o perfil.",
+            "Risco contra Rek'Sai: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.38,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 1.8,
+            "allyComp": 5.53,
+            "blind": 0.85
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ornn possui baseline padrão para TOP.",
+            "Favorável contra Kled: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Risco contra Rek'Sai: frontline nega o padrão de dano.",
+            "Risco contra Taric: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.07,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.17,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável contra Kled: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Garen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 2.17,
+            "blind": 0.85
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Garen possui baseline padrão para TOP.",
+            "Favorável contra Kled: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.48,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0.06,
+            "enemyComp": 3.13,
+            "allyComp": 2.17,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Rumble possui baseline padrão para TOP.",
+            "Favorável contra Rek'Sai: contenção da mobilidade.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Singed",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 1.2,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Singed possui baseline padrão para TOP.",
+            "Favorável contra Kled: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Gragas",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.07,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -1.1,
+            "enemyComp": 3.6,
+            "allyComp": 3.37,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Gragas possui baseline padrão para TOP.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Kled: resposta à entrada.",
+            "Favorável contra Rek'Sai: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Taliyah",
+            "MID": "Vex",
+            "BOTTOM": "Caitlyn",
+            "SUPPORT": "Swain"
+          },
+          "enemyByRole": {
+            "TOP": "Pantheon",
+            "JUNGLE": "Zac",
+            "MID": "Veigar",
+            "BOTTOM": "Tristana",
+            "SUPPORT": "Nami"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Taliyah",
+            "MID": "Vex",
+            "BOTTOM": "Caitlyn",
+            "SUPPORT": "Swain"
+          },
+          "enemyByRole": {
+            "TOP": "Pantheon",
+            "JUNGLE": "Zac",
+            "MID": "Veigar",
+            "BOTTOM": null,
+            "SUPPORT": "Nami"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.95,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 2.27,
+            "allyComp": 4,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Ornn possui baseline padrão para TOP.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Risco contra Zac: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Fiora",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "blind": 0.5
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Fiora possui baseline padrão para TOP.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4,
+            "blind": 0.5
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Shen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.55,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 4,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Shen possui baseline padrão para TOP.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Gragas",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": -1.1,
+            "enemyComp": 3.6,
+            "allyComp": 4,
+            "blind": 0.5
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Gragas possui baseline padrão para TOP.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "K'Sante",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.55,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 2.27,
+            "allyComp": 4,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "K'Sante possui baseline padrão para TOP.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Risco contra Zac: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Sett",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.85,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 1.8,
+            "allyComp": 4,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Sett possui baseline padrão para TOP.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Risco contra Nami: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.85,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 1.8,
+            "allyComp": 4,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Tahm Kench possui baseline padrão para TOP.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Risco contra Zac: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Garen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.8,
+            "blind": 0.85
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Garen possui baseline padrão para TOP.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Supre necessidade crítica: dano físico para corrigir excesso mágico."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 4.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0,
+            "blind": 0.5
+          },
+          "archetype": "scalingControl",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "draft": {
+        "full": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Olaf",
+            "MID": "Pantheon",
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Poppy"
+          },
+          "enemyByRole": {
+            "TOP": "K'Sante",
+            "JUNGLE": "Shyvana",
+            "MID": "Ryze",
+            "BOTTOM": "Ziggs",
+            "SUPPORT": "Seraphine"
+          }
+        },
+        "visible": {
+          "allyByRole": {
+            "TOP": null,
+            "JUNGLE": "Olaf",
+            "MID": "Pantheon",
+            "BOTTOM": "Zeri",
+            "SUPPORT": "Poppy"
+          },
+          "enemyByRole": {
+            "TOP": "K'Sante",
+            "JUNGLE": "Shyvana",
+            "MID": "Ryze",
+            "BOTTOM": "Ziggs",
+            "SUPPORT": "Seraphine"
+          }
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Cassiopeia",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 11.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.15,
+            "matchup": 0.59,
+            "enemyComp": 3.6,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Cassiopeia não possui baseline padrão para TOP; risco de lane 2.15.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra K'Sante: DPS/anti-tank contra a frontline.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Teemo",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 10.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 0.93,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Teemo possui baseline padrão para TOP.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra K'Sante: DPS/anti-tank contra a frontline.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Ornn",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 8.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 1.8,
+            "allyComp": 1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Ornn possui baseline padrão para TOP.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra K'Sante: DPS/anti-tank contra a frontline.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra K'Sante: frontline nega o padrão de dano.",
+            "Risco contra Shyvana: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Corki",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.3,
+            "matchup": 0.48,
+            "enemyComp": 0.93,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Corki não possui baseline padrão para TOP; risco de lane 2.3.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra K'Sante: DPS/anti-tank contra a frontline.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Gwen",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 7.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 1.1,
+            "enemyComp": 0,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Gwen possui baseline padrão para TOP.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra K'Sante: DPS/anti-tank contra a frontline.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra K'Sante: kite/disengage nega contato.",
+            "Risco contra Ziggs: controle interrompe a entrada.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Fiora",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 2.2,
+            "enemyComp": 0.93,
+            "allyComp": 1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Fiora possui baseline padrão para TOP.",
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra K'Sante: DPS/anti-tank contra a frontline.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Kayle",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 0.93,
+            "allyComp": 5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Kayle possui baseline padrão para TOP.",
+            "Favorável contra K'Sante: DPS/anti-tank contra a frontline.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Hwei",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 6.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": -2.3,
+            "matchup": 0.48,
+            "enemyComp": 0.93,
+            "allyComp": 4,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Hwei não possui baseline padrão para TOP; risco de lane 2.3.",
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra K'Sante: alcance contra alvo exposto.",
+            "Favorável contra Ryze: alcance contra alvo exposto.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Sion",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Sion possui baseline padrão para TOP.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Favorável contra Seraphine: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Yorick",
+          "status": "SCORED",
+          "build": "Padrão do campeão",
+          "buildId": "system-default",
+          "score": 5.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 0,
+            "comfort": 0,
+            "laneViability": 0,
+            "matchup": 0,
+            "enemyComp": 3.6,
+            "allyComp": 0.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Yorick possui baseline padrão para TOP.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Favorável contra Seraphine: resposta à entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        }
+      ]
+    }
+  ]
+}
