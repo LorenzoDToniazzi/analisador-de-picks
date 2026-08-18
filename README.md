@@ -6,21 +6,25 @@ O objetivo é recomendar apenas campeões cadastrados na pool do usuário, consi
 
 ## Estado atual
 
-A base de pesquisa e validação v0.7 contém:
+A base de pesquisa e validação v0.8 contém:
 
 - catálogo estrutural dos 173 campeões;
 - análise aprofundada inicial da pool Mid;
 - camada universal de avaliação da Toplane;
-- snapshot Top do Patch 26.16 com 8.215 relações direcionais;
+- snapshots Mid e Top do Patch 26.16 em Diamond+ atual, Diamond+ 30 dias e prior Emerald+;
 - especificação consolidada v0.4;
-- protótipo híbrido com estatística Top, inferência mecânica e modo de benchmark universal;
+- protótipo híbrido com estatística Mid/Top, inferência mecânica e modo de benchmark universal;
 - benchmarks neutros de 10 drafts em Mid e 10 em Top;
 - auditoria dos critérios atuais contra metodologias publicamente documentadas;
 - shrinkage por amostra, leitura bidirecional de matchup, risco condicional do draft incompleto e retenção de execução da build;
 - benchmarks principais sempre em 5x5 completo;
-- matchup da lane e interação com junglers como componentes independentes.
+- matchup da lane e interação com junglers como componentes independentes;
+- camada de mecânicas específicas separada das tags funcionais;
+- hardcounter automático condicionado a amostra bidirecional, efeito normalizado e explicação de skill;
+- regressão Cassiopeia contra Mel e Malphite contra Sylas;
+- matchup dominante e composição condicionada à possibilidade real de executar a build.
 
-Ainda não existe uma versão confiável do recomendador para uso durante partidas. A camada estatística Top passou nos testes de integração e melhorou as matchups, mas o catálogo universal e Mid ainda reprovaram a calibração estratégica. O problema está documentado antes da construção da interface.
+Ainda não existe uma versão de produto para uso durante partidas. O motor de pesquisa passou nos benchmarks e regressões atuais, mas relações específicas novas ainda precisam ser adicionadas de forma revisável conforme o conjunto ouro crescer. A interface será construída depois da calibração do motor.
 
 ## Documentação
 
@@ -32,6 +36,7 @@ Ainda não existe uma versão confiável do recomendador para uso durante partid
 - [Auditoria v0.5: critérios e benchmark universal Mid/Top](docs/auditoria-criterios-benchmark-universal-v0.5.md)
 - [Pesquisa e algoritmo híbrido v0.6](docs/pesquisa-plataformas-algoritmo-hibrido-v0.6.md)
 - [Benchmark 5x5 e separação lane/jungle v0.7](docs/ajuste-benchmark-5v5-pesos-v0.7.md)
+- [Matchup dominante e mecânicas específicas v0.8](docs/ajuste-matchups-counter-v0.8.md)
 
 ## Princípios
 
@@ -49,7 +54,9 @@ Ainda não existe uma versão confiável do recomendador para uso durante partid
 - Estatística de matchup é encolhida pela amostra e confirmada nas duas direções quando possível.
 - Uma lane ruim reduz apenas bônus positivos que a build talvez não consiga executar.
 - Cada candidato completa quatro aliados fixos contra cinco inimigos; o slot vazio no JSON é o candidato, não um jogador ausente.
-- Matchup da lane possui peso `2,00`; junglers são avaliados separadamente com peso `0,75`.
+- Matchup da lane possui peso `3,25`; junglers são avaliados separadamente com peso `0,65`.
+- Composição positiva é limitada quando a matchup impede a execução; risco negativo permanece integral.
+- Hardcounter automático exige estatística bidirecional robusta e interação mecânica específica no mesmo sentido.
 - A pool filtra candidatos e representa afinidade; ela não é a fonte de conhecimento do campeão.
 
 ## Benchmark universal
@@ -57,29 +64,32 @@ Ainda não existe uma versão confiável do recomendador para uso durante partid
 ```bash
 node prototype/simulate-drafts.mjs --universal --lane MID 20260817
 node prototype/simulate-drafts.mjs --universal --lane TOP 20260817
+node prototype/simulate-drafts.mjs --universal --full-ranking --lane MID 20260817
 ```
 
-Nesse modo os 173 campeões entram com build padrão, mesma fonte de perfil e nenhum ponto pessoal. Campeões já escolhidos ficam `UNAVAILABLE`; todos os demais são ordenados. Os recortes top 10 estão em `validation/`; a lista integral é reproduzida executando o script.
+Nesse modo os 173 campeões entram com build padrão, mesma fonte de perfil e nenhum ponto pessoal. Campeões já escolhidos ficam `UNAVAILABLE`; todos os demais são ordenados. Os recortes top 10 estão em `validation/`; a lista integral é reproduzida com `--full-ranking`.
 
-## Fórmula inicial
+## Fórmula v0.8
 
 ```text
 afinidade do produto:
-  principal = 30
-  secundária = 25
-  laboratório = 15
+  principal = 6
+  secundária = 5
+  laboratório = 3
+  conforto = -2 a +2
 
 ajuste de draft:
-  matchup direto da lane × 2
-  interação com jungler aliado/inimigo × 0,75
+  matchup direto da lane × 3,25
+  interação com jungler aliado/inimigo × 0,65
   resposta aplicável à composição inimiga × 1,5
   encaixe aplicável na composição aliada × 1
+  força populacional × 0,35
 
 scoreProduto = basePessoal + ajusteDraft - riscos explícitos
 scoreBenchmark = ajusteDraft - riscos explícitos
 ```
 
-Um prior pequeno campeão-função-patch desempata candidatos comparáveis. Tempo, recursos, execução e confiança modificam a aplicabilidade dos blocos principais, não criam bônus independentes. O score ainda não representa probabilidade de vitória.
+Um prior pequeno campeão-função-patch desempata candidatos comparáveis. Matchup severa retém no máximo uma pequena parte dos bônus positivos de composição, enquanto riscos negativos continuam integrais. O score ainda não representa probabilidade de vitória.
 
 As simulações principais são completas. Para testar especificamente draft incompleto:
 
@@ -89,10 +99,9 @@ node prototype/simulate-drafts.mjs --universal --partial --lane TOP 20260817
 
 ## Próximas etapas
 
-1. Definir schemas explícitos de campeão, lane, build, mecânica e evidência.
-2. Gerar snapshot Diamond+ do Mid e atualizar a camada Top por campeão-função-patch.
-3. Adicionar residuais de sinergia e confronto entre funções; o residual de matchup Top e o shrinkage inicial já estão implementados.
-4. Revisar os 173 perfis e retirar o parser por palavras-chave do caminho de produção.
-5. Criar conjunto ouro de matchups e drafts Mid/Top para regressão.
-6. Repetir o benchmark universal, revisar os off-metas que lideraram e validar cada top 3 antes da interface.
-7. Implementar o motor definitivo, cadastro local de pool/builds e página de análise.
+1. Definir schemas persistentes de campeão, lane, build, mecânica, relação revisada e evidência.
+2. Criar conjunto ouro maior de matchups e drafts Mid/Top para regressão.
+3. Revisar os 173 perfis e retirar o parser por palavras-chave do caminho de produção.
+4. Aprofundar setup, cobertura e ameaça dos junglers sem misturá-los à matchup.
+5. Validar off-metas que liderarem benchmarks contra especialistas e amostras disponíveis.
+6. Implementar o motor definitivo, cadastro local de pool/builds e página de análise.

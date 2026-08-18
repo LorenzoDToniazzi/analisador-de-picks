@@ -1,19 +1,25 @@
-# Dados
+# Dados de matchup
 
-## Snapshot de matchups do Top
+## Snapshots v0.8
 
-Os arquivos `toplane-matchups-*.json` formam um único snapshot lógico:
+Os snapshots do Patch 26.16 cobrem Mid e Top em três camadas:
 
-- patch do jogo: 26.16;
+| Lane | Recorte | Relações direcionais | Campeões com relações |
+|---|---|---:|---:|
+| Mid | Diamond+, patch atual | 2.086 | 68 |
+| Mid | Diamond+, 30 dias | 4.666 | 113 |
+| Mid | Emerald+, 30 dias | 6.994 | 136 |
+| Top | Diamond+, patch atual | 2.379 | 67 |
+| Top | Diamond+, 30 dias | 5.357 | 113 |
+| Top | Emerald+, 30 dias | 8.215 | 140 |
+
+Metadados comuns:
+
+- patch de referência: 26.16;
 - versão do Data Dragon: 16.16.1;
-- lane: Top;
-- recorte: Emerald+ nos últimos 30 dias;
 - fonte estatística: LoLalytics;
-- 173 campeões consultados;
-- 140 campeões com relações encontradas;
-- 8.215 relações direcionais.
-
-O snapshot foi dividido alfabeticamente apenas para facilitar versionamento e carregamento estático.
+- 173 campeões consultados por snapshot;
+- sinal principal: `delta2` normalizado.
 
 Cada relação contém:
 
@@ -24,19 +30,35 @@ Cada relação contém:
 - `opponentWinRate`;
 - `games`.
 
+Os dados podem ser reproduzidos com `scripts/fetch-lolalytics-snapshot.py`. O coletor aceita lane, tier e janela e registra falhas no próprio metadata; o motor não interpreta ausência de amostra como matchup neutra confirmada.
+
 ## Regra de uso
 
 Estes dados são evidência temporária, não uma lista de hardcounters.
 
-O motor v0.6 lê as duas direções quando disponíveis. A relação reversa entra com sinal invertido; a média é ponderada por jogos e a amostra efetiva não é duplicada. Depois, o `delta2` normalizado é misturado com a inferência mecânica:
+O motor lê as duas direções quando disponíveis. A relação reversa entra com sinal invertido; a média é ponderada por jogos e a amostra efetiva não é duplicada. As janelas atual e de 30 dias se sobrepõem, portanto ocupam sequencialmente a confiança restante em vez de serem somadas como observações independentes.
 
 ```text
-delta2 = weighted(candidate -> opponent, -(opponent -> candidate))
-reliability = effectiveGames / (effectiveGames + 1000)
+currentReliability = nCurrent / (nCurrent + 350)
+stableReliability  = nDiamond30d / (nDiamond30d + 500)
+emeraldPrior       = 0,25 × nEmerald30d / (nEmerald30d + 1200)
 
-matchup =
-  reliability * clamp(1.5 * delta2, -8, 8)
-  + (1 - reliability) * mechanicalInference
+statSignal = clamp(1,8 × delta2, -9, 9)
+matchup = reliability × statSignal
+        + (1 - reliability) × 0,65 × mechanicalInference
 ```
 
-Build customizada herda inicialmente 35% dessa confiabilidade, pois a amostra representa majoritariamente a build padrão. Sem amostra, a inferência mecânica é usada integralmente. Hardcounter só pode ser criado por uma relação direcional explicitamente revisada.
+Build customizada herda inicialmente 35% da confiabilidade estatística, pois a amostra representa majoritariamente a build padrão. Sem amostra, a inferência mecânica é usada com baixa confiança.
+
+## Hardcounter automático
+
+Um veto automático exige simultaneamente:
+
+- build padrão;
+- confiabilidade combinada de pelo menos 40%;
+- duas direções observadas;
+- 150 jogos efetivos no patch atual ou 250 na janela Diamond+ de 30 dias;
+- `delta2 <= -4`;
+- interação mecânica específica `<= -3`.
+
+Relações revisadas manualmente podem criar um veto explícito por campeão ou build. A origem, confiança e justificativa devem permanecer auditáveis.
