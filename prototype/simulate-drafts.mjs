@@ -16,6 +16,13 @@ const research = fs.readFileSync(firstExisting(
   path.join(root, "docs", "analise-pool-mid-26.16.md"),
   path.join(root, "analise-draft-pool-mid-26.16.md"),
 ), "utf8");
+const topMatchupPath = firstExisting(
+  path.join(root, "data", "toplane-matchups-emerald-30d-26.16.json"),
+  path.join(root, "toplane-matchups-emerald-30d-26.16.json"),
+);
+const topMatchupSnapshot = topMatchupPath
+  ? JSON.parse(fs.readFileSync(topMatchupPath, "utf8"))
+  : null;
 
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const round = (value, digits = 2) => Number(value.toFixed(digits));
@@ -417,7 +424,117 @@ const namesForRole = {
 const rolePools = Object.fromEntries(Object.entries(namesForRole).map(([role, names]) => [role, names.map((name) => championByName.get(name)).filter(Boolean)]));
 const roleNameSets = Object.fromEntries(Object.entries(namesForRole).map(([role, names]) => [role, new Set(names)]));
 
+function weightedAverage(rows, valueKey) {
+  const games = rows.reduce((sum, row) => sum + row.games, 0);
+  if (!games) return null;
+  return rows.reduce((sum, row) => sum + row[valueKey] * row.games, 0) / games;
+}
+
+function median(values) {
+  if (!values.length) return null;
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+}
+
+const topEvidenceByChampion = new Map();
+if (topMatchupSnapshot) {
+  for (const [champion, rows] of Object.entries(topMatchupSnapshot.champions)) {
+    const totalGames = rows.reduce((sum, row) => sum + row.games, 0);
+    topEvidenceByChampion.set(champion, {
+      rows,
+      totalGames,
+      relations: rows.length,
+      observedWinRate: weightedAverage(rows, "winRate"),
+    });
+  }
+}
+const topPopulationBaseline = median([...topEvidenceByChampion.values()]
+  .filter((evidence) => evidence.totalGames >= 10_000 && evidence.observedWinRate != null)
+  .map((evidence) => evidence.observedWinRate)) ?? 50;
+
+function statisticalLaneEvidence(championName, opponentName, lane, buildId) {
+  if (lane !== "TOP" || !topMatchupSnapshot) return null;
+  const championEvidence = topEvidenceByChampion.get(championName);
+  const opponentEvidence = topEvidenceByChampion.get(opponentName);
+  const forward = championEvidence?.rows.find((item) => item.opponent === opponentName);
+  const reverse = opponentEvidence?.rows.find((item) => item.opponent === championName);
+  if (!forward && !reverse) return null;
+
+  // As duas páginas direcionais podem divergir por coleta/arredondamento. A
+  // leitura reversa entra com sinal invertido, como confirmação da mesma
+  // relação, sem contar a amostra duas vezes.
+  const signals = [
+    ...(forward ? [{ delta2: forward.delta2, games: forward.games }] : []),
+    ...(reverse ? [{ delta2: -reverse.delta2, games: reverse.games }] : []),
+  ];
+  const totalDirectionalGames = signals.reduce((sum, item) => sum + item.games, 0);
+  const delta2 = signals.reduce((sum, item) => sum + item.delta2 * item.games, 0) / totalDirectionalGames;
+  const effectiveGames = forward && reverse ? totalDirectionalGames / 2 : totalDirectionalGames;
+
+  // O snapshot é agregado por campeão, então uma build customizada herda uma
+  // fração menor da evidência até existir dado específico daquela build.
+  const buildFit = buildId === "system-default" || buildId === "default" || buildId.includes("default") ? 1 : 0.35;
+  const sampleReliability = effectiveGames / (effectiveGames + 1_000);
+  const reliability = sampleReliability * buildFit;
+  return {
+    score: clamp(delta2 * 1.5, -8, 8),
+    reliability,
+    games: Math.round(effectiveGames),
+    delta2,
+    directions: signals.length,
+    source: "LOLALYTICS_DELTA2_BIDIRECTIONAL",
+  };
+}
+
+function populationStrength(championName, lane) {
+  if (lane !== "TOP" || !topMatchupSnapshot) {
+    return { score: 0, confidence: "LOW", source: "NO_ROLE_SNAPSHOT" };
+  }
+  const evidence = topEvidenceByChampion.get(championName);
+  if (!evidence?.totalGames || evidence.observedWinRate == null) {
+    return { score: 0, confidence: "LOW", source: "NO_SAMPLE", games: 0 };
+  }
+  const reliability = evidence.totalGames / (evidence.totalGames + 20_000);
+  const score = clamp((evidence.observedWinRate - topPopulationBaseline) * reliability, -3, 3);
+  return {
+    score,
+    confidence: reliability >= 0.7 ? "HIGH" : reliability >= 0.25 ? "MEDIUM" : "LOW",
+    source: "ROLE_PATCH_BASELINE",
+    games: evidence.totalGames,
+    observedWinRate: evidence.observedWinRate,
+    reliability,
+  };
+}
+
 function laneViability(championName, lane, profile) {
+  if (lane === "TOP" && topMatchupSnapshot) {
+    const evidence = topEvidenceByChampion.get(championName);
+    if (evidence?.totalGames >= 25_000 && evidence.relations >= 40) {
+      return {
+        score: 0,
+        reason: `${championName} possui amostra consistente em TOP (${evidence.totalGames} jogos de relações).`,
+        source: "STANDARD_ROLE_DATA",
+        games: evidence.totalGames,
+      };
+    }
+    if (evidence?.totalGames >= 2_500 && evidence.relations >= 10) {
+      return {
+        score: -1,
+        reason: `${championName} possui presença off-meta observada em TOP; confiança reduzida, sem exclusão.`,
+        source: "OFFMETA_OBSERVED",
+        games: evidence.totalGames,
+      };
+    }
+    if (evidence?.totalGames > 0) {
+      return {
+        score: -2.5,
+        reason: `${championName} possui apenas amostra esparsa em TOP; a lógica do kit predomina.`,
+        source: "SPARSE_OBSERVED",
+        games: evidence.totalGames,
+      };
+    }
+  }
   if (roleNameSets[lane]?.has(championName)) {
     return { score: 0, reason: `${championName} possui baseline padrão para ${lane}.`, source: "STANDARD_ROLE" };
   }
@@ -512,15 +629,25 @@ function explicitRule(candidate, buildId, opponent) {
   return matchupRules.find((rule) => rule.candidate === candidate && rule.opponent === opponent && (!rule.buildIds || rule.buildIds.includes(buildId)));
 }
 
-function laneScore(candidate, build, enemyMid) {
-  if (!enemyMid) return { score: 0, confidence: "LOW", reasons: ["Laner inimigo ainda desconhecido."] };
-  const rule = explicitRule(candidate, build.id, enemyMid.name);
+function laneScore(candidate, build, enemyLaner, evaluatedLane = "MID") {
+  if (!enemyLaner) return { score: 0, confidence: "LOW", reasons: ["Laner inimigo ainda desconhecido."] };
+  const rule = explicitRule(candidate, build.id, enemyLaner.name);
   if (rule?.severity === "HARDCOUNTERED_LANE") return { veto: true, rule };
 
-  const candidatePressure = lanePressure(build.profile, enemyMid.profile);
-  const enemyPressure = lanePressure(enemyMid.profile, build.profile);
-  let score = clamp((candidatePressure.total - enemyPressure.total) * 2.2, -8, 8);
+  const candidatePressure = lanePressure(build.profile, enemyLaner.profile);
+  const enemyPressure = lanePressure(enemyLaner.profile, build.profile);
+  const mechanicalScore = clamp((candidatePressure.total - enemyPressure.total) * 2.2, -8, 8);
+  const statistical = statisticalLaneEvidence(candidate, enemyLaner.name, evaluatedLane, build.id);
+  let score = statistical
+    ? statistical.reliability * statistical.score + (1 - statistical.reliability) * mechanicalScore
+    : mechanicalScore;
   const reasons = [];
+
+  if (statistical) {
+    reasons.push(`Evidência TOP: Δ2 ${statistical.delta2 >= 0 ? "+" : ""}${round(statistical.delta2)} em ${statistical.games} jogos efetivos (${statistical.directions} direção${statistical.directions === 1 ? "" : "ões"}); peso ${round(statistical.reliability * 100)}%.`);
+  } else if (evaluatedLane === "TOP") {
+    reasons.push("Sem amostra direcional suficiente em TOP; matchup inferida pelo kit.");
+  }
 
   if (rule) {
     const ruleValue = severityScore[rule.severity];
@@ -533,7 +660,14 @@ function laneScore(candidate, build, enemyMid) {
   if (bestPositive) reasons.push(`Favorável: ${bestPositive.label}.`);
   if (bestNegative) reasons.push(`Risco: ${bestNegative.label}.`);
 
-  return { score, confidence: rule?.confidence ?? "LOW", reasons };
+  const evidenceConfidence = statistical?.reliability >= 0.65 ? "HIGH" : statistical?.reliability >= 0.25 ? "MEDIUM" : "LOW";
+  return {
+    score,
+    mechanicalScore,
+    statistical,
+    confidence: rule?.confidence ?? evidenceConfidence,
+    reasons,
+  };
 }
 
 function jungleInteraction(candidateProfileValue, allyJungle, enemyJungle) {
@@ -708,10 +842,78 @@ function alliedCompScore(candidate, allies, enemies = []) {
   return { score, archetype, criticalNeeds: criticalNeeds.map((need) => need.label), reasons };
 }
 
-function blindPenalty(profile, enemyMidKnown, unknownNonLaneEnemySlots) {
-  const laneBlind = enemyMidKnown ? 0 : (3 - profile.safeBlind) * 8 / 3;
-  const rest = unknownNonLaneEnemySlots * (3 - profile.safeBlind) * 0.5;
-  return clamp(laneBlind + rest, 0, 12);
+function lowerTailAverage(values, share = 0.2) {
+  if (!values.length) return 0;
+  const sorted = [...values].sort((a, b) => a - b);
+  const count = Math.max(1, Math.ceil(sorted.length * share));
+  return sorted.slice(0, count).reduce((sum, value) => sum + value, 0) / count;
+}
+
+// Incerteza não é tratada como uma qualidade abstrata de "blind pick".
+// Para cada slot inimigo oculto, o risco vem da cauda inferior das interações
+// plausíveis naquela função. A lane própria domina; outras funções só aplicam
+// uma correção pequena até serem reveladas.
+function partialDraftRisk(candidateName, build, evaluatedLane, visibleDraft) {
+  const pickedNames = new Set([...visibleDraft.allies, ...visibleDraft.enemies].filter(Boolean).map((pick) => pick.name));
+  pickedNames.add(candidateName);
+  let ownLane = 0;
+  let otherRoles = 0;
+  const reasons = [];
+
+  if (!visibleDraft.enemyByRole[evaluatedLane]) {
+    const viability = laneViability(candidateName, evaluatedLane, build.profile).score;
+    const outcomes = rolePools[evaluatedLane]
+      .filter((opponent) => !pickedNames.has(opponent.name))
+      .map((opponent) => {
+        const result = laneScore(candidateName, build, opponent, evaluatedLane);
+        return result.veto ? -10 : clamp(result.score + viability, -10, 10);
+      });
+    const tail = lowerTailAverage(outcomes);
+    ownLane = clamp(Math.max(0, -tail) * 0.8, 0, 8);
+    if (ownLane > 0) reasons.push(`Lane oculta: cauda desfavorável dos matchups plausíveis gera risco ${round(ownLane)}.`);
+  }
+
+  for (const [role, visibleEnemy] of Object.entries(visibleDraft.enemyByRole)) {
+    if (role === evaluatedLane || visibleEnemy) continue;
+    const outcomes = rolePools[role]
+      .filter((opponent) => !pickedNames.has(opponent.name))
+      .map((opponent) => role === "JUNGLE"
+        ? jungleInteraction(build.profile, null, opponent).score
+        : enemyCompScore(build.profile, [opponent]).score);
+    const tail = lowerTailAverage(outcomes);
+    otherRoles += clamp(Math.max(0, -tail) * 0.18, 0, 1.5);
+  }
+  otherRoles = clamp(otherRoles, 0, 4);
+  if (otherRoles > 0) reasons.push(`Slots inimigos ocultos fora da lane geram risco condicional ${round(otherRoles)}.`);
+
+  return { score: clamp(ownLane + otherRoles, 0, 12), ownLane, otherRoles, reasons };
+}
+
+// Se uma lane ruim impede a build de chegar ao seu ponto funcional, apenas os
+// bônus de composição são reduzidos. O matchup ruim já possui sua penalidade e
+// não é contado novamente; utilidade de baixa economia preserva parte do valor.
+function executionRetention(profile, matchupScore) {
+  const behindRisk = clamp(Math.max(0, -matchupScore) / 10, 0, 1);
+  const dependency = Math.max(
+    profile.weaknesses.goldDependent ?? 0,
+    profile.weaknesses.resourceDependent ?? 0,
+    profile.weaknesses.needsSetup ?? 0,
+  ) / 3;
+  const entryRisk = Math.max(
+    profile.weaknesses.fragileEntry ?? 0,
+    profile.weaknesses.needsContact ?? 0,
+    profile.weaknesses.vulnCc ?? 0,
+  ) / 3;
+  const lowEconomyValue = Math.max(
+    profile.strengths.cc ?? 0,
+    profile.strengths.peel ?? 0,
+    profile.strengths.disengage ?? 0,
+    profile.strengths.waveclear ?? 0,
+    profile.strengths.weakside ?? 0,
+    profile.strengths.frontline ?? 0,
+  ) / 3;
+  const lossRate = clamp(0.25 + 0.25 * dependency + 0.2 * entryRisk - 0.2 * lowEconomyValue, 0.15, 0.65);
+  return clamp(1 - behindRisk * lossRate, 0.35, 1);
 }
 
 function confidenceLabel(values) {
@@ -731,7 +933,7 @@ function evaluateCandidate(entry, visibleDraft, options = {}) {
   const results = [];
 
   for (const build of builds) {
-    const lane = laneScore(entry.champion, build, enemyLaner);
+    const lane = laneScore(entry.champion, build, enemyLaner, evaluatedLane);
     if (lane.veto) {
       results.push({ build: build.name, buildId: build.id, status: "HARDCOUNTERED", reason: lane.rule.reason });
       continue;
@@ -743,21 +945,44 @@ function evaluateCandidate(entry, visibleDraft, options = {}) {
     const matchup = clamp((lane.score + viability.score) * laneWeight + jungle.score * jungleWeight, -10, 10);
     const enemyComp = enemyCompScore(build.profile, visibleDraft.enemies);
     const allyComp = alliedCompScore(build.profile, visibleDraft.allies, visibleDraft.enemies);
-    const unknownEnemySlots = Object.values(visibleDraft.enemyByRole).filter((value) => !value).length;
-    const unknownNonLaneEnemySlots = unknownEnemySlots - (enemyLaner ? 0 : 1);
-    const blind = blindPenalty(build.profile, Boolean(enemyLaner), unknownNonLaneEnemySlots);
+    const retention = executionRetention(build.profile, matchup);
+    const adjustedEnemyComp = enemyComp.score > 0 ? enemyComp.score * retention : enemyComp.score;
+    const adjustedAllyComp = allyComp.score > 0 ? allyComp.score * retention : allyComp.score;
+    const draftRisk = partialDraftRisk(entry.champion, build, evaluatedLane, visibleDraft);
+    const population = populationStrength(entry.champion, evaluatedLane);
     const affinity = universalBenchmark ? 0 : { principal: 30, secundaria: 25, laboratorio: 15 }[entry.pool];
     const comfort = universalBenchmark ? 0 : { 5: 2, 4: 1, 3: 0, 2: -1, 1: -2 }[entry.comfort];
-    const score = affinity + comfort + 2 * matchup + 1.5 * enemyComp.score + allyComp.score - blind;
+    const score = affinity + comfort + 2 * matchup + 1.5 * adjustedEnemyComp + adjustedAllyComp + 0.35 * population.score - draftRisk.score;
     results.push({
       build: build.name,
       buildId: build.id,
       status: "SCORED",
       score: round(score),
-      confidence: confidenceLabel([build.profile.confidence, lane.confidence]),
-      components: { affinity, comfort, laneViability: round(viability.score), matchup: round(matchup), enemyComp: round(enemyComp.score), allyComp: round(allyComp.score), blind: round(blind) },
+      confidence: confidenceLabel([build.profile.confidence, lane.confidence, population.confidence]),
+      components: {
+        affinity,
+        comfort,
+        populationStrength: round(population.score),
+        laneViability: round(viability.score),
+        mechanicalLane: round(lane.mechanicalScore ?? lane.score),
+        statisticalLane: lane.statistical ? round(lane.statistical.score) : null,
+        statisticalWeight: lane.statistical ? round(lane.statistical.reliability) : 0,
+        matchup: round(matchup),
+        enemyComp: round(adjustedEnemyComp),
+        allyComp: round(adjustedAllyComp),
+        executionRetention: round(retention),
+        partialDraftRisk: round(draftRisk.score),
+      },
       archetype: allyComp.archetype,
-      reasons: [viability.reason, ...lane.reasons, ...jungle.reasons, ...enemyComp.reasons, ...allyComp.reasons].slice(0, 9),
+      reasons: [
+        viability.reason,
+        ...lane.reasons,
+        ...jungle.reasons,
+        ...(retention < 0.9 ? [`A lane reduz a execução dos bônus de composição para ${round(retention * 100)}%.`] : []),
+        ...draftRisk.reasons,
+        ...enemyComp.reasons,
+        ...allyComp.reasons,
+      ].slice(0, 11),
     });
   }
 
@@ -829,8 +1054,26 @@ const malphite = championByName.get("Malphite");
 const cassiopeia = championByName.get("Cassiopeia");
 const ireliaDefault = buildsFor("Irelia")[0];
 const tahmBuilds = buildsFor("Tahm Kench");
-const ownLaneBlind = blindPenalty(baseProfiles.Irelia, false, 0);
-const fourOtherUnknowns = blindPenalty(baseProfiles.Irelia, true, 4);
+const riskCandidate = evaluatedLane === "TOP" ? "Aatrox" : "Irelia";
+const riskBuild = buildsFor(riskCandidate)[0];
+const fullEnemyDraft = simulations[0].draft.visible;
+const laneUnknownByRole = { ...fullEnemyDraft.enemyByRole, [evaluatedLane]: null };
+const laneUnknownDraft = {
+  ...fullEnemyDraft,
+  enemyByRole: laneUnknownByRole,
+  enemies: Object.values(laneUnknownByRole).filter(Boolean),
+};
+const nonLaneUnknownByRole = Object.fromEntries(Object.entries(fullEnemyDraft.enemyByRole)
+  .map(([role, champion]) => [role, role === evaluatedLane ? champion : null]));
+const nonLaneUnknownDraft = {
+  ...fullEnemyDraft,
+  enemyByRole: nonLaneUnknownByRole,
+  enemies: Object.values(nonLaneUnknownByRole).filter(Boolean),
+};
+const ownLaneRisk = partialDraftRisk(riskCandidate, riskBuild, evaluatedLane, laneUnknownDraft);
+const fourOtherUnknownRisk = partialDraftRisk(riskCandidate, riskBuild, evaluatedLane, nonLaneUnknownDraft);
+const alteredSafeBlindBuild = { ...riskBuild, profile: { ...riskBuild.profile, safeBlind: riskBuild.profile.safeBlind === 3 ? 0 : 3 } };
+const alteredSafeBlindRisk = partialDraftRisk(riskCandidate, alteredSafeBlindBuild, evaluatedLane, laneUnknownDraft);
 const noApplicabilityProfile = candidateProfile({ strengths: [["teamfight", 3], ["split", 3]], weaknesses: [], safeBlind: 3 });
 const irrelevantExtraProfile = candidateProfile({ strengths: [["teamfight", 3], ["split", 3], ["roam", 3]], weaknesses: [], safeBlind: 3 });
 const knownEnemyFixture = [championByName.get("Lux")];
@@ -848,13 +1091,23 @@ const selfChecks = [
       laneScore("Tahm Kench", tahmBuilds.find((build) => build.id === "ap-bruiser-tech"), cassiopeia).veto !== true,
   },
   {
-    rule: "Blind da própria lane pesa mais que quatro slots desconhecidos fora dela",
-    passed: ownLaneBlind > fourOtherUnknowns,
-    values: { ownLaneBlind: round(ownLaneBlind), fourOtherUnknowns: round(fourOtherUnknowns) },
+    rule: "Lane oculta pesa mais que quatro slots desconhecidos fora dela",
+    passed: ownLaneRisk.score > fourOtherUnknownRisk.score,
+    values: { ownLaneRisk: round(ownLaneRisk.score), fourOtherUnknownRisk: round(fourOtherUnknownRisk.score) },
   },
   {
-    rule: "Draft inimigo completo não gera bônus nem penalidade de blind",
-    passed: blindPenalty(baseProfiles.Gragas, true, 0) === 0 && blindPenalty(baseProfiles.Irelia, true, 0) === 0,
+    rule: "Draft inimigo completo não gera bônus nem risco de picks ocultos",
+    passed: partialDraftRisk(riskCandidate, riskBuild, evaluatedLane, fullEnemyDraft).score === 0,
+  },
+  {
+    rule: "Tag abstrata de blind não altera o risco condicional",
+    passed: round(ownLaneRisk.score) === round(alteredSafeBlindRisk.score),
+    values: { original: round(ownLaneRisk.score), alteredSafeBlind: round(alteredSafeBlindRisk.score) },
+  },
+  {
+    rule: "Desvantagem de lane reduz a execução sem criar bônus independente",
+    passed: executionRetention(baseProfiles.Irelia, -8) < 1 && executionRetention(baseProfiles.Irelia, 0) === 1,
+    values: { behind: round(executionRetention(baseProfiles.Irelia, -8)), neutral: executionRetention(baseProfiles.Irelia, 0) },
   },
   {
     rule: "Perfil versátil sem resposta aplicável não ganha nota de composição",
@@ -912,6 +1165,31 @@ if (universalBenchmark) {
       },
     },
   );
+
+  if (evaluatedLane === "TOP") {
+    const aatroxVsMalphite = statisticalLaneEvidence("Aatrox", "Malphite", "TOP", "system-default");
+    const ziggsProfile = championByName.get("Ziggs").profile;
+    selfChecks.push(
+      {
+        rule: "Matchup TOP com amostra mistura Delta2 e inferência mecânica",
+        passed: Boolean(aatroxVsMalphite) && aatroxVsMalphite.directions === 2 &&
+          aatroxVsMalphite.reliability > 0 && aatroxVsMalphite.reliability < 1,
+        values: aatroxVsMalphite ? {
+          games: aatroxVsMalphite.games,
+          delta2: aatroxVsMalphite.delta2,
+          directions: aatroxVsMalphite.directions,
+          statisticalWeight: round(aatroxVsMalphite.reliability),
+        } : null,
+      },
+      {
+        rule: "Off-meta TOP sem amostra continua avaliável por lógica",
+        passed: laneViability("Ziggs", "TOP", ziggsProfile).score < 0 &&
+          statisticalLaneEvidence("Ziggs", "Malphite", "TOP", "system-default") === null &&
+          simulations.every((simulation) => simulation.ranking.some((result) => result.champion === "Ziggs")),
+        values: { laneViability: round(laneViability("Ziggs", "TOP", ziggsProfile).score) },
+      },
+    );
+  }
 }
 
 const output = {
@@ -925,7 +1203,16 @@ const output = {
     personalAffinityEnabled: !universalBenchmark,
     customBuildsEnabled: !universalBenchmark,
     profileSource: universalBenchmark ? "UNIFORM_HEURISTIC_CATALOG" : "POOL_MANUAL_PLUS_HEURISTIC_OPPONENTS",
-    warning: "Protótipo heurístico v0.5. Só pontua interações aplicáveis ao draft; não representa win rate.",
+    statisticalLayer: evaluatedLane === "TOP" && topMatchupSnapshot ? {
+      source: "LoLalytics",
+      patch: topMatchupSnapshot.metadata.gamePatch,
+      tier: topMatchupSnapshot.metadata.tier,
+      window: topMatchupSnapshot.metadata.window,
+      signal: topMatchupSnapshot.metadata.signal,
+      shrinkagePriorGames: 1_000,
+    } : null,
+    partialDraftRisk: "ROLE_CONDITIONAL_LOWER_TAIL",
+    warning: "Protótipo híbrido v0.6. Estatística de matchup quando disponível; lógica do kit no restante. A nota é comparativa, não win rate.",
   },
   selfChecks,
   simulations,
