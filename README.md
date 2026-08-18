@@ -6,7 +6,15 @@ O objetivo é recomendar apenas campeões cadastrados na pool do usuário, consi
 
 ## Estado atual
 
-A base de pesquisa e validação v0.8 contém:
+A base de pesquisa, validação e aplicação v0.9 contém:
+
+- aplicação estática utilizável no navegador, sem backend;
+- cadastro local de pool por campeão e rota;
+- variantes independentes por `campeão + rota + build`;
+- cadastro híbrido de build com itens, runa, sugestão automática e perfil manual revisável;
+- draft Mid/Top completo ou incompleto e ranking de todas as variantes habilitadas;
+- overrides pessoais de matchup por variante;
+- persistência automática, limpeza e importação/exportação JSON;
 
 - catálogo estrutural dos 173 campeões;
 - análise aprofundada inicial da pool Mid;
@@ -24,7 +32,25 @@ A base de pesquisa e validação v0.8 contém:
 - regressão Cassiopeia contra Mel e Malphite contra Sylas;
 - matchup dominante e composição condicionada à possibilidade real de executar a build.
 
-Ainda não existe uma versão de produto para uso durante partidas. O motor de pesquisa passou nos benchmarks e regressões atuais, mas relações específicas novas ainda precisam ser adicionadas de forma revisável conforme o conjunto ouro crescer. A interface será construída depois da calibração do motor.
+O MVP já pode ser usado em drafts reais. Ele continua sendo um protótipo de calibração: relações específicas novas devem entrar de forma revisável conforme o conjunto ouro crescer, e a nota representa adequação ao draft, não chance de vitória.
+
+## Executar a aplicação
+
+Não há dependências externas nem build obrigatório:
+
+```bash
+npm start
+```
+
+Depois, abra `http://127.0.0.1:4173`. A página publicada usa exatamente os mesmos arquivos estáticos.
+
+Para validar o motor:
+
+```bash
+npm test
+```
+
+O fluxo do produto começa sem pool. Cadastre um campeão em Mid ou Top, mantenha ou desative a build padrão, crie quantas variantes independentes quiser e preencha o draft. Tudo é salvo automaticamente no navegador.
 
 ## Documentação
 
@@ -37,6 +63,7 @@ Ainda não existe uma versão de produto para uso durante partidas. O motor de p
 - [Pesquisa e algoritmo híbrido v0.6](docs/pesquisa-plataformas-algoritmo-hibrido-v0.6.md)
 - [Benchmark 5x5 e separação lane/jungle v0.7](docs/ajuste-benchmark-5v5-pesos-v0.7.md)
 - [Matchup dominante e mecânicas específicas v0.8](docs/ajuste-matchups-counter-v0.8.md)
+- [Modelo híbrido de builds e MVP v0.9](docs/modelo-builds-e-mvp-v0.9.md)
 
 ## Princípios
 

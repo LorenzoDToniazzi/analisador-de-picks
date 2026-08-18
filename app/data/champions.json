@@ -1,0 +1,5721 @@
+{
+  "metadata": {
+    "patch": "26.16",
+    "dataDragon": "16.16.1",
+    "count": 173,
+    "source": "CATALOG_PLUS_OFFICIAL_KIT"
+  },
+  "champions": [
+    {
+      "id": "Aatrox",
+      "name": "Aatrox",
+      "tags": [
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "aoe": 2,
+          "followUp": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnKite": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1,
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ahri",
+      "name": "Ahri",
+      "tags": [
+        "Mage",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "followUp": 2,
+          "pick": 2,
+          "roam": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "burst": 2,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3,
+            "projectileReliant": 2,
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Akali",
+      "name": "Akali",
+      "tags": [
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "flank": 2,
+          "backlineAccess": 2,
+          "burst": 2,
+          "pick": 1,
+          "mobility": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Akshan",
+      "name": "Akshan",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "priority": 2,
+          "roam": 2,
+          "earlyPressure": 2,
+          "dps": 2,
+          "siege": 1,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Alistar",
+      "name": "Alistar",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "peel": 2,
+          "disengage": 2,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "cleanse": 3
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ambessa",
+      "name": "Ambessa",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "backlineAccess": 2,
+          "mobility": 2,
+          "sustain": 2,
+          "split": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "pick": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Amumu",
+      "name": "Amumu",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "aoe": 2,
+          "engage": 2,
+          "frontline": 2,
+          "cc": 2,
+          "defenses": 2,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "vulnGank": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Anivia",
+      "name": "Anivia",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "dps": 2,
+          "antiDive": 2,
+          "zone": 2,
+          "cc": 2,
+          "waveclear": 2
+        },
+        "weaknesses": {
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "fragileEntry": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Annie",
+      "name": "Annie",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "engage": 2,
+          "followUp": 2,
+          "pick": 2,
+          "cc": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Aphelios",
+      "name": "Aphelios",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "teamfight": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ashe",
+      "name": "Ashe",
+      "tags": [
+        "Marksman",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "engage": 2,
+          "pick": 2,
+          "cc": 2,
+          "roam": 2,
+          "physicalDamage": 2,
+          "siege": 1,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "AurelionSol",
+      "name": "Aurelion Sol",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "zone": 2,
+          "teamfight": 2,
+          "scaling": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnGank": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Aurora",
+      "name": "Aurora",
+      "tags": [
+        "Mage",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "aoe": 2,
+          "flank": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Azir",
+      "name": "Azir",
+      "tags": [
+        "Mage",
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "dps": 2,
+          "engage": 2,
+          "waveclear": 2,
+          "siege": 2,
+          "physicalDamage": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "vulnWave": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 1,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Bard",
+      "name": "Bard",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "mobility": 2,
+          "peel": 2,
+          "roam": 2,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Belveth",
+      "name": "Bel'Veth",
+      "tags": [
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "vulnGank": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Blitzcrank",
+      "name": "Blitzcrank",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Brand",
+      "name": "Brand",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "aoe": 2,
+          "antiTank": 2,
+          "zone": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Braum",
+      "name": "Braum",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "followUp": 2,
+          "antiDive": 2,
+          "peel": 2,
+          "cc": 2,
+          "frontline": 2,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "projectileDenial": 3
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Briar",
+      "name": "Briar",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "pick": 2,
+          "backlineAccess": 2,
+          "sustain": 2,
+          "roam": 2,
+          "earlyPressure": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "mobility": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 3,
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Caitlyn",
+      "name": "Caitlyn",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "cc": 2,
+          "priority": 2,
+          "siege": 2,
+          "physicalDamage": 2,
+          "dps": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Camille",
+      "name": "Camille",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "backlineAccess": 2,
+          "cc": 2,
+          "split": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "pick": 1,
+          "mobility": 1
+        },
+        "weaknesses": {
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "dashReliant": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Cassiopeia",
+      "name": "Cassiopeia",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "dps": 2,
+          "antiTank": 2,
+          "cc": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "grounding": 3,
+            "dashDenial": 3,
+            "repeatedDamage": 3
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Chogath",
+      "name": "Cho'Gath",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "pick": 2,
+          "frontline": 2,
+          "zone": 2,
+          "cc": 2,
+          "defenses": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Corki",
+      "name": "Corki",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "mixedDamage": 2,
+          "burst": 2,
+          "poke": 2,
+          "waveclear": 2,
+          "siege": 2,
+          "physicalDamage": 2,
+          "dps": 2,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Darius",
+      "name": "Darius",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "frontline": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Diana",
+      "name": "Diana",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "aoe": 2,
+          "engage": 2,
+          "followUp": 2,
+          "backlineAccess": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "pick": 1,
+          "mobility": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Draven",
+      "name": "Draven",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "earlyPressure": 2,
+          "dps": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "DrMundo",
+      "name": "Dr. Mundo",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "frontline": 2,
+          "sustain": 2,
+          "cc": 2,
+          "defenses": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnDps": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ekko",
+      "name": "Ekko",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "zone": 2,
+          "cc": 2,
+          "split": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Elise",
+      "name": "Elise",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "pick": 2,
+          "roam": 2,
+          "siege": 2,
+          "earlyPressure": 2,
+          "mobility": 1,
+          "backlineAccess": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "singleSpellSetup": 3,
+            "blockableSkillshot": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Evelynn",
+      "name": "Evelynn",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "pick": 2,
+          "mobility": 1,
+          "backlineAccess": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ezreal",
+      "name": "Ezreal",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "poke": 2,
+          "waveclear": 2,
+          "roam": 2,
+          "physicalDamage": 2,
+          "siege": 1,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnDps": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Fiddlesticks",
+      "name": "Fiddlesticks",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "aoe": 2,
+          "engage": 2,
+          "sustain": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnGank": 2,
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "channelDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Fiora",
+      "name": "Fiora",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "antiTank": 2,
+          "sustain": 2,
+          "cc": 2,
+          "split": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnRange": 2,
+          "vulnWave": 2,
+          "needsLongFight": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Fizz",
+      "name": "Fizz",
+      "tags": [
+        "Assassin",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "allIn": 2,
+          "pick": 2,
+          "backlineAccess": 2,
+          "antiAuto": 2,
+          "mobility": 1,
+          "dps": 1,
+          "longTrade": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Galio",
+      "name": "Galio",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "engage": 2,
+          "followUp": 2,
+          "antiDive": 2,
+          "peel": 2,
+          "roam": 2,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnDps": 2,
+          "vulnRange": 2,
+          "fragileEntry": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "ccDependent": 3,
+            "highValueUltimate": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Gangplank",
+      "name": "Gangplank",
+      "tags": [
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "poke": 2,
+          "aoe": 2,
+          "zone": 2,
+          "roam": 2,
+          "split": 2,
+          "scaling": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnRange": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "cleanse": 3
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Garen",
+      "name": "Garen",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "cc": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Gnar",
+      "name": "Gnar",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "antiTank": 2,
+          "engage": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Gragas",
+      "name": "Gragas",
+      "tags": [
+        "Fighter",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "engage": 2,
+          "sustain": 2,
+          "peel": 2,
+          "disengage": 2,
+          "cc": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnDps": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Graves",
+      "name": "Graves",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Gwen",
+      "name": "Gwen",
+      "tags": [
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "dps": 2,
+          "antiTank": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "peel": 2,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Hecarim",
+      "name": "Hecarim",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "engage": 2,
+          "backlineAccess": 2,
+          "mobility": 2,
+          "earlyPressure": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Heimerdinger",
+      "name": "Heimerdinger",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "zone": 2,
+          "cc": 2,
+          "waveclear": 2,
+          "priority": 2,
+          "siege": 2,
+          "magicDamage": 2,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnGank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Hwei",
+      "name": "Hwei",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "followUp": 2,
+          "disengage": 2,
+          "zone": 2,
+          "waveclear": 2,
+          "magicDamage": 2,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Illaoi",
+      "name": "Illaoi",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "aoe": 2,
+          "engage": 2,
+          "sustain": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnKite": 2,
+          "vulnRange": 2,
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Irelia",
+      "name": "Irelia",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "backlineAccess": 2,
+          "mobility": 2,
+          "earlyPressure": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "pick": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 3,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ivern",
+      "name": "Ivern",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "peel": 2,
+          "cc": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Janna",
+      "name": "Janna",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "peel": 2,
+          "disengage": 2,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "JarvanIV",
+      "name": "Jarvan IV",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "engage": 2,
+          "backlineAccess": 2,
+          "zone": 2,
+          "cc": 2,
+          "earlyPressure": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Jax",
+      "name": "Jax",
+      "tags": [
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "mixedDamage": 2,
+          "dps": 2,
+          "split": 2,
+          "scaling": 2,
+          "antiAuto": 2,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "needsContact": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "attackEvasion": 3,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 2,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Jayce",
+      "name": "Jayce",
+      "tags": [
+        "Fighter",
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "poke": 2,
+          "priority": 2,
+          "siege": 2,
+          "dps": 2,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Jhin",
+      "name": "Jhin",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "followUp": 2,
+          "pick": 2,
+          "siege": 2,
+          "physicalDamage": 2,
+          "dps": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnDps": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "channelDependent": 2,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Jinx",
+      "name": "Jinx",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "teamfight": 2,
+          "antiCc": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Kaisa",
+      "name": "Kai'Sa",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "mixedDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "followUp": 2,
+          "roam": 2,
+          "physicalDamage": 2,
+          "siege": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "needsSetup": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Kalista",
+      "name": "Kalista",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "engage": 2,
+          "mobility": 2,
+          "earlyPressure": 2,
+          "dps": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnRange": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Karma",
+      "name": "Karma",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "mobility": 2,
+          "waveclear": 2,
+          "priority": 2,
+          "magicDamage": 2,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Karthus",
+      "name": "Karthus",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "dps": 2,
+          "roam": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnBurst": 2,
+          "needsLongFight": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Kassadin",
+      "name": "Kassadin",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "mobility": 2,
+          "scaling": 2,
+          "burst": 2,
+          "pick": 1,
+          "backlineAccess": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Katarina",
+      "name": "Katarina",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "mixedDamage": 2,
+          "roam": 2,
+          "earlyPressure": 2,
+          "antiCc": 2,
+          "burst": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3,
+            "channelDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Kayle",
+      "name": "Kayle",
+      "tags": [
+        "Mage",
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "mixedDamage": 2,
+          "dps": 2,
+          "scaling": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "physicalDamage": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Kayn",
+      "name": "Kayn",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "antiTank": 2,
+          "mobility": 2,
+          "sustain": 2,
+          "cc": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "pick": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnGank": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Kennen",
+      "name": "Kennen",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "aoe": 2,
+          "engage": 2,
+          "cc": 2,
+          "teamfight": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Khazix",
+      "name": "Kha'Zix",
+      "tags": [
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "pick": 2,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Kindred",
+      "name": "Kindred",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "scaling": 2,
+          "physicalDamage": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Kled",
+      "name": "Kled",
+      "tags": [
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "engage": 2,
+          "roam": 2,
+          "earlyPressure": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnRange": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "KogMaw",
+      "name": "Kog'Maw",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "mixedDamage": 2,
+          "dps": 2,
+          "antiTank": 2,
+          "frontline": 2,
+          "physicalDamage": 2,
+          "siege": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "KSante",
+      "name": "K'Sante",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "frontline": 2,
+          "peel": 2,
+          "defenses": 2,
+          "cc": 1,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Leblanc",
+      "name": "LeBlanc",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "pick": 2,
+          "mobility": 2,
+          "backlineAccess": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3,
+            "singleWindowBurst": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "LeeSin",
+      "name": "Lee Sin",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "pick": 2,
+          "backlineAccess": 2,
+          "mobility": 2,
+          "peel": 2,
+          "earlyPressure": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "dashReliant": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Leona",
+      "name": "Leona",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "followUp": 2,
+          "frontline": 2,
+          "cc": 2,
+          "defenses": 2,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1,
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Lillia",
+      "name": "Lillia",
+      "tags": [
+        "Fighter",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "dps": 2,
+          "aoe": 2,
+          "antiTank": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Lissandra",
+      "name": "Lissandra",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "followUp": 2,
+          "cc": 2,
+          "waveclear": 2,
+          "teamfight": 2,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Locke",
+      "name": "Locke",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "aoe": 2,
+          "mobility": 2,
+          "pick": 1,
+          "backlineAccess": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnBurst": 2,
+          "vulnDisengage": 2,
+          "needsSetup": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Lucian",
+      "name": "Lucian",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "mobility": 2,
+          "priority": 2,
+          "earlyPressure": 2,
+          "dps": 2,
+          "siege": 1,
+          "pick": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnRange": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Lulu",
+      "name": "Lulu",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "antiDive": 2,
+          "peel": 2,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "needsFlank": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "pointClickCc": 2,
+            "displacement": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Lux",
+      "name": "Lux",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "poke": 2,
+          "pick": 2,
+          "waveclear": 2,
+          "siege": 2,
+          "magicDamage": 2,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "singleSpellSetup": 3,
+            "projectileReliant": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Malphite",
+      "name": "Malphite",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "engage": 2,
+          "frontline": 2,
+          "cc": 2,
+          "defenses": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnDps": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "attackSpeedControl": 3
+          },
+          "dependencies": {
+            "highValueUltimate": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Malzahar",
+      "name": "Malzahar",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "pick": 2,
+          "waveclear": 2,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "summonScreen": 3,
+            "cleanse": 2,
+            "pointClickCc": 3,
+            "repeatedDamage": 2,
+            "spellShield": 3
+          },
+          "dependencies": {
+            "channelDependent": 2,
+            "ccDependent": 2,
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Maokai",
+      "name": "Maokai",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "pick": 2,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnDps": 2,
+          "vulnTank": 2,
+          "vulnGank": 2,
+          "needsLongFight": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "pointClickCc": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "MasterYi",
+      "name": "Master Yi",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "antiTank": 2,
+          "antiCc": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "attackEvasion": 3,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Mel",
+      "name": "Mel",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "poke": 2,
+          "peel": 2,
+          "waveclear": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "projectileDenial": 3
+          },
+          "dependencies": {
+            "singleWindowDefense": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Milio",
+      "name": "Milio",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "sustain": 2,
+          "peel": 2,
+          "disengage": 2,
+          "cc": 2,
+          "antiCc": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "cleanse": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "MissFortune",
+      "name": "Miss Fortune",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "poke": 2,
+          "aoe": 2,
+          "physicalDamage": 2,
+          "dps": 2,
+          "siege": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "channelDependent": 2,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "MonkeyKing",
+      "name": "Wukong",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "aoe": 2,
+          "engage": 2,
+          "followUp": 2,
+          "backlineAccess": 2,
+          "teamfight": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Mordekaiser",
+      "name": "Mordekaiser",
+      "tags": [
+        "Fighter",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "ccDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Morgana",
+      "name": "Morgana",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "followUp": 2,
+          "pick": 2,
+          "peel": 2,
+          "zone": 2,
+          "cc": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Naafiri",
+      "name": "Naafiri",
+      "tags": [
+        "Assassin",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "poke": 2,
+          "allIn": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1,
+          "dps": 1,
+          "longTrade": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Nami",
+      "name": "Nami",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "followUp": 2,
+          "pick": 2,
+          "sustain": 2,
+          "peel": 1,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Nasus",
+      "name": "Nasus",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "cc": 2,
+          "scaling": 2,
+          "antiAuto": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "pointClickCc": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "ccDependent": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Nautilus",
+      "name": "Nautilus",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "aoe": 2,
+          "engage": 2,
+          "pick": 2,
+          "frontline": 2,
+          "cc": 2,
+          "defenses": 2,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "pointClickCc": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Neeko",
+      "name": "Neeko",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "aoe": 2,
+          "engage": 2,
+          "pick": 2,
+          "waveclear": 2,
+          "magicDamage": 2,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnRange": 2,
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Nidalee",
+      "name": "Nidalee",
+      "tags": [
+        "Assassin",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "poke": 2,
+          "mobility": 2,
+          "sustain": 2,
+          "priority": 2,
+          "earlyPressure": 2,
+          "pick": 1,
+          "backlineAccess": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "channelDependent": 2,
+            "blockableSkillshot": 3,
+            "projectileReliant": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Nilah",
+      "name": "Nilah",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "aoe": 2,
+          "engage": 2,
+          "sustain": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "attackEvasion": 3,
+            "displacement": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Nocturne",
+      "name": "Nocturne",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "backlineAccess": 2,
+          "roam": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "mobility": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "spellShield": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Nunu",
+      "name": "Nunu & Willump",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "roam": 2,
+          "defenses": 2,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnDps": 2,
+          "vulnGank": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "channelDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Olaf",
+      "name": "Olaf",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "backlineAccess": 2,
+          "sustain": 2,
+          "cc": 2,
+          "antiCc": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "ccImmunity": 3,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "ccDependent": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Orianna",
+      "name": "Orianna",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "followUp": 2,
+          "zone": 2,
+          "waveclear": 2,
+          "magicDamage": 2,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ornn",
+      "name": "Ornn",
+      "tags": [
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "antiTank": 2,
+          "engage": 2,
+          "frontline": 2,
+          "peel": 2,
+          "scaling": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Pantheon",
+      "name": "Pantheon",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "pick": 2,
+          "backlineAccess": 2,
+          "priority": 2,
+          "roam": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "mobility": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "pointClickCc": 3
+          },
+          "dependencies": {
+            "dashReliant": 1,
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Poppy",
+      "name": "Poppy",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "frontline": 2,
+          "peel": 2,
+          "defenses": 2,
+          "cc": 1,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnDps": 2,
+          "vulnTank": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "dashDenial": 3,
+            "displacement": 2
+          },
+          "dependencies": {
+            "dashReliant": 1,
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Pyke",
+      "name": "Pyke",
+      "tags": [
+        "Support",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "pick": 2,
+          "mobility": 2,
+          "roam": 2,
+          "peel": 1,
+          "cc": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnWave": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Qiyana",
+      "name": "Qiyana",
+      "tags": [
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "pick": 2,
+          "zone": 2,
+          "roam": 2,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Quinn",
+      "name": "Quinn",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "mobility": 2,
+          "roam": 2,
+          "physicalDamage": 2,
+          "dps": 2,
+          "siege": 1,
+          "burst": 2,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Rakan",
+      "name": "Rakan",
+      "tags": [
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "followUp": 2,
+          "pick": 2,
+          "flank": 2,
+          "mobility": 2,
+          "peel": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnCc": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "dashReliant": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Rammus",
+      "name": "Rammus",
+      "tags": [
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "engage": 2,
+          "frontline": 2,
+          "antiAuto": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "pointClickCc": 2
+          },
+          "dependencies": {
+            "ccDependent": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "RekSai",
+      "name": "Rek'Sai",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "pick": 2,
+          "backlineAccess": 2,
+          "mobility": 2,
+          "sustain": 2,
+          "zone": 2,
+          "earlyPressure": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnCc": 2,
+          "vulnRange": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Rell",
+      "name": "Rell",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "aoe": 2,
+          "engage": 2,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnDisengage": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Renata",
+      "name": "Renata Glasc",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "antiDive": 2,
+          "peel": 2,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Renekton",
+      "name": "Renekton",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "backlineAccess": 2,
+          "sustain": 2,
+          "cc": 2,
+          "earlyPressure": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnRange": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "pointClickCc": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Rengar",
+      "name": "Rengar",
+      "tags": [
+        "Assassin",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "pick": 2,
+          "backlineAccess": 2,
+          "zone": 2,
+          "mobility": 1,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "cleanse": 2
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Riven",
+      "name": "Riven",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "cc": 2,
+          "earlyPressure": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Rumble",
+      "name": "Rumble",
+      "tags": [
+        "Fighter",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "zone": 2,
+          "priority": 2,
+          "earlyPressure": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnRange": 2,
+          "vulnGank": 2,
+          "immobile": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ryze",
+      "name": "Ryze",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "dps": 2,
+          "waveclear": 2
+        },
+        "weaknesses": {
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "fragileEntry": 2,
+          "ultDependent": 2,
+          "resourceDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Samira",
+      "name": "Samira",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "dps": 2,
+          "allIn": 2,
+          "aoe": 2,
+          "antiCc": 2,
+          "physicalDamage": 2,
+          "siege": 1,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "needsSetup": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2,
+            "projectileDenial": 2
+          },
+          "dependencies": {
+            "dashReliant": 3,
+            "autoAttackDependent": 3,
+            "channelDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Sejuani",
+      "name": "Sejuani",
+      "tags": [
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "aoe": 2,
+          "engage": 2,
+          "pick": 2,
+          "frontline": 2,
+          "cc": 2,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnTank": 2,
+          "vulnGank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Senna",
+      "name": "Senna",
+      "tags": [
+        "Support",
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "pick": 2,
+          "sustain": 2,
+          "roam": 2,
+          "scaling": 2,
+          "peel": 1,
+          "cc": 1,
+          "physicalDamage": 2,
+          "dps": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Seraphine",
+      "name": "Seraphine",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "followUp": 2,
+          "sustain": 2,
+          "waveclear": 2,
+          "teamfight": 2,
+          "peel": 1,
+          "cc": 1,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Sett",
+      "name": "Sett",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "engage": 2,
+          "frontline": 2,
+          "peel": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Shaco",
+      "name": "Shaco",
+      "tags": [
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "split": 2,
+          "burst": 2,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Shen",
+      "name": "Shen",
+      "tags": [
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "frontline": 2,
+          "peel": 2,
+          "roam": 2,
+          "antiAuto": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Shyvana",
+      "name": "Shyvana",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "dps": 2,
+          "scaling": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnCc": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Singed",
+      "name": "Singed",
+      "tags": [
+        "Tank",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "peel": 2,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnBurst": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "grounding": 3,
+            "dashDenial": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Sion",
+      "name": "Sion",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "frontline": 2,
+          "peel": 2,
+          "waveclear": 2,
+          "split": 2,
+          "defenses": 2,
+          "cc": 1,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Sivir",
+      "name": "Sivir",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "aoe": 2,
+          "engage": 2,
+          "mobility": 2,
+          "waveclear": 2,
+          "physicalDamage": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "spellShield": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Skarner",
+      "name": "Skarner",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "pick": 2,
+          "frontline": 2,
+          "zone": 2,
+          "cc": 2,
+          "defenses": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "pointClickCc": 2
+          },
+          "dependencies": {
+            "ccDependent": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Smolder",
+      "name": "Smolder",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "dps": 2,
+          "poke": 2,
+          "aoe": 2,
+          "waveclear": 2,
+          "scaling": 2,
+          "physicalDamage": 2,
+          "siege": 1,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Sona",
+      "name": "Sona",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "engage": 2,
+          "sustain": 2,
+          "teamfight": 2,
+          "scaling": 2,
+          "peel": 1,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "vulnGank": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Soraka",
+      "name": "Soraka",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "sustain": 2,
+          "cc": 2,
+          "roam": 2,
+          "peel": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "grounding": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Swain",
+      "name": "Swain",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "aoe": 2,
+          "pick": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "zone": 2,
+          "teamfight": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Sylas",
+      "name": "Sylas",
+      "tags": [
+        "Mage",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "mobility": 2,
+          "sustain": 2,
+          "waveclear": 1,
+          "pick": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnRange": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2,
+            "ultimateTheft": 3
+          },
+          "dependencies": {
+            "dashReliant": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Syndra",
+      "name": "Syndra",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "pick": 2,
+          "cc": 2,
+          "waveclear": 2,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "TahmKench",
+      "name": "Tahm Kench",
+      "tags": [
+        "Tank",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "peel": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Taliyah",
+      "name": "Taliyah",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "followUp": 2,
+          "zone": 2,
+          "waveclear": 2,
+          "roam": 2,
+          "magicDamage": 2,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "dashDenial": 3
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Talon",
+      "name": "Talon",
+      "tags": [
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "pick": 2,
+          "mobility": 2,
+          "roam": 2,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnTank": 2,
+          "vulnWave": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Taric",
+      "name": "Taric",
+      "tags": [
+        "Support",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "allIn": 2,
+          "sustain": 2,
+          "peel": 2,
+          "cc": 2,
+          "frontline": 2,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnKite": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Teemo",
+      "name": "Teemo",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "antiAuto": 2,
+          "physicalDamage": 2,
+          "dps": 2,
+          "siege": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnBurst": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "attackEvasion": 3
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Thresh",
+      "name": "Thresh",
+      "tags": [
+        "Support",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "peel": 2,
+          "cc": 1,
+          "frontline": 2,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "dashReliant": 1,
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Tristana",
+      "name": "Tristana",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "allIn": 2,
+          "priority": 2,
+          "siege": 2,
+          "physicalDamage": 2,
+          "dps": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "autoAttackDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Trundle",
+      "name": "Trundle",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "antiTank": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnKite": 2,
+          "vulnRange": 2,
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Tryndamere",
+      "name": "Tryndamere",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "sustain": 2,
+          "split": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnCc": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "TwistedFate",
+      "name": "Twisted Fate",
+      "tags": [
+        "Mage",
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "cc": 2,
+          "waveclear": 2,
+          "roam": 2,
+          "magicDamage": 2,
+          "physicalDamage": 2,
+          "dps": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "pointClickCc": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3,
+            "ccDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Twitch",
+      "name": "Twitch",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "aoe": 2,
+          "pick": 2,
+          "teamfight": 2,
+          "scaling": 2,
+          "physicalDamage": 2,
+          "siege": 1,
+          "burst": 2,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Udyr",
+      "name": "Udyr",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Urgot",
+      "name": "Urgot",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "dps": 2,
+          "pick": 2,
+          "frontline": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Varus",
+      "name": "Varus",
+      "tags": [
+        "Marksman",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "poke": 2,
+          "antiTank": 2,
+          "engage": 2,
+          "physicalDamage": 2,
+          "siege": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Vayne",
+      "name": "Vayne",
+      "tags": [
+        "Marksman",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "antiTank": 2,
+          "frontline": 2,
+          "physicalDamage": 2,
+          "dps": 2,
+          "siege": 1,
+          "burst": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnRange": 2,
+          "vulnWave": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Veigar",
+      "name": "Veigar",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "pick": 2,
+          "zone": 2,
+          "cc": 2,
+          "scaling": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {},
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "singleSpellSetup": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Velkoz",
+      "name": "Vel'Koz",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "frontline": 2,
+          "zone": 2,
+          "siege": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Vex",
+      "name": "Vex",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "followUp": 2,
+          "waveclear": 2,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnRange": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "dashDenial": 3
+          },
+          "dependencies": {
+            "dashReliant": 1,
+            "ccDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Vi",
+      "name": "Vi",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "engage": 2,
+          "pick": 2,
+          "backlineAccess": 2,
+          "cc": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "mobility": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "pointClickCc": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Viego",
+      "name": "Viego",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "sustain": 2,
+          "antiCc": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "vulnDisengage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Viktor",
+      "name": "Viktor",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "dps": 2,
+          "zone": 2,
+          "waveclear": 2,
+          "scaling": 2,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Vladimir",
+      "name": "Vladimir",
+      "tags": [
+        "Mage",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "aoe": 2,
+          "sustain": 2,
+          "teamfight": 2,
+          "scaling": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "vulnWave": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Volibear",
+      "name": "Volibear",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "mixedDamage": 2,
+          "backlineAccess": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "cc": 2,
+          "siege": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "defenses": 2
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Warwick",
+      "name": "Warwick",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "pick": 2,
+          "backlineAccess": 2,
+          "sustain": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnKite": 2,
+          "vulnBurst": 2,
+          "vulnTank": 2,
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "pointClickCc": 2
+          },
+          "dependencies": {
+            "dashReliant": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Xayah",
+      "name": "Xayah",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "antiDive": 2,
+          "zone": 2,
+          "cc": 2,
+          "physicalDamage": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "vulnEngage": 2,
+          "vulnRange": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Xerath",
+      "name": "Xerath",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "poke": 2,
+          "pick": 2,
+          "waveclear": 2,
+          "roam": 2,
+          "siege": 2,
+          "peel": 1,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnRange": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "XinZhao",
+      "name": "Xin Zhao",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "pick": 2,
+          "backlineAccess": 2,
+          "sustain": 2,
+          "earlyPressure": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnDisengage": 2,
+          "needsContact": 2,
+          "fragileEntry": 2,
+          "ultDependent": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Yasuo",
+      "name": "Yasuo",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "followUp": 2,
+          "mobility": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "pick": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {},
+        "mechanics": {
+          "strengths": {
+            "projectileDenial": 3,
+            "repeatedDamage": 2,
+            "displacement": 2
+          },
+          "dependencies": {
+            "dashReliant": 3,
+            "autoAttackDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Yone",
+      "name": "Yone",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "mixedDamage": 2,
+          "burst": 2,
+          "dps": 2,
+          "engage": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 3,
+            "autoAttackDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Yorick",
+      "name": "Yorick",
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "profile": {
+        "strengths": {
+          "siege": 2,
+          "split": 2,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1,
+          "frontline": 2,
+          "defenses": 2,
+          "cc": 1
+        },
+        "weaknesses": {
+          "resourceDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Yunara",
+      "name": "Yunara",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "magicDamage": 2,
+          "dps": 2,
+          "teamfight": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 1,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Yuumi",
+      "name": "Yuumi",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "sustain": 2,
+          "peel": 1,
+          "cc": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1,
+            "channelDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Zaahen",
+      "name": "Zaahen",
+      "tags": [
+        "Fighter",
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "dps": 2,
+          "sustain": 2,
+          "cc": 2,
+          "longTrade": 1,
+          "allIn": 1,
+          "burst": 2,
+          "pick": 1,
+          "mobility": 1,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnKite": 2,
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "fragileEntry": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2,
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 1
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Zac",
+      "name": "Zac",
+      "tags": [
+        "Tank",
+        "Fighter"
+      ],
+      "profile": {
+        "strengths": {
+          "magicDamage": 2,
+          "engage": 2,
+          "frontline": 2,
+          "sustain": 2,
+          "defenses": 2,
+          "cc": 1,
+          "dps": 1,
+          "longTrade": 1,
+          "allIn": 1
+        },
+        "weaknesses": {
+          "vulnGank": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "displacement": 2
+          },
+          "dependencies": {}
+        },
+        "safeBlind": 1.3,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Zed",
+      "name": "Zed",
+      "tags": [
+        "Assassin"
+      ],
+      "profile": {
+        "strengths": {
+          "physicalDamage": 2,
+          "burst": 2,
+          "poke": 2,
+          "pick": 2,
+          "mobility": 2,
+          "backlineAccess": 1
+        },
+        "weaknesses": {
+          "vulnTank": 2,
+          "vulnDisengage": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Zeri",
+      "name": "Zeri",
+      "tags": [
+        "Marksman"
+      ],
+      "profile": {
+        "strengths": {
+          "dps": 2,
+          "mobility": 2,
+          "antiCc": 2,
+          "physicalDamage": 2,
+          "siege": 1
+        },
+        "weaknesses": {
+          "vulnCc": 2,
+          "vulnBurst": 2,
+          "vulnRange": 2,
+          "goldDependent": 2
+        },
+        "mechanics": {
+          "strengths": {
+            "repeatedDamage": 2
+          },
+          "dependencies": {
+            "dashReliant": 1,
+            "autoAttackDependent": 3
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Ziggs",
+      "name": "Ziggs",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "waveclear": 2,
+          "siege": 2,
+          "magicDamage": 2
+        },
+        "weaknesses": {
+          "vulnEngage": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Zilean",
+      "name": "Zilean",
+      "tags": [
+        "Support",
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "aoe": 2,
+          "cc": 2,
+          "peel": 1,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnPoke": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Zoe",
+      "name": "Zoe",
+      "tags": [
+        "Mage"
+      ],
+      "profile": {
+        "strengths": {
+          "burst": 2,
+          "poke": 2,
+          "pick": 2,
+          "zone": 2,
+          "siege": 2,
+          "magicDamage": 2,
+          "waveclear": 1
+        },
+        "weaknesses": {
+          "vulnEngage": 2,
+          "vulnTank": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {
+            "dashReliant": 1,
+            "ccDependent": 2
+          }
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "id": "Zyra",
+      "name": "Zyra",
+      "tags": [
+        "Mage",
+        "Support"
+      ],
+      "profile": {
+        "strengths": {
+          "poke": 2,
+          "aoe": 2,
+          "pick": 2,
+          "disengage": 2,
+          "zone": 2,
+          "cc": 2,
+          "teamfight": 2,
+          "magicDamage": 2,
+          "waveclear": 1,
+          "peel": 1
+        },
+        "weaknesses": {
+          "vulnBurst": 2,
+          "fragileEntry": 2,
+          "ultDependent": 2
+        },
+        "mechanics": {
+          "strengths": {},
+          "dependencies": {}
+        },
+        "safeBlind": 2,
+        "confidence": "MEDIUM"
+      }
+    }
+  ]
+}

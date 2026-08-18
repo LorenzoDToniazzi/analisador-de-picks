@@ -1364,6 +1364,18 @@ function generateDraft(random, index, evaluatedLane, { partial = false } = {}) {
 }
 
 const cliArgs = process.argv.slice(2);
+if (cliArgs.includes("--export-catalog")) {
+  console.log(JSON.stringify({
+    metadata: {
+      patch: "26.16",
+      dataDragon: "16.16.1",
+      count: champions.length,
+      source: "CATALOG_PLUS_OFFICIAL_KIT",
+    },
+    champions,
+  }, null, 2));
+  process.exit(0);
+}
 const universalBenchmark = cliArgs.includes("--universal");
 const partialDraftSimulation = cliArgs.includes("--partial");
 const fullRankingOutput = cliArgs.includes("--full-ranking");

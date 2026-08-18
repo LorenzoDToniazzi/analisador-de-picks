@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d14">
+  <title>DraftLab - Analisador de Picks</title>
+  <link rel="stylesheet" href="app/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">PATCH 26.16 · MID/TOP</p>
+      <h1>Draft<span>Lab</span></h1>
+    </div>
+    <div class="header-status"><span class="status-dot"></span><span id="save-status">Salvo localmente</span></div>
+  </header>
+
+  <nav class="tabs" aria-label="Navegação principal">
+    <button class="tab active" data-tab="draft">Draft</button>
+    <button class="tab" data-tab="pool">Minha pool</button>
+    <button class="tab" data-tab="builds">Builds</button>
+    <button class="tab" data-tab="overrides">Matchups pessoais</button>
+    <button class="tab" data-tab="settings">Dados</button>
+  </nav>
+
+  <main>
+    <div id="loading" class="loading-card">
+      <div class="spinner"></div>
+      <div><strong>Carregando o motor</strong><p>173 campeões e evidência Mid/Top.</p></div>
+    </div>
+
+    <section id="view-draft" class="view hidden">
+      <div class="page-heading">
+        <div><p class="eyebrow">ANÁLISE 5×5</p><h2>Qual variante faz sentido aqui?</h2></div>
+        <button id="analyze-button" class="button primary">Analisar draft</button>
+      </div>
+      <div class="draft-toolbar panel">
+        <label>Minha rota<select id="draft-lane"><option value="MID">Mid</option><option value="TOP">Top</option></select></label>
+        <fieldset id="enabled-pools"><legend>Pools avaliadas</legend></fieldset>
+        <button id="clear-draft" class="button ghost">Limpar picks</button>
+      </div>
+      <div class="draft-board">
+        <div class="team-card ally"><div class="team-title"><span>Seu time</span><small>4 aliados + sua variante</small></div><div id="ally-slots" class="slots"></div></div>
+        <div class="versus">VS</div>
+        <div class="team-card enemy"><div class="team-title"><span>Time inimigo</span><small>laner pesa primeiro</small></div><div id="enemy-slots" class="slots"></div></div>
+      </div>
+      <div id="draft-message" class="notice hidden"></div>
+      <div id="results" class="results"></div>
+    </section>
+
+    <section id="view-pool" class="view hidden">
+      <div class="page-heading"><div><p class="eyebrow">CANDIDATOS</p><h2>Sua pool começa vazia</h2><p>Só entra na análise quem você cadastrar na rota.</p></div></div>
+      <form id="pool-form" class="panel form-grid">
+        <label>Campeão<select id="pool-champion" required></select></label>
+        <label>Rota<select id="pool-lane"><option value="MID">Mid</option><option value="TOP">Top</option></select></label>
+        <label>Pool<select id="pool-type"><option value="principal">Principal</option><option value="secundaria">Secundária</option><option value="laboratorio">Laboratório</option></select></label>
+        <label>Conforto<select id="pool-comfort"><option value="5">5 - máximo</option><option value="4">4</option><option value="3" selected>3 - neutro</option><option value="2">2</option><option value="1">1 - baixo</option></select></label>
+        <label class="check-row"><input id="pool-default" type="checkbox" checked> Avaliar build padrão</label>
+        <button class="button primary" type="submit">Adicionar à pool</button>
+      </form>
+      <div id="pool-list" class="card-list"></div>
+    </section>
+
+    <section id="view-builds" class="view hidden">
+      <div class="page-heading"><div><p class="eyebrow">VARIANTES INDEPENDENTES</p><h2>Campeão + rota + build</h2><p>Itens e runa sugerem o perfil. O perfil salvo é completo e independente.</p></div></div>
+      <div class="split-layout">
+        <form id="build-form" class="panel build-editor">
+          <input id="build-id" type="hidden">
+          <div class="form-grid compact">
+            <label>Campeão e rota<select id="build-pool-entry" required></select></label>
+            <label>Nome da variante<input id="build-name" required placeholder="Ex.: AP/Bruiser Protobelt"></label>
+            <label>Runa-chave<select id="build-keystone"><option value="">Sem runa definida</option></select></label>
+            <label>Outras runas<input id="build-runes-note" placeholder="Ex.: Nimbus + Transcendência"></label>
+          </div>
+          <div class="item-picker">
+            <label>Itens<input id="item-search" list="item-options" placeholder="Digite o nome e adicione"></label>
+            <datalist id="item-options"></datalist>
+            <button id="add-item" class="button secondary" type="button">Adicionar item</button>
+          </div>
+          <div id="selected-items" class="chips"></div>
+          <div class="build-actions">
+            <button id="infer-profile" class="button secondary" type="button">Recalcular sugestão pelos itens</button>
+            <span class="muted">Isso não sobrescreve outra build.</span>
+          </div>
+          <details open><summary>O que esta variante entrega</summary><div id="strength-sliders" class="slider-grid"></div></details>
+          <details><summary>Riscos desta variante</summary><div id="risk-sliders" class="slider-grid"></div></details>
+          <label>Notas, arsenal e plano<textarea id="build-notes" rows="4" placeholder="Quando usar, ordem dos itens, alternativas, testes... Habilidade humana ainda serve para alguma coisa."></textarea></label>
+          <label class="check-row"><input id="build-enabled" type="checkbox" checked> Variante habilitada</label>
+          <div class="form-buttons"><button class="button primary" type="submit">Salvar variante</button><button id="cancel-build" class="button ghost" type="button">Limpar editor</button></div>
+        </form>
+        <div><h3>Builds cadastradas</h3><div id="build-list" class="card-list"></div></div>
+      </div>
+    </section>
+
+    <section id="view-overrides" class="view hidden">
+      <div class="page-heading"><div><p class="eyebrow">EXCEÇÕES REVISADAS</p><h2>Uma skill específica venceu a lógica?</h2><p>Registre por variante. O override pessoal fica no navegador.</p></div></div>
+      <form id="override-form" class="panel form-grid">
+        <label>Variante<select id="override-variant" required></select></label>
+        <label>Adversário<select id="override-opponent" required></select></label>
+        <label>Relação<select id="override-relation"><option value="HARDCOUNTERED">Hardcountered - sem nota</option><option value="VERY_BAD">Muito ruim</option><option value="BAD">Ruim</option><option value="SLIGHTLY_BAD">Levemente ruim</option><option value="NEUTRAL">Neutra</option><option value="GOOD">Boa</option><option value="VERY_GOOD">Muito boa</option></select></label>
+        <label>Confiança<select id="override-confidence"><option value="TESTING">Testando</option><option value="MEDIUM">Média</option><option value="CONFIRMED">Confirmada</option></select></label>
+        <label class="wide">Motivo<input id="override-reason" required placeholder="Qual interação concreta muda a matchup?"></label>
+        <button class="button primary" type="submit">Registrar relação</button>
+      </form>
+      <div id="override-list" class="card-list"></div>
+    </section>
+
+    <section id="view-settings" class="view hidden">
+      <div class="page-heading"><div><p class="eyebrow">PERSISTÊNCIA E VERSÃO</p><h2>Seus dados são seus</h2><p>Tudo fica neste navegador. JSON serve para backup ou outro dispositivo.</p></div></div>
+      <div class="settings-grid">
+        <div class="panel"><h3>Backup</h3><p>Pool, builds, overrides e último draft.</p><div class="button-stack"><button id="export-data" class="button primary">Exportar JSON</button><label class="button secondary file-button">Importar JSON<input id="import-data" type="file" accept="application/json"></label><button id="clear-data" class="button danger">Limpar tudo</button></div></div>
+        <div id="data-summary" class="panel"></div>
+        <div class="panel"><h3>Como a nota funciona</h3><ul class="clean-list"><li><b>85-100</b> Excelente</li><li><b>70-84</b> Muito bom</li><li><b>55-69</b> Bom</li><li><b>45-54</b> Arriscado</li><li><b>30-44</b> Evitar</li><li><b>0-29</b> Não pickar</li><li><b>Hardcountered</b> Sem nota</li></ul><p class="muted">É adequação ao draft, não chance de vitória.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app/app.js"></script>
+</body>
+</html>
