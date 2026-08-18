@@ -6,7 +6,7 @@ O objetivo é recomendar apenas campeões cadastrados na pool do usuário, consi
 
 ## Estado atual
 
-A base de pesquisa e validação v0.6 contém:
+A base de pesquisa e validação v0.7 contém:
 
 - catálogo estrutural dos 173 campeões;
 - análise aprofundada inicial da pool Mid;
@@ -16,7 +16,9 @@ A base de pesquisa e validação v0.6 contém:
 - protótipo híbrido com estatística Top, inferência mecânica e modo de benchmark universal;
 - benchmarks neutros de 10 drafts em Mid e 10 em Top;
 - auditoria dos critérios atuais contra metodologias publicamente documentadas;
-- shrinkage por amostra, leitura bidirecional de matchup, risco condicional do draft incompleto e retenção de execução da build.
+- shrinkage por amostra, leitura bidirecional de matchup, risco condicional do draft incompleto e retenção de execução da build;
+- benchmarks principais sempre em 5x5 completo;
+- matchup da lane e interação com junglers como componentes independentes.
 
 Ainda não existe uma versão confiável do recomendador para uso durante partidas. A camada estatística Top passou nos testes de integração e melhorou as matchups, mas o catálogo universal e Mid ainda reprovaram a calibração estratégica. O problema está documentado antes da construção da interface.
 
@@ -29,6 +31,7 @@ Ainda não existe uma versão confiável do recomendador para uso durante partid
 - [Validação v0.4: aplicabilidade específica em 10 drafts](docs/validacao-simulacao-10-drafts-v0.4.md)
 - [Auditoria v0.5: critérios e benchmark universal Mid/Top](docs/auditoria-criterios-benchmark-universal-v0.5.md)
 - [Pesquisa e algoritmo híbrido v0.6](docs/pesquisa-plataformas-algoritmo-hibrido-v0.6.md)
+- [Benchmark 5x5 e separação lane/jungle v0.7](docs/ajuste-benchmark-5v5-pesos-v0.7.md)
 
 ## Princípios
 
@@ -45,6 +48,8 @@ Ainda não existe uma versão confiável do recomendador para uso durante partid
 - Draft incompleto usa a cauda dos adversários plausíveis por função; não existe bônus abstrato de blind.
 - Estatística de matchup é encolhida pela amostra e confirmada nas duas direções quando possível.
 - Uma lane ruim reduz apenas bônus positivos que a build talvez não consiga executar.
+- Cada candidato completa quatro aliados fixos contra cinco inimigos; o slot vazio no JSON é o candidato, não um jogador ausente.
+- Matchup da lane possui peso `2,00`; junglers são avaliados separadamente com peso `0,75`.
 - A pool filtra candidatos e representa afinidade; ela não é a fonte de conhecimento do campeão.
 
 ## Benchmark universal
@@ -65,7 +70,8 @@ afinidade do produto:
   laboratório = 15
 
 ajuste de draft:
-  matchup da lane + 2x2 + recursos × 2
+  matchup direto da lane × 2
+  interação com jungler aliado/inimigo × 0,75
   resposta aplicável à composição inimiga × 1,5
   encaixe aplicável na composição aliada × 1
 
@@ -73,7 +79,13 @@ scoreProduto = basePessoal + ajusteDraft - riscos explícitos
 scoreBenchmark = ajusteDraft - riscos explícitos
 ```
 
-Um prior pequeno campeão-função-patch desempata candidatos comparáveis. Tempo, recursos, execução e confiança modificam a aplicabilidade dos três blocos, não criam bônus independentes. O score ainda não representa probabilidade de vitória.
+Um prior pequeno campeão-função-patch desempata candidatos comparáveis. Tempo, recursos, execução e confiança modificam a aplicabilidade dos blocos principais, não criam bônus independentes. O score ainda não representa probabilidade de vitória.
+
+As simulações principais são completas. Para testar especificamente draft incompleto:
+
+```bash
+node prototype/simulate-drafts.mjs --universal --partial --lane TOP 20260817
+```
 
 ## Próximas etapas
 
