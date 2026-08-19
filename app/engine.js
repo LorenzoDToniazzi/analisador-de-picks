@@ -246,6 +246,18 @@ export class DraftEngine {
     }
   }
 
+  laneRoster(lane) {
+    for (const tierName of ["stable", "fallback"]) {
+      const qualifying = [];
+      for (const [champion, rows] of this.evidence[lane][tierName]) {
+        const games = rows.reduce((sum, row) => sum + (row.games ?? 0), 0);
+        if (rows.length >= 30 && games >= 5000 && this.byName.has(champion)) qualifying.push(champion);
+      }
+      if (qualifying.length) return qualifying.sort((a, b) => a.localeCompare(b));
+    }
+    return [];
+  }
+
   statEvidence(candidate, opponent, lane, isCustom) {
     const tier = this.evidence[lane];
     const current = directionalEvidence(tier.current, candidate, opponent);
@@ -454,7 +466,9 @@ export class DraftEngine {
     const adjustedEnemy = enemyComp.score > 0 ? enemyComp.score * retention : enemyComp.score;
     const adjustedAlly = allyComp.score > 0 ? allyComp.score * retention : allyComp.score;
     const population = this.populationStrength(variant.champion, draft.lane);
-    const rawScore = scoreWeights.laneMatchup * lane.score + scoreWeights.jungleInteraction * jungle.score + scoreWeights.enemyComp * adjustedEnemy + scoreWeights.allyComp * adjustedAlly + scoreWeights.populationStrength * population.score + poolAffinity[poolEntry.pool] + comfortScore[poolEntry.comfort];
+    const affinity = poolEntry ? (poolAffinity[poolEntry.pool] ?? 0) : 0;
+    const comfort = poolEntry ? (comfortScore[poolEntry.comfort] ?? 0) : 0;
+    const rawScore = scoreWeights.laneMatchup * lane.score + scoreWeights.jungleInteraction * jungle.score + scoreWeights.enemyComp * adjustedEnemy + scoreWeights.allyComp * adjustedAlly + scoreWeights.populationStrength * population.score + affinity + comfort;
     const score = clamp(Math.round(50 + rawScore), 0, 100);
     const label = score >= 85 ? "Excelente" : score >= 70 ? "Muito bom" : score >= 55 ? "Bom" : score >= 45 ? "Arriscado" : score >= 30 ? "Evitar" : "Não pickar";
     return {
@@ -463,7 +477,7 @@ export class DraftEngine {
       components: {
         lane: round(scoreWeights.laneMatchup * lane.score), jungle: round(scoreWeights.jungleInteraction * jungle.score),
         enemyComp: round(scoreWeights.enemyComp * adjustedEnemy), allyComp: round(scoreWeights.allyComp * adjustedAlly),
-        population: round(scoreWeights.populationStrength * population.score), pool: poolAffinity[poolEntry.pool], comfort: comfortScore[poolEntry.comfort], retention: round(retention),
+        population: round(scoreWeights.populationStrength * population.score), pool: affinity, comfort, retention: round(retention),
       },
       matchupDetails: {
         opponent: draft.enemy[draft.lane] || "Laner oculto", score: round(lane.score), impact: round(scoreWeights.laneMatchup * lane.score), tier: lane.tier,
@@ -476,8 +490,20 @@ export class DraftEngine {
   }
 
   rank(draft, state) {
+    const enabledPools = Object.values(state.settings.enabledPools);
+    const discoveryMode = enabledPools.length > 0 && enabledPools.every((enabled) => !enabled);
     const entries = state.pools.filter((entry) => entry.lane === draft.lane && state.settings.enabledPools[entry.pool]);
     const variants = [];
+    if (discoveryMode) {
+      for (const championName of this.laneRoster(draft.lane)) {
+        const champion = this.byName.get(championName);
+        variants.push({
+          id: `discovery:${draft.lane}:${championName}`, champion: championName, lane: draft.lane,
+          name: "Build padrão", kind: "DEFAULT", profile: clone(champion.profile), items: [], keystone: "",
+          poolEntry: null, discoveryMode: true,
+        });
+      }
+    }
     for (const entry of entries) {
       const champion = this.byName.get(entry.champion);
       if (!champion) continue;

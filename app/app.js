@@ -57,10 +57,18 @@ function setTab(name) {
 }
 
 function renderEnabledPools() {
-  $("#enabled-pools").innerHTML = `<legend>Pools avaliadas</legend>${Object.keys(POOL_LABEL).map((pool) => `<label class="pool-toggle"><input type="checkbox" data-pool="${pool}" ${state.settings.enabledPools[pool] ? "checked" : ""}> ${POOL_LABEL[pool]}</label>`).join("")}`;
+  $("#enabled-pools").innerHTML = `<legend>Pools avaliadas</legend><div class="pool-toggle-list">${Object.keys(POOL_LABEL).map((pool) => `<label class="pool-toggle"><input type="checkbox" data-pool="${pool}" ${state.settings.enabledPools[pool] ? "checked" : ""}> ${POOL_LABEL[pool]}</label>`).join("")}</div><p id="pool-mode-hint" class="pool-mode-hint"></p>`;
+  const updateModeHint = () => {
+    const discoveryMode = Object.values(state.settings.enabledPools).every((enabled) => !enabled);
+    $("#pool-mode-hint").textContent = discoveryMode
+      ? "Modo Todos da rota: builds padrão, sem afinidade ou conforto."
+      : "Somente as pools marcadas entram no ranking.";
+    $("#enabled-pools").classList.toggle("discovery-mode", discoveryMode);
+  };
+  updateModeHint();
   $$("#enabled-pools input").forEach((input) => input.addEventListener("change", () => {
     state.settings.enabledPools[input.dataset.pool] = input.checked;
-    persist();
+    persist(); updateModeHint();
   }));
 }
 
@@ -109,19 +117,20 @@ function renderMatchupAnalysis(result) {
   </div></details>`;
 }
 
-function renderResults(results) {
+function renderResults(results, discoveryMode = false) {
   const container = $("#results");
   if (!results.length) {
-    container.innerHTML = `<div class="empty">Nenhuma variante habilitada para ${state.draft.lane}. Cadastre a pool primeiro.</div>`;
+    container.innerHTML = `<div class="empty">Nenhuma variante habilitada para ${state.draft.lane}. Cadastre uma pool ou desmarque todas para avaliar os campeões da rota.</div>`;
     return;
   }
-  container.innerHTML = `<div class="page-heading"><div><p class="eyebrow">${results.length} VARIANTES AVALIADAS</p><h2>Ranking completo</h2></div><p>Nota de adequação, não win rate.</p></div>${results.map((result, index) => {
+  const modeDescription = discoveryMode ? "Todos da rota · build padrão · afinidade neutra" : "Pools habilitadas · variantes cadastradas";
+  container.innerHTML = `<div class="page-heading"><div><p class="eyebrow">${results.length} VARIANTES AVALIADAS</p><h2>Ranking completo</h2><p>${modeDescription}</p></div><p>Nota de adequação, não win rate.</p></div>${results.map((result, index) => {
     const hard = result.status === "HARDCOUNTERED";
     const unavailable = result.status === "UNAVAILABLE";
     const scoreText = hard ? "HARDCOUNTERED" : unavailable ? "INDISPONÍVEL" : `${result.score} · ${result.label}`;
     const components = result.components ? [
       ["Matchup", result.components.lane], ["Junglers", result.components.jungle], ["Comp inimiga", result.components.enemyComp],
-      ["Comp aliada", result.components.allyComp], ["Prior", result.components.population], ["Pool", result.components.pool], ["Conforto", result.components.comfort],
+      ["Comp aliada", result.components.allyComp], ["Prior", result.components.population], ["Afinidade", result.components.pool], ["Conforto", result.components.comfort],
     ] : [];
     return `<details class="result-card" ${index === 0 && result.status === "SCORED" ? "open" : ""}>
       <summary><div class="result-summary"><div class="result-identity"><span class="rank">${index + 1}</span><img class="champion-avatar" src="${championIcon(result.champion)}" alt=""><div><div class="result-name">${escapeHtml(result.champion)}</div><div class="result-build">${escapeHtml(result.name)} · ${result.kind === "CUSTOM" ? "custom" : "padrão"}</div></div></div><div class="score-badge ${scoreClass(result)}">${scoreText}</div></div></summary>
@@ -143,7 +152,8 @@ function analyzeDraft() {
     return;
   }
   message.classList.add("hidden");
-  renderResults(engine.rank(state.draft, state));
+  const discoveryMode = Object.values(state.settings.enabledPools).every((enabled) => !enabled);
+  renderResults(engine.rank(state.draft, state), discoveryMode);
 }
 
 function renderPool() {

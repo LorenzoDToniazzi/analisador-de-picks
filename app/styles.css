@@ -66,10 +66,13 @@ legend { color: #c6d2e3; font-size: .82rem; font-weight: 700; margin-bottom: .45
 .form-grid .wide { grid-column: span 2; }
 
 .draft-toolbar { display: grid; grid-template-columns: 170px 1fr auto; align-items: end; gap: 24px; margin-bottom: 18px; }
-#enabled-pools { display: flex; flex-wrap: wrap; gap: 12px; }
+#enabled-pools { display: grid; gap: 7px; }
 #enabled-pools legend { width: 100%; }
+.pool-toggle-list { display: flex; flex-wrap: wrap; gap: 12px; }
 .pool-toggle { display: flex; align-items: center; gap: .35rem; color: var(--muted); font-size: .82rem; }
 .pool-toggle input { width: auto; }
+.pool-mode-hint { margin: 0; color: var(--muted); font-size: .74rem; font-weight: 600; }
+#enabled-pools.discovery-mode .pool-mode-hint { color: var(--gold); }
 .draft-board { display: grid; grid-template-columns: 1fr 46px 1fr; gap: 14px; align-items: center; }
 .team-card { overflow: hidden; }
 .team-title { display: flex; justify-content: space-between; padding: 16px 18px; border-bottom: 1px solid var(--line); }

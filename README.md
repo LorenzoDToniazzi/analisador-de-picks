@@ -2,7 +2,7 @@
 
 Projeto de recomendação de campeões para drafts de League of Legends, inicialmente focado em **Mid** e **Top**.
 
-O objetivo é recomendar apenas campeões cadastrados na pool do usuário, considerando matchup direta, interação com os junglers, composição inimiga, composição aliada, build estratégica, confiança da evidência e, por último, afinidade/conforto.
+O objetivo é recomendar campeões cadastrados na pool do usuário ou, quando nenhuma pool estiver habilitada, comparar todos os picks com presença real na rota, considerando matchup direta, interação com os junglers, composição inimiga, composição aliada, build estratégica, confiança da evidência e, por último, afinidade/conforto.
 
 ## Estado atual
 
@@ -14,6 +14,7 @@ A base de pesquisa, validação e aplicação v1.1 contém:
 - perfis qualitativos de 0 a 10 para os 173 campeões, construídos por kit oficial, arquétipo, atributos e ajustes revisados;
 - cadastro híbrido de build com comparação `padrão → ajuste → resultado`, permitindo adicionar ou remover características;
 - draft Mid/Top completo ou incompleto e ranking de todas as variantes habilitadas;
+- modo `Todos da rota` ao desmarcar as três pools, usando builds padrão e afinidade/conforto zerados;
 - painel 1v1 por resultado, com evidência, vantagens e riscos da matchup isolada;
 - mecânicas de itens incorporadas ao perfil final das builds customizadas;
 - overrides pessoais de matchup por variante;
@@ -53,7 +54,7 @@ Para validar o motor:
 npm test
 ```
 
-O fluxo do produto começa sem pool. Cadastre um campeão em Mid ou Top, mantenha ou desative a build padrão, crie quantas variantes independentes quiser e preencha o draft. Tudo é salvo automaticamente no navegador.
+O fluxo do produto começa sem pool. Cadastre um campeão em Mid ou Top, mantenha ou desative a build padrão, crie quantas variantes independentes quiser e preencha o draft. Para descobrir picks fora da pool, desmarque as três categorias: o app avalia os campeões com presença estatística suficiente naquela rota, sempre com build padrão e sem pontos pessoais. Tudo é salvo automaticamente no navegador.
 
 ## Documentação
 
@@ -73,7 +74,7 @@ O fluxo do produto começa sem pool. Cadastre um campeão em Mid ou Top, mantenh
 ## Princípios
 
 - O aplicativo inicia sem pool; o usuário cadastra e salva tudo localmente.
-- Pool vazia no produto não recomenda; o ranking universal existe apenas para calibração do motor.
+- Com alguma categoria marcada, a pool filtra os candidatos. Com todas desmarcadas, o produto ativa o ranking neutro dos campeões com presença real naquela rota.
 - Toda categoria habilitada disputa o mesmo ranking.
 - Hardcounter confirmado na mesma lane deixa o perfil/build sem nota.
 - Relações específicas prevalecem sobre categorias genéricas.

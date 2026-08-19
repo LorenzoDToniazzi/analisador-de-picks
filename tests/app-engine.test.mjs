@@ -42,6 +42,9 @@ assert.ok(jhinProfile.weaknesses.vulnDive > jaxProfile.weaknesses.vulnDive, "Jhi
 assert.ok(championData.champions.filter((champion) => champion.profile.mechanics.dependencies.projectileReliant).length >= 60, "dependência de projéteis deve cobrir os principais casos do catálogo");
 assert.equal(byName.get("Lissandra").profile.mechanics.strengths.pointClickCc, 10, "Lissandra deve registrar o R point-and-click");
 assert.equal(byName.get("Warwick").profile.mechanics.strengths.pointClickCc, undefined, "ultimate skillshot do Warwick não é point-and-click");
+assert.ok(engine.laneRoster("MID").includes("Ahri"), "roster neutro de Mid deve conter picks com presença real na rota");
+assert.ok(engine.laneRoster("TOP").includes("Aatrox"), "roster neutro de Top deve conter picks com presença real na rota");
+assert.ok(!engine.laneRoster("MID").includes("Alistar"), "campeão sem amostra de Mid não deve entrar como pick padrão da rota");
 const defensiveJax = resolveBuildProfile(jaxProfile, { strengths: { hp: -2, defenses: 2 }, weaknesses: { vulnBurst: -1 } });
 assert.equal(defensiveJax.strengths.hp, jaxProfile.strengths.hp - 2, "build deve conseguir remover HP");
 assert.equal(defensiveJax.strengths.defenses, jaxProfile.strengths.defenses + 2, "build deve conseguir adicionar defesas");
@@ -67,6 +70,17 @@ const melState = {
 };
 const melResult = engine.rank(baseDraft, melState)[0];
 assert.equal(melResult.status, "HARDCOUNTERED", "Mel padrão deve ficar sem nota contra Cassiopeia");
+
+const discoveryState = {
+  pools: [{ id: "pool-mel-disabled", champion: "Mel", lane: "MID", pool: "principal", comfort: 5, includeDefault: true }],
+  builds: [{ id: "mel-custom-disabled", champion: "Mel", lane: "MID", name: "Custom", profile: byName.get("Mel").profile, enabled: true }],
+  overrides: [], settings: { enabledPools: { principal: false, secundaria: false, laboratorio: false } },
+};
+const discoveryResults = engine.rank(baseDraft, discoveryState);
+assert.equal(discoveryResults.length, engine.laneRoster("MID").length, "sem pools marcadas deve avaliar todo o roster estatístico da rota");
+assert.ok(discoveryResults.every((row) => row.discoveryMode && row.kind === "DEFAULT"), "modo Todos da rota deve usar apenas builds padrão neutras");
+assert.ok(discoveryResults.filter((row) => row.components).every((row) => row.components.pool === 0 && row.components.comfort === 0), "modo Todos da rota não pode conceder afinidade nem conforto");
+assert.ok(!discoveryResults.some((row) => row.id === "mel-custom-disabled"), "build custom de pool desmarcada não deve vazar para o modo neutro");
 
 const malphiteState = {
   pools: [{ id: "pool-malphite", champion: "Malphite", lane: "MID", pool: "laboratorio", comfort: 3, includeDefault: true }],
