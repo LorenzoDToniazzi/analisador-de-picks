@@ -7,6 +7,7 @@
     "start": "node scripts/serve-app.mjs",
     "data:build": "node scripts/build-static-data.mjs",
     "data:profiles": "node scripts/build-champion-profiles.mjs",
-    "test": "node --check app/app.js && node --check app/engine.js && node --check app/storage.js && node tests/app-engine.test.mjs"
+    "data:mechanics": "node scripts/build-signature-mechanics.mjs",
+    "test": "node --check app/app.js && node --check app/engine.js && node --check app/storage.js && node tests/app-engine.test.mjs && node tests/signature-mechanics.test.mjs"
   }
 }
