@@ -6,7 +6,7 @@ O objetivo é recomendar apenas campeões cadastrados na pool do usuário, consi
 
 ## Estado atual
 
-A base de pesquisa, validação e aplicação v1.0 contém:
+A base de pesquisa, validação e aplicação v1.1 contém:
 
 - aplicação estática utilizável no navegador, sem backend;
 - cadastro local de pool por campeão e rota;
@@ -14,6 +14,8 @@ A base de pesquisa, validação e aplicação v1.0 contém:
 - perfis qualitativos de 0 a 10 para os 173 campeões, construídos por kit oficial, arquétipo, atributos e ajustes revisados;
 - cadastro híbrido de build com comparação `padrão → ajuste → resultado`, permitindo adicionar ou remover características;
 - draft Mid/Top completo ou incompleto e ranking de todas as variantes habilitadas;
+- painel 1v1 por resultado, com evidência, vantagens e riscos da matchup isolada;
+- mecânicas de itens incorporadas ao perfil final das builds customizadas;
 - overrides pessoais de matchup por variante;
 - persistência automática, limpeza e importação/exportação JSON;
 
@@ -66,6 +68,7 @@ O fluxo do produto começa sem pool. Cadastre um campeão em Mid ou Top, mantenh
 - [Matchup dominante e mecânicas específicas v0.8](docs/ajuste-matchups-counter-v0.8.md)
 - [Modelo híbrido de builds e MVP v0.9](docs/modelo-builds-e-mvp-v0.9.md)
 - [Perfis 0-10, builds comparativas e trava de execução v1.0](docs/modelo-perfis-builds-v1.0.md)
+- [Revisão de mecânicas, itens e painel 1v1 v1.1](docs/revisao-mecanicas-matchup-v1.1.md)
 
 ## Princípios
 
@@ -128,9 +131,6 @@ node prototype/simulate-drafts.mjs --universal --partial --lane TOP 20260817
 
 ## Próximas etapas
 
-1. Definir schemas persistentes de campeão, lane, build, mecânica, relação revisada e evidência.
-2. Criar conjunto ouro maior de matchups e drafts Mid/Top para regressão.
-3. Revisar os 173 perfis e retirar o parser por palavras-chave do caminho de produção.
-4. Aprofundar setup, cobertura e ameaça dos junglers sem misturá-los à matchup.
-5. Validar off-metas que liderarem benchmarks contra especialistas e amostras disponíveis.
-6. Implementar o motor definitivo, cadastro local de pool/builds e página de análise.
+1. Ampliar gradualmente o conjunto ouro de matchups Mid/Top conforme o uso real revelar casos duvidosos.
+2. Validar off-metas que liderarem rankings contra especialistas e amostras disponíveis.
+3. Atualizar os snapshots e o Data Dragon quando o patch de referência mudar.

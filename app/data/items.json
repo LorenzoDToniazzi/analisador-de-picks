@@ -1136,8 +1136,7 @@
       },
       "signals": {
         "physicalDamage": 1.33,
-        "defenses": 0.77,
-        "cleanse": 2
+        "defenses": 0.77
       }
     },
     {
@@ -3101,8 +3100,7 @@
       },
       "signals": {
         "hp": 0.63,
-        "defenses": 0.6,
-        "cleanse": 2
+        "defenses": 0.6
       }
     },
     {

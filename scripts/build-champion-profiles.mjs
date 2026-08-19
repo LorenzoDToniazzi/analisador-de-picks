@@ -147,6 +147,59 @@ const overrides = {
   },
 };
 
+// Mecânicas discretas não podem ser inferidas com segurança apenas por palavras
+// do tooltip. Esta camada pequena e explícita corrige as interações que mais
+// alteram matchups, sem transformar o perfil inteiro em uma lista manual.
+const pointClickCc = {
+  Alistar: 8, Annie: 7, Camille: 9, Fiddlesticks: 10, Karma: 7, Leona: 6, Lissandra: 10, Lulu: 9,
+  Malzahar: 10, Maokai: 10, Mordekaiser: 10, Nasus: 7, Nautilus: 10, Nocturne: 7, Pantheon: 10,
+  Poppy: 7, Rammus: 9, Renekton: 8, Ryze: 7, Sett: 9, "Tahm Kench": 5, "Twisted Fate": 8,
+  Udyr: 8, Vi: 10, Volibear: 8, "Xin Zhao": 5,
+};
+
+const projectileReliance = {
+  Ahri: 8, Akali: 7, Akshan: 8, Anivia: 8, Annie: 5, Aphelios: 8, Ashe: 9, Aurora: 7,
+  Blitzcrank: 10, Brand: 7, Caitlyn: 8, Corki: 8, Draven: 8, Elise: 10, Ezreal: 10, Fizz: 9,
+  Gangplank: 4, Gnar: 7, Gragas: 6, Graves: 8, Hwei: 8, Illaoi: 9, Jayce: 8, Jhin: 9, Jinx: 8,
+  "Kai'Sa": 7, Kalista: 9, Karma: 7, Kayle: 7, Kennen: 5, Kindred: 7, "Kog'Maw": 8, LeBlanc: 6,
+  Leona: 8, Lucian: 8, Lux: 10, Mel: 8, "Miss Fortune": 8, Morgana: 10, "Dr. Mundo": 8, Nautilus: 8,
+  Nidalee: 10, Olaf: 8, Orianna: 8, Pantheon: 5, Pyke: 9, Qiyana: 6, Quinn: 7, "Renata Glasc": 9,
+  Rumble: 5, Ryze: 8, Samira: 8, Seraphine: 9, Sivir: 9, Smolder: 8, Sona: 5, Soraka: 5,
+  Syndra: 6, "Tahm Kench": 8, Taliyah: 7, Teemo: 7, Thresh: 10, Tristana: 8, Twitch: 8,
+  Urgot: 6, Varus: 10, Vayne: 7, Veigar: 5, "Vel'Koz": 9, Vex: 8, Xayah: 9, Xerath: 8,
+  Yunara: 8, Yuumi: 8, Zed: 8, Zeri: 10, Ziggs: 9, Zilean: 8, Zoe: 10,
+};
+
+const ccDependence = {
+  Ahri: 8, Annie: 8, Cassiopeia: 7, Elise: 9, Fiddlesticks: 8, Galio: 9, Gragas: 7, Karma: 7,
+  Leona: 9, Lissandra: 10, Lux: 9, Malzahar: 10, Maokai: 9, Morgana: 9, Nasus: 7, Nautilus: 9,
+  Neeko: 8, Pantheon: 9, Poppy: 7, Rammus: 9, Renekton: 7, Ryze: 7, Skarner: 8,
+  "Twisted Fate": 9, Veigar: 8, Vex: 8, Vi: 8, Warwick: 6, Zoe: 9,
+};
+
+const singleSpellSetup = {
+  Ahri: 8, Blitzcrank: 10, Elise: 10, Fizz: 9, Karma: 7, Leona: 8, Lissandra: 8, Lux: 10,
+  Morgana: 10, Nautilus: 8, Neeko: 8, Nidalee: 8, Pantheon: 10, Poppy: 7, Syndra: 6,
+  Thresh: 10, "Twisted Fate": 10, Veigar: 7, Zoe: 9,
+};
+
+const mechanicOverrides = Object.fromEntries([...new Set([
+  ...Object.keys(pointClickCc), ...Object.keys(projectileReliance), ...Object.keys(ccDependence), ...Object.keys(singleSpellSetup),
+  "Aatrox", "Kassadin", "Malzahar", "Master Yi", "Milio", "Nidalee", "Ornn", "Skarner", "Soraka", "Viktor", "Warwick",
+])].map((name) => [name, { strengths: {}, dependencies: {} }]));
+for (const [name, value] of Object.entries(pointClickCc)) mechanicOverrides[name].strengths.pointClickCc = value;
+for (const [name, value] of Object.entries(projectileReliance)) mechanicOverrides[name].dependencies.projectileReliant = value;
+for (const [name, value] of Object.entries(ccDependence)) mechanicOverrides[name].dependencies.ccDependent = value;
+for (const [name, value] of Object.entries(singleSpellSetup)) mechanicOverrides[name].dependencies.singleSpellSetup = value;
+
+// Falsos positivos conhecidos do parser antigo e correções de intensidade.
+for (const name of ["Aatrox", "Kassadin", "Nidalee", "Ornn", "Viktor"]) mechanicOverrides[name].dependencies.channelDependent = 0;
+for (const name of ["Skarner", "Warwick"]) mechanicOverrides[name].strengths.pointClickCc = 0;
+mechanicOverrides.Malzahar.strengths.cleanse = 0;
+mechanicOverrides["Master Yi"].strengths.attackEvasion = 5;
+mechanicOverrides.Soraka.strengths.grounding = 0;
+mechanicOverrides.Soraka.strengths.dashDenial = 5;
+
 function buildProfile(record, official, hpValues, resistValues) {
   const strengths = zeroMap(STRENGTH_TAGS);
   const weaknesses = zeroMap(WEAKNESS_TAGS);
@@ -239,13 +292,21 @@ function buildProfile(record, official, hpValues, resistValues) {
     strengths: Object.fromEntries(Object.entries(legacy.mechanics?.strengths ?? {}).map(([key, value]) => [key, round(clamp(value / 3 * 10))])),
     dependencies: Object.fromEntries(Object.entries(legacy.mechanics?.dependencies ?? {}).map(([key, value]) => [key, round(clamp(value / 3 * 10))])),
   };
+  const mechanicPatch = mechanicOverrides[record.name];
+  for (const side of ["strengths", "dependencies"]) {
+    for (const [key, value] of Object.entries(mechanicPatch?.[side] ?? {})) {
+      if (value <= 0) delete mechanics[side][key];
+      else mechanics[side][key] = round(clamp(value));
+    }
+  }
   return {
     strengths,
     weaknesses,
     chassis: {
-      strengths: { hp: round(Math.min(strengths.hp, bodyHp)), defenses: round(Math.min(strengths.defenses, clamp(bodyDefense * .45 + riotDefense * .45 + damageReduction * 1.2))), mobility: strengths.mobility, gapClose: strengths.gapClose, escape: strengths.escape, effectiveRange: strengths.effectiveRange, selfPeel: strengths.selfPeel },
+      strengths: { hp: round(Math.min(strengths.hp, bodyHp)), defenses: round(Math.min(strengths.defenses, clamp(bodyDefense * .45 + riotDefense * .45 + damageReduction * 1.2))), sustain: strengths.sustain, mobility: strengths.mobility, gapClose: strengths.gapClose, escape: strengths.escape, effectiveRange: strengths.effectiveRange, selfPeel: strengths.selfPeel },
     },
     mechanics,
+    mechanicConfidence: mechanicPatch ? "CURATED" : "SYSTEMATIC",
     safeBlind: round(clamp((legacy.safeBlind ?? 1.5) / 3 * 10)),
     confidence: patch ? "CURATED" : "SYSTEMATIC",
     scale: 10,

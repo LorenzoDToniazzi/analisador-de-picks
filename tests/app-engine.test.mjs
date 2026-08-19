@@ -39,6 +39,9 @@ const jaxProfile = byName.get("Jax").profile;
 const jhinProfile = byName.get("Jhin").profile;
 assert.ok(jaxProfile.strengths.defenses > jhinProfile.strengths.defenses, "Jax deve ser estruturalmente mais resistente que Jhin");
 assert.ok(jhinProfile.weaknesses.vulnDive > jaxProfile.weaknesses.vulnDive, "Jhin deve sofrer mais contra acesso/dive");
+assert.ok(championData.champions.filter((champion) => champion.profile.mechanics.dependencies.projectileReliant).length >= 60, "dependência de projéteis deve cobrir os principais casos do catálogo");
+assert.equal(byName.get("Lissandra").profile.mechanics.strengths.pointClickCc, 10, "Lissandra deve registrar o R point-and-click");
+assert.equal(byName.get("Warwick").profile.mechanics.strengths.pointClickCc, undefined, "ultimate skillshot do Warwick não é point-and-click");
 const defensiveJax = resolveBuildProfile(jaxProfile, { strengths: { hp: -2, defenses: 2 }, weaknesses: { vulnBurst: -1 } });
 assert.equal(defensiveJax.strengths.hp, jaxProfile.strengths.hp - 2, "build deve conseguir remover HP");
 assert.equal(defensiveJax.strengths.defenses, jaxProfile.strengths.defenses + 2, "build deve conseguir adicionar defesas");
@@ -47,6 +50,16 @@ const jhinIrelia = engine.laneScore({ id: "jhin-default", champion: "Jhin", kind
 assert.equal(jhinIrelia.veto, true, "Jhin Mid contra Irelia deve ser hardcounter estrutural");
 const jhinLeblanc = engine.laneScore({ id: "jhin-custom", champion: "Jhin", kind: "CUSTOM", profile: resolveBuildProfile(jhinProfile, { strengths: { burst: 2, scaling: 2 } }) }, "LeBlanc", "MID", []);
 assert.ok(["COUNTERED", "SEVERE_COUNTER"].includes(jhinLeblanc.tier), "burst/scaling não pode apagar o acesso da LeBlanc ao Jhin");
+const lissandraAkali = engine.laneScore({ id: "lissandra-default", champion: "Lissandra", kind: "DEFAULT", profile: byName.get("Lissandra").profile }, "Akali", "MID", []);
+assert.ok(lissandraAkali.advantages.some((row) => row.label.includes("point-and-click")), "CC confiável deve aparecer na explicação contra campeão vulnerável a controle");
+const standardReliability = engine.statEvidence("Viktor", "Pantheon", "MID", false).reliability;
+const customReliability = engine.statEvidence("Viktor", "Pantheon", "MID", true).reliability;
+assert.ok(Math.abs(customReliability - standardReliability * 0.35) < 0.0001, "build custom deve herdar apenas 35% da confiança estatística padrão");
+const viktorPantheon = engine.laneScore({ id: "viktor-default", champion: "Viktor", kind: "DEFAULT", profile: byName.get("Viktor").profile }, "Pantheon", "MID", []);
+assert.ok(["ADVANTAGED", "STRONG_ADVANTAGE", "HARDCOUNTERS"].includes(viktorPantheon.tier), "estatística robusta favorável deve superar alerta estrutural genérico no veredito, preservando o risco na explicação");
+const ireliaBlindMid = engine.blindLaneScore({ id: "irelia-blind", champion: "Irelia", kind: "DEFAULT", profile: byName.get("Irelia").profile }, "MID", []);
+assert.ok(ireliaBlindMid.score <= -3, "hardcounters devem permanecer na cauda de risco do blind pick");
+assert.ok(engine.enemyCompScore(byName.get("Nautilus").profile, ["Ezreal"]).score < 0, "um único bônus não pode reduzir artificialmente o principal risco de composição");
 
 const melState = {
   pools: [{ id: "pool-mel", champion: "Mel", lane: "MID", pool: "principal", comfort: 5, includeDefault: true }],
@@ -69,6 +82,15 @@ const tankItems = ["Heartsteel", "Spirit Visage", "Thornmail"].map((name) => ite
 const apProfile = inferBuildProfile(tahm, apItems, "Hail of Blades");
 const tankProfile = inferBuildProfile(tahm, tankItems, "Grasp of the Undying");
 assert.notDeepEqual(apProfile, tankProfile, "duas builds devem produzir perfis completos independentes");
+const glassItems = ["Rabadon's Deathcap", "Void Staff", "Shadowflame"].map((name) => itemsByName.get(name)).filter(Boolean);
+const glassProfile = inferBuildProfile(tahm, glassItems, "Hail of Blades");
+assert.ok(glassProfile.strengths.hp < tahm.profile.strengths.hp && glassProfile.strengths.defenses < tahm.profile.strengths.defenses, "build sem durabilidade deve perder HP e defesas em relação ao Tahm padrão");
+const bansheeProfile = inferBuildProfile(byName.get("Xerath"), [itemsByName.get("Banshee's Veil")], "");
+const qssProfile = inferBuildProfile(byName.get("Jax"), [itemsByName.get("Quicksilver Sash")], "");
+assert.ok(bansheeProfile.mechanics.strengths.spellShield >= 8, "Banshee deve adicionar spell shield à variante");
+assert.ok(qssProfile.mechanics.strengths.cleanse >= 8, "QSS deve adicionar cleanse à variante");
+assert.equal(itemsByName.get("Death's Dance").signals.cleanse, undefined, "Death's Dance não pode ser interpretada como cleanse de CC");
+assert.equal(itemsByName.get("Mikael's Blessing").signals.cleanse, undefined, "Mikael não é um cleanse próprio utilizável sob hard CC");
 
 const tahmState = {
   pools: [{ id: "pool-tahm", champion: "Tahm Kench", lane: "MID", pool: "laboratorio", comfort: 4, includeDefault: false }],

@@ -2,10 +2,15 @@ import { BUILD_TAGS, DraftEngine, RISK_TAGS, TAG_LABELS, inferBuildModifiers, mo
 import { clearState, exportState, importState, loadState, newId, saveState } from "./storage.js";
 
 const VERSION = "16.16.1";
+const PROFILE_MODEL = "1.1-qualitative-0-10";
 const ROLES = ["TOP", "JUNGLE", "MID", "BOTTOM", "SUPPORT"];
 const ROLE_LABEL = { TOP: "TOP", JUNGLE: "JUNGLE", MID: "MID", BOTTOM: "ADC", SUPPORT: "SUP" };
 const POOL_LABEL = { principal: "Principal", secundaria: "Secundária", laboratorio: "Laboratório" };
 const RELATION_LABEL = { HARDCOUNTERED: "Hardcountered", VERY_BAD: "Muito ruim", BAD: "Ruim", SLIGHTLY_BAD: "Levemente ruim", NEUTRAL: "Neutra", GOOD: "Boa", VERY_GOOD: "Muito boa" };
+const MATCHUP_LABEL = {
+  SEVERE_COUNTER: "Counter severo", COUNTERED: "Desfavorável", SLIGHTLY_COUNTERED: "Levemente desfavorável", BLIND: "Blind",
+  EVEN: "Equilibrada", ADVANTAGED: "Favorável", STRONG_ADVANTAGE: "Muito favorável", HARDCOUNTERS: "Counter forte",
+};
 
 let state = loadState();
 let champions = [];
@@ -86,6 +91,24 @@ function scoreClass(result) {
   return "score-no";
 }
 
+function renderMatchupAnalysis(result) {
+  const matchup = result.matchupDetails;
+  if (!matchup) return "";
+  if (matchup.hard) return `<details class="matchup-analysis"><summary>Ver análise específica da matchup 1v1</summary><div class="matchup-analysis-body"><div class="matchup-head"><div><span>Contra</span><b>${escapeHtml(matchup.opponent)}</b></div><div><span>Veredito da lane</span><b>HARDCOUNTERED</b></div></div><p class="matchup-evidence">${escapeHtml(matchup.reason)}</p><p class="matchup-note">O veto pertence à matchup revelada; composição e conforto não devolvem nota a esta variante.</p></div></details>`;
+  const list = (rows, empty) => rows.length
+    ? `<ul class="matchup-list">${rows.map((row) => `<li>${escapeHtml(row.label)}</li>`).join("")}</ul>`
+    : `<p class="muted">${empty}</p>`;
+  const evidence = matchup.evidence
+    ? `<p class="matchup-evidence">Δ2 ${matchup.evidence.delta2 > 0 ? "+" : ""}${matchup.evidence.delta2} · confiança estatística ${matchup.evidence.reliability}% · ${matchup.evidence.currentGames} jogos no patch / ${matchup.evidence.stableGames} em 30 dias</p>`
+    : `<p class="matchup-evidence">Sem amostra direcional suficiente: leitura feita principalmente pelas ferramentas dos dois kits.</p>`;
+  return `<details class="matchup-analysis"><summary>Ver análise específica da matchup 1v1</summary><div class="matchup-analysis-body">
+    <div class="matchup-head"><div><span>Contra</span><b>${escapeHtml(matchup.opponent)}</b></div><div><span>Leitura isolada</span><b>${escapeHtml(MATCHUP_LABEL[matchup.tier] ?? matchup.tier)}</b></div><div><span>Índice 1v1</span><b>${matchup.score > 0 ? "+" : ""}${matchup.score}</b></div><div><span>Impacto no draft</span><b>${matchup.impact > 0 ? "+" : ""}${matchup.impact}</b></div></div>
+    ${evidence}
+    ${matchup.blind ? `<p class="muted">A lane está oculta. O índice usa a cauda dos piores adversários plausíveis, incluindo hardcounters.</p>` : `<div class="matchup-columns"><section><h4>O que favorece o pick</h4>${list(matchup.advantages, "Nenhuma vantagem estrutural forte identificada.")}</section><section><h4>O que dificulta a lane</h4>${list(matchup.risks, "Nenhum risco estrutural forte identificado.")}</section></div>`}
+    <p class="matchup-note">Este painel isola o 1v1. Ele explica a matchup, mas não cria uma segunda nota nem altera o peso da composição.</p>
+  </div></details>`;
+}
+
 function renderResults(results) {
   const container = $("#results");
   if (!results.length) {
@@ -103,6 +126,7 @@ function renderResults(results) {
     return `<details class="result-card" ${index === 0 && result.status === "SCORED" ? "open" : ""}>
       <summary><div class="result-summary"><div class="result-identity"><span class="rank">${index + 1}</span><img class="champion-avatar" src="${championIcon(result.champion)}" alt=""><div><div class="result-name">${escapeHtml(result.champion)}</div><div class="result-build">${escapeHtml(result.name)} · ${result.kind === "CUSTOM" ? "custom" : "padrão"}</div></div></div><div class="score-badge ${scoreClass(result)}">${scoreText}</div></div></summary>
       <div class="result-body">${components.length ? `<div class="components">${components.map(([label, value]) => `<div class="component"><span>${label}</span><b>${value > 0 ? "+" : ""}${value}</b></div>`).join("")}</div>` : ""}
+      ${renderMatchupAnalysis(result)}
       <p><b>${hard ? "Sem nota." : `Matchup: ${escapeHtml(result.matchupTier ?? "-")} · Confiança: ${escapeHtml(result.confidence ?? "-")}`}</b></p>
       <ul class="reason-list">${(result.reasons ?? [result.reason]).filter(Boolean).map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>
     </details>`;
@@ -190,6 +214,23 @@ function resetBuildEditor(entryId = state.pools[0]?.id ?? "") {
   editorModifiers = entry ? { strengths: Object.fromEntries(BUILD_TAGS.map((tag) => [tag, 0])), weaknesses: Object.fromEntries(RISK_TAGS.map((tag) => [tag, 0])) } : null;
   renderSelectedItems();
   renderSliders();
+}
+
+function migrateBuildProfiles() {
+  let changed = false;
+  for (const build of state.builds) {
+    if (build.profileModel === PROFILE_MODEL) continue;
+    const champion = championByName.get(build.champion);
+    if (!champion) continue;
+    const modifiers = structuredClone(build.modifiers ?? (build.profile ? modifiersFromProfile(champion.profile, build.profile) : inferBuildModifiers(champion, [], build.keystone)));
+    const selected = (build.itemIds ?? []).map((id) => itemById.get(id)).filter(Boolean);
+    modifiers.mechanics = inferBuildModifiers(champion, selected, build.keystone).mechanics;
+    build.modifiers = modifiers;
+    build.profile = resolveBuildProfile(champion.profile, modifiers);
+    build.profileModel = PROFILE_MODEL;
+    changed = true;
+  }
+  if (changed) saveState(state);
 }
 
 function renderBuildList() {
@@ -297,12 +338,13 @@ function bindEvents() {
     const entry = state.pools.find((row) => row.id === $("#build-pool-entry").value);
     if (!entry || !editorModifiers) return toast("Selecione uma entrada da pool.");
     const champion = championByName.get(entry.champion);
+    editorModifiers.mechanics = inferBuildModifiers(champion, selectedItemIds.map((id) => itemById.get(id)).filter(Boolean), $("#build-keystone").value).mechanics;
     const existingId = $("#build-id").value;
     const build = {
       id: existingId || newId("build"), champion: entry.champion, lane: entry.lane, name: $("#build-name").value.trim(),
       itemIds: [...selectedItemIds], keystone: $("#build-keystone").value, runesNote: $("#build-runes-note").value.trim(),
       notes: $("#build-notes").value.trim(), enabled: $("#build-enabled").checked,
-      modifiers: structuredClone(editorModifiers), profile: resolveBuildProfile(champion.profile, editorModifiers), profileModel: "1.0-qualitative-0-10", updatedAt: new Date().toISOString(),
+      modifiers: structuredClone(editorModifiers), profile: resolveBuildProfile(champion.profile, editorModifiers), profileModel: PROFILE_MODEL, updatedAt: new Date().toISOString(),
     };
     if (!build.name) return;
     const index = state.builds.findIndex((row) => row.id === build.id);
@@ -355,6 +397,7 @@ async function load() {
       MID: { current: loaded.midCurrent, stable: loaded.midStable, fallback: loaded.midFallback },
       TOP: { current: loaded.topCurrent, stable: loaded.topStable, fallback: loaded.topFallback },
     });
+    migrateBuildProfiles();
     $("#item-options").innerHTML = items.map((item) => `<option value="${escapeHtml(item.name)}">${item.gold} ouro</option>`).join("");
     $("#build-keystone").innerHTML = `<option value="">Sem runa definida</option>${runes.map((rune) => `<option value="${escapeHtml(rune.name)}">${escapeHtml(rune.name)}</option>`).join("")}`;
     bindEvents(); renderAll();

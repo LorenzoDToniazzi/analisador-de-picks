@@ -59,7 +59,8 @@ function itemSignals(item) {
   if (/burn|damage over time|for each second|every second|repeatedly/.test(text)) add("dps", 0.7);
   if (/dash in|dash forward|blink|move speed|movement speed|ghosted/.test(text)) add("mobility", 0.8);
   if (/spell shield|blocks? the next.*ability/.test(text)) add("spellShield", 2);
-  if (/cleanse|removes? all crowd control|remove.*disable/.test(text)) add("cleanse", 2);
+  const selfCleanse = /removes? all crowd control|remove.*disable|quicksilver/.test(text);
+  if (selfCleanse && item.name !== "Mikael's Blessing" && !/cleanse ignore pain/.test(text)) add("cleanse", 2);
   if (/slow|slowing|immobilize|stun|root|knock/.test(text)) add("cc", 0.7);
   if (/shield/.test(text)) add("defenses", 0.6);
   if (/nearby enemies|area around|splash|wave|minions/.test(text)) add("waveclear", 0.6);

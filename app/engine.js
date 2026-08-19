@@ -12,6 +12,11 @@ export const RISK_TAGS = [
   "fragileEntry", "ultDependent", "resourceDependent", "goldDependent", "immobile", "conditionalMobility",
 ];
 
+export const MECHANIC_STRENGTH_TAGS = [
+  "cleanse", "repeatedDamage", "displacement", "projectileDenial", "grounding", "dashDenial",
+  "attackEvasion", "pointClickCc", "attackSpeedControl", "summonScreen", "spellShield", "ccImmunity", "ultimateTheft",
+];
+
 export const TAG_LABELS = {
   physicalDamage: "Dano físico", magicDamage: "Dano mágico", mixedDamage: "Dano misto", burst: "Burst",
   dps: "DPS", poke: "Poke", shortTrade: "Troca curta", longTrade: "Troca longa", allIn: "All-in",
@@ -56,6 +61,9 @@ function scale10(profile) {
   }
   copy.strengths = { ...Object.fromEntries(BUILD_TAGS.map((tag) => [tag, 0])), ...(copy.strengths ?? {}) };
   copy.weaknesses = { ...Object.fromEntries(RISK_TAGS.map((tag) => [tag, 0])), ...(copy.weaknesses ?? {}) };
+  copy.mechanics ??= { strengths: {}, dependencies: {} };
+  copy.mechanics.strengths ??= {};
+  copy.mechanics.dependencies ??= {};
   copy.scale = 10;
   return copy;
 }
@@ -64,6 +72,10 @@ export function resolveBuildProfile(baseProfile, modifiers = {}) {
   const profile = scale10(baseProfile);
   for (const tag of BUILD_TAGS) profile.strengths[tag] = round(clamp(profile.strengths[tag] + (modifiers.strengths?.[tag] ?? 0), 0, 10));
   for (const tag of RISK_TAGS) profile.weaknesses[tag] = round(clamp(profile.weaknesses[tag] + (modifiers.weaknesses?.[tag] ?? 0), 0, 10));
+  for (const tag of MECHANIC_STRENGTH_TAGS) {
+    profile.mechanics.strengths[tag] = round(clamp((profile.mechanics.strengths[tag] ?? 0) + (modifiers.mechanics?.strengths?.[tag] ?? 0), 0, 10));
+    if (!profile.mechanics.strengths[tag]) delete profile.mechanics.strengths[tag];
+  }
   profile.confidence = "USER_BUILD";
   return profile;
 }
@@ -74,12 +86,13 @@ export function modifiersFromProfile(baseProfile, resolvedProfile) {
   return {
     strengths: Object.fromEntries(BUILD_TAGS.map((tag) => [tag, round(clamp(resolved.strengths[tag] - base.strengths[tag], -10, 10))])),
     weaknesses: Object.fromEntries(RISK_TAGS.map((tag) => [tag, round(clamp(resolved.weaknesses[tag] - base.weaknesses[tag], -10, 10))])),
+    mechanics: { strengths: Object.fromEntries(MECHANIC_STRENGTH_TAGS.map((tag) => [tag, round(clamp((resolved.mechanics?.strengths?.[tag] ?? 0) - (base.mechanics?.strengths?.[tag] ?? 0), -10, 10))])) },
   };
 }
 
 export function inferBuildModifiers(champion, items, keystoneName) {
   const base = scale10(champion.profile);
-  const modifiers = { strengths: {}, weaknesses: {} };
+  const modifiers = { strengths: {}, weaknesses: {}, mechanics: { strengths: {} } };
   const aggregate = {};
   for (const item of items) {
     for (const [tag, value] of Object.entries(item.signals ?? {})) aggregate[tag] = (aggregate[tag] ?? 0) + value;
@@ -88,14 +101,20 @@ export function inferBuildModifiers(champion, items, keystoneName) {
 
   for (const tag of BUILD_TAGS) modifiers.strengths[tag] = 0;
   for (const tag of RISK_TAGS) modifiers.weaknesses[tag] = 0;
+  for (const tag of MECHANIC_STRENGTH_TAGS) modifiers.mechanics.strengths[tag] = 0;
   for (const [tag, total] of Object.entries(aggregate)) {
-    if (!BUILD_TAGS.includes(tag)) continue;
-    if (["hp", "defenses", "sustain", "mobility"].includes(tag) && items.length) {
+    if (MECHANIC_STRENGTH_TAGS.includes(tag)) {
+      modifiers.mechanics.strengths[tag] = round(clamp(total * 4, 0, 10));
+    } else if (BUILD_TAGS.includes(tag) && !["hp", "defenses", "sustain", "mobility"].includes(tag)) {
+      modifiers.strengths[tag] = round(clamp(total / 1.35, 0, 5));
+    }
+  }
+  for (const tag of ["hp", "defenses", "sustain", "mobility"]) {
+    if (items.length) {
+      const total = aggregate[tag] ?? 0;
       const chassis = base.chassis?.strengths?.[tag] ?? Math.max(0, base.strengths[tag] - 2);
       const desired = clamp(chassis + total * 1.8, 0, 10);
       modifiers.strengths[tag] = round(clamp(desired - base.strengths[tag], -5, 5));
-    } else {
-      modifiers.strengths[tag] = round(clamp(total / 1.35, 0, 5));
     }
   }
   const durability = (aggregate.hp ?? 0) + (aggregate.defenses ?? 0) + (aggregate.sustain ?? 0);
@@ -149,15 +168,26 @@ const lanePairs = [
   ["backlineAccess", "vulnDive"], ["allIn", "lowDurability"], ["stickiness", "immobile"],
 ];
 
-function lanePressure(attacker, defender) {
-  const contributions = [];
+function mechanicContributions(attacker, defender) {
   const groups = new Map();
   for (const rule of mechanicRules) {
     const value = (attacker.mechanics?.strengths?.[rule.strength] ?? 0) * (defender.mechanics?.dependencies?.[rule.dependency] ?? 0) / 30 * rule.factor;
     if (value > 0 && (!groups.has(rule.group) || groups.get(rule.group).value < value)) groups.set(rule.group, { value, label: rule.label, specific: true });
   }
-  contributions.push(...groups.values());
+  const reliableCc = attacker.mechanics?.strengths?.pointClickCc ?? 0;
+  if (reliableCc) {
+    const ccExposure = Math.max(defender.weaknesses?.vulnCc ?? 0, defender.weaknesses?.fragileEntry ?? 0, (defender.weaknesses?.conditionalMobility ?? 0) * .8, (defender.weaknesses?.needsContact ?? 0) * .7);
+    const value = reliableCc * ccExposure / 30 * 1.25;
+    if (value > 0 && (!groups.has("pointClick") || groups.get("pointClick").value < value)) groups.set("pointClick", { value, label: "CC point-and-click pune um campeão que se quebra quando controlado", specific: true });
+  }
+  return [...groups.values()];
+}
+
+function lanePressure(attacker, defender) {
+  const contributions = mechanicContributions(attacker, defender);
+  const reliableCc = attacker.mechanics?.strengths?.pointClickCc ?? 0;
   for (const [strength, weakness] of lanePairs) {
+    if (strength === "cc" && reliableCc) continue;
     const value = (attacker.strengths?.[strength] ?? 0) * (defender.weaknesses?.[weakness] ?? 0) / 30;
     if (value > 0) contributions.push({ value, label: `${TAG_LABELS[strength]} explora ${TAG_LABELS[weakness]}` });
   }
@@ -234,7 +264,7 @@ export class DraftEngine {
     const delta2 = rows.reduce((sum, row) => sum + row.delta2 * row.weight, 0) / totalWeight;
     const combined = 1 - (1 - currentRel) * (1 - stableRel) * (1 - fallbackRel);
     return {
-      delta2, score: clamp(delta2 * 1.8, -9, 9), reliability: combined * (isCustom ? 0.8 : 1),
+      delta2, score: clamp(delta2 * 1.8, -9, 9), reliability: combined * (isCustom ? 0.35 : 1),
       currentGames: Math.round(current?.games ?? 0), currentDirections: current?.directions ?? 0,
       stableGames: Math.round(stable?.games ?? 0), stableDirections: stable?.directions ?? 0,
       fallbackGames: Math.round(fallback?.games ?? 0), fallbackDirections: fallback?.directions ?? 0,
@@ -285,22 +315,27 @@ export class DraftEngine {
 
     const robust = (stat?.currentDirections === 2 && stat.currentGames >= 150) || (stat?.stableDirections === 2 && stat.stableGames >= 250);
     const rareButExtreme = stat?.fallbackDirections === 2 && stat.fallbackGames >= 80 && stat.delta2 <= -7 && structural <= -2.5;
-    if ((stat?.reliability >= 0.4 && robust && stat.delta2 <= -4 && Math.min(specific, structural) <= -3) || rareButExtreme) {
+    if (variant.kind !== "CUSTOM" && ((stat?.reliability >= 0.4 && robust && stat.delta2 <= -4 && Math.min(specific, structural) <= -3) || rareButExtreme)) {
       return { veto: true, reason: `Hardcounter confirmado por estatística bidirecional e execução estrutural: Δ2 ${round(stat.delta2)}.`, evidence: stat };
     }
-    const tier = score <= -5 || structural <= -6 || (stat?.reliability >= 0.35 && stat.delta2 <= -3.5) ? "SEVERE_COUNTER"
-      : score <= -2.25 || structural <= -3.5 || (stat?.reliability >= 0.25 && stat.delta2 <= -1.5) ? "COUNTERED"
+    const logicDominant = !stat || stat.reliability < 0.55;
+    const tier = score <= -5 || (logicDominant && structural <= -6) || (stat?.reliability >= 0.35 && stat.delta2 <= -3.5) ? "SEVERE_COUNTER"
+      : score <= -2.25 || (logicDominant && structural <= -3.5) || (stat?.reliability >= 0.25 && stat.delta2 <= -1.5) ? "COUNTERED"
         : score <= -0.75 ? "SLIGHTLY_COUNTERED" : score >= 6.5 ? "HARDCOUNTERS" : score >= 3.5 ? "STRONG_ADVANTAGE" : score >= 1.25 ? "ADVANTAGED" : "EVEN";
     const bestOwn = own.contributions[0];
     const bestEnemy = enemy.contributions[0];
     if (bestOwn) reasons.push(`Favorável: ${bestOwn.label}.`);
     if (bestEnemy) reasons.push(`Risco: ${bestEnemy.label}.`);
-    return { score, tier, confidence: stat?.reliability >= 0.55 ? "HIGH" : stat?.reliability >= 0.2 ? "MEDIUM" : "LOW", reasons, stat, mechanical, specific, structural };
+    return {
+      score, tier, confidence: stat?.reliability >= 0.55 ? "HIGH" : stat?.reliability >= 0.2 ? "MEDIUM" : "LOW", reasons, stat, mechanical, specific, structural,
+      advantages: own.contributions.slice(0, 4).map((item) => ({ label: item.label, value: round(item.value) })),
+      risks: enemy.contributions.slice(0, 4).map((item) => ({ label: item.label, value: round(item.value) })),
+    };
   }
 
   blindLaneScore(variant, lane, overrides) {
     const plausible = [...this.evidence[lane].stable.entries()].filter(([, rows]) => rows.length >= 15).map(([name]) => name).filter((name) => name !== variant.champion);
-    const values = plausible.map((opponent) => this.laneScore(variant, opponent, lane, overrides)).filter((row) => !row.veto).map((row) => row.score).sort((a, b) => a - b);
+    const values = plausible.map((opponent) => this.laneScore(variant, opponent, lane, overrides)).map((row) => row.veto ? -10 : row.score).sort((a, b) => a - b);
     const count = Math.max(1, Math.ceil(values.length * 0.2));
     const lowerTail = values.slice(0, count).reduce((sum, value) => sum + value, 0) / count;
     return { score: clamp(lowerTail * 0.7, -8, 0), tier: lowerTail <= -5 ? "COUNTERED" : "BLIND", confidence: "LOW", reasons: [`Laner oculto: risco calculado pela cauda inferior de ${plausible.length} adversários plausíveis.`], blind: true };
@@ -347,17 +382,24 @@ export class DraftEngine {
       const exposures = [
         [Math.max(enemy.profile.strengths.poke ?? 0, enemy.profile.strengths.siege ?? 0), ["vulnPoke", "vulnRange", "immobile"], "poke/range dificulta a execução"],
         [Math.max(enemy.profile.strengths.engage ?? 0, enemy.profile.strengths.backlineAccess ?? 0), ["vulnEngage", "fragileEntry"], "engage pune a entrada"],
-        [enemy.profile.strengths.cc ?? 0, ["vulnCc", "fragileEntry"], "controle interrompe a execução"],
+        [enemy.profile.strengths.cc ?? 0, ["vulnCc", "fragileEntry", "needsContact"], "controle interrompe a execução"],
         [Math.max(enemy.profile.strengths.disengage ?? 0, enemy.profile.strengths.peel ?? 0, enemy.profile.strengths.mobility ?? 0), ["vulnKite", "vulnDisengage", "needsContact"], "kite nega contato"],
       ];
       for (const [threat, risks, label] of exposures) {
         const risk = Math.max(0, ...risks.map((tag) => profile.weaknesses[tag] ?? 0));
         if (threat * risk > 0) interactions.push({ value: -threat * risk / 30, reason: `Contra ${enemy.name}: ${label}.` });
       }
+      for (const interaction of mechanicContributions(profile, enemy.profile)) {
+        interactions.push({ value: interaction.value, reason: `Contra ${enemy.name}: ${interaction.label}.` });
+      }
+      for (const interaction of mechanicContributions(enemy.profile, profile)) {
+        interactions.push({ value: -interaction.value, reason: `Contra ${enemy.name}: ${interaction.label}.` });
+      }
     }
     const positives = interactions.filter((row) => row.value > 0).sort((a, b) => b.value - a.value).slice(0, 2);
     const negatives = interactions.filter((row) => row.value < 0).sort((a, b) => a.value - b.value).slice(0, 2);
-    const score = [...positives, ...negatives].reduce((sum, row, index) => sum + row.value * (index % 2 ? 0.35 : 1), 0) * 2;
+    const weighted = (rows) => rows.reduce((sum, row, index) => sum + row.value * [1, 0.35][index], 0);
+    const score = (weighted(positives) + weighted(negatives)) * 2;
     return { score: clamp(score, -10, 10), reasons: [...positives, ...negatives].map((row) => row.reason) };
   }
 
@@ -399,7 +441,12 @@ export class DraftEngine {
     const picked = [...Object.values(draft.ally), ...Object.values(draft.enemy)].filter(Boolean);
     if (picked.includes(variant.champion)) return { ...variant, status: "UNAVAILABLE", reason: "Campeão já escolhido no draft." };
     const lane = this.laneScore(variant, draft.enemy[draft.lane], draft.lane, overrides);
-    if (lane.veto) return { ...variant, status: "HARDCOUNTERED", reason: lane.reason, evidence: lane.evidence };
+    if (lane.veto) return {
+      ...variant, status: "HARDCOUNTERED", reason: lane.reason, evidence: lane.evidence,
+      matchupDetails: { opponent: draft.enemy[draft.lane], tier: "HARDCOUNTERED", hard: true, reason: lane.reason, evidence: lane.evidence ? {
+        delta2: round(lane.evidence.delta2), reliability: round((lane.evidence.reliability ?? 0) * 100), currentGames: lane.evidence.currentGames, stableGames: lane.evidence.stableGames,
+      } : null },
+    };
     const jungle = this.jungleScore(variant.profile, draft.ally.JUNGLE, draft.enemy.JUNGLE);
     const enemyComp = this.enemyCompScore(variant.profile, Object.values(draft.enemy).filter(Boolean));
     const allyComp = this.allyCompScore(variant.profile, Object.values(draft.ally).filter(Boolean), Object.values(draft.enemy).filter(Boolean));
@@ -417,6 +464,12 @@ export class DraftEngine {
         lane: round(scoreWeights.laneMatchup * lane.score), jungle: round(scoreWeights.jungleInteraction * jungle.score),
         enemyComp: round(scoreWeights.enemyComp * adjustedEnemy), allyComp: round(scoreWeights.allyComp * adjustedAlly),
         population: round(scoreWeights.populationStrength * population.score), pool: poolAffinity[poolEntry.pool], comfort: comfortScore[poolEntry.comfort], retention: round(retention),
+      },
+      matchupDetails: {
+        opponent: draft.enemy[draft.lane] || "Laner oculto", score: round(lane.score), impact: round(scoreWeights.laneMatchup * lane.score), tier: lane.tier,
+        confidence: lane.confidence, blind: Boolean(lane.blind), advantages: lane.advantages ?? [], risks: lane.risks ?? [], evidence: lane.stat ? {
+          delta2: round(lane.stat.delta2), reliability: round(lane.stat.reliability * 100), currentGames: lane.stat.currentGames, stableGames: lane.stat.stableGames,
+        } : null,
       },
       reasons: [...lane.reasons, ...(retention < 0.9 ? [`A matchup limita bônus positivos de composição a ${round(retention * 100)}%.`] : []), ...jungle.reasons, ...enemyComp.reasons, ...allyComp.reasons].slice(0, 9),
     };
