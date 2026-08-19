@@ -59,6 +59,7 @@ export const TAXONOMY = {
   ALLY_ATTACH: t("Anexação a aliado", "save", { power: 9, laneImpact: 6, draftImpact: 9, reliability: 10, reach: 5, coverage: 1 }, ["singleCarry", "targeting"], ["hostDeath", "separation"]),
   PORTAL: t("Portal de terreno", "map", { power: 9, laneImpact: 7, draftImpact: 9, reliability: 7, reach: 7, coverage: 5 }, ["terrain", "escape", "engagePath"], ["enemyUse", "interceptExit"]),
   WALL_CROSS: t("Travessia de terreno", "access", { power: 7, laneImpact: 7, draftImpact: 8, reliability: 8, reach: 6, coverage: 1 }, ["terrain", "pathDenial"], ["grounding", "dashDenial"]),
+  BLINK: t("Blink ou teleporte instantâneo", "access", { power: 8, laneImpact: 9, draftImpact: 8, reliability: 9, reach: 6, coverage: 1 }, ["terrain", "projectilePath", "dashDenial"], ["grounding", "silence", "predictDestination"]),
   EXECUTE: t("Execução", "damage", { power: 9, laneImpact: 8, draftImpact: 8, reliability: 8, reach: 5, coverage: 1 }, ["lowHealth", "shieldTiming"], ["invulnerability", "untargetable", "healBeforeThreshold"]),
   OBJECTIVE_EXECUTE: t("Execução ou segurança de objetivo", "objective", { power: 10, laneImpact: 3, draftImpact: 9, reliability: 9, reach: 2, coverage: 1 }, ["epicMonster", "smiteFight"], ["denyAccess", "burstSteal"]),
   SHIELD_BREAK: t("Quebra de escudo", "denial", { power: 9, laneImpact: 8, draftImpact: 9, reliability: 9, reach: 5, coverage: 2 }, ["shieldDependent", "enchanter"], ["range", "timing"]),
@@ -249,7 +250,7 @@ const CURATED = {
   ],
   Ezreal: [
     s("Q", "POSITIONAL_SWEETSPOT", "DPS e redução de cooldown dependem de acertar skillshots bloqueáveis; frontline e minions alteram alvo.", { power: 9, laneImpact: 10, draftImpact: 8, reach: 9, reliability: 6 }),
-    s("E", "WALL_CROSS", "Blink curto prioriza alvo marcado, oferecendo escape contra trajetórias mas sofrendo com grounding.", { power: 9, laneImpact: 9, draftImpact: 8, reach: 5 }),
+    s("E", "BLINK", "Blink curto prioriza alvo marcado e atravessa terreno; grounding impede o cast, mas anti-dash comum não o interrompe.", { power: 9, laneImpact: 9, draftImpact: 8, reach: 5 }),
     s("R", "GLOBAL_DAMAGE", "Projétil global atravessa unidades e afeta waves/lutas, mas é telegráfico e perde dano por alvo.", { power: 8, reliability: 6 }),
   ],
   Fiddlesticks: [
@@ -377,12 +378,13 @@ const CURATED = {
     s("R", "CHANNEL", "O canal visível cria janela de interrupção se Karthus estiver vivo e acessível.", { power: 8, reliability: 8 }),
   ],
   Kassadin: [
-    s("R", "WALL_CROSS", "Blink de cooldown baixo acumula custo e dano; mana e grounding limitam quantos reposicionamentos existem.", { power: 10, laneImpact: 10, draftImpact: 9, reach: 6 }),
+    s("R", "BLINK", "Blink de cooldown baixo acumula custo e dano; mana e grounding limitam reposicionamentos, anti-dash comum não interrompe.", { power: 10, laneImpact: 10, draftImpact: 9, reach: 6 }),
     s("P", "ANTI_MAGIC", "Redução de dano mágico e ghosting favorecem lanes AP e trânsito por wave; matchups AD ignoram a principal defesa.", { power: 8, laneImpact: 10, draftImpact: 7 }),
   ],
   Katarina: [
     s("P", "RESET_CHAIN", "Takedowns reduzem drasticamente cooldowns e permitem limpar lutas; negar o primeiro abate é mais valioso que CC tardio.", { power: 10, draftImpact: 10, coverage: 5 }),
     s("P", "EXTERNAL_OBJECT_DEPENDENCY", "Adagas no chão definem dano e rotas de Shunpo; zonear o ponto de queda prevê a próxima posição.", { power: 10, laneImpact: 10, reach: 5, coverage: 3 }),
+    s("E", "BLINK", "Shunpo teleporta para unidade ou adaga; grounding impede o cast, enquanto anti-dash comum não interrompe o deslocamento.", { power: 9, laneImpact: 10, reach: 6 }),
     s("R", "CHANNEL", "Ultimate em área é interrompida por hard CC/silêncio e exige entrada corporal.", { power: 9, laneImpact: 9, reach: 2, coverage: 5 }),
   ],
   Kayle: [
@@ -438,6 +440,7 @@ const CURATED = {
     s("R", "RELIABLE_CC", "No inimigo é stun point-and-click; em si mesma é stasis e cura. A escolha muda engage, anti-dive e sobrevivência.", { power: 10, laneImpact: 10, draftImpact: 10, reach: 5, coverage: 4 }),
     s("R", "STASIS", "Autocast nega burst e cria zona; o inimigo pode esperar e cercar a saída.", { power: 10, coverage: 4 }),
     s("P", "SUMMON", "Inimigos mortos próximos viram thralls explosivos, aumentando muito luta em sequência e espaços apertados.", { power: 8, draftImpact: 9, coverage: 5 }),
+    s("E", "BLINK", "Recast teleporta Lissandra à garra; o destino é visível e pode ser preparado com CC ou zona.", { power: 8, laneImpact: 8, reach: 8 }),
   ],
   Locke: [
     s("E", "MARKED_FOLLOW", "Teleporta e então atravessa o próximo alvo, criando acesso condicionado e posição final previsível.", { power: 8, laneImpact: 8, reach: 6 }),
@@ -564,7 +567,7 @@ const CURATED = {
   ],
   Poppy: [
     s("W", "DASH_DENIAL", "Interrompe dashes inimigos próximos e depois aplica grounding/slow; muda completamente campeões cuja entrada ou saída é dash.", { power: 10, laneImpact: 10, draftImpact: 10, reach: 3, coverage: 5 }),
-    s("W", "GROUNDING", "Após bloquear um dash, impede novo deslocamento por uma janela, quebrando sequências e resets.", { power: 10, coverage: 2 }),
+    s("W", "GROUNDING", "Após bloquear um dash, impede novo deslocamento por uma janela, quebrando sequências e resets.", { power: 10, coverage: 2, requires: "DASH_DENIAL" }),
     s("E", "POSITIONAL_SWEETSPOT", "Só atordoa ao empurrar contra parede, inclusive terreno criado; posição lateral é condição central.", { power: 10, laneImpact: 10, reach: 4 }),
     s("R", "DISPLACEMENT", "Carga pode remover múltiplos inimigos da luta/objetivo; tap curto oferece knockup de peel.", { power: 10, draftImpact: 10, reach: 8, coverage: 5 }),
   ],
@@ -658,6 +661,7 @@ const CURATED = {
   ],
   Shaco: [
     s("Q", "STEALTH", "Blink com invisibilidade cria ângulos não vistos; control ward não revela invisibilidade, mas AoE/reveal verdadeiro sim.", { power: 9, reach: 7 }),
+    s("Q", "BLINK", "O deslocamento instantâneo atravessa terreno e não é parado por anti-dash comum; grounding impede o cast.", { power: 9, laneImpact: 9, reach: 7 }),
     s("W", "TRAP_CONTROL", "Boxes invisíveis causam fear e zoneiam rotas, mas precisam armar e morrem para reveal/AoE.", { power: 9, draftImpact: 9, coverage: 4 }),
     s("R", "CLONE_DECEPTION", "Fica brevemente inalvejável e cria clone explosivo; disciplina, marca persistente e AoE identificam.", { power: 10, laneImpact: 9, coverage: 3 }),
   ],
@@ -875,6 +879,7 @@ const CURATED = {
   ],
   Zed: [
     s("W", "EXTERNAL_OBJECT_DEPENDENCY", "Sombras duplicam Q/E e oferecem troca de posição; rastrear sombra/cooldown define alcance e fuga.", { power: 10, laneImpact: 10,draftImpact: 9, reach: 8, coverage: 3 }),
+    s("W", "BLINK", "Trocar com a sombra é blink, não dash: grounding impede o cast, mas Poppy W e efeitos que só param dash não interrompem.", { power: 9, laneImpact: 10, reach: 8 }),
     s("R", "UNTARGETABLE", "Fica inalvejável no início e aparece atrás do alvo, deixando sombra de retorno; CC/zona na saída e stasis negam.", { power: 10, laneImpact: 10, reach: 6 }),
     s("R", "DAMAGE_AMPLIFICATION", "Marca repete parte do dano da janela; shield, cura, stasis e negar follow-up reduzem.", { power: 9, reach: 6 }),
   ],
@@ -933,6 +938,7 @@ function expandEntry(champion, entry) {
     exploits: entry.exploits ?? definition.exploits,
     checkedBy: entry.checkedBy ?? definition.checkedBy,
     confidence: entry.confidence,
+    requires: entry.requires ?? null,
     note: entry.note,
     officialSummary: stripHtml(ability.description),
   };

@@ -117,6 +117,15 @@ function renderMatchupAnalysis(result) {
   </div></details>`;
 }
 
+function renderMechanicAnalysis(result) {
+  const mechanics = result.mechanicDetails;
+  if (!mechanics || (!mechanics.advantages?.length && !mechanics.risks?.length)) return "";
+  const renderRows = (rows, empty) => rows?.length
+    ? `<ul class="matchup-list">${rows.map((row) => `<li><b>${escapeHtml(row.ability)}</b><br>${escapeHtml(row.label)}<small>Entrega ${row.delivery}% · afinidade ${row.affinity}/10${row.target ? ` · alvo ${escapeHtml(row.target)}` : ""}</small></li>`).join("")}</ul>`
+    : `<p class="muted">${empty}</p>`;
+  return `<details class="matchup-analysis mechanic-analysis"><summary>Ver interações específicas de habilidades</summary><div class="matchup-analysis-body"><div class="matchup-columns"><section><h4>Mecânicas que favorecem o pick</h4>${renderRows(mechanics.advantages, "Nenhuma assinatura específica ativada.")}</section><section><h4>Mecânicas que ameaçam o pick</h4>${renderRows(mechanics.risks, "Nenhuma assinatura específica ativada.")}</section></div><p class="matchup-note">A habilidade só altera a nota quando encontra uma dependência concreta. Entrega considera alcance, acesso, autoproteção, peel e condição do cast.</p></div></details>`;
+}
+
 function renderResults(results, discoveryMode = false) {
   const container = $("#results");
   if (!results.length) {
@@ -136,6 +145,7 @@ function renderResults(results, discoveryMode = false) {
       <summary><div class="result-summary"><div class="result-identity"><span class="rank">${index + 1}</span><img class="champion-avatar" src="${championIcon(result.champion)}" alt=""><div><div class="result-name">${escapeHtml(result.champion)}</div><div class="result-build">${escapeHtml(result.name)} · ${result.kind === "CUSTOM" ? "custom" : "padrão"}</div></div></div><div class="score-badge ${scoreClass(result)}">${scoreText}</div></div></summary>
       <div class="result-body">${components.length ? `<div class="components">${components.map(([label, value]) => `<div class="component"><span>${label}</span><b>${value > 0 ? "+" : ""}${value}</b></div>`).join("")}</div>` : ""}
       ${renderMatchupAnalysis(result)}
+      ${renderMechanicAnalysis(result)}
       <p><b>${hard ? "Sem nota." : `Matchup: ${escapeHtml(result.matchupTier ?? "-")} · Confiança: ${escapeHtml(result.confidence ?? "-")}`}</b></p>
       <ul class="reason-list">${(result.reasons ?? [result.reason]).filter(Boolean).map((reason) => `<li>${escapeHtml(reason)}</li>`).join("")}</ul></div>
     </details>`;
@@ -389,7 +399,7 @@ function renderAll() {
 async function load() {
   try {
     const paths = {
-      champions: "app/data/champions.json", items: "app/data/items.json", runes: "app/data/runes.json",
+      champions: "app/data/champions.json", items: "app/data/items.json", runes: "app/data/runes.json", mechanics: "app/data/signature-mechanics.json",
       midCurrent: "data/midlane-matchups-diamond-26.16.json", midStable: "data/midlane-matchups-diamond-30d-26.16.json", midFallback: "data/midlane-matchups-emerald-30d-26.16.json",
       topCurrent: "data/toplane-matchups-diamond-26.16.json", topStable: "data/toplane-matchups-diamond-30d-26.16.json", topFallback: "data/toplane-matchups-emerald-30d-26.16.json",
     };
@@ -406,7 +416,7 @@ async function load() {
     engine = new DraftEngine(champions, {
       MID: { current: loaded.midCurrent, stable: loaded.midStable, fallback: loaded.midFallback },
       TOP: { current: loaded.topCurrent, stable: loaded.topStable, fallback: loaded.topFallback },
-    });
+    }, loaded.mechanics);
     migrateBuildProfiles();
     $("#item-options").innerHTML = items.map((item) => `<option value="${escapeHtml(item.name)}">${item.gold} ouro</option>`).join("");
     $("#build-keystone").innerHTML = `<option value="">Sem runa definida</option>${runes.map((rune) => `<option value="${escapeHtml(rune.name)}">${escapeHtml(rune.name)}</option>`).join("")}`;

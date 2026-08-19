@@ -161,6 +161,202 @@ const mechanicRules = [
   { strength: "pointClickCc", dependency: "dashReliant", factor: 0.8, group: "pointClick", label: "controle confiável limita a mobilidade" },
 ];
 
+const SIGNATURE_DECAY = [1, 0.6, 0.35, 0.2, 0.1];
+const LEGACY_SIGNATURE_EQUIVALENTS = {
+  grounding: ["GROUNDING"], dashDenial: ["DASH_DENIAL"], projectileDenial: ["PROJECTILE_DENIAL", "PROJECTILE_REFLECTION"],
+  ccImmunity: ["CC_IMMUNITY"], cleanse: ["CC_CLEANSE"], spellShield: ["SPELL_SHIELD"], summonScreen: ["SUMMON"],
+  attackSpeedControl: ["ATTACK_SPEED_REDUCTION"], attackEvasion: ["ATTACK_EVASION", "BLIND"], displacement: ["DISPLACEMENT"],
+  ultimateTheft: ["ULTIMATE_THEFT"], pointClickCc: ["RELIABLE_CC", "SUPPRESSION", "POLYMORPH", "TARGET_ISOLATION", "REALM_ISOLATION"],
+};
+const signatureTypes = (mechanics, types) => mechanics.filter((mechanic) => types.includes(mechanic.type));
+const highest = (...values) => Math.max(0, ...values.filter(Number.isFinite));
+const profileDependency = (profile, tag) => profile.mechanics?.dependencies?.[tag] ?? 0;
+const profileStrength = (profile, tag) => profile.strengths?.[tag] ?? 0;
+const profileWeakness = (profile, tag) => profile.weaknesses?.[tag] ?? 0;
+
+function signatureAffinity(mechanic, attackerProfile, defenderProfile, defenderMechanics) {
+  const d = (tag) => profileDependency(defenderProfile, tag);
+  const s = (tag) => profileStrength(defenderProfile, tag);
+  const w = (tag) => profileWeakness(defenderProfile, tag);
+  const enemyMechanic = (types) => highest(...signatureTypes(defenderMechanics, types).map((row) => Math.max(row.laneImpact, row.draftImpact)));
+  const values = {
+    SELF_REVIVE: highest(d("singleWindowBurst"), s("burst") * .7, s("allIn") * .5),
+    ALLY_REVIVE: highest(s("burst") * .6, s("pick") * .6),
+    DEATH_PASSIVE: highest(w("needsContact"), s("allIn") * .5),
+    DEATH_PREVENTION: highest(d("singleWindowBurst"), enemyMechanic(["EXECUTE"]), s("burst") * .7),
+    UNTARGETABLE: highest(d("singleSpellSetup"), d("singleWindowBurst"), enemyMechanic(["RELIABLE_CC", "SUPPRESSION", "EXECUTE"])),
+    INVULNERABLE: highest(d("singleWindowBurst"), enemyMechanic(["EXECUTE"]), s("burst") * .8, s("allIn") * .6),
+    STASIS: highest(d("singleWindowBurst"), enemyMechanic(["EXECUTE", "RESET_CHAIN"]), s("burst") * .8),
+    DAMAGE_REDUCTION: highest(d("singleWindowBurst"), s("burst") * .8, s("allIn") * .5),
+    CC_CLEANSE: highest(d("ccDependent"), d("singleSpellSetup"), s("cc") * .7),
+    CC_IMMUNITY: highest(d("ccDependent"), s("cc"), enemyMechanic(["RELIABLE_CC", "SUPPRESSION", "LONG_RANGE_CC"])),
+    SLOW_IMMUNITY: highest(s("disengage") * .8, s("peel") * .5, s("cc") * .35),
+    UNSTOPPABLE: highest(d("singleSpellSetup"), s("cc") * .55, enemyMechanic(["DISPLACEMENT", "RELIABLE_CC"])),
+    SPELL_SHIELD: highest(d("singleSpellSetup"), d("blockableSkillshot"), enemyMechanic(["RELIABLE_CC", "SUPPRESSION", "SLEEP_SETUP"])),
+    PROJECTILE_DENIAL: highest(d("projectileReliant"), d("blockableSkillshot"), enemyMechanic(["LONG_RANGE_CC", "SLEEP_SETUP"])),
+    PROJECTILE_REFLECTION: highest(d("projectileReliant"), d("blockableSkillshot"), enemyMechanic(["LONG_RANGE_CC", "GLOBAL_DAMAGE", "SLEEP_SETUP"])),
+    OUTSIDE_ZONE_IMMUNITY: highest(s("effectiveRange"), s("poke"), s("siege"), d("projectileReliant") * .7),
+    ATTACK_EVASION: highest(d("autoAttackDependent"), s("dps") * .5),
+    BLIND: highest(d("autoAttackDependent"), s("dps") * .5),
+    ATTACK_SPEED_REDUCTION: highest(d("autoAttackDependent"), s("dps") * .6),
+    DAMAGE_REFLECTION: highest(d("autoAttackDependent"), s("dps") * .55),
+    REACTIVE_PARRY: highest(d("singleSpellSetup"), d("singleWindowBurst"), enemyMechanic(["RELIABLE_CC", "SUPPRESSION"])),
+    REALM_ISOLATION: highest(
+      enemyMechanic(["EXTERNAL_OBJECT_DEPENDENCY", "SUMMON", "ALLY_LINK", "ALLY_SAVE", "GLOBAL_SAVE"]),
+      w("needsSetup"), w("ultDependent") * .75, s("peel") * .7, s("teamfight") * .5,
+    ),
+    TARGET_ISOLATION: highest(w("vulnDive"), w("lowDurability"), s("peel") * .5, s("effectiveRange") * .45),
+    STAT_STEAL: highest(s("defenses"), s("frontline"), s("hp") * .7),
+    ULTIMATE_THEFT: highest(d("highValueUltimate"), enemyMechanic(["GLOBAL_SAVE", "INVULNERABLE", "REALM_ISOLATION", "FORCED_BERSERK"])),
+    TERRAIN_CREATION: highest(w("needsContact"), w("immobile") * .8, w("conditionalMobility") * .65, enemyMechanic(["PATH_DENIAL", "CHANNEL"])),
+    PATH_DENIAL: highest(w("needsContact"), w("immobile") * .7, enemyMechanic(["PATH_DENIAL", "CHANNEL"])),
+    DASH_DENIAL: highest(d("dashReliant"), w("conditionalMobility"), s("mobility") * .45),
+    GROUNDING: highest(d("dashReliant"), w("conditionalMobility"), s("mobility") * .45),
+    DISPLACEMENT: highest(d("channelDependent"), w("needsContact") * .7, enemyMechanic(["CHANNEL", "POSITIONAL_SWEETSPOT"])),
+    SUPPRESSION: highest(w("vulnCc"), w("fragileEntry"), w("conditionalMobility") * .75, s("mobility") * .5),
+    RELIABLE_CC: highest(w("vulnCc"), w("fragileEntry"), w("conditionalMobility") * .8, w("needsContact") * .45),
+    LONG_RANGE_CC: highest(w("immobile"), w("vulnCc"), w("vulnRange") * .6),
+    SILENCE: highest(d("channelDependent"), enemyMechanic(["CHANNEL"]), s("burst") * .35),
+    POLYMORPH: highest(w("fragileEntry"), w("needsContact"), s("dive") * .6, s("backlineAccess") * .6),
+    SLEEP_SETUP: highest(w("immobile"), w("vulnCc"), d("singleWindowDefense") * .5),
+    FORCED_BERSERK: highest(d("autoAttackDependent"), s("dps"), s("physicalDamage") * .35),
+    PERSISTENT_ZONE: highest(w("needsContact"), w("immobile") * .65, enemyMechanic(["CHANNEL", "FORCED_RETURN"])),
+    TRAP_CONTROL: highest(w("needsContact") * .7, w("immobile") * .5, s("engage") * .45),
+    ALLY_SAVE: highest(s("dive"), s("backlineAccess"), s("burst") * .7, s("pick") * .7),
+    RANGE_AMPLIFICATION: highest(w("needsContact"), w("vulnRange"), s("effectiveRange") < 5 ? 7 : 0),
+    BLINK: highest(enemyMechanic(["DASH_DENIAL", "TERRAIN_CREATION", "PATH_DENIAL"]), s("zone") * .45),
+    EXECUTE: highest(s("sustain") * .5, s("hp") * .35, w("lowDurability") * .4),
+    SHIELD_BREAK: highest(enemyMechanic(["ALLY_SAVE", "GLOBAL_SAVE", "ALLY_LINK"]), s("peel") * .55),
+    TRUE_DAMAGE: highest(s("defenses"), s("frontline") * .7),
+    PERCENT_HEALTH_DAMAGE: highest(s("hp"), s("frontline") * .7),
+    SINGLE_TARGET_AMPLIFICATION: highest(w("lowDurability"), w("vulnBurst"), s("frontline") < 4 ? 6 : 0),
+    DIRECTIONAL_DEFENSE: highest(d("singleWindowBurst"), s("burst") * .7, s("allIn") * .5),
+    ANTI_MAGIC: highest(s("magicDamage"), s("burst") * (s("magicDamage") / 10)),
+    TETHER: highest(w("needsContact"), w("immobile") * .6, s("effectiveRange") < 5 ? 5 : 0),
+    FORCED_RETURN: highest(enemyMechanic(["PERSISTENT_ZONE", "TRAP_CONTROL"]), s("zone") * .7, s("cc") * .45),
+  };
+  let value = values[mechanic.type] ?? 0;
+  if (mechanic.type === "DASH_DENIAL" && enemyMechanic(["BLINK"]) >= 8) value *= .15;
+  if (mechanic.requires === "DASH_DENIAL" && enemyMechanic(["BLINK"]) >= 8) value *= .15;
+  if (["TERRAIN_CREATION", "PATH_DENIAL"].includes(mechanic.type) && enemyMechanic(["BLINK"]) >= 8) value *= .35;
+  if (mechanic.type === "BLINK" && enemyMechanic(["GROUNDING"]) >= 8) value *= .2;
+  if (mechanic.type === "UNTARGETABLE") {
+    const exitPunish = enemyMechanic(["RELIABLE_CC", "STASIS", "PERSISTENT_ZONE", "TRAP_CONTROL", "FORCED_RETURN"]);
+    if (exitPunish >= 8) value *= .38;
+  }
+  return clamp(value, 0, 10);
+}
+
+function signatureDelivery(mechanic, attackerProfile, defenderProfile, context = {}) {
+  let delivery = clamp(mechanic.reliability / 10, .25, 1);
+  if (mechanic.accessRequired) {
+    const kitAccess = highest(profileStrength(attackerProfile, "gapClose"), profileStrength(attackerProfile, "backlineAccess"), profileStrength(attackerProfile, "mobility") * .65);
+    const practicalReach = Math.max(mechanic.reach, mechanic.reach + kitAccess * .25);
+    const targetRange = profileStrength(defenderProfile, "effectiveRange");
+    const targetProtection = highest(profileStrength(defenderProfile, "escape"), profileStrength(defenderProfile, "selfPeel"), profileStrength(defenderProfile, "antiDive"));
+    const rangePenalty = clamp((targetRange - practicalReach) / 8, 0, .6);
+    delivery *= (1 - rangePenalty) * (1 - targetProtection / 40);
+    const teamPeel = context.teamPeel ?? 0;
+    delivery *= 1 - clamp(teamPeel / 45, 0, .25);
+    if (mechanic.type === "RELIABLE_CC" && targetRange >= 8 && practicalReach <= 6.5) delivery = Math.min(delivery, .52);
+  }
+  if (["PROJECTILE_DENIAL", "PROJECTILE_REFLECTION", "OUTSIDE_ZONE_IMMUNITY", "ATTACK_EVASION", "BLIND", "REACTIVE_PARRY", "DIRECTIONAL_DEFENSE", "SPELL_SHIELD"].includes(mechanic.type)) {
+    delivery *= .75 + profileStrength(attackerProfile, "selfPeel") / 40;
+  }
+  if (mechanic.type === "REALM_ISOLATION") {
+    const ownDuel = highest(profileStrength(attackerProfile, "dps"), profileStrength(attackerProfile, "allIn"), profileStrength(attackerProfile, "longTrade"))
+      + (profileStrength(attackerProfile, "sustain") + profileStrength(attackerProfile, "defenses")) * .35;
+    const enemyDuel = highest(profileStrength(defenderProfile, "dps"), profileStrength(defenderProfile, "allIn"), profileStrength(defenderProfile, "longTrade"))
+      + (profileStrength(defenderProfile, "sustain") + profileStrength(defenderProfile, "defenses")) * .3;
+    delivery *= clamp(.82 + (ownDuel - enemyDuel) / 28, .45, 1.08);
+  }
+  return clamp(delivery, .12, 1);
+}
+
+function signaturePressure(attackerName, attackerProfile, defenderName, defenderProfile, signaturesByName, context = {}) {
+  const attackerMechanics = signaturesByName.get(attackerName) ?? [];
+  const defenderMechanics = signaturesByName.get(defenderName) ?? [];
+  const impactKey = context.kind === "draft" ? "draftImpact" : "laneImpact";
+  const contributions = [];
+  for (const mechanic of attackerMechanics) {
+    const affinity = signatureAffinity(mechanic, attackerProfile, defenderProfile, defenderMechanics);
+    if (affinity < 3.5) continue;
+    const delivery = signatureDelivery(mechanic, attackerProfile, defenderProfile, context);
+    const exceptional = ["REALM_ISOLATION", "PROJECTILE_REFLECTION", "OUTSIDE_ZONE_IMMUNITY", "DASH_DENIAL", "TERRAIN_CREATION"].includes(mechanic.type);
+    const scale = context.kind === "draft" ? 3.2 : 4.2;
+    const value = mechanic.power / 10 * mechanic[impactKey] / 10 * affinity / 10 * delivery * scale * (exceptional ? 1.12 : 1);
+    if (value < .18) continue;
+    contributions.push({
+      value: clamp(value, 0, 4.8), specific: true, signature: true, type: mechanic.type,
+      ability: `${attackerName} ${mechanic.slot} · ${mechanic.ability}`,
+      label: `${mechanic.label}: ${mechanic.note}`,
+      delivery: round(delivery * 100), affinity: round(affinity), target: defenderName,
+    });
+  }
+  return contributions.sort((a, b) => b.value - a.value);
+}
+
+function signatureTeamContributions(candidateName, candidateProfile, enemies, signaturesByName) {
+  if (!candidateName || !signaturesByName.size) return { positives: [], negatives: [] };
+  const positivePairs = [];
+  const negativePairs = [];
+  const candidateTypes = new Set((signaturesByName.get(candidateName) ?? []).map((row) => row.type));
+  for (const target of enemies) {
+    const otherPeel = enemies.filter((enemy) => enemy.name !== target.name).reduce((sum, enemy) => sum
+      + highest(profileStrength(enemy.profile, "peel"), profileStrength(enemy.profile, "disengage"), profileStrength(enemy.profile, "antiDive")) * .7
+      + profileStrength(enemy.profile, "frontline") * .2, 0);
+    positivePairs.push(...signaturePressure(candidateName, candidateProfile, target.name, target.profile, signaturesByName, { kind: "draft", teamPeel: otherPeel }));
+    const threats = signaturePressure(target.name, target.profile, candidateName, candidateProfile, signaturesByName, { kind: "draft" });
+    for (const threat of threats) {
+      if (candidateTypes.has("REALM_ISOLATION") && ["PERSISTENT_ZONE", "SUMMON", "EXTERNAL_OBJECT_DEPENDENCY", "ALLY_LINK", "ALLY_SAVE"].includes(threat.type)) {
+        threat.value *= .45;
+        threat.label += " O Realm remove parte do setup externo antes do duelo.";
+      }
+      negativePairs.push(threat);
+    }
+  }
+
+  const grouped = new Map();
+  for (const row of positivePairs) {
+    const key = `${row.ability}:${row.type}`;
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(row);
+  }
+  const positives = [...grouped.values()].map((rows) => {
+    rows.sort((a, b) => b.value - a.value);
+    const targets = [...new Set(rows.map((row) => row.target))];
+    const value = rows.reduce((sum, row, index) => sum + row.value * (SIGNATURE_DECAY[index] ?? 0), 0);
+    const lead = rows[0];
+    return {
+      value: clamp(value, 0, 4.5), signature: true, type: lead.type, targetCount: targets.length,
+      reason: `${lead.ability}: ${lead.label} Afeta ${targets.join(", ")} (${targets.length} alvo${targets.length === 1 ? "" : "s"}).`,
+      details: rows,
+    };
+  }).sort((a, b) => b.value - a.value);
+
+  const threatFamily = (row) => ["RELIABLE_CC", "SUPPRESSION", "POLYMORPH", "LONG_RANGE_CC", "SLEEP_SETUP"].includes(row.type) ? "RELIABLE_CONTROL" : row.type;
+  const groupedThreats = new Map();
+  for (const row of negativePairs) {
+    const key = threatFamily(row);
+    if (!groupedThreats.has(key)) groupedThreats.set(key, []);
+    groupedThreats.get(key).push(row);
+  }
+  const negatives = [...groupedThreats.values()].map((rows) => {
+    rows.sort((a, b) => b.value - a.value);
+    const family = threatFamily(rows[0]);
+    const baseValue = rows.reduce((sum, row, index) => sum + row.value * (SIGNATURE_DECAY[index] ?? 0), 0);
+    const chainMultiplier = family === "RELIABLE_CONTROL" && !candidateTypes.has("REALM_ISOLATION") ? 1 + Math.min(1.1, (rows.length - 1) * .55) : 1;
+    const value = baseValue * chainMultiplier;
+    const casters = [...new Set(rows.map((row) => row.ability.split(" · ")[0]))];
+    return {
+      value: -clamp(value, 0, 4.5), signature: true,
+      reason: `${rows[0].label} Ameaça combinada de ${casters.join(", ")} contra ${candidateName}.`,
+      details: rows,
+    };
+  }).sort((a, b) => a.value - b.value);
+  return { positives, negatives };
+}
+
 const lanePairs = [
   ["burst", "vulnBurst"], ["dps", "vulnDps"], ["antiTank", "vulnTank"], ["poke", "vulnPoke"],
   ["effectiveRange", "vulnRange"], ["shortTrade", "needsLongFight"], ["cc", "vulnCc"], ["waveclear", "vulnWave"],
@@ -168,13 +364,16 @@ const lanePairs = [
   ["backlineAccess", "vulnDive"], ["allIn", "lowDurability"], ["stickiness", "immobile"],
 ];
 
-function mechanicContributions(attacker, defender) {
+function mechanicContributions(attacker, defender, options = {}) {
   const groups = new Map();
   for (const rule of mechanicRules) {
+    const equivalents = LEGACY_SIGNATURE_EQUIVALENTS[rule.strength] ?? [];
+    if (equivalents.some((type) => options.signatureTypes?.has(type))) continue;
     const value = (attacker.mechanics?.strengths?.[rule.strength] ?? 0) * (defender.mechanics?.dependencies?.[rule.dependency] ?? 0) / 30 * rule.factor;
     if (value > 0 && (!groups.has(rule.group) || groups.get(rule.group).value < value)) groups.set(rule.group, { value, label: rule.label, specific: true });
   }
-  const reliableCc = attacker.mechanics?.strengths?.pointClickCc ?? 0;
+  const pointClickMapped = LEGACY_SIGNATURE_EQUIVALENTS.pointClickCc.some((type) => options.signatureTypes?.has(type));
+  const reliableCc = pointClickMapped ? 0 : (attacker.mechanics?.strengths?.pointClickCc ?? 0);
   if (reliableCc) {
     const ccExposure = Math.max(defender.weaknesses?.vulnCc ?? 0, defender.weaknesses?.fragileEntry ?? 0, (defender.weaknesses?.conditionalMobility ?? 0) * .8, (defender.weaknesses?.needsContact ?? 0) * .7);
     const value = reliableCc * ccExposure / 30 * 1.25;
@@ -183,8 +382,8 @@ function mechanicContributions(attacker, defender) {
   return [...groups.values()];
 }
 
-function lanePressure(attacker, defender) {
-  const contributions = mechanicContributions(attacker, defender);
+function lanePressure(attacker, defender, signatureRows = [], options = {}) {
+  const contributions = [...mechanicContributions(attacker, defender, options), ...signatureRows];
   const reliableCc = attacker.mechanics?.strengths?.pointClickCc ?? 0;
   for (const [strength, weakness] of lanePairs) {
     if (strength === "cc" && reliableCc) continue;
@@ -205,6 +404,14 @@ function lanePressure(attacker, defender) {
     structural: contributions.filter((item) => item.structural).reduce((sum, item) => sum + item.value, 0),
     contributions,
   };
+}
+
+function genericAccessDelivery(attacker, defender) {
+  const access = highest(profileStrength(attacker, "gapClose"), profileStrength(attacker, "backlineAccess"), profileStrength(attacker, "engage"), profileStrength(attacker, "mobility") * .65);
+  const castRange = profileStrength(attacker, "effectiveRange") * .45;
+  const spacing = profileStrength(defender, "effectiveRange") * .65;
+  const protection = highest(profileStrength(defender, "escape"), profileStrength(defender, "selfPeel"), profileStrength(defender, "antiDive")) * .35;
+  return clamp(.48 + (access + castRange - spacing - protection) / 15, .18, 1);
 }
 
 function evidenceMap(snapshot) {
@@ -229,9 +436,10 @@ function median(values) {
 }
 
 export class DraftEngine {
-  constructor(champions, matchupSnapshots) {
+  constructor(champions, matchupSnapshots, signatureCatalog = null) {
     this.champions = champions;
     this.byName = new Map(champions.map((champion) => [champion.name, champion]));
+    this.signaturesByName = new Map((signatureCatalog?.champions ?? []).map((champion) => [champion.champion, champion.mechanics]));
     this.evidence = {};
     this.populationBaseline = {};
     for (const lane of ["MID", "TOP"]) {
@@ -305,8 +513,20 @@ export class DraftEngine {
     const system = matchupRules.find((rule) => rule.candidate === variant.champion && rule.opponent === opponent);
     if (system?.severity === "HARDCOUNTERED") return { veto: true, reason: system.reason };
 
-    const own = lanePressure(variant.profile, opponentChampion.profile);
-    const enemy = lanePressure(opponentChampion.profile, variant.profile);
+    const ownSignatures = signaturePressure(variant.champion, variant.profile, opponent, opponentChampion.profile, this.signaturesByName, { kind: "lane" });
+    const enemySignatures = signaturePressure(opponent, opponentChampion.profile, variant.champion, variant.profile, this.signaturesByName, { kind: "lane" });
+    if (ownSignatures.some((row) => row.type === "REALM_ISOLATION" && row.affinity >= 8)) {
+      for (const threat of enemySignatures) {
+        if (!["PERSISTENT_ZONE", "SUMMON", "EXTERNAL_OBJECT_DEPENDENCY", "ALLY_LINK", "ALLY_SAVE"].includes(threat.type)) continue;
+        threat.value *= .45;
+        threat.label += " O Realm remove parte do setup externo antes do duelo.";
+      }
+      enemySignatures.sort((a, b) => b.value - a.value);
+    }
+    const ownOptions = { signatureTypes: new Set((this.signaturesByName.get(variant.champion) ?? []).map((row) => row.type)) };
+    const enemyOptions = { signatureTypes: new Set((this.signaturesByName.get(opponent) ?? []).map((row) => row.type)) };
+    const own = lanePressure(variant.profile, opponentChampion.profile, ownSignatures, ownOptions);
+    const enemy = lanePressure(opponentChampion.profile, variant.profile, enemySignatures, enemyOptions);
     const specific = clamp((own.specific - enemy.specific) * 1.8, -7, 7);
     const structural = clamp((own.structural - enemy.structural) * 1.8, -7, 7);
     const mechanical = clamp((own.total - enemy.total) * 1.8 + structural * .25, -7, 7);
@@ -342,6 +562,7 @@ export class DraftEngine {
       score, tier, confidence: stat?.reliability >= 0.55 ? "HIGH" : stat?.reliability >= 0.2 ? "MEDIUM" : "LOW", reasons, stat, mechanical, specific, structural,
       advantages: own.contributions.slice(0, 4).map((item) => ({ label: item.label, value: round(item.value) })),
       risks: enemy.contributions.slice(0, 4).map((item) => ({ label: item.label, value: round(item.value) })),
+      signatureAdvantages: ownSignatures.slice(0, 4), signatureRisks: enemySignatures.slice(0, 4),
     };
   }
 
@@ -374,9 +595,10 @@ export class DraftEngine {
     return { score: clamp(score, -10, 10), reasons };
   }
 
-  enemyCompScore(profile, enemyNames) {
+  enemyCompScore(profile, enemyNames, candidateName = "") {
     const enemies = enemyNames.map((name) => this.byName.get(name)).filter(Boolean);
     const interactions = [];
+    const candidateMechanicOptions = { signatureTypes: new Set((this.signaturesByName.get(candidateName) ?? []).map((row) => row.type)) };
     const rules = [
       { threat: "cc", answers: ["antiCc"], label: "anti-CC contra controle" },
       { threat: "engage", alternate: ["backlineAccess", "allIn"], answers: ["antiDive", "peel", "disengage", "defenses"], label: "resposta à entrada" },
@@ -392,27 +614,40 @@ export class DraftEngine {
         if (value > 0) interactions.push({ value, reason: `Contra ${enemy.name}: ${rule.label}.` });
       }
       const exposures = [
-        [Math.max(enemy.profile.strengths.poke ?? 0, enemy.profile.strengths.siege ?? 0), ["vulnPoke", "vulnRange", "immobile"], "poke/range dificulta a execução"],
-        [Math.max(enemy.profile.strengths.engage ?? 0, enemy.profile.strengths.backlineAccess ?? 0), ["vulnEngage", "fragileEntry"], "engage pune a entrada"],
-        [enemy.profile.strengths.cc ?? 0, ["vulnCc", "fragileEntry", "needsContact"], "controle interrompe a execução"],
+        [Math.max(enemy.profile.strengths.poke ?? 0, enemy.profile.strengths.siege ?? 0) * clamp(.45 + ((enemy.profile.strengths.effectiveRange ?? 0) - (profile.strengths.effectiveRange ?? 0)) / 8, .15, 1), ["vulnPoke", "vulnRange", "immobile"], "poke/range dificulta a execução"],
+        [Math.max(enemy.profile.strengths.engage ?? 0, enemy.profile.strengths.backlineAccess ?? 0) * genericAccessDelivery(enemy.profile, profile), ["vulnEngage", "fragileEntry"], "engage pune a entrada"],
+        [(enemy.profile.strengths.cc ?? 0) * (this.signaturesByName.size ? .4 + genericAccessDelivery(enemy.profile, profile) * .35 : 1), ["vulnCc", "fragileEntry", "needsContact"], "controle interrompe a execução"],
         [Math.max(enemy.profile.strengths.disengage ?? 0, enemy.profile.strengths.peel ?? 0, enemy.profile.strengths.mobility ?? 0), ["vulnKite", "vulnDisengage", "needsContact"], "kite nega contato"],
       ];
       for (const [threat, risks, label] of exposures) {
         const risk = Math.max(0, ...risks.map((tag) => profile.weaknesses[tag] ?? 0));
         if (threat * risk > 0) interactions.push({ value: -threat * risk / 30, reason: `Contra ${enemy.name}: ${label}.` });
       }
-      for (const interaction of mechanicContributions(profile, enemy.profile)) {
+      for (const interaction of mechanicContributions(profile, enemy.profile, candidateMechanicOptions)) {
         interactions.push({ value: interaction.value, reason: `Contra ${enemy.name}: ${interaction.label}.` });
       }
-      for (const interaction of mechanicContributions(enemy.profile, profile)) {
+      const enemyMechanicOptions = { signatureTypes: new Set((this.signaturesByName.get(enemy.name) ?? []).map((row) => row.type)) };
+      for (const interaction of mechanicContributions(enemy.profile, profile, enemyMechanicOptions)) {
         interactions.push({ value: -interaction.value, reason: `Contra ${enemy.name}: ${interaction.label}.` });
+      }
+    }
+    const signatures = signatureTeamContributions(candidateName, profile, enemies, this.signaturesByName);
+    interactions.push(...signatures.positives, ...signatures.negatives);
+    const flexibleRealm = signatures.positives.find((row) => row.type === "REALM_ISOLATION" && row.targetCount >= 3);
+    if (flexibleRealm) {
+      for (const interaction of interactions) {
+        if (interaction.value < 0 && !interaction.signature) interaction.value *= .78;
       }
     }
     const positives = interactions.filter((row) => row.value > 0).sort((a, b) => b.value - a.value).slice(0, 2);
     const negatives = interactions.filter((row) => row.value < 0).sort((a, b) => a.value - b.value).slice(0, 2);
     const weighted = (rows) => rows.reduce((sum, row, index) => sum + row.value * [1, 0.35][index], 0);
     const score = (weighted(positives) + weighted(negatives)) * 2;
-    return { score: clamp(score, -10, 10), reasons: [...positives, ...negatives].map((row) => row.reason) };
+    return {
+      score: clamp(score, -10, 10), reasons: [...positives, ...negatives].map((row) => row.reason),
+      signatureAdvantages: positives.filter((row) => row.signature).flatMap((row) => row.details ?? []).slice(0, 6),
+      signatureRisks: negatives.filter((row) => row.signature).flatMap((row) => row.details ?? []).slice(0, 6),
+    };
   }
 
   allyCompScore(profile, allyNames, enemyNames) {
@@ -460,7 +695,7 @@ export class DraftEngine {
       } : null },
     };
     const jungle = this.jungleScore(variant.profile, draft.ally.JUNGLE, draft.enemy.JUNGLE);
-    const enemyComp = this.enemyCompScore(variant.profile, Object.values(draft.enemy).filter(Boolean));
+    const enemyComp = this.enemyCompScore(variant.profile, Object.values(draft.enemy).filter(Boolean), variant.champion);
     const allyComp = this.allyCompScore(variant.profile, Object.values(draft.ally).filter(Boolean), Object.values(draft.enemy).filter(Boolean));
     const retention = this.executionRetention(variant.profile, lane.score, lane.tier);
     const adjustedEnemy = enemyComp.score > 0 ? enemyComp.score * retention : enemyComp.score;
@@ -481,9 +716,14 @@ export class DraftEngine {
       },
       matchupDetails: {
         opponent: draft.enemy[draft.lane] || "Laner oculto", score: round(lane.score), impact: round(scoreWeights.laneMatchup * lane.score), tier: lane.tier,
-        confidence: lane.confidence, blind: Boolean(lane.blind), advantages: lane.advantages ?? [], risks: lane.risks ?? [], evidence: lane.stat ? {
+        confidence: lane.confidence, blind: Boolean(lane.blind), advantages: lane.advantages ?? [], risks: lane.risks ?? [],
+        signatureAdvantages: lane.signatureAdvantages ?? [], signatureRisks: lane.signatureRisks ?? [], evidence: lane.stat ? {
           delta2: round(lane.stat.delta2), reliability: round(lane.stat.reliability * 100), currentGames: lane.stat.currentGames, stableGames: lane.stat.stableGames,
         } : null,
+      },
+      mechanicDetails: {
+        advantages: [...(lane.signatureAdvantages ?? []), ...(enemyComp.signatureAdvantages ?? [])].slice(0, 8),
+        risks: [...(lane.signatureRisks ?? []), ...(enemyComp.signatureRisks ?? [])].slice(0, 8),
       },
       reasons: [...lane.reasons, ...(retention < 0.9 ? [`A matchup limita bônus positivos de composição a ${round(retention * 100)}%.`] : []), ...jungle.reasons, ...enemyComp.reasons, ...allyComp.reasons].slice(0, 9),
     };

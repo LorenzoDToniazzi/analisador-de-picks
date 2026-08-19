@@ -92,7 +92,7 @@ Este arquivo lista somente habilidades que alteram de forma material uma matchup
 |  | W · Allure | Amplificação contra alvo isolado ou marcado | 7 | 9 | 7/10 · alcance 7/10 · cobertura 1/5 | Charm carregado revela a direção de Evelynn e reduz resistências; ativação precoce troca controle por surpresa. |
 |  | R · Last Caress | Intargetabilidade | 8 | 9 | 8/10 · alcance 4/10 · cobertura 3/5 | Execute em área torna Evelynn inalvejável e a reposiciona para trás, negando resposta imediata. |
 | Ezreal | Q · Mystic Shot | Zona de acerto ou posição específica | 10 | 8 | 6/10 · alcance 9/10 · cobertura 2/5 | DPS e redução de cooldown dependem de acertar skillshots bloqueáveis; frontline e minions alteram alvo. |
-|  | E · Arcane Shift | Travessia de terreno | 9 | 8 | 8/10 · alcance 5/10 · cobertura 1/5 | Blink curto prioriza alvo marcado, oferecendo escape contra trajetórias mas sofrendo com grounding. |
+|  | E · Arcane Shift | Blink ou teleporte instantâneo | 9 | 8 | 9/10 · alcance 5/10 · cobertura 1/5 | Blink curto prioriza alvo marcado e atravessa terreno; grounding impede o cast, mas anti-dash comum não o interrompe. |
 |  | R · Trueshot Barrage | Dano global ou semiglobal | 5 | 8 | 6/10 · alcance 10/10 · cobertura 5/5 | Projétil global atravessa unidades e afeta waves/lutas, mas é telegráfico e perde dano por alvo. |
 | Fiddlesticks | P · A Harmless Scarecrow | Negação de visão | 5 | 9 | 8/10 · alcance 6/10 · cobertura 4/5 | Effigies combinam ward e sweeper após nível, habilitando medo fora de visão. |
 |  | W · Bountiful Harvest | Canalização central | 9 | 9 | 6/10 · alcance 3/10 · cobertura 5/5 | Drain em área cura e executa no final; interrupção antes do último tick remove grande parte do valor. |
@@ -164,10 +164,11 @@ Este arquivo lista somente habilidades que alteram de forma material uma matchup
 | Karthus | P · Death Defied | Atuação após a morte | 7 | 10 | 9/10 · alcance 4/10 · cobertura 5/5 | Continua lançando por alguns segundos após morrer e torna-se inalvejável; matar no centro da equipe ainda pode favorecer Karthus. |
 |  | R · Requiem | Dano global ou semiglobal | 5 | 8 | 8/10 · alcance 10/10 · cobertura 5/5 | Dano global em todos os vivos após canal; stasis, escudo, cura e interrupção antes da morte respondem. |
 |  | R · Requiem | Canalização central | 6 | 8 | 8/10 · alcance 7/10 · cobertura 4/5 | O canal visível cria janela de interrupção se Karthus estiver vivo e acessível. |
-| Kassadin | R · Riftwalk | Travessia de terreno | 10 | 9 | 8/10 · alcance 6/10 · cobertura 1/5 | Blink de cooldown baixo acumula custo e dano; mana e grounding limitam quantos reposicionamentos existem. |
+| Kassadin | R · Riftwalk | Blink ou teleporte instantâneo | 10 | 9 | 9/10 · alcance 6/10 · cobertura 1/5 | Blink de cooldown baixo acumula custo e dano; mana e grounding limitam reposicionamentos, anti-dash comum não interrompe. |
 |  | P · Void Stone | Defesa especialmente eficiente contra magia | 10 | 7 | 9/10 · alcance 0/10 · cobertura 1/5 | Redução de dano mágico e ghosting favorecem lanes AP e trânsito por wave; matchups AD ignoram a principal defesa. |
 | Katarina | P · Voracity | Reset de abate | 5 | 10 | 6/10 · alcance 5/10 · cobertura 5/5 | Takedowns reduzem drasticamente cooldowns e permitem limpar lutas; negar o primeiro abate é mais valioso que CC tardio. |
 |  | P · Voracity | Dependência de objetos externos | 10 | 7 | 7/10 · alcance 5/10 · cobertura 3/5 | Adagas no chão definem dano e rotas de Shunpo; zonear o ponto de queda prevê a próxima posição. |
+|  | E · Shunpo | Blink ou teleporte instantâneo | 10 | 8 | 9/10 · alcance 6/10 · cobertura 1/5 | Shunpo teleporta para unidade ou adaga; grounding impede o cast, enquanto anti-dash comum não interrompe o deslocamento. |
 |  | R · Death Lotus | Canalização central | 9 | 8 | 6/10 · alcance 2/10 · cobertura 5/5 | Ultimate em área é interrompida por hard CC/silêncio e exige entrada corporal. |
 | Kayle | P · Divine Ascent | Mudança de forma ou arsenal | 7 | 10 | 7/10 · alcance 0/10 · cobertura 1/5 | Níveis 6/11/16 alteram alcance e área; pressão precoce e tempo de escala mudam completamente o draft. |
 |  | R · Divine Judgment | Invulnerabilidade | 7 | 10 | 8/10 · alcance 6/10 · cobertura 4/5 | Torna a si ou aliado invulnerável e depois causa dano em área; força espera e nega execução. |
@@ -199,6 +200,7 @@ Este arquivo lista somente habilidades que alteram de forma material uma matchup
 | Lissandra | R · Frozen Tomb | Controle confiável | 10 | 10 | 9/10 · alcance 5/10 · cobertura 4/5 | No inimigo é stun point-and-click; em si mesma é stasis e cura. A escolha muda engage, anti-dive e sobrevivência. |
 |  | R · Frozen Tomb | Stasis | 7 | 10 | 7/10 · alcance 8/10 · cobertura 4/5 | Autocast nega burst e cria zona; o inimigo pode esperar e cercar a saída. |
 |  | P · Iceborn Subjugation | Unidade invocada | 8 | 9 | 8/10 · alcance 5/10 · cobertura 5/5 | Inimigos mortos próximos viram thralls explosivos, aumentando muito luta em sequência e espaços apertados. |
+|  | E · Glacial Path | Blink ou teleporte instantâneo | 8 | 8 | 9/10 · alcance 8/10 · cobertura 1/5 | Recast teleporta Lissandra à garra; o destino é visível e pode ser preparado com CC ou zona. |
 | Locke | E · Ashen Pursuit | Perseguição ou recast em alvo marcado | 8 | 7 | 7/10 · alcance 6/10 · cobertura 1/5 | Teleporta e então atravessa o próximo alvo, criando acesso condicionado e posição final previsível. |
 |  | R · Purgatory | Execução | 8 | 8 | 8/10 · alcance 6/10 · cobertura 1/5 | Artefato vincula, causa dano e pode selar campeões em limiar, concedendo poder adicional; negar a finalização limita escala. |
 | Lucian | P · Lightslinger | Ataques com regra própria | 10 | 6 | 10/10 · alcance 6/10 · cobertura 1/5 | Após habilidade dispara dois ataques e interage com buffs aliados; blind/evasão e falta de janela corporal reduzem combo. |
@@ -327,6 +329,7 @@ Este arquivo lista somente habilidades que alteram de forma material uma matchup
 |  | R · The Show Stopper | Deslocamento | 8 | 8 | 7/10 · alcance 3/10 · cobertura 5/5 | Ultimate point-and-click carrega alvo e causa dano por vida bônus em área; tanque inimigo pode virar projétil contra a própria backline. |
 |  | E · Facebreaker | Zona de acerto ou posição específica | 9 | 7 | 6/10 · alcance 5/10 · cobertura 3/5 | Só atordoa se puxar inimigos dos dois lados; formação e minions habilitam. |
 | Shaco | Q · Deceive | Invisibilidade | 8 | 8 | 8/10 · alcance 7/10 · cobertura 1/5 | Blink com invisibilidade cria ângulos não vistos; control ward não revela invisibilidade, mas AoE/reveal verdadeiro sim. |
+|  | Q · Deceive | Blink ou teleporte instantâneo | 9 | 8 | 9/10 · alcance 7/10 · cobertura 1/5 | O deslocamento instantâneo atravessa terreno e não é parado por anti-dash comum; grounding impede o cast. |
 |  | W · Jack In The Box | Armadilhas e preparação de terreno | 8 | 9 | 6/10 · alcance 8/10 · cobertura 4/5 | Boxes invisíveis causam fear e zoneiam rotas, mas precisam armar e morrem para reveal/AoE. |
 |  | R · Hallucinate | Clone e engano | 9 | 7 | 6/10 · alcance 3/10 · cobertura 3/5 | Fica brevemente inalvejável e cria clone explosivo; disciplina, marca persistente e AoE identificam. |
 | Shen | W · Spirit's Refuge | Evasão de ataques | 9 | 10 | 9/10 · alcance 2/10 · cobertura 4/5 | Zona ao redor da espada bloqueia ataques contra aliados dentro; spell damage e espera respondem. |
@@ -448,6 +451,7 @@ Este arquivo lista somente habilidades que alteram de forma material uma matchup
 |  | E · Elastic Slingshot | Canalização central | 6 | 8 | 6/10 · alcance 10/10 · cobertura 5/5 | Carga de enorme alcance pode vir de fog, mas é interrompível e o destino é telegráfico. |
 |  | Q · Stretching Strikes | Deslocamento | 8 | 8 | 7/10 · alcance 6/10 · cobertura 3/5 | Liga duas unidades e as bate; minion, ward ou summon habilita segunda âncora. |
 | Zed | W · Living Shadow | Dependência de objetos externos | 10 | 9 | 7/10 · alcance 8/10 · cobertura 3/5 | Sombras duplicam Q/E e oferecem troca de posição; rastrear sombra/cooldown define alcance e fuga. |
+|  | W · Living Shadow | Blink ou teleporte instantâneo | 10 | 8 | 9/10 · alcance 8/10 · cobertura 1/5 | Trocar com a sombra é blink, não dash: grounding impede o cast, mas Poppy W e efeitos que só param dash não interrompem. |
 |  | R · Death Mark | Intargetabilidade | 10 | 8 | 8/10 · alcance 6/10 · cobertura 1/5 | Fica inalvejável no início e aparece atrás do alvo, deixando sombra de retorno; CC/zona na saída e stasis negam. |
 |  | R · Death Mark | Amplificação de dano recebido | 8 | 8 | 7/10 · alcance 6/10 · cobertura 3/5 | Marca repete parte do dano da janela; shield, cura, stasis e negar follow-up reduzem. |
 | Zeri | Q · Burst Fire | Ataques com regra própria | 10 | 6 | 10/10 · alcance 7/10 · cobertura 1/5 | Ataque básico é skillshot e Q funciona como ataque; blind interage diferente, bodyblock e projectile denial importam. |

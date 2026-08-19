@@ -5,7 +5,7 @@ const data = JSON.parse(fs.readFileSync(new URL("../app/data/signature-mechanics
 
 assert.equal(data.metadata.championCount, 173, "o catálogo deve cobrir todos os 173 campeões do patch");
 assert.equal(data.champions.length, 173, "quantidade de campeões inconsistente");
-assert.equal(data.metadata.mechanicEntryCount, 459, "quantidade de mecânicas mudou: revisar o catálogo e atualizar o teste conscientemente");
+assert.equal(data.metadata.mechanicEntryCount, 463, "quantidade de mecânicas mudou: revisar o catálogo e atualizar o teste conscientemente");
 
 const championNames = new Set();
 for (const champion of data.champions) {
@@ -39,6 +39,7 @@ for (const required of [
   ["Fiora", "W", "REACTIVE_PARRY"],
   ["Gwen", "W", "OUTSIDE_ZONE_IMMUNITY"],
   ["Mel", "W", "PROJECTILE_REFLECTION"],
+  ["Zed", "W", "BLINK"],
 ]) {
   const [name, slot, type] = required;
   const champion = data.champions.find((row) => row.champion === name);

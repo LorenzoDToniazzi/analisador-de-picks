@@ -6,7 +6,7 @@ O objetivo é recomendar campeões cadastrados na pool do usuário ou, quando ne
 
 ## Estado atual
 
-A base de pesquisa, validação e aplicação v1.1 contém:
+A base de pesquisa, validação e aplicação v1.3 contém:
 
 - aplicação estática utilizável no navegador, sem backend;
 - cadastro local de pool por campeão e rota;
@@ -16,6 +16,9 @@ A base de pesquisa, validação e aplicação v1.1 contém:
 - draft Mid/Top completo ou incompleto e ranking de todas as variantes habilitadas;
 - modo `Todos da rota` ao desmarcar as três pools, usando builds padrão e afinidade/conforto zerados;
 - painel 1v1 por resultado, com evidência, vantagens e riscos da matchup isolada;
+- 463 assinaturas de habilidades centrais para os 173 campeões, com alcance, entrega, afinidade e cobertura contextual;
+- painel específico de habilidades mostrando por que cada mecânica foi ativada e sua entrega estimada;
+- distinção entre dash e blink, controle disponível e controle realmente alcançável, além de neutralizações como Realm contra setup externo;
 - mecânicas de itens incorporadas ao perfil final das builds customizadas;
 - overrides pessoais de matchup por variante;
 - persistência automática, limpeza e importação/exportação JSON;
@@ -70,6 +73,8 @@ O fluxo do produto começa sem pool. Cadastre um campeão em Mid ou Top, mantenh
 - [Modelo híbrido de builds e MVP v0.9](docs/modelo-builds-e-mvp-v0.9.md)
 - [Perfis 0-10, builds comparativas e trava de execução v1.0](docs/modelo-perfis-builds-v1.0.md)
 - [Revisão de mecânicas, itens e painel 1v1 v1.1](docs/revisao-mecanicas-matchup-v1.1.md)
+- [Mapeamento completo de mecânicas centrais v1.3](docs/mapeamento-mecanicas-centrais-v1.3.md)
+- [Avaliação e integração das mecânicas v1.3](docs/avaliacao-e-integracao-mecanicas-v1.3.md)
 
 ## Princípios
 

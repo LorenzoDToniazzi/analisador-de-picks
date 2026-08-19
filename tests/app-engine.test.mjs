@@ -5,6 +5,7 @@ import { BUILD_TAGS, DraftEngine, RISK_TAGS, inferBuildProfile, resolveBuildProf
 const json = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url), "utf8"));
 const championData = json("../app/data/champions.json");
 const itemData = json("../app/data/items.json");
+const signatureData = json("../app/data/signature-mechanics.json");
 const snapshots = {
   MID: {
     current: json("../data/midlane-matchups-diamond-26.16.json"),
@@ -18,7 +19,7 @@ const snapshots = {
   },
 };
 
-const engine = new DraftEngine(championData.champions, snapshots);
+const engine = new DraftEngine(championData.champions, snapshots, signatureData);
 const byName = new Map(championData.champions.map((champion) => [champion.name, champion]));
 const itemsByName = new Map(itemData.items.map((item) => [item.name, item]));
 const baseDraft = {
@@ -129,5 +130,54 @@ const offMetaState = {
 const nidaleeResult = engine.rank(baseDraft, offMetaState)[0];
 assert.ok(["SCORED", "HARDCOUNTERED"].includes(nidaleeResult.status), "off-meta cadastrado deve ser considerado sem filtro de função");
 assert.ok(!nidaleeResult.reason?.includes("não possui baseline"), "cadastro explícito não recebe penalidade genérica de rota");
+
+const signatureDiscoveryState = {
+  pools: [], builds: [], overrides: [],
+  settings: { enabledPools: { principal: false, secundaria: false, laboratorio: false } },
+};
+const aniviaMechanicDraft = {
+  lane: "MID",
+  ally: { TOP: "Zaahen", JUNGLE: "Nidalee", MID: "", BOTTOM: "Tristana", SUPPORT: "Rell" },
+  enemy: { TOP: "Sett", JUNGLE: "Nunu & Willump", MID: "Vex", BOTTOM: "Samira", SUPPORT: "Pantheon" },
+};
+const aniviaMechanicResults = engine.rank(aniviaMechanicDraft, signatureDiscoveryState);
+const aniviaMechanicResult = aniviaMechanicResults.find((row) => row.champion === "Anivia");
+assert.ok(aniviaMechanicResult.score >= 70, "parede e zona da Anivia devem tirá-la da avaliação apenas mediana contra composição curta");
+assert.ok(aniviaMechanicResult.mechanicDetails.advantages.some((row) => row.type === "TERRAIN_CREATION" && row.target === "Nunu & Willump"), "Anivia W deve reconhecer e explicar a interrupção da rota do Nunu");
+
+const mordekaiserMechanicDraft = {
+  lane: "TOP",
+  ally: { TOP: "", JUNGLE: "Rammus", MID: "Akshan", BOTTOM: "Seraphine", SUPPORT: "Alistar" },
+  enemy: { TOP: "Illaoi", JUNGLE: "Volibear", MID: "Galio", BOTTOM: "Kalista", SUPPORT: "Shen" },
+};
+const mordekaiserMechanicResults = engine.rank(mordekaiserMechanicDraft, signatureDiscoveryState);
+const mordekaiserMechanicResult = mordekaiserMechanicResults.find((row) => row.champion === "Mordekaiser");
+assert.equal(mordekaiserMechanicResults[0].champion, "Mordekaiser", "Realm deve tornar Mordekaiser a melhor recomendação no draft de Illaoi sem resposta de duelo");
+assert.ok(mordekaiserMechanicResult.matchupDetails.signatureAdvantages.some((row) => row.type === "REALM_ISOLATION" && row.target === "Illaoi"), "Mordekaiser R deve registrar que remove o setup externo da Illaoi");
+assert.ok(mordekaiserMechanicResult.mechanicDetails.advantages.filter((row) => row.type === "REALM_ISOLATION").length >= 3, "Realm deve valorizar flexibilidade de isolamento contra vários alvos dependentes do time");
+
+const pantheonVsXerath = engine.laneScore({ id: "pantheon-xerath", champion: "Pantheon", kind: "DEFAULT", profile: byName.get("Pantheon").profile }, "Xerath", "MID", []);
+const pantheonVsIrelia = engine.laneScore({ id: "pantheon-irelia", champion: "Pantheon", kind: "DEFAULT", profile: byName.get("Pantheon").profile }, "Irelia", "MID", []);
+const pantheonWDelivery = (row) => row.signatureAdvantages.find((mechanic) => mechanic.ability.startsWith("Pantheon W"))?.delivery ?? 0;
+assert.ok(pantheonWDelivery(pantheonVsXerath) < pantheonWDelivery(pantheonVsIrelia), "point-and-click curto deve perder entrega contra backline de longo alcance");
+
+const poppyVsZed = engine.laneScore({ id: "poppy-zed", champion: "Poppy", kind: "DEFAULT", profile: byName.get("Poppy").profile }, "Zed", "TOP", []);
+const poppyVsIrelia = engine.laneScore({ id: "poppy-irelia", champion: "Poppy", kind: "DEFAULT", profile: byName.get("Poppy").profile }, "Irelia", "TOP", []);
+assert.ok(!poppyVsZed.signatureAdvantages.some((row) => row.type === "DASH_DENIAL"), "Poppy W não pode tratar o blink do Zed como dash interrompível");
+assert.ok(poppyVsIrelia.signatureAdvantages.some((row) => row.type === "DASH_DENIAL" && row.affinity >= 9), "Poppy W deve manter valor máximo contra dash real e repetido da Irelia");
+
+const lissandraVsZed = engine.laneScore({ id: "lissandra-zed-signature", champion: "Lissandra", kind: "DEFAULT", profile: byName.get("Lissandra").profile }, "Zed", "MID", []);
+const lissandraControl = lissandraVsZed.signatureAdvantages.find((row) => row.type === "RELIABLE_CC")?.value ?? 0;
+const zedUntargetable = lissandraVsZed.signatureRisks.find((row) => row.type === "UNTARGETABLE")?.value ?? 0;
+assert.ok(lissandraControl > zedUntargetable, "intargetabilidade curta não pode superar CC que espera e pune a reaparição do Zed");
+
+const vayneIntoControl = mordekaiserMechanicResults.find((row) => row.champion === "Vayne");
+assert.ok(vayneIntoControl.reasons.some((reason) => reason.includes("Ameaça combinada") && reason.includes("Shen") && reason.includes("Volibear")), "múltiplas fontes confiáveis de CC devem ser avaliadas como cadeia, não truncadas isoladamente");
+
+const mordekaiserBaseLane = engine.laneScore({ id: "morde-base", champion: "Mordekaiser", kind: "DEFAULT", profile: byName.get("Mordekaiser").profile }, "Illaoi", "TOP", []);
+const glassMordekaiserProfile = resolveBuildProfile(byName.get("Mordekaiser").profile, { strengths: { dps: -3, defenses: -3, sustain: -3 }, weaknesses: { fragileEntry: 3 } });
+const mordekaiserGlassLane = engine.laneScore({ id: "morde-glass", champion: "Mordekaiser", kind: "CUSTOM", profile: glassMordekaiserProfile }, "Illaoi", "TOP", []);
+const realmDelivery = (row) => row.signatureAdvantages.find((mechanic) => mechanic.type === "REALM_ISOLATION")?.delivery ?? 0;
+assert.ok(realmDelivery(mordekaiserBaseLane) > realmDelivery(mordekaiserGlassLane), "a mesma skill deve perder valor quando a build não sustenta o duelo que ela cria");
 
 console.log("app-engine: perfis 0-10, builds negativas e regressões de matchup passaram");

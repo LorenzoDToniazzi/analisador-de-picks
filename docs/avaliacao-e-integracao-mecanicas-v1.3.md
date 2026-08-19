@@ -3,8 +3,8 @@
 ## Resultado
 
 - 173 campeões cobertos.
-- 459 assinaturas de habilidades que alteram matchup ou draft.
-- 82 tipos de interação reutilizáveis.
+- 463 assinaturas de habilidades que alteram matchup ou draft.
+- 83 tipos de interação reutilizáveis.
 - Cada entrada contém habilidade, categoria, impacto de lane, impacto de draft, confiabilidade, alcance prático, cobertura, necessidade de acesso, formas de exploração e respostas.
 - O texto oficial do Data Dragon fica anexado à entrada para auditoria; a avaliação em português é a interpretação de draft.
 
@@ -108,10 +108,13 @@ Esses casos devem gerar ressalva visível e ficar disponíveis para override de 
 - `scripts/build-signature-mechanics.mjs`: fonte curada e gerador.
 - `tests/signature-mechanics.test.mjs`: cobertura, faixas e regressões críticas.
 
-## Próxima integração segura
+## Integração implementada
 
-1. Exibir as assinaturas no painel de matchup sem mudar nota.
-2. Calcular `delivery` e mostrar a decomposição para 10 drafts conhecidos.
-3. Ativar apenas cinco famílias inicialmente: terreno/path, dash denial, projectile denial/reflection, outside-zone immunity e realm isolation.
-4. Comparar o ranking antes/depois nos casos Anivia, Mordekaiser, Jhin e em drafts nos quais o ranking atual já estava correto.
-5. Só então liberar as demais famílias no score.
+1. As assinaturas aparecem em um painel próprio com habilidade, alvo, afinidade e entrega estimada.
+2. Lane e composição consomem a mesma base, mas usam `laneImpact` e `draftImpact` separadamente.
+3. Cobertura contra vários inimigos usa retorno decrescente; múltiplas camadas de controle confiável recebem efeito de cadeia.
+4. Dash e blink são distintos. Grounding impede o cast do blink, enquanto anti-dash comum não o interrompe.
+5. Mecânicas condicionais registram pré-requisitos; o grounding da Poppy só existe após o W bloquear um dash real.
+6. Realm reduz setup externo, evita somar toda a cadeia de controle dos quatro campeões removidos e testa se a build sustenta o duelo.
+7. O valor de point-and-click passa por alcance, acesso, autoproteção e peel antes de alterar a nota.
+8. Hardcounter continua fora dessa camada: assinatura contextual altera score e explicação, mas não cria veto sozinha.
