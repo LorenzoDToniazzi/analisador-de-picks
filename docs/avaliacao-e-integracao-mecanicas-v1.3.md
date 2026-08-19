@@ -4,7 +4,7 @@
 
 - 173 campeões cobertos.
 - 459 assinaturas de habilidades que alteram matchup ou draft.
-- 78 tipos de interação reutilizáveis.
+- 82 tipos de interação reutilizáveis.
 - Cada entrada contém habilidade, categoria, impacto de lane, impacto de draft, confiabilidade, alcance prático, cobertura, necessidade de acesso, formas de exploração e respostas.
 - O texto oficial do Data Dragon fica anexado à entrada para auditoria; a avaliação em português é a interpretação de draft.
 
