@@ -1,0 +1,28 @@
+{
+  "$schemaNote": "Fixture de validação. Não é carregada como pool padrão pelo aplicativo.",
+  "lane": "MID",
+  "enabledPools": ["principal", "secundaria", "laboratorio"],
+  "entries": [
+    { "champion": "Zed", "pool": "principal", "comfort": 5 },
+    { "champion": "Irelia", "pool": "principal", "comfort": 5 },
+    { "champion": "Gragas", "pool": "principal", "comfort": 5 },
+    { "champion": "Pantheon", "pool": "principal", "comfort": 5 },
+    { "champion": "Tahm Kench", "pool": "principal", "comfort": 5 },
+    { "champion": "Jax", "pool": "principal", "comfort": 5 },
+    { "champion": "Olaf", "pool": "principal", "comfort": 5 },
+    { "champion": "Vladimir", "pool": "principal", "comfort": 4 },
+    { "champion": "Diana", "pool": "principal", "comfort": 4 },
+    { "champion": "Akali", "pool": "principal", "comfort": 4 },
+    { "champion": "Gangplank", "pool": "principal", "comfort": 4 },
+    { "champion": "Xerath", "pool": "secundaria", "comfort": 3 },
+    { "champion": "Cassiopeia", "pool": "secundaria", "comfort": 3 },
+    { "champion": "Anivia", "pool": "secundaria", "comfort": 3 },
+    { "champion": "LeBlanc", "pool": "secundaria", "comfort": 3 },
+    { "champion": "Qiyana", "pool": "secundaria", "comfort": 3 },
+    { "champion": "Aatrox", "pool": "secundaria", "comfort": 3 },
+    { "champion": "Yasuo", "pool": "secundaria", "comfort": 3 },
+    { "champion": "Elise", "pool": "laboratorio", "comfort": 2 },
+    { "champion": "Nidalee", "pool": "laboratorio", "comfort": 2 },
+    { "champion": "Rumble", "pool": "laboratorio", "comfort": 2 }
+  ]
+}

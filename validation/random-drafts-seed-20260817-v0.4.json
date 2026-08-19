@@ -1,0 +1,5829 @@
+{
+  "metadata": {
+    "seed": 20260817,
+    "patch": "26.16",
+    "tier": "Diamond+",
+    "lane": "MID",
+    "poolFixtureOnly": true,
+    "warning": "Protótipo heurístico v0.4. Só pontua interações aplicáveis ao draft; não representa win rate."
+  },
+  "selfChecks": [
+    {
+      "rule": "Hardcounter confirmado na lane não recebe nota",
+      "passed": true
+    },
+    {
+      "rule": "Veto pode ser específico da build",
+      "passed": true
+    },
+    {
+      "rule": "Blind da própria lane pesa mais que quatro slots desconhecidos fora dela",
+      "passed": true,
+      "values": {
+        "ownLaneBlind": 5.87,
+        "fourOtherUnknowns": 4.4
+      }
+    },
+    {
+      "rule": "Draft inimigo completo não gera bônus nem penalidade de blind",
+      "passed": true
+    },
+    {
+      "rule": "Perfil versátil sem resposta aplicável não ganha nota de composição",
+      "passed": true,
+      "values": {
+        "score": 0
+      }
+    },
+    {
+      "rule": "Adicionar capacidade irrelevante não altera a nota",
+      "passed": true,
+      "values": {
+        "enemyComp": 0,
+        "allyComp": 0
+      }
+    },
+    {
+      "rule": "Somente as duas necessidades aliadas críticas entram no cálculo",
+      "passed": true,
+      "values": {
+        "criticalNeeds": [
+          "waveclear contra o siege inimigo",
+          "alcance para iniciar sobre o poke inimigo"
+        ]
+      }
+    },
+    {
+      "rule": "Todas as entradas habilitadas permanecem na lista",
+      "passed": true,
+      "values": {
+        "expected": 21
+      }
+    },
+    {
+      "rule": "Desabilitar uma categoria a remove da avaliação",
+      "passed": true
+    }
+  ],
+  "simulations": [
+    {
+      "id": 1,
+      "visibleDraft": {
+        "allies": [
+          "Yone",
+          "Warwick",
+          "Zeri",
+          "Leona"
+        ],
+        "enemies": [
+          "Tahm Kench",
+          "Vi",
+          "Cassiopeia",
+          "Jinx",
+          "Nautilus"
+        ],
+        "allyByRole": {
+          "TOP": "Yone",
+          "JUNGLE": "Warwick",
+          "MID": null,
+          "BOTTOM": "Zeri",
+          "SUPPORT": "Leona"
+        },
+        "enemyByRole": {
+          "TOP": "Tahm Kench",
+          "JUNGLE": "Vi",
+          "MID": "Cassiopeia",
+          "BOTTOM": "Jinx",
+          "SUPPORT": "Nautilus"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP burst padrão",
+          "buildId": "ap-burst",
+          "score": 45.45,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.03,
+            "enemyComp": 3.6,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Favorável contra Cassiopeia: contenção da mobilidade.",
+            "Risco contra Vi: engage/dive pune o perfil.",
+            "Risco contra Cassiopeia: controle interrompe a entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst",
+          "buildId": "burst",
+          "score": 41.52,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 4.21,
+            "enemyComp": 0,
+            "allyComp": 1.1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: anti-CC reduz controle de grupo.",
+            "Favorável contra Vi: anti-CC contra o controle.",
+            "Favorável contra Cassiopeia: anti-CC contra o controle.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 39.26,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 2.78,
+            "enemyComp": 1.8,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Favorável contra Cassiopeia: contenção da mobilidade.",
+            "Risco contra Vi: engage/dive pune o perfil.",
+            "Risco contra Nautilus: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 36.5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.35,
+            "enemyComp": 3.4,
+            "allyComp": 7.1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Exposição relevante ao gank de Vi.",
+            "Favorável contra Vi: resposta à entrada.",
+            "Favorável contra Cassiopeia: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Híbrido HoB",
+          "buildId": "hybrid-hob",
+          "score": 34.63,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.03,
+            "enemyComp": -0.35,
+            "allyComp": 1.1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Jinx: resposta ao DPS físico.",
+            "Favorável contra Vi: resposta ao DPS físico.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 34.15,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.03,
+            "enemyComp": 0,
+            "allyComp": 1.1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "buildId": "bruiser",
+          "score": 30.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.93,
+            "enemyComp": 0,
+            "allyComp": 0.55,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Nautilus: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 30.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.3,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Vi: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 26.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.44,
+            "enemyComp": 0,
+            "allyComp": 1.65,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Nautilus: DPS/anti-tank contra a frontline.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Vi: controle interrompe a entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 26.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.62,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Nautilus: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 25,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.97,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Nautilus: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.6,
+            "enemyComp": -0.47,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Exposição relevante ao gank de Vi.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Risco contra Vi: engage/dive pune o perfil.",
+            "Risco contra Nautilus: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 20.39,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.13,
+            "enemyComp": 0,
+            "allyComp": 1.65,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Nautilus: DPS/anti-tank contra a frontline.",
+            "Risco contra Vi: controle interrompe a entrada.",
+            "Risco contra Cassiopeia: controle interrompe a entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 19.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.62,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Nautilus: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 19.29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.05,
+            "enemyComp": -1.8,
+            "allyComp": 1.1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 18.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.07,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Nautilus: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 17.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -0.5,
+            "enemyComp": 1.8,
+            "allyComp": 1.65,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Exposição relevante ao gank de Vi.",
+            "Favorável contra Tahm Kench: DPS/anti-tank contra a frontline.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Tahm Kench: kite/disengage nega contato.",
+            "Risco contra Cassiopeia: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 10.01,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -1.64,
+            "enemyComp": -0.47,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Cassiopeia: burst contra alvo vulnerável.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Vi: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 9.23,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -0.36,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Tahm Kench: alcance contra alvo exposto.",
+            "Favorável contra Vi: contenção da mobilidade.",
+            "Risco contra Tahm Kench: frontline nega o padrão de dano.",
+            "Risco contra Nautilus: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "visibleDraft": {
+        "allies": [
+          "Nasus",
+          "Samira",
+          "Maokai"
+        ],
+        "enemies": [
+          "Olaf",
+          "Briar",
+          "Malzahar"
+        ],
+        "allyByRole": {
+          "TOP": "Nasus",
+          "JUNGLE": null,
+          "MID": null,
+          "BOTTOM": "Samira",
+          "SUPPORT": "Maokai"
+        },
+        "enemyByRole": {
+          "TOP": "Olaf",
+          "JUNGLE": "Briar",
+          "MID": "Malzahar",
+          "BOTTOM": null,
+          "SUPPORT": null
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "buildId": "control-bruiser",
+          "score": 41.69,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.05,
+            "enemyComp": 5.4,
+            "allyComp": 5.9,
+            "blind": 0.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: sustain explora vulnerável a poke.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 40.97,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.94,
+            "enemyComp": 5.4,
+            "allyComp": 5,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: sustain explora vulnerável a poke.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Tank padrão",
+          "buildId": "tank-default",
+          "score": 39.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.62,
+            "enemyComp": 3.4,
+            "allyComp": 5,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: sustain explora vulnerável a poke.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 38.94,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 2.57,
+            "enemyComp": 1.8,
+            "allyComp": 0.9,
+            "blind": 0.8
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 37.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.12,
+            "enemyComp": 5.4,
+            "allyComp": 5,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Olaf: resposta à entrada.",
+            "Favorável contra Briar: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 34.65,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.03,
+            "enemyComp": 1.33,
+            "allyComp": 0.6,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: sustain explora vulnerável a poke.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "buildId": "bruiser",
+          "score": 32.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": 0.93,
+            "allyComp": 0.6,
+            "blind": 1.3
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: frontline nega o padrão de dano.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 32.11,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 3.8,
+            "enemyComp": 0,
+            "allyComp": 0.6,
+            "blind": 1.1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: alcance contra alvo exposto.",
+            "Favorável contra Malzahar: alcance contra alvo exposto.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "buildId": "ad-default",
+          "score": 31.09,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.05,
+            "enemyComp": 3.4,
+            "allyComp": 0,
+            "blind": 1.9
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Briar: resposta ao DPS físico.",
+            "Risco contra Briar: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 30.91,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 3.08,
+            "enemyComp": 0.23,
+            "allyComp": 0.9,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: sustain explora vulnerável a poke.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: controle interrompe a entrada.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.02,
+            "enemyComp": -0.93,
+            "allyComp": 0,
+            "blind": 2.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: sustain explora vulnerável a poke.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Risco contra Olaf: controle interrompe a entrada.",
+            "Risco contra Briar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.85,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.03,
+            "enemyComp": -1.07,
+            "allyComp": 0.9,
+            "blind": 1.4
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: frontline nega o padrão de dano.",
+            "Risco contra Briar: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.1,
+            "enemyComp": -1.4,
+            "allyComp": 0.9,
+            "blind": 1.9
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Olaf: burst contra alvo vulnerável.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 22.27,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.02,
+            "enemyComp": -0.47,
+            "allyComp": 0,
+            "blind": 2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Briar: resposta ao DPS físico.",
+            "Risco contra Olaf: controle interrompe a entrada.",
+            "Risco contra Briar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 21.66,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.07,
+            "enemyComp": -2.93,
+            "allyComp": 0.9,
+            "blind": 1.7
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: burst contra alvo vulnerável.",
+            "Risco contra Olaf: frontline nega o padrão de dano.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 20.94,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 1.17,
+            "enemyComp": 4.07,
+            "allyComp": 0,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a poke.",
+            "Favorável contra Olaf: DPS/anti-tank contra a frontline.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Briar: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 17.64,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.08,
+            "enemyComp": -0.6,
+            "allyComp": 0.9,
+            "blind": 1.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 16.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.1,
+            "enemyComp": -2,
+            "allyComp": 0.9,
+            "blind": 2.1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: frontline nega o padrão de dano.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 16.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 1.95,
+            "enemyComp": 0,
+            "allyComp": 0.6,
+            "blind": 2.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a poke.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: alcance contra alvo exposto.",
+            "Favorável contra Malzahar: alcance contra alvo exposto.",
+            "Risco contra Olaf: engage/dive pune o perfil.",
+            "Risco contra Briar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 2.26,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.72,
+            "enemyComp": -0.6,
+            "allyComp": 0.9,
+            "blind": 2.3
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Voidlings bloqueiam Cocoon e o spell shield reduz a ameaça de pick.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Olaf: contenção da mobilidade.",
+            "Favorável contra Briar: contenção da mobilidade.",
+            "Risco contra Olaf: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "visibleDraft": {
+        "allies": [
+          "Sett",
+          "Sejuani",
+          "Smolder",
+          "Renata Glasc"
+        ],
+        "enemies": [
+          "Kayle",
+          "Lillia",
+          "Vex",
+          "Janna"
+        ],
+        "allyByRole": {
+          "TOP": "Sett",
+          "JUNGLE": "Sejuani",
+          "MID": null,
+          "BOTTOM": "Smolder",
+          "SUPPORT": "Renata Glasc"
+        },
+        "enemyByRole": {
+          "TOP": "Kayle",
+          "JUNGLE": "Lillia",
+          "MID": "Vex",
+          "BOTTOM": null,
+          "SUPPORT": "Janna"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 44.46,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 2.05,
+            "enemyComp": 3.83,
+            "allyComp": 4,
+            "blind": 0.4
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Risco contra Janna: controle interrompe a entrada.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP burst padrão",
+          "buildId": "ap-burst",
+          "score": 43,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": 4.73,
+            "allyComp": 4,
+            "blind": 0.1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Risco contra Janna: controle interrompe a entrada.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst padrão",
+          "buildId": "burst",
+          "score": 38.45,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0.2,
+            "enemyComp": 1.8,
+            "allyComp": 4,
+            "blind": 0.65
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 35.95,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.03,
+            "enemyComp": 1.8,
+            "allyComp": 4,
+            "blind": 0.7
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 32.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.03,
+            "enemyComp": 2.47,
+            "allyComp": 2.67,
+            "blind": 0.55
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Vex: alcance contra alvo exposto.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Risco contra Janna: controle interrompe a entrada.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 32.65,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": -0.93,
+            "allyComp": 4,
+            "blind": 0.95
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 31.69,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.05,
+            "enemyComp": 1.1,
+            "allyComp": 4,
+            "blind": 0.85
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst",
+          "buildId": "burst",
+          "score": 30.82,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": -2.03,
+            "allyComp": 2.67,
+            "blind": 0.8
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 30.6,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.03,
+            "enemyComp": 2.7,
+            "allyComp": 0,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Favorável contra Lillia: resposta à entrada.",
+            "Risco contra Kayle: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Híbrido HoB",
+          "buildId": "hybrid-hob",
+          "score": 28.91,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.05,
+            "enemyComp": -0.47,
+            "allyComp": 2.67,
+            "blind": 0.95
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": 2.7,
+            "allyComp": 0,
+            "blind": 0.25
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Risco contra Kayle: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.71,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.05,
+            "enemyComp": -0.23,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.34,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.08,
+            "enemyComp": 4.07,
+            "allyComp": 4,
+            "blind": 0.6
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Risco contra Janna: controle interrompe a entrada.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.24,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.05,
+            "enemyComp": 2.93,
+            "allyComp": 4,
+            "blind": 1.05
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Risco contra Janna: controle interrompe a entrada.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP/bruiser tech",
+          "buildId": "ap-bruiser-tech",
+          "score": 27.31,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.08,
+            "enemyComp": -0.47,
+            "allyComp": 2.67,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.13,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.67,
+            "enemyComp": -3.4,
+            "allyComp": 2.67,
+            "blind": 1.1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.02,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 1.03,
+            "enemyComp": 3.6,
+            "allyComp": 2.67,
+            "blind": 1.1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Vex: alcance contra alvo exposto.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Risco contra Janna: controle interrompe a entrada.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 21.09,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.05,
+            "enemyComp": -2.03,
+            "allyComp": 4,
+            "blind": 0.75
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 20.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.05,
+            "enemyComp": -1.37,
+            "allyComp": 2.67,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Kayle: resposta ao poke/siege.",
+            "Favorável contra Lillia: resposta ao DPS físico.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 17.19,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -2.88,
+            "enemyComp": 4.07,
+            "allyComp": 4,
+            "blind": 1.15
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Lillia: burst contra alvo vulnerável.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 15.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 1.03,
+            "enemyComp": 0.4,
+            "allyComp": 0,
+            "blind": 0.75
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Vex: contenção da mobilidade.",
+            "Risco contra Vex: kite/disengage nega contato.",
+            "Risco contra Janna: kite/disengage nega contato."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "visibleDraft": {
+        "allies": [
+          "Aatrox",
+          "Wukong",
+          "Twitch",
+          "Ashe"
+        ],
+        "enemies": [
+          "Urgot",
+          "Karthus",
+          "Talon",
+          "Jinx",
+          "Bard"
+        ],
+        "allyByRole": {
+          "TOP": "Aatrox",
+          "JUNGLE": "Wukong",
+          "MID": null,
+          "BOTTOM": "Twitch",
+          "SUPPORT": "Ashe"
+        },
+        "enemyByRole": {
+          "TOP": "Urgot",
+          "JUNGLE": "Karthus",
+          "MID": "Talon",
+          "BOTTOM": "Jinx",
+          "SUPPORT": "Bard"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "buildId": "control-bruiser",
+          "score": 56.09,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 3.7,
+            "enemyComp": 5.4,
+            "allyComp": 8.6,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Favorável contra Bard: contenção da mobilidade.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 46.11,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 4,
+            "enemyComp": 3.4,
+            "allyComp": 8,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Favorável contra Bard: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP/bruiser tech",
+          "buildId": "ap-bruiser-tech",
+          "score": 45.12,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2.36,
+            "enemyComp": 0,
+            "allyComp": 8.4,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Favorável contra Bard: contenção da mobilidade.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Risco contra Bard: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 43.16,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 3.08,
+            "enemyComp": 3.6,
+            "allyComp": 0.6,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 41.39,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.64,
+            "enemyComp": 3.4,
+            "allyComp": 8,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 39.6,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 8.6,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Risco contra Bard: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "buildId": "bruiser",
+          "score": 39.46,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 3.18,
+            "enemyComp": 0.47,
+            "allyComp": 0.4,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Risco contra Urgot: frontline nega o padrão de dano.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 39.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 8.4,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Risco contra Bard: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 38.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.03,
+            "enemyComp": 2.23,
+            "allyComp": 8.4,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 37.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": -1.53,
+            "allyComp": 8.6,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Urgot: frontline nega o padrão de dano.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "buildId": "ad-default",
+          "score": 32,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: resposta ao DPS físico.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Risco contra Bard: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 32,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": -1.07,
+            "allyComp": 8.6,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Urgot: frontline nega o padrão de dano.",
+            "Risco contra Bard: controle interrompe a entrada.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "buildId": "bruiser-dps",
+          "score": 30.95,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": -0.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: resposta ao poke/siege.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Risco contra Bard: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 30.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": -1.53,
+            "allyComp": 0.6,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Urgot: frontline nega o padrão de dano.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.24,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.05,
+            "enemyComp": -0.7,
+            "allyComp": 0.4,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: resposta ao poke/siege.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Risco contra Bard: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.05,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": 1.1,
+            "allyComp": 0.4,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: waveclear explora vulnerável a pressão de wave.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: resposta ao poke/siege.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Risco contra Bard: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 25.31,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 2.15,
+            "enemyComp": -1.07,
+            "allyComp": 8.6,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Urgot: frontline nega o padrão de dano.",
+            "Risco contra Jinx: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 24.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0,
+            "enemyComp": 1.8,
+            "allyComp": 8,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Urgot: DPS/anti-tank contra a frontline.",
+            "Favorável contra Talon: contenção da mobilidade.",
+            "Risco contra Talon: kite/disengage nega contato.",
+            "Risco contra Bard: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.65,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": -1.3,
+            "allyComp": 0.6,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Urgot: frontline nega o padrão de dano.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 22.75,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0,
+            "enemyComp": 0.23,
+            "allyComp": 8.4,
+            "blind": 0
+          },
+          "archetype": "dive",
+          "reasons": [
+            "Favorável contra Urgot: alcance contra alvo exposto.",
+            "Favorável contra Karthus: burst contra alvo vulnerável.",
+            "Risco contra Urgot: frontline nega o padrão de dano.",
+            "Risco contra Talon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "visibleDraft": {
+        "allies": [
+          "Poppy",
+          "Nocturne",
+          "Smolder"
+        ],
+        "enemies": [
+          "Aatrox",
+          "Lee Sin",
+          "Lux",
+          "Seraphine",
+          "Taric"
+        ],
+        "allyByRole": {
+          "TOP": "Poppy",
+          "JUNGLE": "Nocturne",
+          "MID": null,
+          "BOTTOM": "Smolder",
+          "SUPPORT": null
+        },
+        "enemyByRole": {
+          "TOP": "Aatrox",
+          "JUNGLE": "Lee Sin",
+          "MID": "Lux",
+          "BOTTOM": "Seraphine",
+          "SUPPORT": "Taric"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "buildId": "control-bruiser",
+          "score": 46.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": 5.4,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Seraphine: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 32.22,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.04,
+            "enemyComp": 1.4,
+            "allyComp": 7.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "buildId": "bruiser",
+          "score": 30.75,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.83,
+            "enemyComp": 0,
+            "allyComp": 0.4,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Favorável contra Taric: alcance contra alvo exposto.",
+            "Risco contra Aatrox: frontline nega o padrão de dano.",
+            "Risco contra Taric: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP/bruiser tech",
+          "buildId": "ap-bruiser-tech",
+          "score": 30.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.7,
+            "enemyComp": 0,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Lee Sin: kite/disengage nega contato.",
+            "Risco contra Taric: kite/disengage nega contato.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "buildId": "bruiser-dps",
+          "score": 29.5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.85,
+            "enemyComp": 0,
+            "allyComp": 1.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Favorável: anti-CC reduz controle de grupo.",
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Aatrox: anti-CC contra o controle.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Lee Sin: kite/disengage nega contato.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 29.39,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.15,
+            "enemyComp": 1.8,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Risco contra Lux: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.46,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.67,
+            "enemyComp": 1.33,
+            "allyComp": 0.8,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Risco contra Lee Sin: kite/disengage nega contato.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.33,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.79,
+            "enemyComp": 1.4,
+            "allyComp": 6.8,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Lee Sin: resposta à entrada.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.83,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.69,
+            "enemyComp": 0,
+            "allyComp": 1.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Aatrox: controle interrompe a entrada.",
+            "Risco contra Lee Sin: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -1.64,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Taric: burst contra alvo vulnerável.",
+            "Risco contra Aatrox: controle interrompe a entrada.",
+            "Risco contra Lee Sin: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "buildId": "ad-default",
+          "score": 25.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.7,
+            "enemyComp": 0,
+            "allyComp": 1.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Risco contra Lee Sin: kite/disengage nega contato.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 25.28,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.33,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Risco contra Aatrox: frontline nega o padrão de dano.",
+            "Risco contra Taric: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 21.89,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.53,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Aatrox: frontline nega o padrão de dano.",
+            "Risco contra Taric: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 21.14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.53,
+            "enemyComp": 0,
+            "allyComp": 1.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Risco contra Aatrox: controle interrompe a entrada.",
+            "Risco contra Taric: controle interrompe a entrada.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 19.88,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.56,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Favorável contra Taric: alcance contra alvo exposto.",
+            "Risco contra Lee Sin: engage/dive pune o perfil.",
+            "Risco contra Lux: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 15.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.72,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Risco contra Aatrox: frontline nega o padrão de dano.",
+            "Risco contra Taric: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 14.17,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.39,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Risco contra Aatrox: frontline nega o padrão de dano.",
+            "Risco contra Taric: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 9.28,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -2.36,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Lux: resposta ao poke/siege.",
+            "Favorável contra Taric: alcance contra alvo exposto.",
+            "Risco contra Aatrox: frontline nega o padrão de dano.",
+            "Risco contra Lee Sin: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 7.56,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.17,
+            "enemyComp": 0.47,
+            "allyComp": 1.2,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Aatrox: DPS/anti-tank contra a frontline.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Risco contra Lux: poke/range dificulta a execução.",
+            "Risco contra Lee Sin: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 2.96,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -3.5,
+            "enemyComp": -2.7,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Aatrox: burst contra alvo vulnerável.",
+            "Favorável contra Lee Sin: contenção da mobilidade.",
+            "Risco contra Aatrox: frontline nega o padrão de dano.",
+            "Risco contra Taric: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "visibleDraft": {
+        "allies": [
+          "Xin Zhao",
+          "Sivir",
+          "Janna"
+        ],
+        "enemies": [
+          "Nidalee",
+          "Pantheon"
+        ],
+        "allyByRole": {
+          "TOP": null,
+          "JUNGLE": "Xin Zhao",
+          "MID": null,
+          "BOTTOM": "Sivir",
+          "SUPPORT": "Janna"
+        },
+        "enemyByRole": {
+          "TOP": null,
+          "JUNGLE": "Nidalee",
+          "MID": "Pantheon",
+          "BOTTOM": null,
+          "SUPPORT": null
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "buildId": "control-bruiser",
+          "score": 41.92,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.54,
+            "enemyComp": 5.4,
+            "allyComp": 5.2,
+            "blind": 0.3
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 41.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.95,
+            "enemyComp": 1.8,
+            "allyComp": 5.2,
+            "blind": 1.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 34.5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": 2.27,
+            "allyComp": 1.2,
+            "blind": 2.1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Nidalee: kite/disengage nega contato.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Tank padrão",
+          "buildId": "tank-default",
+          "score": 33.5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.03,
+            "enemyComp": 0.7,
+            "allyComp": 4,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 32.5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": 5.4,
+            "allyComp": 1.2,
+            "blind": 1.8
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 31.6,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": 0.87,
+            "allyComp": 0.8,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 31.42,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.91,
+            "enemyComp": 1.4,
+            "allyComp": 4,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 30.22,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.02,
+            "enemyComp": 0.4,
+            "allyComp": 1.2,
+            "blind": 2.55
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Risco contra Nidalee: kite/disengage nega contato.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 30.12,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.12,
+            "enemyComp": 1.4,
+            "allyComp": 4,
+            "blind": 0.75
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst",
+          "buildId": "burst",
+          "score": 29.28,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.03,
+            "enemyComp": -0.7,
+            "allyComp": 0.8,
+            "blind": 2.4
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Híbrido HoB",
+          "buildId": "hybrid-hob",
+          "score": 28.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": -0.77,
+            "allyComp": 0.8,
+            "blind": 2.85
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Pantheon: resposta ao DPS físico.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 25.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.83,
+            "enemyComp": 0,
+            "allyComp": 0.8,
+            "blind": 1.65
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: alcance contra alvo exposto.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 25.05,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.1,
+            "enemyComp": -2.73,
+            "allyComp": 1.2,
+            "blind": 2.85
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Risco contra Nidalee: kite/disengage nega contato.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.96,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.07,
+            "enemyComp": -0.93,
+            "allyComp": 0.8,
+            "blind": 3.3
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Risco contra Nidalee: kite/disengage nega contato.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.65,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.05,
+            "enemyComp": 0.47,
+            "allyComp": 1.2,
+            "blind": 3.15
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 22.86,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.05,
+            "enemyComp": 0.23,
+            "allyComp": 3.87,
+            "blind": 2.25
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 19.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.07,
+            "enemyComp": 0.75,
+            "allyComp": 0.8,
+            "blind": 3
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Nidalee: resposta ao poke/siege.",
+            "Favorável contra Pantheon: resposta ao DPS físico.",
+            "Risco contra Nidalee: kite/disengage nega contato.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 18.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.86,
+            "enemyComp": 0.93,
+            "allyComp": 4,
+            "blind": 2.25
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Risco contra Pantheon: kite/disengage nega contato.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 18.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.1,
+            "enemyComp": 2.73,
+            "allyComp": 3.87,
+            "blind": 3.45
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Nidalee: contenção da mobilidade.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Nidalee: poke/range dificulta a execução.",
+            "Supre necessidade crítica: contenção da mobilidade inimiga.",
+            "Supre necessidade crítica: follow-up para a entrada aliada."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        },
+        {
+          "champion": "Nidalee",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "visibleDraft": {
+        "allies": [
+          "Teemo",
+          "Elise",
+          "Senna",
+          "Rell"
+        ],
+        "enemies": [
+          "Illaoi",
+          "Rengar",
+          "Naafiri",
+          "Jinx",
+          "Zyra"
+        ],
+        "allyByRole": {
+          "TOP": "Teemo",
+          "JUNGLE": "Elise",
+          "MID": null,
+          "BOTTOM": "Senna",
+          "SUPPORT": "Rell"
+        },
+        "enemyByRole": {
+          "TOP": "Illaoi",
+          "JUNGLE": "Rengar",
+          "MID": "Naafiri",
+          "BOTTOM": "Jinx",
+          "SUPPORT": "Zyra"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "buildId": "control-bruiser",
+          "score": 51.98,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.54,
+            "enemyComp": 5.4,
+            "allyComp": 8.8,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Illaoi: resposta à entrada.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP/bruiser tech",
+          "buildId": "ap-bruiser-tech",
+          "score": 40.58,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.46,
+            "enemyComp": 0.47,
+            "allyComp": 8.8,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Illaoi: resposta à entrada.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Risco contra Zyra: kite/disengage nega contato.",
+            "Risco contra Naafiri: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "buildId": "bruiser",
+          "score": 37.21,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2.25,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Risco contra Illaoi: frontline nega o padrão de dano.",
+            "Risco contra Zyra: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 34.39,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.29,
+            "enemyComp": 0,
+            "allyComp": 8.8,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável: controle de grupo explora vulnerável a CC.",
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Illaoi: resposta à entrada.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Risco contra Naafiri: poke/range dificulta a execução.",
+            "Risco contra Zyra: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 32.95,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.42,
+            "enemyComp": 0,
+            "allyComp": 8.8,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Illaoi: resposta à entrada.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Risco contra Naafiri: poke/range dificulta a execução.",
+            "Risco contra Zyra: poke/range dificulta a execução.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: proteção do plano de poke."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 30.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.1,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Favorável contra Zyra: burst contra alvo vulnerável.",
+            "Risco contra Illaoi: engage/dive pune o perfil.",
+            "Risco contra Rengar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 29.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": -1.53,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Risco contra Illaoi: frontline nega o padrão de dano.",
+            "Risco contra Zyra: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 29.39,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.15,
+            "enemyComp": 1.8,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Risco contra Illaoi: engage/dive pune o perfil.",
+            "Risco contra Rengar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.36,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.67,
+            "enemyComp": 1.8,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Favorável contra Zyra: resposta ao poke/siege.",
+            "Risco contra Naafiri: poke/range dificulta a execução.",
+            "Risco contra Zyra: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.97,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.02,
+            "enemyComp": -2,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Favorável contra Jinx: burst contra alvo vulnerável.",
+            "Risco contra Illaoi: frontline nega o padrão de dano.",
+            "Risco contra Zyra: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.33,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.69,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Illaoi: DPS/anti-tank contra a frontline.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Risco contra Zyra: controle interrompe a entrada.",
+            "Risco contra Illaoi: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "buildId": "ad-default",
+          "score": 24.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.7,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Illaoi: DPS/anti-tank contra a frontline.",
+            "Favorável contra Jinx: resposta ao DPS físico.",
+            "Risco contra Naafiri: poke/range dificulta a execução.",
+            "Risco contra Zyra: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "buildId": "bruiser-dps",
+          "score": 24.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.7,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Illaoi: DPS/anti-tank contra a frontline.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Risco contra Naafiri: poke/range dificulta a execução.",
+            "Risco contra Zyra: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 22.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": -1.53,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Risco contra Illaoi: frontline nega o padrão de dano.",
+            "Risco contra Zyra: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 21.56,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.07,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Illaoi: DPS/anti-tank contra a frontline.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Risco contra Zyra: controle interrompe a entrada.",
+            "Risco contra Illaoi: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 20.49,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.25,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Risco contra Illaoi: engage/dive pune o perfil.",
+            "Risco contra Rengar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 17.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.1,
+            "enemyComp": -2,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Risco contra Illaoi: frontline nega o padrão de dano.",
+            "Risco contra Rengar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 16.99,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Favorável contra Zyra: resposta ao poke/siege.",
+            "Risco contra Naafiri: poke/range dificulta a execução.",
+            "Risco contra Zyra: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Favorável contra Illaoi: alcance contra alvo exposto.",
+            "Favorável contra Naafiri: resposta ao poke/siege.",
+            "Risco contra Illaoi: engage/dive pune o perfil.",
+            "Risco contra Rengar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 5.66,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.17,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "poke",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Illaoi: DPS/anti-tank contra a frontline.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Risco contra Naafiri: poke/range dificulta a execução.",
+            "Risco contra Zyra: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "visibleDraft": {
+        "allies": [
+          "Yone",
+          "Kindred",
+          "Tahm Kench"
+        ],
+        "enemies": [
+          "Rengar",
+          "Brand",
+          "Taric"
+        ],
+        "allyByRole": {
+          "TOP": "Yone",
+          "JUNGLE": "Kindred",
+          "MID": null,
+          "BOTTOM": null,
+          "SUPPORT": "Tahm Kench"
+        },
+        "enemyByRole": {
+          "TOP": null,
+          "JUNGLE": "Rengar",
+          "MID": "Brand",
+          "BOTTOM": null,
+          "SUPPORT": "Taric"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP burst padrão",
+          "buildId": "ap-burst",
+          "score": 46.36,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 3.08,
+            "enemyComp": 3.6,
+            "allyComp": 3,
+            "blind": 0.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Risco contra Taric: controle interrompe a entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 40.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 3.6,
+            "enemyComp": 2.27,
+            "allyComp": 0,
+            "blind": 0.8
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Risco contra Taric: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 37.52,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.91,
+            "enemyComp": 5.4,
+            "allyComp": 3.6,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: anti-tank explora dificuldade contra resistência.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Favorável contra Taric: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst",
+          "buildId": "burst",
+          "score": 36.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2.57,
+            "enemyComp": 0.23,
+            "allyComp": 0.4,
+            "blind": 1.6
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Taric: anti-CC contra o controle.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Taric: kite/disengage nega contato.",
+            "Risco contra Rengar: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 35.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.12,
+            "enemyComp": 5.4,
+            "allyComp": 3.4,
+            "blind": 0.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Rengar: resposta à entrada.",
+            "Favorável contra Taric: resposta à entrada.",
+            "Supre necessidade crítica: resposta ao dive inimigo.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 33.15,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.03,
+            "enemyComp": 0.47,
+            "allyComp": 0.4,
+            "blind": 1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Risco contra Taric: kite/disengage nega contato.",
+            "Risco contra Rengar: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 31.98,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.44,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 1.9
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Favorável contra Taric: burst contra alvo vulnerável.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Risco contra Taric: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Híbrido HoB",
+          "buildId": "hybrid-hob",
+          "score": 30.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.03,
+            "enemyComp": -1.1,
+            "allyComp": 0.4,
+            "blind": 1.9
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Rengar: resposta à entrada.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Taric: kite/disengage nega contato.",
+            "Risco contra Rengar: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "buildId": "bruiser",
+          "score": 30.25,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.03,
+            "enemyComp": 0.93,
+            "allyComp": 0.2,
+            "blind": 1.3
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: alcance contra alvo exposto.",
+            "Risco contra Taric: frontline nega o padrão de dano.",
+            "Risco contra Rengar: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.38,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.31,
+            "enemyComp": -1.07,
+            "allyComp": 0,
+            "blind": 1.4
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Taric: frontline nega o padrão de dano.",
+            "Risco contra Rengar: kite/disengage nega contato."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 26.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.13,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "blind": 1.1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Brand: alcance contra alvo exposto.",
+            "Favorável contra Taric: alcance contra alvo exposto.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Risco contra Taric: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 26.04,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.48,
+            "enemyComp": -1.53,
+            "allyComp": 0,
+            "blind": 1.7
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Favorável contra Taric: burst contra alvo vulnerável.",
+            "Risco contra Taric: frontline nega o padrão de dano.",
+            "Risco contra Rengar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.94,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.53,
+            "enemyComp": -0.93,
+            "allyComp": 0.6,
+            "blind": 2.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Risco contra Taric: controle interrompe a entrada.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 21.28,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.46,
+            "enemyComp": -1.07,
+            "allyComp": 0,
+            "blind": 1.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Taric: frontline nega o padrão de dano.",
+            "Risco contra Brand: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 18.88,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.51,
+            "enemyComp": -2,
+            "allyComp": 0,
+            "blind": 2.1
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Taric: frontline nega o padrão de dano.",
+            "Risco contra Rengar: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 18.22,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.86,
+            "enemyComp": 2.27,
+            "allyComp": 0.6,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Risco contra Taric: kite/disengage nega contato.",
+            "Risco contra Rengar: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 17.53,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.36,
+            "enemyComp": -1.1,
+            "allyComp": 0.4,
+            "blind": 1.5
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Risco contra Taric: kite/disengage nega contato.",
+            "Risco contra Rengar: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 17.31,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.53,
+            "enemyComp": -0.82,
+            "allyComp": 0.6,
+            "blind": 2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: burst explora vulnerável a burst.",
+            "Favorável contra Taric: DPS/anti-tank contra a frontline.",
+            "Favorável contra Rengar: resposta ao DPS físico.",
+            "Risco contra Taric: controle interrompe a entrada.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 12.42,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.31,
+            "enemyComp": 0,
+            "allyComp": 0,
+            "blind": 2.2
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Brand: alcance contra alvo exposto.",
+            "Favorável contra Taric: alcance contra alvo exposto.",
+            "Risco contra Rengar: engage/dive pune o perfil.",
+            "Risco contra Taric: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 9.88,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -0.46,
+            "enemyComp": -0.6,
+            "allyComp": 0,
+            "blind": 2.3
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: anti-tank explora dificuldade contra resistência.",
+            "Favorável contra Rengar: contenção da mobilidade.",
+            "Favorável contra Brand: burst contra alvo vulnerável.",
+            "Risco contra Taric: frontline nega o padrão de dano."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "visibleDraft": {
+        "allies": [
+          "Tahm Kench",
+          "Vi",
+          "Caitlyn",
+          "Soraka"
+        ],
+        "enemies": [
+          "Pantheon",
+          "Zac",
+          "Vel'Koz",
+          "Morgana"
+        ],
+        "allyByRole": {
+          "TOP": "Tahm Kench",
+          "JUNGLE": "Vi",
+          "MID": null,
+          "BOTTOM": "Caitlyn",
+          "SUPPORT": "Soraka"
+        },
+        "enemyByRole": {
+          "TOP": "Pantheon",
+          "JUNGLE": "Zac",
+          "MID": "Vel'Koz",
+          "BOTTOM": null,
+          "SUPPORT": "Morgana"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "buildId": "control-bruiser",
+          "score": 45.5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": 5.4,
+            "allyComp": 5.5,
+            "blind": 0.1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 34.39,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.2,
+            "enemyComp": 1.8,
+            "allyComp": 5.5,
+            "blind": 0.4
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst",
+          "buildId": "burst",
+          "score": 31.97,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.9,
+            "enemyComp": 0,
+            "allyComp": 4.57,
+            "blind": 0.8
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Favorável: anti-CC reduz controle de grupo.",
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Favorável contra Morgana: anti-CC contra o controle.",
+            "Risco contra Vel'Koz: poke/range dificulta a execução.",
+            "Risco contra Morgana: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 31.73,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.67,
+            "enemyComp": 1.33,
+            "allyComp": 4.57,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Risco contra Vel'Koz: poke/range dificulta a execução.",
+            "Risco contra Morgana: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 30.39,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.18,
+            "enemyComp": -2.7,
+            "allyComp": 5.5,
+            "blind": 0.7
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Risco contra Zac: frontline nega o padrão de dano.",
+            "Risco contra Vel'Koz: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.07,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -1.69,
+            "enemyComp": -2.73,
+            "allyComp": 5.5,
+            "blind": 0.95
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 27.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.54,
+            "enemyComp": 0.47,
+            "allyComp": 1.35,
+            "blind": 1.1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Favorável contra Vel'Koz: DPS/anti-tank contra a frontline.",
+            "Risco contra Morgana: controle interrompe a entrada.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Híbrido HoB",
+          "buildId": "hybrid-hob",
+          "score": 26.02,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.7,
+            "enemyComp": -1.47,
+            "allyComp": 4.57,
+            "blind": 0.95
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Pantheon: resposta ao DPS físico.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Risco contra Vel'Koz: poke/range dificulta a execução.",
+            "Risco contra Morgana: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 25.75,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -1.87,
+            "enemyComp": -4.1,
+            "allyComp": 5.5,
+            "blind": 0.85
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Risco contra Zac: frontline nega o padrão de dano.",
+            "Risco contra Vel'Koz: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 25.46,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.33,
+            "enemyComp": 0,
+            "allyComp": 3.67,
+            "blind": 0.55
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Pantheon: alcance contra alvo exposto.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 22.92,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.56,
+            "enemyComp": 0.47,
+            "allyComp": 1.35,
+            "blind": 1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Favorável contra Vel'Koz: DPS/anti-tank contra a frontline.",
+            "Risco contra Morgana: controle interrompe a entrada.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 22.15,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.85,
+            "enemyComp": -2.7,
+            "allyComp": 5.5,
+            "blind": 0.6
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Risco contra Zac: frontline nega o padrão de dano.",
+            "Risco contra Vel'Koz: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 22.06,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.84,
+            "enemyComp": 1.4,
+            "allyComp": 0.9,
+            "blind": 0.25
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Risco contra Vel'Koz: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 21.94,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4,
+            "enemyComp": -0.47,
+            "allyComp": 6.4,
+            "blind": 0.75
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Risco contra Vel'Koz: poke/range dificulta a execução.",
+            "Risco contra Morgana: kite/disengage nega contato.",
+            "Supre necessidade crítica: conversão do pick aliado.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 20.22,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.59,
+            "enemyComp": -2.7,
+            "allyComp": 5.5,
+            "blind": 1.05
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Risco contra Zac: frontline nega o padrão de dano.",
+            "Risco contra Vel'Koz: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 19.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.18,
+            "enemyComp": 1.4,
+            "allyComp": 1.35,
+            "blind": 0.5
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Pantheon: resposta à entrada.",
+            "Favorável contra Zac: resposta à entrada.",
+            "Risco contra Vel'Koz: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 13.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -1.33,
+            "enemyComp": 0,
+            "allyComp": 3.67,
+            "blind": 1.1
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: controle de grupo explora vulnerável a CC.",
+            "Favorável contra Pantheon: alcance contra alvo exposto.",
+            "Favorável contra Vel'Koz: resposta ao poke/siege.",
+            "Risco contra Pantheon: engage/dive pune o perfil.",
+            "Risco contra Zac: engage/dive pune o perfil.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 10.07,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -2.12,
+            "enemyComp": -2.7,
+            "allyComp": 5.5,
+            "blind": 1.15
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a alcance.",
+            "Boa conversão com Vi.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Morgana: alcance contra alvo exposto.",
+            "Risco contra Zac: frontline nega o padrão de dano.",
+            "Risco contra Vel'Koz: frontline nega o padrão de dano.",
+            "Supre necessidade crítica: conversão do pick aliado."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 6.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.25,
+            "enemyComp": 0.47,
+            "allyComp": 1.35,
+            "blind": 0.75
+          },
+          "archetype": "pick",
+          "reasons": [
+            "Risco: poke explora vulnerável a poke.",
+            "Favorável contra Pantheon: contenção da mobilidade.",
+            "Favorável contra Zac: DPS/anti-tank contra a frontline.",
+            "Risco contra Vel'Koz: poke/range dificulta a execução.",
+            "Risco contra Morgana: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano aplicável na frontline inimiga."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "visibleDraft": {
+        "allies": [
+          "Pantheon",
+          "Rammus",
+          "Zeri",
+          "Poppy"
+        ],
+        "enemies": [
+          "Kayle",
+          "Shyvana",
+          "Ryze",
+          "Ziggs",
+          "Seraphine"
+        ],
+        "allyByRole": {
+          "TOP": "Pantheon",
+          "JUNGLE": "Rammus",
+          "MID": null,
+          "BOTTOM": "Zeri",
+          "SUPPORT": "Poppy"
+        },
+        "enemyByRole": {
+          "TOP": "Kayle",
+          "JUNGLE": "Shyvana",
+          "MID": "Ryze",
+          "BOTTOM": "Ziggs",
+          "SUPPORT": "Seraphine"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP burst padrão",
+          "buildId": "ap-burst",
+          "score": 46.45,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.03,
+            "enemyComp": 3.6,
+            "allyComp": 7,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Seraphine: resposta à entrada.",
+            "Risco contra Ziggs: controle interrompe a entrada.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 42.29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 3.55,
+            "enemyComp": 1.8,
+            "allyComp": 1.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 42.16,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 2.93,
+            "enemyComp": -0.47,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Ziggs: controle interrompe a entrada.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 39.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": 1.8,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 39.29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 3.4,
+            "enemyComp": 0,
+            "allyComp": 7.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Ryze: alcance contra alvo exposto.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP/bruiser tech",
+          "buildId": "ap-bruiser-tech",
+          "score": 37.65,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.95,
+            "enemyComp": 2.03,
+            "allyComp": 6.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: DPS explora vulnerável a DPS.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Favorável contra Seraphine: resposta à entrada.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Seraphine: kite/disengage nega contato.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst",
+          "buildId": "burst",
+          "score": 36.36,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2,
+            "enemyComp": 0.23,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Favorável contra Ziggs: anti-CC contra o controle.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Kayle: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 36,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1,
+            "enemyComp": -2,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Shyvana: frontline nega o padrão de dano.",
+            "Risco contra Ziggs: controle interrompe a entrada.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 33.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2.05,
+            "enemyComp": -1.53,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Shyvana: frontline nega o padrão de dano.",
+            "Risco contra Ziggs: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 33.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.18,
+            "enemyComp": 0.7,
+            "allyComp": 7.5,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Favorável contra Seraphine: resposta à entrada.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Híbrido HoB",
+          "buildId": "hybrid-hob",
+          "score": 32.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0,
+            "enemyComp": 0.23,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Kayle: resposta ao DPS físico.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Kayle: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 31.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.18,
+            "enemyComp": 0.7,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Favorável contra Seraphine: resposta à entrada.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": -1.53,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Shyvana: frontline nega o padrão de dano.",
+            "Risco contra Ziggs: controle interrompe a entrada.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 28.54,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.08,
+            "enemyComp": 0.47,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Ziggs: controle interrompe a entrada.",
+            "Risco contra Seraphine: engage/dive pune o perfil."
+          ]
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 26.65,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.02,
+            "enemyComp": 0.47,
+            "allyComp": 1,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Ziggs: controle interrompe a entrada.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: waveclear contra o siege inimigo."
+          ]
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 25.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": 0.23,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Kayle: poke/range dificulta a execução."
+          ]
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.95,
+            "enemyComp": -2,
+            "allyComp": 0,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Shyvana: frontline nega o padrão de dano.",
+            "Risco contra Ziggs: controle interrompe a entrada."
+          ]
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 23.29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 1.64,
+            "enemyComp": 0,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Ryze: alcance contra alvo exposto.",
+            "Favorável contra Ziggs: resposta ao poke/siege.",
+            "Risco contra Shyvana: frontline nega o padrão de dano.",
+            "Risco contra Seraphine: engage/dive pune o perfil.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 21.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.78,
+            "enemyComp": -0.23,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: poke explora vulnerável a alcance.",
+            "Favorável contra Shyvana: DPS/anti-tank contra a frontline.",
+            "Favorável contra Ryze: alcance contra alvo exposto.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Risco contra Kayle: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "buildId": "default",
+          "score": 15.8,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.1,
+            "enemyComp": -2.93,
+            "allyComp": 6,
+            "blind": 0
+          },
+          "archetype": "frontToBack",
+          "reasons": [
+            "Favorável: burst explora vulnerável a burst.",
+            "Risco: waveclear explora vulnerável a pressão de wave.",
+            "Favorável contra Ryze: burst contra alvo vulnerável.",
+            "Risco contra Shyvana: frontline nega o padrão de dano.",
+            "Risco contra Ziggs: poke/range dificulta a execução.",
+            "Supre necessidade crítica: dano mágico para corrigir excesso físico."
+          ]
+        },
+        {
+          "champion": "Pantheon",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "buildId": null,
+          "score": null,
+          "confidence": null,
+          "components": null,
+          "archetype": null,
+          "reasons": null
+        }
+      ]
+    }
+  ]
+}

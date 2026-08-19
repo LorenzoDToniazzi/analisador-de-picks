@@ -1,0 +1,3737 @@
+{
+  "metadata": {
+    "seed": 20260817,
+    "patch": "26.16",
+    "tier": "Diamond+",
+    "lane": "MID",
+    "poolFixtureOnly": true,
+    "warning": "Protótipo heurístico v0.3. Não representa o motor final calibrado nem win rate."
+  },
+  "selfChecks": [
+    {
+      "rule": "Hardcounter confirmado na lane não recebe nota",
+      "passed": true
+    },
+    {
+      "rule": "Veto pode ser específico da build",
+      "passed": true
+    },
+    {
+      "rule": "Blind da própria lane pesa mais que quatro slots desconhecidos fora dela",
+      "passed": true,
+      "values": {
+        "ownLaneBlind": 5.87,
+        "fourOtherUnknowns": 4.4
+      }
+    },
+    {
+      "rule": "Todas as entradas habilitadas permanecem na lista",
+      "passed": true,
+      "values": {
+        "expected": 21
+      }
+    },
+    {
+      "rule": "Desabilitar uma categoria a remove da avaliação",
+      "passed": true
+    }
+  ],
+  "simulations": [
+    {
+      "id": 1,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Yone",
+          "JUNGLE": "Warwick",
+          "MID": null,
+          "BOTTOM": "Zeri",
+          "SUPPORT": "Leona"
+        },
+        "enemyByRole": {
+          "TOP": "Tahm Kench",
+          "JUNGLE": "Vi",
+          "MID": "Cassiopeia",
+          "BOTTOM": "Jinx",
+          "SUPPORT": "Nautilus"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP burst padrão",
+          "score": 39.75,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.08,
+            "enemyComp": 3.56,
+            "allyComp": 0.25,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 38.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.35,
+            "enemyComp": 9.78,
+            "allyComp": -0.25,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "score": 37.73,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0.62,
+            "enemyComp": 4,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 31.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.03,
+            "enemyComp": 0.23,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 31.26,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 2.78,
+            "enemyComp": -2.53,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "score": 26.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.44,
+            "enemyComp": 2,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "score": 25.08,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.37,
+            "enemyComp": -4.5,
+            "allyComp": 4.56,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 18.54,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -0.5,
+            "enemyComp": 4.69,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 16.7,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.24,
+            "enemyComp": -7.05,
+            "allyComp": -0.25,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 15.48,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.21,
+            "enemyComp": 0.27,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.62,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.6,
+            "enemyComp": -5.4,
+            "allyComp": -1.08,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.17,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.69,
+            "enemyComp": -5.96,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 13.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.3,
+            "enemyComp": -10,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 13.83,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.39,
+            "enemyComp": -5.98,
+            "allyComp": 2.58,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 12.5,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.13,
+            "enemyComp": -3.16,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 8.86,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.82,
+            "enemyComp": -10,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 6.74,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.92,
+            "enemyComp": -10,
+            "allyComp": 2.58,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 4.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -1.86,
+            "enemyComp": -4.11,
+            "allyComp": 0.25,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": -6.24,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -3.34,
+            "enemyComp": -8.04,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Nasus",
+          "JUNGLE": null,
+          "MID": null,
+          "BOTTOM": "Samira",
+          "SUPPORT": "Maokai"
+        },
+        "enemyByRole": {
+          "TOP": "Olaf",
+          "JUNGLE": "Briar",
+          "MID": "Malzahar",
+          "BOTTOM": null,
+          "SUPPORT": null
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "score": 37.99,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.85,
+            "enemyComp": 2.76,
+            "allyComp": 5.75,
+            "blind": 0.2
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Tank padrão",
+          "score": 36.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.95,
+            "enemyComp": 1.03,
+            "allyComp": 5.75,
+            "blind": 1
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 36.15,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 3.08,
+            "enemyComp": 0.86,
+            "allyComp": -1.5,
+            "blind": 0.8
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 34.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 2.04,
+            "enemyComp": 2.13,
+            "allyComp": 3.5,
+            "blind": 1
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 33.73,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.02,
+            "enemyComp": 2.84,
+            "allyComp": 5,
+            "blind": 0.5
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 30.42,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.03,
+            "enemyComp": -0.09,
+            "allyComp": -1.5,
+            "blind": 1
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 29.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 2.52,
+            "enemyComp": 1.64,
+            "allyComp": -1.5,
+            "blind": 1.1
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "score": 29.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.85,
+            "enemyComp": 3.27,
+            "allyComp": -1.5,
+            "blind": 1.9
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "score": 29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0.05,
+            "enemyComp": -0.2,
+            "allyComp": -1.5,
+            "blind": 1.3
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 24.95,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.03,
+            "enemyComp": 0.6,
+            "allyComp": -1.5,
+            "blind": 1.5
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 24.73,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.47,
+            "enemyComp": 0.37,
+            "allyComp": -1.5,
+            "blind": 1.4
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 22.25,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.07,
+            "enemyComp": -1.27,
+            "allyComp": -1.5,
+            "blind": 2.2
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.92,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 1.42,
+            "enemyComp": 2.72,
+            "allyComp": -1.5,
+            "blind": 1.5
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.11,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3,
+            "enemyComp": 1.07,
+            "allyComp": -1.5,
+            "blind": 2
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 15.49,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -4.13,
+            "enemyComp": -2.7,
+            "allyComp": -1.5,
+            "blind": 1.7
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.98,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -3.18,
+            "enemyComp": -4.17,
+            "allyComp": -1.5,
+            "blind": 1.9
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.89,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 2.36,
+            "enemyComp": -0.08,
+            "allyComp": -1.5,
+            "blind": 2.2
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.74,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.06,
+            "enemyComp": 0.37,
+            "allyComp": -1.5,
+            "blind": 1.2
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 10.21,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.16,
+            "enemyComp": -1.91,
+            "allyComp": -1.5,
+            "blind": 2.1
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 1.33,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.72,
+            "enemyComp": 0.37,
+            "allyComp": -1.5,
+            "blind": 2.3
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Sett",
+          "JUNGLE": "Sejuani",
+          "MID": null,
+          "BOTTOM": "Smolder",
+          "SUPPORT": "Renata Glasc"
+        },
+        "enemyByRole": {
+          "TOP": "Kayle",
+          "JUNGLE": "Lillia",
+          "MID": "Vex",
+          "BOTTOM": null,
+          "SUPPORT": "Janna"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "score": 49.14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 5.28,
+            "enemyComp": 3.78,
+            "allyComp": 1,
+            "blind": 0.1
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 41.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 4.36,
+            "enemyComp": 4.09,
+            "allyComp": 1.5,
+            "blind": 0.25
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 35.71,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 2.87,
+            "enemyComp": 2.48,
+            "allyComp": 1.75,
+            "blind": 0.5
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Tank padrão",
+          "score": 35.32,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.17,
+            "enemyComp": 0.32,
+            "allyComp": 1,
+            "blind": 0.5
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 32.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 2.05,
+            "enemyComp": -0.41,
+            "allyComp": -1.5,
+            "blind": 0.4
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "score": 27.96,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0.25,
+            "enemyComp": -1.87,
+            "allyComp": -1.08,
+            "blind": 0.65
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 26.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.88,
+            "enemyComp": -1.3,
+            "allyComp": -1.5,
+            "blind": 0.7
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 24.69,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.03,
+            "enemyComp": -0.21,
+            "allyComp": -1.5,
+            "blind": 0.55
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 24.39,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.05,
+            "enemyComp": -0.89,
+            "allyComp": -0.67,
+            "blind": 0.5
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "score": 22.58,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -4.01,
+            "enemyComp": -0.13,
+            "allyComp": -0.25,
+            "blind": 0.95
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "score": 22.19,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.08,
+            "enemyComp": -1.73,
+            "allyComp": -0.25,
+            "blind": 0.8
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.03,
+            "enemyComp": -2.51,
+            "allyComp": -0.25,
+            "blind": 1.1
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.66,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": -5.26,
+            "allyComp": -1.5,
+            "blind": 0.95
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 19.21,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -1.9,
+            "enemyComp": -3.75,
+            "allyComp": -1.5,
+            "blind": 0.85
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 19.17,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.9,
+            "enemyComp": -0.51,
+            "allyComp": -0.25,
+            "blind": 1
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 18.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.16,
+            "enemyComp": -0.4,
+            "allyComp": -0.67,
+            "blind": 0.75
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 16.29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.93,
+            "enemyComp": -0.5,
+            "allyComp": -1.5,
+            "blind": 0.6
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 16.09,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 1.03,
+            "enemyComp": 0.69,
+            "allyComp": -0.25,
+            "blind": 0.75
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.64,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.9,
+            "enemyComp": -2.67,
+            "allyComp": -1.5,
+            "blind": 1.05
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 11.29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 1.18,
+            "enemyComp": -1.64,
+            "allyComp": -1.5,
+            "blind": 1.1
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 4.84,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -2.88,
+            "enemyComp": -0.5,
+            "allyComp": -1.5,
+            "blind": 1.15
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Aatrox",
+          "JUNGLE": "Wukong",
+          "MID": null,
+          "BOTTOM": "Twitch",
+          "SUPPORT": "Ashe"
+        },
+        "enemyByRole": {
+          "TOP": "Urgot",
+          "JUNGLE": "Karthus",
+          "MID": "Talon",
+          "BOTTOM": "Jinx",
+          "SUPPORT": "Bard"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "score": 52.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 5.8,
+            "enemyComp": 1.38,
+            "allyComp": 7.14,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 46.24,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 5.54,
+            "enemyComp": 2.22,
+            "allyComp": 6.82,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Tank padrão",
+          "score": 38.56,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2,
+            "enemyComp": -2.62,
+            "allyComp": 6.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 37.93,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 2.31,
+            "enemyComp": 1.41,
+            "allyComp": 6.2,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 37.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 3.08,
+            "enemyComp": 0.96,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "score": 36.74,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 4.92,
+            "enemyComp": -2.4,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 31.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": -1.42,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 30.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.46,
+            "enemyComp": 1.16,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 30.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.18,
+            "enemyComp": -1.57,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 29.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.18,
+            "enemyComp": -0.5,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "score": 25.14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.88,
+            "enemyComp": 0.27,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 24.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 4.31,
+            "enemyComp": -0.5,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 22.48,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.93,
+            "enemyComp": -3.77,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "score": 21.14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.08,
+            "enemyComp": -2.13,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.65,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.15,
+            "enemyComp": -2.1,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 19.61,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -3.08,
+            "enemyComp": -5.49,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 19.49,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.01,
+            "enemyComp": 0,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.98,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -4.06,
+            "enemyComp": -2.93,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.64,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0,
+            "enemyComp": 0.43,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 12.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -1.9,
+            "enemyComp": -0.27,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Poppy",
+          "JUNGLE": "Nocturne",
+          "MID": null,
+          "BOTTOM": "Smolder",
+          "SUPPORT": null
+        },
+        "enemyByRole": {
+          "TOP": "Aatrox",
+          "JUNGLE": "Lee Sin",
+          "MID": "Lux",
+          "BOTTOM": "Seraphine",
+          "SUPPORT": "Taric"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "score": 50.01,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2.82,
+            "enemyComp": 5.58,
+            "allyComp": 4,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Tank padrão",
+          "score": 32.09,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.51,
+            "enemyComp": -1.26,
+            "allyComp": 5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 29.53,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.33,
+            "enemyComp": 3.79,
+            "allyComp": 3.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 28.21,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.2,
+            "enemyComp": 4.07,
+            "allyComp": 3.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "score": 27.78,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.36,
+            "enemyComp": 1.33,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "score": 25.35,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.78,
+            "enemyComp": -2.4,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 22.15,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.44,
+            "enemyComp": -1.65,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 19.14,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -3.8,
+            "enemyComp": -1.84,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "score": 18.45,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -4.63,
+            "enemyComp": -1.87,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 18.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2.78,
+            "enemyComp": -4.37,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 10.55,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.69,
+            "enemyComp": -3.71,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 9.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.37,
+            "enemyComp": -3.3,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 9.63,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.44,
+            "enemyComp": -10,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 9.6,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -5.21,
+            "enemyComp": -6.98,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 8.1,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.74,
+            "enemyComp": -3.94,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 5.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -4.74,
+            "enemyComp": -9.62,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 3.58,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.94,
+            "enemyComp": 0.64,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 1.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.01,
+            "enemyComp": -2.07,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 0.23,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -5.13,
+            "enemyComp": -8.68,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": -1.02,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -3.34,
+            "enemyComp": -4.56,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "visible": {
+        "allyByRole": {
+          "TOP": null,
+          "JUNGLE": "Xin Zhao",
+          "MID": null,
+          "BOTTOM": "Sivir",
+          "SUPPORT": "Janna"
+        },
+        "enemyByRole": {
+          "TOP": null,
+          "JUNGLE": "Nidalee",
+          "MID": "Pantheon",
+          "BOTTOM": null,
+          "SUPPORT": null
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "score": 48.94,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 3.18,
+            "enemyComp": 3.78,
+            "allyComp": 5.21,
+            "blind": 0.3
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Tank padrão",
+          "score": 39.38,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 1.09,
+            "enemyComp": 0.72,
+            "allyComp": 5.63,
+            "blind": 1.5
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 34.75,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.87,
+            "enemyComp": 1.37,
+            "allyComp": 4.71,
+            "blind": 0.75
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 30.82,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.85,
+            "enemyComp": -0.79,
+            "allyComp": -1.5,
+            "blind": 1.2
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 28.88,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.84,
+            "enemyComp": -0.37,
+            "allyComp": 4.25,
+            "blind": 1.5
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 26.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": -1.44,
+            "allyComp": -0.67,
+            "blind": 1.5
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 25.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.9,
+            "enemyComp": 0.87,
+            "allyComp": -1.5,
+            "blind": 2.1
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "score": 24.12,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.34,
+            "enemyComp": -1.4,
+            "allyComp": -0.25,
+            "blind": 2.85
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "score": 22.37,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.54,
+            "enemyComp": -2.6,
+            "allyComp": -0.25,
+            "blind": 2.4
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.53,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -0.5,
+            "enemyComp": -0.21,
+            "allyComp": -1.5,
+            "blind": 1.65
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.34,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -1.23,
+            "enemyComp": -2.57,
+            "allyComp": -1.5,
+            "blind": 2.85
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 19.45,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -3.06,
+            "enemyComp": -0.91,
+            "allyComp": -1.5,
+            "blind": 2.55
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 19.2,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.9,
+            "enemyComp": 0.87,
+            "allyComp": -1.5,
+            "blind": 1.8
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.59,
+            "enemyComp": -1.96,
+            "allyComp": 0.67,
+            "blind": 2.25
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.19,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -4.19,
+            "enemyComp": -1.91,
+            "allyComp": -0.25,
+            "blind": 3.3
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 13.34,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.13,
+            "enemyComp": -0.5,
+            "allyComp": -1.5,
+            "blind": 3.15
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 11.99,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.19,
+            "enemyComp": -0.91,
+            "allyComp": -0.25,
+            "blind": 3
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 10.97,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.69,
+            "enemyComp": -1.28,
+            "allyComp": -0.25,
+            "blind": 2.25
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 10.56,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.1,
+            "enemyComp": 0.87,
+            "allyComp": -1.5,
+            "blind": 3.45
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        },
+        {
+          "champion": "Nidalee",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Teemo",
+          "JUNGLE": "Elise",
+          "MID": null,
+          "BOTTOM": "Senna",
+          "SUPPORT": "Rell"
+        },
+        "enemyByRole": {
+          "TOP": "Illaoi",
+          "JUNGLE": "Rengar",
+          "MID": "Naafiri",
+          "BOTTOM": "Jinx",
+          "SUPPORT": "Zyra"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "score": 53.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 4.2,
+            "enemyComp": 5.38,
+            "allyComp": 5.42,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 34.57,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.01,
+            "enemyComp": 2.53,
+            "allyComp": 3.75,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser de luta",
+          "score": 33.69,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 4,
+            "enemyComp": -3.2,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP/bruiser tech",
+          "score": 32.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0.62,
+            "enemyComp": -1.48,
+            "allyComp": 1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 30.76,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2.2,
+            "enemyComp": -2.77,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 25.96,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 2.2,
+            "enemyComp": -1.3,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 23.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.72,
+            "enemyComp": -1.89,
+            "allyComp": 1,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 21.31,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.2,
+            "enemyComp": 0.13,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 18.08,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.79,
+            "enemyComp": -2.89,
+            "allyComp": 1,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.4,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -3.18,
+            "enemyComp": -3.82,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "score": 16.86,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -4.47,
+            "enemyComp": -3.13,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.56,
+            "enemyComp": -2.3,
+            "allyComp": 0.17,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.55,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.82,
+            "enemyComp": -6.21,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "score": 13.46,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -4.67,
+            "enemyComp": -5.13,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 12.45,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.95,
+            "enemyComp": -6.77,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 11.78,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.54,
+            "enemyComp": -5.76,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 8.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.65,
+            "enemyComp": -5.27,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 7.13,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -4.03,
+            "enemyComp": -9.54,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 6.06,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -0.88,
+            "enemyComp": -3.13,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": -1.18,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.94,
+            "enemyComp": -2.53,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Yone",
+          "JUNGLE": "Kindred",
+          "MID": null,
+          "BOTTOM": null,
+          "SUPPORT": "Tahm Kench"
+        },
+        "enemyByRole": {
+          "TOP": null,
+          "JUNGLE": "Rengar",
+          "MID": "Brand",
+          "BOTTOM": null,
+          "SUPPORT": "Taric"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "score": 53.08,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 5.8,
+            "enemyComp": 2.98,
+            "allyComp": 5.21,
+            "blind": 0.2
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 42.59,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 4.19,
+            "enemyComp": 3.47,
+            "allyComp": 4.5,
+            "blind": 0.5
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 37.31,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 2.7,
+            "enemyComp": 2.93,
+            "allyComp": 3.5,
+            "blind": 1
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 35.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 3.6,
+            "enemyComp": -0.07,
+            "allyComp": -1.5,
+            "blind": 0.8
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst",
+          "score": 27.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.33,
+            "enemyComp": -0.49,
+            "allyComp": -1.5,
+            "blind": 1.6
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 26.04,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.56,
+            "enemyComp": -0.89,
+            "allyComp": -1.5,
+            "blind": 1
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 24.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -0.57,
+            "enemyComp": -2.1,
+            "allyComp": -1.5,
+            "blind": 1.4
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 24.19,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.39,
+            "enemyComp": -0.66,
+            "allyComp": -1.5,
+            "blind": 1.1
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst padrão",
+          "score": 23.79,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.13,
+            "enemyComp": -2.1,
+            "allyComp": -1.5,
+            "blind": 1.3
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Híbrido HoB",
+          "score": 21.11,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -1.58,
+            "enemyComp": -2.89,
+            "allyComp": -1.5,
+            "blind": 1.9
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 18.99,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.44,
+            "enemyComp": -1.2,
+            "allyComp": 0.17,
+            "blind": 1.5
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 18.34,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.01,
+            "enemyComp": -1.3,
+            "allyComp": -1.5,
+            "blind": 1.2
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 18.06,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -1.23,
+            "enemyComp": -4.86,
+            "allyComp": -1.5,
+            "blind": 1.7
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.27,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -0.28,
+            "enemyComp": -6.51,
+            "allyComp": -1.5,
+            "blind": 1.9
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.86,
+            "enemyComp": 1.33,
+            "allyComp": -1.5,
+            "blind": 1.5
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 13.22,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -4.82,
+            "enemyComp": -3.62,
+            "allyComp": -1.5,
+            "blind": 2.2
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 12.68,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.41,
+            "enemyComp": -3.93,
+            "allyComp": -1.5,
+            "blind": 2.1
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 11.62,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.13,
+            "enemyComp": -2.42,
+            "allyComp": -1.5,
+            "blind": 2
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 7.97,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.41,
+            "enemyComp": -2.1,
+            "allyComp": -1.5,
+            "blind": 2.2
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 7.76,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -0.85,
+            "enemyComp": -0.5,
+            "allyComp": -1.5,
+            "blind": 2.3
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Tahm Kench",
+          "JUNGLE": "Vi",
+          "MID": null,
+          "BOTTOM": "Caitlyn",
+          "SUPPORT": "Soraka"
+        },
+        "enemyByRole": {
+          "TOP": "Pantheon",
+          "JUNGLE": "Zac",
+          "MID": "Vel'Koz",
+          "BOTTOM": null,
+          "SUPPORT": "Morgana"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Controle/bruiser",
+          "score": 53.83,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2.25,
+            "enemyComp": 8.78,
+            "allyComp": 4.25,
+            "blind": 0.1
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 32.23,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -3.28,
+            "enemyComp": 6.56,
+            "allyComp": 4.21,
+            "blind": 0.25
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 26.28,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.87,
+            "enemyComp": 4.85,
+            "allyComp": 4.25,
+            "blind": 0.5
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Bruiser/DPS padrão",
+          "score": 25.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.54,
+            "enemyComp": 1.33,
+            "allyComp": -0.25,
+            "blind": 0.8
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.99,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.49,
+            "enemyComp": -2.09,
+            "allyComp": -1.5,
+            "blind": 0.4
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -3.95,
+            "enemyComp": -0.77,
+            "allyComp": -0.67,
+            "blind": 0.5
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AD/DPS padrão",
+          "score": 19.71,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -5.34,
+            "enemyComp": -0.27,
+            "allyComp": -0.25,
+            "blind": 0.95
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 18.75,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -3.65,
+            "enemyComp": -2.5,
+            "allyComp": -1.5,
+            "blind": 0.7
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 15.75,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -2.05,
+            "enemyComp": -2.59,
+            "allyComp": -0.25,
+            "blind": 1
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 14.09,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -4.86,
+            "enemyComp": -4.56,
+            "allyComp": -0.25,
+            "blind": 1.1
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 13.87,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -1.33,
+            "enemyComp": -4.28,
+            "allyComp": -1.5,
+            "blind": 0.55
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 11.29,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -2.49,
+            "enemyComp": -8.19,
+            "allyComp": -1.5,
+            "blind": 0.95
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 10.98,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.08,
+            "enemyComp": -2.5,
+            "allyComp": -1.5,
+            "blind": 0.6
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 10.82,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -5.54,
+            "enemyComp": -1.12,
+            "allyComp": -0.67,
+            "blind": 0.75
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 8.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": -4.34,
+            "enemyComp": -7.47,
+            "allyComp": -1.5,
+            "blind": 0.85
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 5.51,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -5.02,
+            "enemyComp": 1.71,
+            "allyComp": -0.25,
+            "blind": 0.75
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 1.01,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": -4.98,
+            "enemyComp": -7.65,
+            "allyComp": -1.5,
+            "blind": 1.05
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": -0.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -4.27,
+            "enemyComp": -2.07,
+            "allyComp": -1.5,
+            "blind": 1.15
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": -3.9,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": -3.8,
+            "enemyComp": -5.13,
+            "allyComp": -1.5,
+            "blind": 1.1
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "visible": {
+        "allyByRole": {
+          "TOP": "Pantheon",
+          "JUNGLE": "Rammus",
+          "MID": null,
+          "BOTTOM": "Zeri",
+          "SUPPORT": "Poppy"
+        },
+        "enemyByRole": {
+          "TOP": "Kayle",
+          "JUNGLE": "Shyvana",
+          "MID": "Ryze",
+          "BOTTOM": "Ziggs",
+          "SUPPORT": "Seraphine"
+        }
+      },
+      "ranking": [
+        {
+          "champion": "Gragas",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP burst padrão",
+          "score": 49.96,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 3.74,
+            "enemyComp": 2.43,
+            "allyComp": 6.82,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Tahm Kench",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "AP/bruiser tech",
+          "score": 42.03,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0.77,
+            "enemyComp": 1.12,
+            "allyComp": 6.82,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Anivia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 41.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 4.11,
+            "enemyComp": 1.29,
+            "allyComp": 6.62,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Olaf",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Burst",
+          "score": 36.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2,
+            "enemyComp": 1.44,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Cassiopeia",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 36.56,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 2.98,
+            "enemyComp": -0.4,
+            "allyComp": 6.2,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Gangplank",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 34.81,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 4.06,
+            "enemyComp": -1.88,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Vladimir",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 32.67,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 0,
+            "enemyComp": -0.89,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Zed",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 32.16,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 2.2,
+            "enemyComp": -1.83,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Jax",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Híbrido HoB",
+          "score": 31.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": 0.15,
+            "enemyComp": 0.64,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Xerath",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 31.71,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 3.91,
+            "enemyComp": -2.74,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Diana",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 30.77,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 2.93,
+            "enemyComp": -6.06,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Akali",
+          "pool": "principal",
+          "comfort": 4,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 27.72,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 1,
+            "matchup": 1.08,
+            "enemyComp": -5.62,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "LeBlanc",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 25.55,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.15,
+            "enemyComp": -1.83,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Irelia",
+          "pool": "principal",
+          "comfort": 5,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.52,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 30,
+            "comfort": 2,
+            "matchup": -2,
+            "enemyComp": -3.98,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Yasuo",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.43,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0.05,
+            "enemyComp": -2.11,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Aatrox",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 20.3,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 0,
+            "enemyComp": -2.13,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Nidalee",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 17.15,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 2.31,
+            "enemyComp": -2.97,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Rumble",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 16.95,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.78,
+            "enemyComp": -1.07,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Qiyana",
+          "pool": "secundaria",
+          "comfort": 3,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 15.55,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 25,
+            "comfort": 0,
+            "matchup": 1.03,
+            "enemyComp": -6.67,
+            "allyComp": -1.5,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Elise",
+          "pool": "laboratorio",
+          "comfort": 2,
+          "status": "SCORED",
+          "build": "Padrão",
+          "score": 15.25,
+          "confidence": "LOW",
+          "components": {
+            "affinity": 15,
+            "comfort": -1,
+            "matchup": 0.1,
+            "enemyComp": -1.3,
+            "allyComp": 3,
+            "blind": 0
+          }
+        },
+        {
+          "champion": "Pantheon",
+          "pool": null,
+          "comfort": null,
+          "status": "UNAVAILABLE",
+          "build": null,
+          "score": null,
+          "confidence": null,
+          "components": null
+        }
+      ]
+    }
+  ]
+}
